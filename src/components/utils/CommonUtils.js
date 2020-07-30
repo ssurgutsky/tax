@@ -271,11 +271,11 @@ export default {
             console.log('Script not found!', scriptName)
           }
         }
-        // console.log(jsCode)
+        console.log(jsCode)
 
         let jsCodeResult = eval(jsCode)
 
-        // console.log('jsCodeResult', jsCodeResult)
+        console.log('jsCodeResult', jsCodeResult)
 
         result = result + jsCodeResult
         lastEnd = end + 1
