@@ -282,6 +282,7 @@ export default {
       }
       result = result + ___str___.substr(lastEnd, ___str___.length - lastEnd)
     }
+    console.log('Script ok!')
     return result
   },
 

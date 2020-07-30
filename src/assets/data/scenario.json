@@ -88,7 +88,7 @@
                                                                                                                                                 }
                                                                                                                                               ],
                                                                                                                                               "_mark": "",
-                                                                                                                                              "_content": "[LABEL {if location==1 {output \"Зайду в \" + this.locations[location,0] + \"[ANSWERIMAGE icons/enter.png|260;400]\"}}]"
+                                                                                                                                              "_content": "[LABEL {if (this.location==1) {\"Зайду в \" + this.locations[location][0] + \"[ANSWERIMAGE icons/enter.png|260;400]\"}}]"
                                                                                                                                             },
                                                                                                                                             {
                                                                                                                                               "node": [
@@ -2772,7 +2772,7 @@
                                                                                                                                                                                                                                                                     }
                                                                                                                                                                                                                                                                   ],
                                                                                                                                                                                                                                                                   "_mark": "client_arriving",
-                                                                                                                                                                                                                                                                  "_content": "[LABEL ][IMAGE black_screen][AUDIO silent_0.1][AMBIENT AmbientStreet.mp3]"
+                                                                                                                                                                                                                                                                  "_content": "[LABEL ][IMAGE black_screen.jpg][AUDIO silent_0.1][AMBIENT AmbientStreet.mp3]"
                                                                                                                                                                                                                                                                 }
                                                                                                                                                                                                                                                               ],
                                                                                                                                                                                                                                                               "_mark": "",
@@ -2796,7 +2796,7 @@
                                                                                                                                                                                                                                             }
                                                                                                                                                                                                                                           ],
                                                                                                                                                                                                                                           "_mark": "mark_3av9y84nac38434pu6xb",
-                                                                                                                                                                                                                                          "_content": "[LABEL ][IMAGE black_screen][AUDIO silent_0.1]"
+                                                                                                                                                                                                                                          "_content": "[LABEL ][IMAGE black_screen.jpg][AUDIO silent_0.1]"
                                                                                                                                                                                                                                         }
                                                                                                                                                                                                                                       ],
                                                                                                                                                                                                                                       "_mark": "",
@@ -2812,7 +2812,7 @@
                                                                                                                                                                                                                             }
                                                                                                                                                                                                                           ],
                                                                                                                                                                                                                           "_mark": "travel_road",
-                                                                                                                                                                                                                          "_content": "[LABEL ][IMAGE black_screen][AUDIO silent_0.1][AMBIENT AmbientTraffic][SOUNDFX car_door_closed.mp3]"
+                                                                                                                                                                                                                          "_content": "[LABEL ][IMAGE black_screen.jpg][AUDIO silent_0.1][AMBIENT AmbientTraffic][SOUNDFX car_door_closed.mp3]"
                                                                                                                                                                                                                         }
                                                                                                                                                                                                                       ],
                                                                                                                                                                                                                       "_mark": "",
@@ -3902,7 +3902,7 @@
                                                                                                                                             }
                                                                                                                                           ],
                                                                                                                                           "_mark": "location_actions",
-                                                                                                                                          "_content": "[LABEL {script show_game_stats.qsp}{output \"\nМесто: \" + this.locations[location, 0] + \"\n\"}Что будешь делать?{script show_client}{if (location == 3) && (dvd_playing != 1) {output \"[AMBIENT malibu.mp3]\"} else {output \"[MUSIC AmbientStreet.mp3]\"}}]"
+                                                                                                                                          "_content": "[LABEL {script show_game_stats.qsp}\nМесто: {this.locations[this.location][0]}\nЧто будешь делать?{script show_client}{if (this.location == 3 && this.dvd_playing != 1) {\"[AMBIENT malibu.mp3]\"} else {\"[MUSIC AmbientStreet.mp3]\"}}]"
                                                                                                                                         },
                                                                                                                                         {
                                                                                                                                           "_mark": "vip_client_found",
@@ -3930,23 +3930,23 @@
                                                                                                                                     }
                                                                                                                                   ],
                                                                                                                                   "_mark": "mark_248af57to678vsev711m",
-                                                                                                                                  "_content": "[LABEL {if vip_call {if vip_location==location {output \"[GOTO vip_client_found]\"} else {output \"[GOTO vip_client_not_found]\"}}}]"
+                                                                                                                                  "_content": "[LABEL {if (this.vip_call) {if (this.vip_location==this.location) {\"[GOTO vip_client_found]\"} else {\"[GOTO vip_client_not_found]\"}}}]"
                                                                                                                                 }
                                                                                                                               ],
                                                                                                                               "_mark": "",
                                                                                                                               "_content": "[LABEL ]"
                                                                                                                             }
                                                                                                                           ],
-                                                                                                                          "_mark": "this.new_location",
-                                                                                                                          "_content": "[LABEL {location=this.new_location;client_type=0}{script rounding.qsp}][IMAGE black_screen][AUDIO silent_0.1][AMBIENT AmbientStreet]"
+                                                                                                                          "_mark": "new_location",
+                                                                                                                          "_content": "[LABEL {this.location=this.new_location;this.client_type=0}{script rounding.qsp}][IMAGE black_screen.jpg][AUDIO silent_0.1][AMBIENT AmbientStreet]"
                                                                                                                         }
                                                                                                                       ],
                                                                                                                       "_mark": "",
                                                                                                                       "_content": "[LABEL ]"
                                                                                                                     }
                                                                                                                   ],
-                                                                                                                  "_mark": "calc_this.new_location",
-                                                                                                                  "_content": "[LABEL {recalc_costs=1}{script calc_car_repair.qsp}{script calc_car_washing.qsp}{script calc_car_fuel.qsp}{recalc_costs=0}{return_mark=\"this.new_location\"}{script check_states.qsp}]"
+                                                                                                                  "_mark": "calc_new_location",
+                                                                                                                  "_content": "[LABEL {this.recalc_costs=1}{script calc_car_repair.qsp}{script calc_car_washing.qsp}{script calc_car_fuel.qsp}{this.recalc_costs=0}{this.return_mark=\"new_location\"}{script check_states.qsp}]"
                                                                                                                 }
                                                                                                               ],
                                                                                                               "_mark": "",
@@ -3962,15 +3962,15 @@
                                                                                                     }
                                                                                                   ],
                                                                                                   "_mark": "mark_nid8314k523sgs52at73",
-                                                                                                  "_content": "[LABEL {if waiting<=5 {output \"[GOTO calc_this.new_location]\"}}]"
+                                                                                                  "_content": "[LABEL {if (this.waiting<=5) {\"[GOTO calc_new_location]\"}}]"
                                                                                                 }
                                                                                               ],
                                                                                               "_mark": "",
                                                                                               "_content": "[LABEL ]"
                                                                                             }
                                                                                           ],
-                                                                                          "_mark": "show_road_to_this.new_location",
-                                                                                          "_content": "[LABEL {script calc_distance.qsp}{road_quality=(random*2):0;urgency=1}{script calc_road.qsp}{script travel_road.qsp}{script rounding.qsp}][IMAGE black_screen][AUDIO silent_0.1][AMBIENT AmbientTraffic]"
+                                                                                          "_mark": "show_road_to_new_location",
+                                                                                          "_content": "[LABEL {script calc_distance.qsp}{this.road_quality=Math.ceil(Math.random()*2);this.urgency=1}{script calc_road.qsp}{script travel_road.qsp}{script rounding.qsp}][IMAGE black_screen.jpg][AUDIO silent_0.1][AMBIENT AmbientTraffic]"
                                                                                         }
                                                                                       ],
                                                                                       "_mark": "",
