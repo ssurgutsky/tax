@@ -19,7 +19,8 @@ export default {
     'MUSIC',
     'ANSWERSORDER',
     'ANSWERTIME',
-    'TIMEEXPIRED'
+    'TIMEEXPIRED',
+    'ANSWERIMAGE'
   ],
 
   getTagValueLABEL (content) {
@@ -262,9 +263,9 @@ export default {
             .replace(new RegExp(SCRIPT_EXTENSION, 'i'), '')
             .replace(SCRIPT_SUFFIX, '')
           scriptName = scriptName + '.qsp'
-          //          console.log('SCRIPT NAME:', scriptName)
+          console.log('SCRIPT NAME:', scriptName)
           let text = CacheController.getAssetByName(CacheController.CATEGORY_SCRIPTS, scriptName)
-          // console.log('=============', text)
+          console.log('=============', text)
           jsCode = text
           if (!jsCode) {
             console.log('Script not found!', scriptName)

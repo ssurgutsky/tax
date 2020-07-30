@@ -193,7 +193,7 @@ export default {
       let url = require('@/assets/' + name)
 
       // For html version
-      url = 'http://alloworigin.com/get?url=http://creofilm.hostronavt.ru/static/' + name
+      // url = 'http://alloworigin.com/get?url=http://creofilm.hostronavt.ru/static/' + name
       // console.log(url)
       // console.log(counter, url)
       await this.fetchLocal(url).then(response => {
