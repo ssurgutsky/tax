@@ -1,0 +1,1178 @@
+[mark_3z68p6amx549c803662v][IMAGE hints/hint_advices.jpg,hints/hint_bargain.jpg,hints/hint_credit.jpg,hints/hint_crush.jpg,hints/hint_defend.jpg,hints/hint_dvd.jpg,hints/hint_havefun.jpg,hints/hint_locations.jpg,hints/hint_quests.jpg,hints/hint_store.jpg,hints/hint_tuning.jpg,hints/hint_vip.jpg][AUDIO hints]{script init_vars.qsp}
+	
+		[choose_language]Таксоман v1.0.8{output "\n"}Выберите язык / Choose language[BGNDIMAGE poster.jpg][AMBIENT intro.mp3]
+			Русский / Russian[ANSWERIMAGE icons/ru.png|50;400]
+				[mark_8k4b7be187h4p2120a06]{location=19;night_alpha=0;weather=0}Благодаря государственной программе поддержки молодых таксистов, тебе повезло взять беспроцентный кредит в размере 300 000 сроком на 1 год.{script show_bank.qsp}
+					Дальше...[ANSWERIMAGE icons/next.png|260;420]
+						[mark_r7h3zpkf220t76f019ye]Правда не деньгами, а в виде сертификата, на который можно купить любой автомобиль.[BGNDIMAGE smoke.jpg&left_side_dust.png]
+							Дальше...[ANSWERIMAGE icons/next.png|295;420]
+								[mark_a9ru33u53t93t9752h5s]Из предложенных моделей, лишь одна машина укладывалась в указанный бюджет. Ты долго думал, прежде чем решил приобрести её.[BGNDIMAGE smoke.jpg&car.png]
+									Дальше...[ANSWERIMAGE icons/next.png|295;420]
+										[mark_bou5n2ke06rv2dj554gw]Теперь тебе нужно таксовать по дорогам родного города, чтобы отработать кредит.[VIDEO client_travel3.flv][AUDIO silent_4]
+											Дальше...[ANSWERIMAGE icons/next.png|295;420]
+												[mark_fbvr1z4p83qy74w27k51]Следи за собой, не забывай вовремя ОТДЫХАТЬ, ЗАПРАВЛЯТЬ, ЧИНИТЬ и ЧИСТИТЬ машину. Как появятся деньги, заедь в ТЦ МЕГАПОЛИС. Там можно купить разные полезные вещи.[BGNDIMAGE bg/background8.jpg]
+													Дальше...[ANSWERIMAGE icons/next.png|295;420]
+														[GAME_SAVEPOINT,init_vars]Инициализация переменных...{script init_vars.qsp}{recalc_costs=1}{script calc_car_repair.qsp}{script calc_car_washing.qsp}{script calc_car_fuel.qsp}{recalc_costs=0}[BGNDIMAGE black_screen.jpg][AMBIENT none.mp3][MUSIC AmbientStreet.mp3]
+															
+																[main_menu]{script rounding.qsp}{script show_game_stats.qsp}{output "\n"}Куда поедешь?{script show_map.qsp}{script calc_weather.qsp}
+																	{new_location=1;output locations[new_location, 0] + "[ANSWERIMAGE map_mark.png|"+locations[new_location, 1]+";"+locations[new_location,2]+"]"}
+																		[mark_if3cl0a2n3zy9p9t4529]{script stay_or_change_location.qsp}
+																			
+																				[show_road_to_new_location]{script calc_distance.qsp}{road_quality=(random*2):0;urgency=1}{script calc_road.qsp}{script travel_road.qsp}{script rounding.qsp}[IMAGE black_screen][AUDIO silent_0.1][AMBIENT AmbientTraffic]
+																					
+																						[mark_nid8314k523sgs52at73]{if waiting<=5 {output "[GOTO calc_new_location]"}}
+																							
+																								[mark_s068d2m1ji1mfxqw8hs6]{script show_change_location.qsp}
+																									
+																										[calc_new_location]{recalc_costs=1}{script calc_car_repair.qsp}{script calc_car_washing.qsp}{script calc_car_fuel.qsp}{recalc_costs=0}{return_mark="new_location"}{script check_states.qsp}
+																											
+																												[new_location]{location=new_location;client_type=0}{script rounding.qsp}[IMAGE black_screen][AUDIO silent_0.1][AMBIENT AmbientStreet]
+																													
+																														[mark_248af57to678vsev711m]{if vip_call {if vip_location==location {output "[GOTO vip_client_found]"} else {output "[GOTO vip_client_not_found]"}}}
+																															
+																																[location_actions]{script show_game_stats.qsp}{output "\nМесто: " + locations[location, 0] + "\n"}Что будешь делать?{script show_client}{if (location == 3) && (dvd_playing != 1) {output "[AMBIENT malibu.mp3]"} else {output "[MUSIC AmbientStreet.mp3]"}}
+																																	{if location==1 {output "Зайду в " + locations[location,0] + "[ANSWERIMAGE icons/enter.png|260;400]"}}
+																																		[mark_w2tsoy96eg984q4jb4tl]Не для того ты таксистом становился, чтобы во всякие универы ходить.
+																																			Точно!
+																																				[mark_hxubw05ai8ycr0v8574f][GOTO new_location]
+																																	{if location==2 {output "Зайду в " + locations[location,0] + "[ANSWERIMAGE icons/enter.png|260;400]"}}[AMBIENT cafe.mp3][MUSIC none.mp3]{script radio3.qsp}
+																																		[mark_al3kb004qv3vdr14857k]{dvd_playing=0}{output locations[location,0]}[BGNDIMAGE in_bar.jpg]
+																																			Закажу выпить.[ANSWERIMAGE icons/next.png|260;400]
+																																				[mark_w268xwuo96s86di0pwpi]Эээ... привет! Не занято? Давай поговорим!{client_say=0;client_type_in_bar = (1 + random*4):0}{script show_client_in_bar.qsp}
+																																					Ну давай.[ANSWERIMAGE icons/next.png|260;400]
+																																						[client_in_bar_saying]{client_say=1;game_hours++}{script show_client_in_bar.qsp}
+																																							...[ANSWERIMAGE icons/three_dots.png|260;400]
+																																								[mark_hu02e97n0kw1a4d8d28u][GOTO client_in_bar_saying]
+																																							[exit_bar]Выйду наружу[ANSWERIMAGE icons/enter.png|320;400][AMBIENT none.mp3][BGNDMUSIC none.mp3]
+																																								[mark_bn23ua8blyp66593253d][GOTO new_location]
+																																					[GOTO exit_bar]
+																																			[GOTO exit_bar]
+																																	{if location==4 {output "Зайду в " + locations[location,0] + "[ANSWERIMAGE icons/enter.png|260;400]"}}[AMBIENT none.mp3][MUSIC none.mp3][BGNDMUSIC none.mp3]
+																																		[mark_1miki32n971qt5fp2893]{dvd_playing=0}{output locations[location,0]}[BGNDIMAGE in_railway_station.jpg&briefcase.png|528;356]
+																																			Осмотрюсь...[ANSWERIMAGE icons/next.png|260;400]
+																																				[mark_59759sit7azjicv43ejr]Странно... тишина и никого нет. На сиденье чей-то портфель.[BGNDIMAGE in_railway_station.jpg]
+																																					Посмотрю, что в портфеле.[ANSWERIMAGE briefcase.png|528;356]
+																																						[mark_f7o3ww01dsux278731t4]Вот ты них... ах... да я... просто слов нет!!![BGNDIMAGE in_railway_station.jpg&briefcase_opened.png|200;340]
+																																							Я богат!!![ANSWERIMAGE icons/cool.png|295;400]
+																																								[mark_b08pk9e1a685tt2opysd]Тик-так, тик-так...[BGNDIMAGE in_railway_station.jpg&briefcase_opened.png|200;340][ANSWERTIME 5][TIMEEXPIRED explode_railway_station][BGNDAUDIO c4_beep.mp3]
+																																									Что тикает???[ANSWERIMAGE icons/how_much.png|295;400]
+																																										[explode_railway_station][BGNDIMAGE explosion.jpg][ANSWERTIME 1][TIMEEXPIRED railway_station_exploded][SOUNDFX boom.mp3]
+																																											...
+																																												[railway_station_exploded][FINAL В портфеле была бомба, потому на вокзале никого и не было... Игра окончена.][BGNDIMAGE railway_station_exploded.jpg]
+																																					[exit_railway_station]Выйду наружу.[ANSWERIMAGE icons/exit.png|320;400]
+																																						[mark_qx92vsf85aaqa8232b5o][GOTO new_location]
+																																			[GOTO exit_railway_station]
+																																	{if location==5 {output "Зайду в " + locations[location,0] + "[ANSWERIMAGE icons/enter.png|260;400]"}}[AMBIENT none.mp3][MUSIC none.mp3][BGNDMUSIC none.mp3]
+																																		[mark_gkq4xj6b2j2rjxcz0e10]{dvd_playing=0}Здравствуйте! Ознакомьтесь с нашими ассортиментом, пожалуйста.[BGNDIMAGE pharmacy1.jpg]
+																																			{if barsukPsy>0 {output "А антипурген есть?[ANSWERIMAGE icons/how_much.png|200;400]"}}
+																																				[mark_462654eoa4284s61cp4w]Минуточку, я погляжу...[BGNDIMAGE pharmacy1.jpg]
+																																					...[ANSWERIMAGE icons/three_dots.png|295;400]
+																																						[mark_obx20p3y88gn166j0ljg]Нет, к сожалению уже разобрали...[BGNDIMAGE pharmacy1.jpg]
+																																							[GOTO exit_pharmacy]
+																																			Погляжу препараты...[ANSWERIMAGE icons/three_dots.png|260;400]
+																																				[mark_d6zoevd50up33146797h]Оциллококцинум, кретинол, папазол, факинщит{if barsukPsy==0 {output ", антипугрен"}}...[BGNDIMAGE pharmacy1.jpg]
+																																					{if barsukPsy==0 {output "Антипурген???[ANSWERIMAGE icons/how_much.png|260;400]"}}
+																																						[mark_4u5vyv75yrduijo3g37t]Да, именно так.[BGNDIMAGE pharmacy1.jpg]
+																																							Кому он нужен?[ANSWERIMAGE icons/how_much.png|260;400]
+																																								[mark_73217a5u83z4h017lk5n]Видимо нужен...[BGNDIMAGE pharmacy1.jpg]
+																																									Странные люди...[ANSWERIMAGE icons/three_dots.png|260;400]
+																																										[mark_9d974k14tbd15zww1348]Покупается очень хорошо. Еще даже не хватает.[BGNDIMAGE pharmacy1.jpg]
+																																											[exit_pharmacy]Выйду наружу.[ANSWERIMAGE icons/exit.png|320;400]
+																																												[mark_ujsxbg33n69qf04cq908][GOTO new_location]
+																																					[GOTO exit_pharmacy]
+																																			[GOTO exit_pharmacy]
+																																	{if (location==7) && (drugDealerGoodsPlanted==1) {output "Найду товар.[ANSWERIMAGE icons/drug.png|260;400]"}}
+																																		[mark_a0kns71tg9344ry6s99x]Товар лежит где-то тут. Ищи![BGNDIMAGE bush.jpg][HIDEANSWERS ON][ANSWERTIME 30][TIMEEXPIRED police_catch_drug_dealer]
+																																			Вот он!{itx=(random*640):0;ity=(random*480):0; output "[ANSWERIMAGE icons/invisible_thing.png|" + itx + ";" + ity + "]"}
+																																				[mark_22h6wz6735xep7vq1w9b]Товар найден!{drugDealerGoodsPlanted=0;drugDealerGoodsDriver=drugGoodsInPackage}[BGNDIMAGE bush.jpg]
+																																					Вернуться в машину.[ANSWERIMAGE icons/drug.png|295;400]
+																																						[mark_8c9074xt4289b914m67f][GOTO new_location]
+																																			Вернуться в машину.[ANSWERIMAGE icons/exit.png|295;400]
+																																				[mark_3upe3px7su5je1yy0w16][GOTO new_location]
+																																	{if location==8 {output "Зайду в " + locations[location,0] + "[ANSWERIMAGE icons/enter.png|260;400]"}}[AMBIENT megapolice.mp3][MUSIC none.mp3][BGNDMUSIC none.mp3]
+																																		[in_store]{dvd_playing=0}{script rounding.qsp}{script show_game_stats.qsp}{output "\n"}{output locations[location,0]}. Что хочешь посмотреть?[BGNDIMAGE in_shopping_center.jpg]
+																																			{thing=thing_gun}[GOTO present_thing]
+																																				[mark_6f0140ie71g9jp2wg53f]
+																																					[present_thing]{thing_cost=things[thing,2]*Inflation; if things[thing,1]==0 {output things[thing,0] + ". Цена: " + thing_cost + "[ANSWERIMAGE icons/"+things[thing,4]+".png|"+thing*60+";400]"}}
+																																						[mark_6h2m5p5cwo391ict47w3]{script show_thing_desc.qsp}
+																																							[buy_thing]Купить[ANSWERIMAGE icons/buy.png|260;400]
+																																								[mark_868y612mtpj6o3945nd1]{if (money<thing_cost) {output "[GOTO no_money_for_thing]"} else {money-=thing_cost;things[thing,1]=1;output "[GOTO bought_thing]"}}
+																																									
+																																										[bought_thing]Спасибо за покупку!{script rounding.qsp}[BGNDIMAGE shop_assistant.jpg][ANSWERTIME 10][TIMEEXPIRED in_store]
+																																											Дальше...[ANSWERIMAGE icons/next.png|295;400]
+																																												[mark_0iomuj58y70sv7n1swfn][GOTO in_store]
+																																								[no_money_for_thing]У тебя не достаточно денег для покупки.[BGNDIMAGE in_shopping_center.jpg]
+																																									...[ANSWERIMAGE icons/three_dots.png|295;400]
+																																										[mark_30b1b1j619165fz4823d][GOTO in_store]
+																																							[back_to_store_menu]Вернуться в меню[ANSWERIMAGE icons/exit.png|320;400]
+																																								[mark_3vn1i140cmz7xq0qe3to][GOTO in_store]
+																																			{thing=thing_repairing_book}[GOTO present_thing]
+																																			{thing=thing_repairing_toolkit}[GOTO present_thing]
+																																			{thing=thing_psycho_dvd_film}[GOTO present_thing]
+																																			{thing=thing_vip_radio}[GOTO present_thing]
+																																			{thing=thing_tuningkit}[GOTO present_thing]
+																																			{thing=thing_vinyl_dog}[GOTO present_thing]
+																																			{thing=thing_dvd}[GOTO present_thing]
+																																			Выйду наружу[ANSWERIMAGE icons/enter.png|540;400][AMBIENT none.mp3]
+																																				[mark_mko7t4cfq1rhl1z7c9be][GOTO new_location]
+																																	{if location==9 {output "Зайду в " + locations[location,0] + "[ANSWERIMAGE icons/enter.png|260;400]"}}[MUSIC none.mp3][AMBIENT none.mp3][BGNDMUSIC none.mp3]
+																																		[mark_7861400rcmpb9k3pess3]{dvd_playing=0}{output locations[location,0]}. Что будешь делать?[BGNDIMAGE city_hall_inside.jpg]
+																																			{if (things[thing_vip_radio,1]) && (things[thing_vip_radio,3]==0) {output "Спрошу как заключить договор на оказание услуг перевозки VIP-клиентов[ANSWERIMAGE icons/money5.png|260;400]"}}
+																																				[mark_z69jw151c3di817zildw]Все очень просто, вы платите в кассу {vip_freq_cost = 100*Inflation;output vip_freq_cost}, после этого вам сообщат код радиочастоты. Настроите её в рации и неделю сможете получать заказы. После этого приезжайте и покупайте новый код.[BGNDIMAGE official.jpg]
+																																					{if money >= vip_freq_cost {output "Куплю код[ANSWERIMAGE icons/money5.png|260;400]"}}
+																																						[mark_3qn1cw96577t826r8go8]Ваш код: {vip_radio_freq=(random*1000000)@0;output vip_radio_freq}. Всего хорошего.{money-=vip_freq_cost}{script calc_radio_vip_freq.qsp}[BGNDIMAGE official.jpg]
+																																							Спасибо.[ANSWERIMAGE icons/good.png|295;400]
+																																								[mark_qyqrvvrud05150mg8z96][GOTO new_location]
+																																					Спасибо, до свидания.[ANSWERIMAGE icons/next.png|320;400]
+																																						[mark_05552cxsqnnx2l75i5k2][GOTO new_location]
+																																			Выйду наружу[ANSWERIMAGE icons/enter.png|320;400]
+																																				[mark_r6wrw1q84005ul528h7h][GOTO new_location]
+																																	{if location==10 {output "Зайду в " + locations[location,0] + "[ANSWERIMAGE icons/enter.png|260;400]"}}[MUSIC none.mp3][AMBIENT none.mp3][BGNDMUSIC none.mp3]
+																																		[mark_y924pw9n2h049vv8ksl7]{dvd_playing=0}{output locations[location,0]}. Вход в бар стоит: {output barsuk_entry_cost*Inflation}[BGNDIMAGE barsuk_main.jpg]
+																																			Заплачу за вход {output barsuk_entry_cost*Inflation}[ANSWERIMAGE icons/money3.png|260;400]
+																																				[mark_d85nla52hholox80t4z4]{if money<barsuk_entry_cost*Inflation {output "[GOTO no_money_for_barsuk]"} else {money-=barsuk_entry_cost*Inflation;barsukFoundInToilet=(random<0.5);output "[GOTO enter_barsuk]"}}
+																																					
+																																						[enter_barsuk]Что будешь делать?[BGNDIMAGE barsuk_main.jpg]
+																																							Пойду налево.[ANSWERIMAGE icons/left.png|140;400]
+																																								[mark_810olvlh6tpc5161t03p][BGNDIMAGE barsuk_left1.jpg]
+																																									Вперед[ANSWERIMAGE icons/forward.png|295;400]
+																																										[mark_l8a4q0nf0874k6x1py09][BGNDIMAGE barsuk_left2.jpg]
+																																											Вперед[ANSWERIMAGE icons/forward.png|295;400]
+																																												[mark_jm9c7fx075mj5x0w429z][BGNDIMAGE barsuk_left3.jpg]
+																																													Ух, какой взгляд![ANSWERIMAGE icons/backward.png|295;400]
+																																														[mark_v65vr3o92tb0538kr3fh][BGNDIMAGE barsuk_left4.jpg]
+																																															Чувствую, дальше будет горячее![ANSWERIMAGE icons/next.png|295;400]
+																																																[mark_u9fyc68kt5v599s1pe0x][BGNDIMAGE barsuk_left44.jpg]
+																																																	Вперед[ANSWERIMAGE icons/forward.png|295;400]
+																																																		[mark_pb3w3e58u2s0j64x7561][BGNDIMAGE barsuk_left5.jpg]
+																																																			О! Девчонки![ANSWERIMAGE icons/cool.png|295;400]
+																																																				[mark_2jh24b0lgk93uy9dh983][BGNDIMAGE barsuk_left5.jpg]
+																																																					Покажите мне чего-нибудь?[ANSWERIMAGE icons/how_much.png|295;400]
+																																																						[mark_7s6ugma2k33403p9p4np]Это зависит от того, сколько ты нам заплатишь...[BGNDIMAGE barsuk_left5.jpg]
+																																																							А давайте бесплатно?[ANSWERIMAGE icons/zero.png|200;400]
+																																																								[mark_dk674u0t075kkys25n2y]Бесплатно, молодой человек, мы можем показать только на выход.[BGNDIMAGE barsuk_left5.jpg&client7_2_0.png|100;0]
+																																																									Спасибо, не стоит! Вернусь обратно.[ANSWERIMAGE icons/cancel.png|295;400]
+																																																										[mark_3w67q23mvyibw80y5138][GOTO enter_barsuk]
+																																																							Ну... {output 10*Inflation} могу...[ANSWERIMAGE icons/money3.png|260;400]
+																																																								[return_back_showgirls_with_money]Приходи, когда у тебя появятся деньги.[BGNDIMAGE barsuk_left5.jpg]
+																																																									[back_to_main_barsuk]Вернусь обратно.[ANSWERIMAGE icons/exit.png|295;400]
+																																																										[mark_7gb4xk63mc7my47u4fja][GOTO enter_barsuk]
+																																																							Предположим {output barsuk_showgirls_cost*Inflation}[ANSWERIMAGE icons/money6.png|320;400]
+																																																								[mark_y4y4k6479839n1536q54]Одна из нас может дать погладить себя...[BGNDIMAGE barsuk_left5.jpg]
+																																																									Заплачу {output barsuk_showgirls_cost*Inflation}[ANSWERIMAGE icons/money6.png|235;400]
+																																																										[check_money_for_showgirls]{if money<barsuk_showgirls_cost*Inflation {output "[GOTO no_money_for_showgirls]"} else {money-=barsuk_showgirls_cost*Inflation;output "[GOTO enter_showgirls]"}}
+																																																											
+																																																												[enter_showgirls]Смотри, только не трогай меня за грудь![BGNDIMAGE showgirls2.jpg&http://creofilm.ru/TAX/IMG/showgirls2][ANSWERTIME 15][TIMEEXPIRED exit_showgirls]
+																																																													Потрогаю[ANSWERIMAGE icons/invisible_thing.png|312;269]
+																																																														[compressed_tits]Я же сказала не трогать! Все! Уходи![BGNDIMAGE showgirls2.jpg&http://creofilm.ru/TAX/IMG/showgirls2]
+																																																															Извини![ANSWERIMAGE icons/three_dots.png|312;269]
+																																																																[mark_psc4z5a7nrq09k0nwbbq][GOTO enter_barsuk]
+																																																														[exit_showgirls]Твое время закончилось...[BGNDIMAGE barsuk_left5.jpg]
+																																																															Я заплачу еще![ANSWERIMAGE icons/money6.png|235;400]
+																																																																[mark_093owhyf2owv7f3u3827][GOTO check_money_for_showgirls]
+																																																															[GOTO back_to_main_barsuk]
+																																																													Ееее!!![ANSWERIMAGE icons/invisible_thing.png|334;283]
+																																																														[mark_8en2cd6k7k5yl846l0z2][GOTO compressed_tits]
+																																																												[no_money_for_showgirls][GOTO return_back_showgirls_with_money]
+																																																									[GOTO back_to_main_barsuk]
+																																							Зайду в туалет.[ANSWERIMAGE icons/forward.png|200;400]
+																																								[mark_5j03yptn2fe47po6958n]{if (barsukPsy>0) && (barsukPsy<3) && (barsukFoundInToilet==1) {output "[GOTO found_barsuk]"} else {output "[GOTO not_found_barsuk]"}}
+																																									
+																																										[found_barsuk][BGNDIMAGE barsuk_toilet.jpg&client5_1_0.png]
+																																											Ну, здраствуй, Барсук![ANSWERIMAGE icons/fist.png|235;400]
+																																												[mark_547mz02k3991u3axme81]Вы кто такой? Вы меня с кем-то путаете![BGNDIMAGE barsuk_toilet.jpg&client5_1_1.png]
+																																													{if things[thing_gun,1]==1 {output "За тобой должок.[ANSWERIMAGE icons/gun.png|235;400]"}}
+																																														[mark_1906805gd6i349vg6m52]Эй, эй, я все тебе отдам! Не убивай!!![BGNDIMAGE barsuk_toilet.jpg&client5_1_2.png&driver_gun.png|100;0]
+																																															Давай сюда деньги![ANSWERIMAGE icons/how_much_money.png|235;400]
+																																																[mark_76gqhhvt8n2dtn2g1z5q]Хорошо, хорошо! Извини меня! Это тебе вместе с компенсацией...{money+=barsuk_psy_food_cost*2*Inflation;barsukPsy=3}[BGNDIMAGE barsuk_toilet.jpg&client5_1_2.png|0;100&driver_gun.png|150;0]
+																																																	[GOTO back_to_main_barsuk]
+																																													Извините, ошибся...[ANSWERIMAGE icons/three_dots.png|295;400]
+																																														[mark_vp68i2148dj70158szwj]Ходят тут всякие...[BGNDIMAGE barsuk_toilet.jpg&client5_1_2.png]
+																																															[GOTO back_to_main_barsuk]
+																																											[GOTO back_to_main_barsuk]
+																																										[not_found_barsuk][BGNDIMAGE barsuk_toilet.jpg]
+																																											[GOTO back_to_main_barsuk]
+																																							Пойду направо.[ANSWERIMAGE icons/next.png|260;400]
+																																								[mark_zl0mz536nw9k1a7b8u27][BGNDIMAGE barsuk_right1.jpg]
+																																									Налево[ANSWERIMAGE icons/left.png|295;400]
+																																										[mark_13x8d6wz95647ynhb0l3][BGNDIMAGE barsuk_right2.jpg]
+																																											Сяду за стол.[ANSWERIMAGE icons/forward.png|295;400]
+																																												[mark_4615u69h4d1737s8xr2s][BGNDIMAGE barsuk_right3.jpg]
+																																													Закажу фирменное блюдо.[ANSWERIMAGE icons/how_much.png|235;400]
+																																														[mark_bnb0oj1y3h5cpj03inpf]Фирменное блюдо здесь стоит {output barsuk_food_cost*Inflation}. Бокал вина в подарок.[BGNDIMAGE barsuk_right3.jpg]
+																																															Заплачу {output barsuk_food_cost*Inflation}[ANSWERIMAGE icons/money2.png|235;400]
+																																																[mark_2gxloc69p928mk12w25b]{if money<barsuk_food_cost*Inflation {output "[GOTO no_money_for_barsuk_food]"} else {money-=barsuk_food_cost*Inflation;output "[GOTO get_barsuk_food]"}}
+																																																	
+																																																		[get_barsuk_food][BGNDIMAGE barsuk_food.jpg]
+																																																			Хмм... оригинально...[ANSWERIMAGE icons/three_dots.png|295;400]
+																																																				[mark_7pz97mubvxn6jiv1b569]{if barsukPsy == 0 {output "[GOTO barsukPsy]"} else {output "[GOTO barsuk_food_completed]"}}
+																																																					
+																																																						[barsukPsy]Приятного аппетита, разрешите присесть?[BGNDIMAGE barsuk_right3.jpg&client5_1_1.png|50;0;1.2;1.2]
+																																																							[barsuk_take_place]Хорошо, присаживайтесь.[ANSWERIMAGE icons/good.png|260;400]
+																																																								[mark_65438d365ix597ohx5nn]Благодарю! Пожалуй, я тоже закажу себе чего-нибудь. Официант! Мне ваше фирменное, отбивную и лобстера... Не забудьте про бокал вина![BGNDIMAGE barsuk_right3.jpg&client5_1_0.png|-300;50;1.5;1.5]
+																																																									...[ANSWERIMAGE icons/three_dots.png|295;400]
+																																																										[mark_5h56d7p33k9q85wrd81y]Разрешите представиться, я психолог, изучаю людские нравы. Недавно я придумал один способ, как можно сделать так, чтобы один человек заплатил за другого человека...[BGNDIMAGE barsuk_right3.jpg&client5_1_1.png|-300;50;1.5;1.5]
+																																																											Да? Интересно...[ANSWERIMAGE icons/three_dots.png|295;400]
+																																																												[mark_67i4js1m5lxo0lc6hg08]Причем даже два раза. Вот только второй раз не всегда срабатывает, но все же...[BGNDIMAGE barsuk_right3.jpg&client5_1_1.png|-300;50;1.5;1.5&glass_of_wine.png|505;275]
+																																																													И как же?[ANSWERIMAGE icons/three_dots.png|295;400]
+																																																														[mark_lfg21563j940i7jf367k]В общих чертах, по той же самой причине, по которой мужчина позади меня заплатит за женщину.[BGNDIMAGE barsuk_right3.jpg&client5_1_1.png|-300;50;1.5;1.5&bokal_wine.png|368;361;0.85;0.85]
+																																																															Не понимаю...[ANSWERIMAGE icons/three_dots.png|295;400]
+																																																																[mark_3g64144177jpg8f2uifc]Предлагаю выпить за знакомство и я подробно расскажу.[BGNDIMAGE barsuk_right3.jpg&client5_1_1.png|-300;50;1.5;1.5&bokal_wine.png|241;312&bokal_wine.png|319;324]
+																																																																	Ладно.[ANSWERIMAGE icons/good.png|295;400]
+																																																																		[mark_9cheh974paa19j9qq43c]Вы, я догадываюсь, часто встречаетесь с разными людьми. Вам для работы этот способ очень пригодится.[BGNDIMAGE barsuk_right3.jpg&client5_1_1.png|-300;50;1.5;1.5]
+																																																																			Так что за способ?[ANSWERIMAGE icons/three_dots.png|295;400]
+																																																																				[mark_pi8vdlw2g72bme082c4c]Честно говоря, я не могу рассказать вам бесплатно. Это моя тайна, но я готов поделиться ей за {output barsuk_psy_cost*Inflation}. И даже наглядно продемонстрировать. Вы согласны?[BGNDIMAGE barsuk_right3.jpg&client5_1_0.png|-300;50;1.5;1.5]
+																																																																					Да, я согласен.[ANSWERIMAGE icons/good.png|260;400]
+																																																																						[mark_0okvrk0tzcv4341cs24c]{if money < barsuk_psy_cost*Inflation {output "[GOTO no_money_for_barsuk_psy]"} else {output "[GOTO get_barsuk_psy]"}}
+																																																																							
+																																																																								[get_barsuk_psy]{money -= barsuk_psy_cost*Inflation}Ну вот и отлично! Официант! Где там мой поросенок?[BGNDIMAGE barsuk_right3.jpg&client5_1_1.png|-300;50;1.5;1.5]
+																																																																									Ну и в чем секрет?[ANSWERIMAGE icons/how_much.png|295;400]
+																																																																										[mark_g17oy3h822veyg8dtfl7]Секрет? Ах да, демонстрирую... вы только что заплатили мне первый раз.[BGNDIMAGE barsuk_right3.jpg&client5_1_1.png|-300;50;1.5;1.5]
+																																																																											[what_did_you_do_barsuk]Что?[ANSWERIMAGE icons/how_much.png|295;400]
+																																																																												[mark_oc0tr91177p0ux71k98a]Пока вы смотрели мне за спину, я подсыпал вам в бокал пурген. Сейчас вы побежите в туалет, а я спокойно доем и уйду, сказав, что вы оплатите мой счет.[BGNDIMAGE barsuk_right3.jpg&client5_1_0.png|-300;50;1.5;1.5]
+																																																																													Ах ты подлец![ANSWERIMAGE icons/three_dots.png|295;400]
+																																																																														[mark_nr2cs26tu9z8245kkn98]Всему причина - любопытство, друг мой...[BGNDIMAGE barsuk_right3.jpg&client5_1_0.png|-300;50;1.5;1.5]
+																																																																															Побегу в сортир![ANSWERIMAGE icons/forward.png|295;400]
+																																																																																[mark_4aa3bvw6gq8qt9mo0z9u]Ты провел в туалете 3 часа.[BGNDIMAGE barsuk_toilet.jpg]
+																																																																																	Вроде отпустило...[ANSWERIMAGE icons/exit.png|295;400]
+																																																																																		[mark_r87m9n9julwryzsxoyr0]Cэр, ваш счет: {barsuk_credit=barsuk_psy_food_cost*Inflation;output barsuk_credit;barsukPsy=1}. За вас и вашего друга.[BGNDIMAGE barsuk_main.jpg&client4_2_1.png|200;30]
+																																																																																			Он мне не друг...[ANSWERIMAGE icons/three_dots.png|235;400]
+																																																																																				[barsuk_bill]Вы должны заведению: {output barsuk_credit}. И лучше вам их отдать.[BGNDIMAGE barsuk_main.jpg&client4_2_1.png|200;30]
+																																																																																					{if money>=barsuk_credit {output "Оплачу счет[ANSWERIMAGE icons/money6.png|295;400]"}}
+																																																																																						[good_bye_barsuk]Всего хорошего, сэр!{money-=barsuk_credit;barsuk_credit=0;barsukPsy=2}[BGNDIMAGE barsuk_main.jpg&client4_2_0.png|200;30]
+																																																																																							...[ANSWERIMAGE icons/three_dots.png|295;400]
+																																																																																								[mark_dj6eqy53wf6n460ia7es][GOTO enter_barsuk]
+																																																																																					{if money<barsuk_credit {output "У меня нет таких денег...[ANSWERIMAGE icons/three_dots.png|295;400]"}}
+																																																																																						[give_barsuk_money]Охрана! Осмотрите карманы и заберите нужную сумму![BGNDIMAGE barsuk_main.jpg&client4_2_1.png|200;30]
+																																																																																							...[ANSWERIMAGE icons/three_dots.png|295;400]
+																																																																																								[mark_1ep089a4akcuzf7k25rq]{if money>=barsuk_credit {output "[GOTO good_bye_barsuk]"} else {barsuk_credit-=money;money=0}}
+																																																																																									...[ANSWERIMAGE icons/three_dots.png|295;400]
+																																																																																										[mark_k8l46fliwvot330pdq4e]Оставшиеся {output barsuk_credit} привезете нам в течении {output barsukReckonDelay} часов. {barsukReckonHour=game_hours + barsukReckonDelay} Иначе вас найдут ребята из коллекторского отдела, и тогда придется заплатить дороже.[BGNDIMAGE barsuk_main.jpg&client4_2_1.png|200;30]
+																																																																																											...[ANSWERIMAGE icons/three_dots.png|295;400]
+																																																																																												[mark_4t338qaf824u1eqi6o7r][GOTO new_location]
+																																																																																					Я отказываюсь платить![ANSWERIMAGE icons/cancel.png|235;400]
+																																																																																						[mark_j95d0w2m77tmasxp1e5v][GOTO give_barsuk_money]
+																																																																																			Я не буду платить за него![ANSWERIMAGE icons/cancel.png|295;400]
+																																																																																				[mark_z4lls5o241x84fur59ox][GOTO barsuk_bill]
+																																																																								[no_money_for_barsuk_psy]У тебя не хватает денег.[BGNDIMAGE barsuk_right3.jpg&client5_1_2.png|-300;50;1.5;1.5]
+																																																																									...[ANSWERIMAGE icons/three_dots.png|295;400]
+																																																																										[mark_0jy0hhj5pv7u4at4cv84]Ну что ж, первый раз не сработал.[BGNDIMAGE barsuk_right3.jpg&client5_1_1.png|-300;50;1.5;1.5]
+																																																																											[GOTO what_did_you_do_barsuk]
+																																																																					Спасибо, не надо.[ANSWERIMAGE icons/cancel.png|320;400]
+																																																																						[mark_amj432hlh9r35x388rs5]Ну что ж, второй раз не сработал.[BGNDIMAGE barsuk_right3.jpg&client5_1_1.png|-300;50;1.5;1.5]
+																																																																							[GOTO what_did_you_do_barsuk]
+																																																							Нет.[ANSWERIMAGE icons/cancel.png|320;400]
+																																																								[mark_97eu3y60nu45w56m7u28]Зря вы так...[BGNDIMAGE barsuk_right3.jpg&client5_1_2.png|50;0;1.2;1.2]
+																																																									...[ANSWERIMAGE icons/three_dots.png|295;400]
+																																																										[barsuk_food_completed]Ты доел фирменное блюдо.[BGNDIMAGE barsuk_right3.jpg]
+																																																											[GOTO back_to_main_barsuk]
+																																																		[no_money_for_barsuk_food]У тебя не хватает денег на фирменное блюдо... [BGNDIMAGE barsuk_right3.jpg]
+																																																			[GOTO back_to_main_barsuk]
+																																															[GOTO back_to_main_barsuk]
+																																													[GOTO back_to_main_barsuk]
+																																							[exit_barsuk]Выйду наружу.[ANSWERIMAGE icons/exit.png|320;400]
+																																								[mark_964528lywk1el1puyqo4][GOTO new_location]
+																																						[no_money_for_barsuk]У тебя нет столько денег...[BGNDIMAGE barsuk_main.jpg]
+																																							[GOTO exit_barsuk]
+																																			[GOTO exit_barsuk]
+																																			{if barsuk_credit > 0 {output "Верну долг[ANSWERIMAGE icons/money6.png|380;400]"}}
+																																				[mark_375h535dew1mhyz6z1bu][GOTO barsuk_bill]
+																																	{if (location == 12) && (money>=100) {output "Зайду в " + locations[location,0] + "[ANSWERIMAGE icons/enter.png|260;400]"}}[AMBIENT casino.mp3][MUSIC none.mp3][BGNDMUSIC none.mp3]
+																																		[do_bet]{dvd_playing=0}{script rounding.qsp}{script calc_casino.qsp}{output locations[location,0]}. Сколько денег ставишь на европейскую рулетку (100 - {output max_bet})?{script show_in_casino.qsp}
+																																			[INPUTN bet]
+																																				[mark_l1zfk919sn2k31lqxic8]{bet=bet@0;if (bet<100)||(bet>max_bet) {output "[GOTO do_bet]"}}
+																																					
+																																						[do_bet_on_number]На какое число ставишь (0-36)?{script show_in_casino.qsp}
+																																							[INPUTN num]
+																																								[mark_77se696rfve0c0b748ex]{if (num<0)||(num>36) {output "[GOTO do_bet_on_number]"}}
+																																									
+																																										[mark_44874qwy006h8xw93dbh]{money-=bet;rnd_num=(random*37):0}{if ((game_hours/24)@0==casino_win_day) && (things[thing_casino_bet,1]) && (things[thing_casino_bet,3]==0) {rnd_num=29;casino_win_bet_sum=bet*36;things[thing_casino_bet,3]=1}}Выпало число: {output rnd_num}. {if rnd_num == num {output "Ты выиграл![SOUNDFX applause.mp3]"; money+=bet*36; casino_win_money+=bet*36} else {output "Ты проиграл...[SOUNDFX evil_laugh_woman.mp3]"}}{game_hours+=1/12}{script show_in_casino.qsp}
+																																											{if money>=100 {output "Сыграть еще раз[ANSWERIMAGE icons/money5.png|260;400]"}}
+																																												[mark_m1c55c2c59gf3o358f67][GOTO do_bet]
+																																											Покинуть казино[AMBIENT none.mp3][MUSIC AmbientStreet.mp3][ANSWERIMAGE icons/enter.png|320;400]
+																																												[mark_247ktew2de126u3o7z68]{if (things[thing_casino_bet,3]) && (casino_bet_return==0) {output ""} else {output "[GOTO new_location]"}}
+																																													
+																																														[mark_8vg9ma430c08g5d3kn17]{casino_bet_return=1}{client_type=8;client_subtype=cct;client_state=2}Уже уезжаешь? Как там насчет того, чтобы вернуть мне мою долю?{script show_client.qsp}
+																																															[give_client_casino_win_sum]Забирай долю[ANSWERIMAGE icons/money6.png|260;400]
+																																																[mark_89xl7564yjvs5afgol7o]{if money<casino_win_bet_sum/2 {output "[GOTO not_all_won_money]"} else {output "[GOTO all_won_money]"}}
+																																																	
+																																																		[all_won_money]Ты отдал подельнику его половину выигрыша в казино: ({output (casino_win_bet_sum/2)@2}){money-=casino_win_bet_sum/2}{client_state=0}{script show_client_inside_rear.qsp}
+																																																			Дальше...[ANSWERIMAGE icons/next.png|295;400]
+																																																				[mark_673ev6z67230sr81c418]Спасибо друг! Я знал, что ты честный. Прощай.{script show_client.qsp}
+																																																					Дальше...[ANSWERIMAGE icons/next.png|295;400]
+																																																						[mark_624vn4n626j2r72c0ona][GOTO new_location]
+																																																		[not_all_won_money]Тут не вся моя доля! Куда ты дел остальные деньги? Кинуть меня хочешь? Ты еще пожалеешь об этом!{money=0;people_negative=50}{script show_client.qsp}
+																																																			...[ANSWERIMAGE icons/three_dots.png|295;400]
+																																																				[mark_zx6l0u40h9z6pw35m27w][GOTO new_location]
+																																															Что за доля?[ANSWERIMAGE icons/how_much.png|320;400]"
+																																																[mark_7554gh6ek0i2se0f69r6]Твой самый честный выигрыш в казино. Забыл что ли?{script show_client.qsp}
+																																																	[GOTO give_client_casino_win_sum]
+																																																	О чем ты? Я в казино вообще не играю, ты что-то попутал...[ANSWERIMAGE icons/how_much.png|320;400]"
+																																																		[wanna_kick_me]Кинуть меня хочешь? Я предвидел такую ситуацию и подготовился к ней. Уезжай. Теперь ты труп.{script show_client.qsp}
+																																																			...[ANSWERIMAGE icons/three_dots.png|295;400]{driver_show_gun=0}
+																																																				[mark_d5u1777k6768fqqnx371]{driver_show_gun=0;car_state=0}[GOTO new_location]
+																																																	[show_gun_to_casino_guy]{if things[thing_gun,1] {output "Вали отсюда, я тебя не знаю.[ANSWERIMAGE icons/gun.png|380;400]";driver_show_gun=1;}}
+																																																		[mark_3efqr10y4b6d70g6g41e][GOTO wanna_kick_me]
+																																															[GOTO show_gun_to_casino_guy]
+																																	{if ((location == 13) || (location == 16)) && (fuel<max_fuel) && (money>0) {output "Заправлю машину" + "[ANSWERIMAGE icons/fuel_station.png|260;400]"}}
+																																		[fuel_station]{script rounding.qsp}{script show_game_stats.qsp}{output "\n"}{output locations[location,0]}. Бензин здесь стоит: {output fuel_cost; if things[thing_fuel_discount,1] {output " (с учетом скидки " + fuel_discount_value + "%)"}}{script show_client}
+																																			{if fuel_by_money>=car_fuel_needed {output "Заправить полный бак, требуется литров: " + car_fuel_needed + "[ANSWERIMAGE icons/money6.png|200;400]"}}
+																																				[mark_kr482j5dhp90wjg68a45]{money=(money-car_fuel_needed*fuel_cost):2;fuel=max_fuel}{script rounding.qsp}{script calc_car_fuel.qsp}[GOTO new_location]
+																																			Ввести кол-во литров вручную[ANSWERIMAGE icons/how_much.png|260;400]
+																																				[how_many_fuel]Сколько литров заправить 0 - {output max_car_can_fuel:1}?{script show_client}
+																																					[INPUTN fuel_liters]
+																																						[mark_li763547sgcz39426ne1]{if (fuel_liters>=0) && (fuel_liters<=max_car_can_fuel) {fuel+=fuel_liters;money-=fuel_cost*fuel_liters;{script rounding.qsp}{script calc_car_fuel.qsp}output "[GOTO new_location]"} else {output "[GOTO how_many_fuel]"}}
+																																			{if (money > 0) && (fuel_by_money<=car_fuel_needed) {output "Заправить на все оставшиеся деньги[ANSWERIMAGE icons/money1.png|380;400]"}}
+																																				[mark_inu1zf7v531a1e4tr474]{money=0;fuel+=fuel_by_money}{script rounding.qsp}{script calc_car_fuel.qsp}[GOTO new_location]
+																																			Ввести сумму заправки вручную[ANSWERIMAGE icons/how_much_money.png|260;400]
+																																				[how_many_fuel_sum]На какую сумму заправить 0 - {output max_money_for_fuel}?{script show_client}
+																																					[INPUTN fuel_sum]
+																																						[mark_71rd4pgx3e7thf2905eg]{if (fuel_sum>=0) && (fuel_sum<=max_money_for_fuel) {money-=fuel_sum;fuel+=fuel_sum/fuel_cost;{script rounding.qsp}{script calc_car_fuel.qsp}output "[GOTO new_location]"} else {output "[GOTO how_many_fuel_sum]"}}
+																																			Передумал заправлять машину[ANSWERIMAGE icons/cancel.png|320;400]
+																																				[mark_2947h2v1kf494tad6166][GOTO new_location]
+																																	{if (location == 14) || (location == 17) {output "Заеду помыть машину" + "[ANSWERIMAGE icons/enter.png|260;400]"}}[AMBIENT water.mp3][BGNDMUSIC none.mp3]
+																																		[car_washing]{dvd_playing=0}{script rounding.qsp}{script show_game_stats.qsp}{output "\n"}{output locations[location,0]}. Помыть машину здесь стоит: {output car_washing_cost}{if things[thing_carwashing_discount,1]>0 {output " (с учетом скидки от Махмуда)"}}{script show_in_carwashing.qsp}
+																																			{if money>=car_washing_cost {output "Помою здесь за " + car_washing_cost + "[ANSWERIMAGE icons/good.png|260;400]"}}
+																																				[mark_u6x2p8mk6p4c7v64rmx8]{money=(money-car_washing_cost):2;car_cleanness=100}{script rounding.qsp}{script calc_car_washing.qsp}{script spent_time.qsp}Готово!{script show_in_carwashing.qsp}
+																																					[leave_carwashing]Уеду отсюда[AMBIENT none.mp3][ANSWERIMAGE icons/enter.png|320;400]
+																																						[mark_run5a7n851rwllh3x8wj][GOTO new_location]
+																																			[GOTO leave_carwashing]
+																																	{if ((location == 15) || (location == 18)) && (money>0) {output "Заеду в " + locations[location,0] + "[ANSWERIMAGE icons/enter.png|260;400]"}}[AMBIENT autoservice.mp3][MUSIC none.mp3][BGNDMUSIC none.mp3]
+																																		[mark_top79e67nbb2ufx9xd83]{dvd_playing=0}{if car_cleanness<70 {output "[GOTO too_dirt_car_in_autoservice]"}}
+																																			
+																																				[autoservice]{script rounding.qsp}{script show_game_stats.qsp}{output "\n"}{output locations[location,0]}. Полность починить машину здесь стоит: {output car_repair_cost}. Займет времени: {output car_repair_time} часов.{script show_in_autoservice.qsp}
+																																					{if max_pct_can_repair>1 {output "Буду чинить тут (частично или полностью, макс. "+max_pct_can_repair+"%)" + "[ANSWERIMAGE icons/options.png|200;400]"}}
+																																						[mark_747xdlw7f0cfj1yy2ph9]{script show_game_stats.qsp}{output "\n"}Сколько чинить?{script show_in_autoservice.qsp}
+																																							Ввести сумму ремонта вручную (0 - {output max_can_repair})[ANSWERIMAGE icons/how_much_money.png|200;400]
+																																								[how_many_repair]{script show_game_stats.qsp}{output "\n"}Введите сумму ремонта: 0 - {output max_can_repair}{script show_in_autoservice.qsp}
+																																									[INPUTN repair_cost]
+																																										[mark_g4wq3790v1a9aimnvpx8]{if (repair_cost>=0) && (repair_cost<=max_can_repair) {money-=repair_cost;car_state+=(101-car_state)*repair_cost/car_repair_cost;game_hours+=(repair_cost/car_repair_cost*car_repair_time):1;{script rounding.qsp}{script calc_car_repair.qsp}output "[GOTO autoservice]"} else {output "[GOTO how_many_repair]"}}
+																																							Ввести процент ремонта вручную (0 - {output max_pct_can_repair})[ANSWERIMAGE icons/how_much.png|260;400]
+																																								[how_many_repair]{script show_game_stats.qsp}{output "\n"}Введите процент ремонта: 0 - {output max_pct_can_repair}{script show_in_autoservice.qsp}
+																																									[INPUTN repair_pct]
+																																										[mark_6f04v2zp0u8gofh81d00]{if (repair_pct>=0) && (repair_pct<=max_pct_can_repair) {money-=repair_pct*one_percent_cost;game_hours+=(repair_pct/(101-car_state)*car_repair_time):1;car_state+=repair_pct;{script rounding.qsp}{script calc_car_repair.qsp}output "[GOTO autoservice]"} else {output "[GOTO how_many_repair]"}}
+																																							[wouldnot_repair_car]Уеду отсюда[AMBIENT none.mp3][ANSWERIMAGE icons/enter.png|320;400]
+																																								[mark_the2516rxg9776v88xox][GOTO new_location]
+																																					[GOTO wouldnot_repair_car]
+																																					{if (things[thing_tuningkit,3] == 0) && (things[thing_tuningkit,1] > 0) && (money>=tuningkit_install_cost) {output "Установить " + things[thing_tuningkit,0] + ". Цена: " + tuningkit_install_cost*Inflation + ". Потребуется времени: 1 день"+ "[ANSWERIMAGE icons/tuningkit.png|380;400]"}}
+																																						[mark_fv6323j9fbd39hs98m4q]{if car_state<90 {output "[GOTO damaged_car_not_tuned_in_autoservice]"} else {output "[GOTO install_tuning_in_autoservice]"}}
+																																							
+																																								[install_tuning_in_autoservice]{money-=tuningkit_install_cost*Inflation;things[thing_tuningkit,3]=1;things[thing_tuningkit,1]=1;game_hours+=24}Ух ты! Теперь даже самый предвзятый VIP-клиент не откажется прокатиться на твоей тачке. Смело повышай цены!{script show_in_autoservice.qsp}
+																																									Отлично![ANSWERIMAGE icons/cool.png|295;400]
+																																										[mark_w96gf8x4d47i6yqz6b5c][GOTO autoservice]
+																																								[damaged_car_not_tuned_in_autoservice]Разбитые машины не тюненгуют. Сначала тебе необходимо починить машину.{script show_in_autoservice.qsp}
+																																									...[ANSWERIMAGE icons/three_dots.png|295;400]
+																																										[mark_z6dpydjg3g0un51fylx5][GOTO autoservice]
+																																					{if (things[thing_tuningkit,3] == 0) && (things[thing_vinyl_dog,1] > 0) && (things[thing_vinyl_dog,3]==0) && (money>=vinyl_dog_install_cost*Inflation) {output "Установить " + things[thing_vinyl_dog,0] + ". Цена: " + vinyl_dog_install_cost*Inflation + ". Потребуется времени: 6 часов"+ "[ANSWERIMAGE icons/vynil_dog.png|440;400]"}}
+																																						[mark_86vn7r53ct3w92363003]{if car_state<90 {output "[GOTO damaged_car_not_tuned_in_autoservice]"}}
+																																							
+																																								[mark_aqe9wy57c476mfjl8787]Неплохо получилось! Теперь с клиентов можно просить больше денег за такую красоту.{game_hours+=6;money-=vinyl_dog_install_cost*Inflation;things[thing_vinyl_dog,3]=1}{script show_in_autoservice.qsp}
+																																									Класс![ANSWERIMAGE icons/cool.png|295;400]
+																																										[mark_fbs9yl3u2ox80z60gpk1][GOTO autoservice]
+																																		[too_dirt_car_in_autoservice]Автосервис не принимает грязные машины.{script show_in_autoservice.qsp}
+																																			...[ANSWERIMAGE icons/three_dots.png|295;400][AMBIENT none.mp3]
+																																				[mark_29no4h1h82t89yt4ba73][GOTO new_location]
+																																	{if location==19 {output "Зайду в " + locations[location,0] + "[ANSWERIMAGE icons/enter.png|260;400]"}}[MUSIC none.mp3][AMBIENT none.mp3][BGNDMUSIC none.mp3]
+																																		[in_bank]{dvd_playing=0}{script show_game_stats.qsp}{output "\n"}{output locations[location,0]}.[BGNDIMAGE in_bank.jpg]
+																																			Заплачу по кредиту.[ANSWERIMAGE icons/money2.png|260;400]
+																																				[how_many_for_credit]{script rounding.qsp}{script show_game_stats.qsp}{output "\n"}{output locations[location,0]}.{output "\n"}Сколько заплатишь по кредиту: 0 - {output credit_max_payment}? (срочный платеж: {output credit_delay_sum}, остаток по кредиту: {output credit_rest_sum})[BGNDIMAGE in_bank.jpg]
+																																					[INPUTN payment_sum]
+																																						[mark_ui4q7942104e9p6j62i4]{if (payment_sum>=0) && (payment_sum<=credit_max_payment) {credit_rest_sum-=payment_sum;money-=payment_sum; if credit_rest_sum<=0 {output "[GOTO you_win]"} else {output "[GOTO in_bank]"}} else {output "[GOTO how_many_for_credit]"}}
+																																			{if (drugDealer == 1) && (drugDealerGoodsPlanted == 0) && (drugDealerGoodsDriver==0) {output "Переведу на карту денег ("+drugDealerGoodsCost*Inflation+")[ANSWERIMAGE icons/money2.png|320;400]"}}
+																																				[mark_rl035584qcu9ml2sul0c]{if money<drugDealerGoodsCost*Inflation {output "[GOTO no_money_for_drugs]"} else {output "[GOTO transfer_money_for_drugs]"}}
+																																					
+																																						[transfer_money_for_drugs]{money-=drugDealerGoodsCost*Inflation;drugDealerGoodsPlanted++}{script rounding.qsp}Деньги успешно переведены.[BGNDIMAGE in_bank.jpg]
+																																							...[ANSWERIMAGE icons/exit.png|295;400]
+																																								[mark_myrrfzw23ud76vvl33nq][GOTO in_bank]
+																																						[no_money_for_drugs]Извините, у вас не достаточно средств.
+																																							...[ANSWERIMAGE icons/exit.png|295;400]
+																																								[mark_h2sbf887y8wnxwb432b3][GOTO in_bank]
+																																			Выйду наружу[ANSWERIMAGE icons/enter.png|380;400]
+																																				[mark_6q0zgd14zy76p2vgo69g][GOTO new_location]
+																																	{if location==25 {output "Заеду в " + locations[location,0] + "[ANSWERIMAGE icons/enter.png|260;400]"}}[AMBIENT garage.mp3][MUSIC none.mp3][BGNDMUSIC none.mp3]
+																																		[in_abandoned_garage]{dvd_playing=0}{script show_game_stats.qsp}{output "\n"}{script calc_car_self_repair.qsp}{output locations[location,0]}. {if (things[thing_repairing_book,1])&&(things[thing_repairing_book,3])&&(things[thing_repairing_toolkit,1])&&(car_state<=99) {output "Чтобы полностью починить машину (" + full_repair_pct + "%) тебе потребуется времени: " + full_repair_time + " ч."}}{script show_in_abandoned_garage.qsp}
+																																			{if (things[thing_repairing_book,1])&&(things[thing_repairing_book,3])&&(things[thing_repairing_toolkit,1])&&(car_state<=99) {output "Ввести сколько времени будешь чинить (0 - " + full_repair_time + " ч.)" + "[ANSWERIMAGE icons/options.png|30;400]"}}
+																																				[how_many_time_to_repair]{if car_cleanness < 70 {output "[GOTO too_dirt_car_in_garage]"}}{script show_game_stats.qsp}{output "\n"}Сколько времени будешь чинить? (0 - {output full_repair_time} ч.){script show_in_abandoned_garage.qsp}
+																																					[INPUTN repair_time]
+																																						[mark_78bv5yzr5afwhz0kgkob]{if (repair_time>=0)&&(repair_time<=full_repair_time) {game_hours+=repair_time;car_state+=repair_time*100/full_repair_time;{script rounding.qsp}} else {output "[GOTO how_many_time_to_repair]"}}
+																																							
+																																								[reparing_done]{script show_game_stats.qsp}{output "\n"}Готово!{script show_in_abandoned_garage.qsp}
+																																									Отлично.[ANSWERIMAGE icons/cool.png|295;400]
+																																										[mark_43r59v151bicc74x0v22][GOTO in_abandoned_garage]
+																																			{if (things[thing_repairing_book,1])&&(things[thing_repairing_book,3])&&(things[thing_repairing_toolkit,1])&&(car_state<=99) {output "Ввести сколько процентов будешь чинить (0 - " + full_repair_pct + "%)"+ "[ANSWERIMAGE icons/options.png|90;400]"}}
+																																				[how_many_pct_to_repair]{if car_cleanness < 70 {output "[GOTO too_dirt_car_in_garage]"}}{script show_game_stats.qsp}{output "\n"}Сколько процентов будешь чинить? (0 - {output full_repair_pct} %){script show_in_abandoned_garage.qsp}
+																																					[INPUTN repair_pct]
+																																						[mark_738jde04rysav6554r60]{if (repair_pct>=0)&&(repair_pct<=full_repair_pct) {game_hours+=repair_pct*car_max_self_repair_time/100;car_state+=repair_pct;{script rounding.qsp}} else {output "[GOTO how_many_pct_to_repair]"}}
+																																							
+																																								[mark_g220w24zs91htvs6g848][GOTO reparing_done]
+																																			{if (things[thing_repairing_book,1])&&(things[thing_repairing_book,3])&&(things[thing_repairing_toolkit,1])&&(car_state<=99) {output "Починю полностью (" + full_repair_pct + " % за " + full_repair_time + " ч.)"+ "[ANSWERIMAGE icons/options.png|150;400]"}}
+																																				[mark_72q4qj1d71n77i7h8nov]{if car_cleanness < 70 {output "[GOTO too_dirt_car_in_garage]"}}
+																																					
+																																						[mark_330y8h51at7ka04641fc]{game_hours+=full_repair_time;car_state=100;driver_rest_hours=8}{script rounding.qsp}
+																																							
+																																								[mark_t8j64xw5i8t33k3549p8][GOTO reparing_done]
+																																			Уеду из гаража[AMBIENT none.mp3][ANSWERIMAGE icons/enter.png|210;400]
+																																				[mark_a1v4fkui28844r926rcn][GOTO new_location]
+																																			{if (things[thing_tuningkit,3] == 0)&& (things[thing_tuningkit,1] > 0) {output "Самостоятельно установлю " + things[thing_tuningkit,0] + ". Потребуется времени: 3 дня"+ "[ANSWERIMAGE icons/tuningkit.png|270;400]"}}
+																																				[mark_n0bvh57shj2pdir3jof2]{if car_state<90 {output "[GOTO too_damaged_car_in_garage]"} else {if car_cleanness<70 {output "[GOTO too_dirt_car_in_garage]"} else {output "[GOTO install_tuning_in_abandoned_garage]"}}}
+																																					Дальше...[ANSWERIMAGE icons/next.png|295;400]
+																																						[install_tuning_in_abandoned_garage]Прошло 3 дня... Ух ты! Теперь даже самый педантичный VIP-клиент захочет прокатиться на твоей тачке. Смело повышай цены!{things[thing_tuningkit,3]=1;things[thing_tuningkit,1]=1;game_hours+=3*24}{script show_in_abandoned_garage.qsp}
+																																							Класс![ANSWERIMAGE icons/cool.png|295;400]
+																																								[mark_g6o4cp2296c318868sj3][GOTO in_abandoned_garage]
+																																						[too_damaged_car_in_garage]Слишком разбитая машина. Сначала необходимо починить.{script show_in_abandoned_garage.qsp}
+																																							...[ANSWERIMAGE icons/three_dots.png|295;400]
+																																								[mark_2e0ul8p87bsm7b85k0qn][GOTO in_abandoned_garage]
+																																						[too_dirt_car_in_garage]Трудно что либо делать с такой грязной машиной.{script show_in_abandoned_garage.qsp}
+																																							...[ANSWERIMAGE icons/three_dots.png|295;400]
+																																								[mark_xb821466e835oic837e9][GOTO in_abandoned_garage]
+																																			{if (things[thing_tuningkit,3] == 0)&& (things[thing_vinyl_dog,1] > 0) && (things[thing_vinyl_dog,3]==0) {output "Самостоятельно установлю " + things[thing_vinyl_dog,0] + ". Потребуется времени: 1 день"+ "[ANSWERIMAGE icons/vynil_dog.png|330;400]"}}
+																																				[mark_u6nl4s650l5fp348n3j7]{if car_cleanness < 70 {output "[GOTO too_dirt_car_in_garage]"}}
+																																					
+																																						[mark_5ffvr037j9163k17250k]Прошел 1 день. Неплохо получилось! За такую красоту можно смело повышать цены.{things[thing_vinyl_dog,3]=1}{script show_in_abandoned_garage.qsp}
+																																							Класс![ANSWERIMAGE icons/cool.png|295;400]
+																																								[mark_278se340t0aek4srht3i][GOTO in_abandoned_garage]
+																																			{if car_cleanness<100 {output "Помою машину"+ "[ANSWERIMAGE icons/car_wash.png|390;400]"}}
+																																				[mark_49t5kn2d46kkh0ls2yk8]{car_cleanness=100}Мойка машины заняла 1 час.{game_hours++}{script show_in_abandoned_garage.qsp}
+																																					Дальше...[ANSWERIMAGE icons/next.png|295;400]
+																																						[mark_44a3rjwzif69521f2o7u][GOTO in_abandoned_garage]
+																																			[GOTO read_repairing_book]
+																																	[read_repairing_book]{if things[thing_repairing_book,1]&&(things[thing_repairing_book,3]==0) {output "Почитаю книгу по ремонту авто" + "[ANSWERIMAGE icons/book.png|200;400]"}}
+																																		[mark_h5kb767cjli4muxc39wx][BGNDIMAGE repairing_book.jpg][ANSWERTIME 2][TIMEEXPIRED rb2]
+																																			Дальше...[ANSWERIMAGE icons/next.png|295;400]
+																																				[rb2][BGNDIMAGE repairing_book1.jpg][ANSWERTIME 2][TIMEEXPIRED rb3]
+																																					Дальше...[ANSWERIMAGE icons/next.png|295;400]
+																																						[rb3][BGNDIMAGE repairing_book2.jpg][ANSWERTIME 2][TIMEEXPIRED rb4]
+																																							Дальше...[ANSWERIMAGE icons/next.png|295;400]
+																																								[rb4][BGNDIMAGE repairing_book3.jpg][ANSWERTIME 2][TIMEEXPIRED rb5]
+																																									Дальше...[ANSWERIMAGE icons/next.png|295;400]
+																																										[rb5][BGNDIMAGE repairing_book4.jpg][ANSWERTIME 2][TIMEEXPIRED rb6]
+																																											Дальше...[ANSWERIMAGE icons/next.png|295;400]
+																																												[rb6]Теперь ты знаешь, как устроен твой автомобиль. Ты можешь чинить его сам с помощью: {output things[thing_repairing_toolkit, 0]}[BGNDIMAGE repairing_toolkit.jpg]
+																																													Класс![ANSWERIMAGE icons/cool.png|295;400]
+																																														[mark_bi21fuxrh2zao9813d10]{things[thing_repairing_book,3]=1}{script calc_car_repair.qsp}[GOTO new_location]
+																																	Буду таксовать[ANSWERIMAGE icons/taxi.png|320;400]{vip_call=0}
+																																		[taxing]{driver_show_gun=0;vip_call=0;client_type=0}{script calc_weather.qsp}{script show_client.qsp}
+																																			
+																																				[vip_taxing]{script calc_client_type.qsp}{if (vip_call) && (client_pretense>0) {output "[GOTO vip_client_has_pretense]"}}
+																																					
+																																						[mark_6235a3o2qo2883gs96wd]{if client_type != 0 {/**/output "[GOTO client_found]"} else {output "[GOTO client_not_found]"}}
+																																							
+																																								[client_found]{first_client_greeting=1;return_mark="taxing"}{script calc_road.qsp}[GOTO {if (random*100<people_negative)&&(money>0) {asked_fuel=0;output "gop_stop"} else { if random<0.5 {output "client_says_price"} else {output "client_asks_price"}}}]
+																																									
+																																										[client_says_price]{script show_game_stats.qsp}{output "\n"}{if first_client_greeting {first_client_greeting=0;{script client_greeting.qsp}}} {script client_asking}{client_bargained=1}{script show_road_stats.qsp}{output "\n";if client_price<1 {output "Бесплатно?"} else {output client_price + "?"}}{value_to_show=client_price}{script calc_client_price_picture.qsp}{script show_client.qsp}[ANSWERTIME 20][TIMEEXPIRED client_go_away]
+																																											[GOTO ok_travel]
+																																											[say_your_price]Назвать свою цену поездки[ANSWERIMAGE icons/how_much_money.png|510;400]
+																																												[what_is_your_cost]Цена поездки ? (0 - {output 100*Inflation}){script show_client.qsp}[ANSWERTIME 30][TIMEEXPIRED client_go_away]
+																																													[INPUTN driver_price]
+																																														[driver_said_price]{if (driver_price < 0) || (driver_price >100*Inflation) {output "[GOTO what_is_your_cost]"} else {output "[GOTO client_should_think]"}}
+																																															
+																																																[client_should_think]{script client_thinking.qsp}{output "[GOTO " + client_solution + "]"}
+																																																	
+																																																		[client_refused]{people_negative++}{script client_refused.qsp}{script show_client.qsp}[ANSWERTIME 20][TIMEEXPIRED client_go_away]
+																																																			Ну, как знаешь...[ANSWERIMAGE icons/cancel.png|320;400]
+																																																				[mark_k63l06852359hf0ylx01][GOTO taxing]
+																																																			{if client_bargained==1 {output "Постой, поехали за " + client_price + "[ANSWERIMAGE icons/good.png|260;400]"}}
+																																																				[mark_26734saq61095049c8v6][GOTO client_agreed]
+																																																		[client_agreed]{script client_agreed.qsp}{script show_client}[ANSWERTIME {output waiting/10}][TIMEEXPIRED travel_road]
+																																																			Едем[ANSWERIMAGE icons/good.png|295;400]
+																																																				[travel_road][IMAGE black_screen][AUDIO silent_0.1][SOUNDFX car_door_closed.mp3][AMBIENT AmbientTraffic]
+																																																					
+																																																						[mark_t2w5t28rjfq2u1k3tc22]{if waiting<=5 {output "[GOTO client_saying]"} else {script show_client_travel.qsp}}
+																																																							
+																																																								[mark_3av9y84nac38434pu6xb][IMAGE black_screen][AUDIO silent_0.1]
+																																																									
+																																																										[client_saying]{client_empty_saying=(random<0.5)&&(client_price>0); if client_empty_saying {{script client_says_empty.qsp}{script show_client_inside_rear.qsp}}output "[ANSWERTIME 10][TIMEEXPIRED client_business_proposal]"}
+																																																											{if client_empty_saying {output "...[ANSWERIMAGE icons/three_dots.png|295;400]"}}
+																																																												[client_business_proposal][GOTO business1]
+																																																													
+																																																														[client_arriving][IMAGE black_screen][AUDIO silent_0.1][AMBIENT AmbientStreet.mp3]
+																																																															
+																																																																[mark_r50140ja057dkb6x1y45]{location=new_location;people_negative--}{script travel_road.qsp}{script rounding.qsp}{return_mark="client_arrived"}{script check_states.qsp}
+																																																																	
+																																																																		[client_arrived]{if (client_price < Inflation/5) && (random<0.5) {output "[GOTO client_gives_present]"} else {output "[GOTO client_goodbye]"}}
+																																																																			
+																																																																				[client_gives_present]{script client_gives_present.qsp}{if was_present {script show_client.qsp} else {output "[GOTO client_goodbye]"}}
+																																																																					Спасибо.[ANSWERIMAGE icons/good.png|295;400]
+																																																																						[mark_m9kad1uk3visn1aa4pf6][GOTO new_location]
+																																																																				[client_goodbye]{script client_goodbye}{script show_client.qsp}[ANSWERTIME 1][TIMEEXPIRED money_for_trip]
+																																																																					Всего хорошего.[ANSWERIMAGE icons/good.png|295;400]
+																																																																						[money_for_trip]{get_back_money_tries=0}[GOTO client_gave_money{if (client_price>0) && ((random*people_negative_max < people_negative) || (random*100 > client_payable_rate)) {output ",client_squeezed_money"}}]
+																																																																							
+																																																																								[client_gave_money]{driver_show_gun=0}{money+=client_price;money_earned+=client_price;tip_sum=0}{if (random < 0.5 - people_negative/people_negative_max) && (get_back_money_tries==0) {output "[GOTO client_gives_tip]"} else {output "[GOTO client_doesnt_give_tip]"}}
+																																																																									
+																																																																										[client_gives_tip]{script client_gives_tip.qsp}{value_to_show=tip_sum}{script calc_client_price_picture.qsp}{script show_client.qsp}[ANSWERTIME 15][TIMEEXPIRED barfed]
+																																																																											{if tip_sum > 0 {output "Спасибо[ANSWERIMAGE icons/good.png|295;400]"}}
+																																																																												[mark_618953m1ziz7339bxl62][GOTO barfed]
+																																																																										[client_doesnt_give_tip][GOTO barfed]
+																																																																								[client_squeezed_money]Клиент не отдал тебе денег за поездку!{script show_client}[ANSWERTIME 10][TIMEEXPIRED client_go_away]
+																																																																									Спрошу его: "А заплатить?"[ANSWERIMAGE icons/how_much_money.png|200;400]
+																																																																										[mark_65532vsy3kq934v8l2g0][GOTO client_returned_money, client_has_no_money]
+																																																																									{if things[thing_gun,1] {output "Пригрожу пистолетом...[ANSWERIMAGE icons/gun.png|260;400]"}}
+																																																																										[mark_j2r89n52bk1ygv1163kl]{driver_show_gun=1}[GOTO client_returned_money, client_has_no_money]
+																																																																											
+																																																																												[client_returned_money]Клиент отдал тебе деньги{client_state=2}{script show_client}
+																																																																													...[ANSWERIMAGE icons/three_dots.png|295;400]
+																																																																														[mark_9g67103z3l326enx5vp1][GOTO client_gave_money]
+																																																																												[client_has_no_money]{script client_has_no_money}{get_back_money_tries++}{script show_client}[ANSWERTIME 20][TIMEEXPIRED client_go_away]
+																																																																													Давай сюда мои деньги![ANSWERIMAGE icons/fist.png|200;400]
+																																																																														[mark_fg42vxh33x7f21m110ja]{if (random*people_negative_max < people_negative)||(random*rest_norm>driver_rest_hours) {output "[GOTO client_escaped]"} else {output "[GOTO client_has_no_money,client_returned_money]"}}
+																																																																														[client_really_has_no_money]Похоже у клиента действительно нет денег. Пришлось отпустить...{client_type=0;driver_show_gun=0}{script show_client}[ANSWERTIME 5][TIMEEXPIRED client_go_away]
+																																																																															[search_client_again]Продолжу поиски клиентов[ANSWERIMAGE icons/taxi.png|320;400]
+																																																																																[mark_os2u19tixzcle6dk32ym][GOTO barfed]
+																																																																															[change_location]Поеду в другое место[ANSWERIMAGE icons/change_place.png|380;400]{if dvd_playing == 0 {output "[AMBIENT AmbientStreet.mp3]"}}
+																																																																																[mark_69mfon6o859rsg778pvt][GOTO main_menu]
+																																																																													{if things[thing_gun,1] {client_price+=Inflation;driver_show_gun=1;output "Теперь ты мне отдашь " + client_price + ". Гони сюда мои деньги!...[ANSWERIMAGE icons/gun.png|380;400]"}}
+																																																																														[mark_8xd194zv05qm9zu7m89p]{if get_back_money_tries<3 {output "[GOTO client_has_no_money,client_returned_money]"} else {output "[GOTO client_really_has_no_money]"}}
+																																																																													А ну вали отсюда![ANSWERIMAGE icons/next.png|260;400]{people_negative++}
+																																																																														[mark_80595jbt634967d50p01][GOTO barfed]
+																																																																													Ладно, ступай с миром[ANSWERIMAGE icons/three_dots.png|320;400]{people_negative--}
+																																																																														[mark_4803w0z17v212g8gj6ii]{driver_show_gun=0}{if random<0.5 {{script client_gives_present.qsp}{script show_client.qsp}} else {output "[GOTO barfed]"}}
+																																																																															Спасибо![ANSWERIMAGE icons/cool.png|295;400]
+																																																																																[barfed][GOTO new_location{if (client_type==8)&&(random<0.1) {output ",client_barfed"}}]
+																																																																																	
+																																																																																		[client_barfed]Вотц э фак? Чем так воняет? Кажется клиента вырвало прямо на твое авто!{car_cleanness=0;client_type=0}{script show_client.qsp}[ANSWERTIME 10][TIMEEXPIRED taxing]
+																																																																																			[GOTO search_client_again]
+																																																																																			[GOTO change_location]
+																																																																												[client_escaped]Клиент убежал от тебя!{client_type=0}{script show_client}[ANSWERTIME 10][TIMEEXPIRED taxing]
+																																																																													[GOTO search_client_again]
+																																																																													[GOTO change_location]
+																																																																									[GOTO search_client_again]
+																																																																									[GOTO change_location]
+																																																		[client_bargain]{script client_bargain.qsp}{client_state=1}{value_to_show=client_price}{script calc_client_price_picture.qsp}{script show_client.qsp}[ANSWERTIME 20][TIMEEXPIRED client_go_away]
+																																																			[ok_travel]Ладно, поехали за {output client_price}[ANSWERIMAGE icons/good.png|30;400]
+																																																				[mark_wrp0ryq17o42e31jge6h][GOTO travel_road]
+																																																			[GOTO say_your_price]
+																																																			[GOTO cancel_work]
+																																																			[price_is_1x]Довезу за {driver_price=1*Inflation;output driver_price}[ANSWERIMAGE icons/money1.png|150;400]
+																																																				[mark_369kddqz301lyll4of56][GOTO driver_said_price]
+																																																			[price_is_1.5x]Довезу за {driver_price=1.5*Inflation;output driver_price}[ANSWERIMAGE icons/money2.png|210;400]
+																																																				[mark_18y3i591f8p075krave0][GOTO driver_said_price]
+																																																			[price_is_2x]Довезу за {driver_price=2*Inflation;output driver_price}[ANSWERIMAGE icons/money3.png|270;400]
+																																																				[mark_fp43r6562k0af317c2cm][GOTO driver_said_price]
+																																																			[price_is_3x]Довезу за {driver_price=3*Inflation;output driver_price}[ANSWERIMAGE icons/money4.png|330;400]
+																																																				[mark_25yri145ow83t614055o][GOTO driver_said_price]
+																																																			[price_is_4x]Довезу за {driver_price=4*Inflation;output driver_price}[ANSWERIMAGE icons/money5.png|390;400]
+																																																				[mark_97jqfceh941484aqyc00][GOTO driver_said_price]
+																																																			[price_is_5x]Довезу за {driver_price=5*Inflation;output driver_price}[ANSWERIMAGE icons/money6.png|450;400]
+																																																				[mark_7x22b85jk53g9q2yvkf7][GOTO driver_said_price]
+																																																			[taxing_enough]Передумал таксовать[ANSWERIMAGE icons/exit.png|570;390]
+																																																				[mark_ofc394466pkc69325121]{new_location=location}[GOTO new_location]
+																																																			[go_to_other_location]Поеду в другое место[ANSWERIMAGE icons/change_place.png|570;330]{if dvd_playing == 0 {output "[AMBIENT AmbientStreet.mp3]"}}
+																																																				[mark_e630cumru98haec87a0s][GOTO main_menu]
+																																											[cancel_work]Отказаться[ANSWERIMAGE icons/cancel.png|90;400]
+																																												[mark_q802xdff7ncy1r86ecgv]Клиент обиделся{new_location=location;people_negative++;client_state=2}{script show_client.qsp}{script spent_time.qsp}{script calc_weather}[ANSWERTIME 1][TIMEEXPIRED taxing]
+																																													...[ANSWERIMAGE icons/next.png|295;400]
+																																														[mark_2l834a5pqvw0om7a19j0][GOTO taxing]
+																																											[GOTO price_is_1x]
+																																											[GOTO price_is_1.5x]
+																																											[GOTO price_is_2x]
+																																											[GOTO price_is_3x]
+																																											[GOTO price_is_4x]
+																																											[GOTO price_is_5x]
+																																											{return_mark="client_says_price"}[GOTO dvd_on]
+																																											[GOTO taxing_enough]
+																																											[GOTO go_to_other_location]
+																																										[client_asks_price]{script show_game_stats.qsp}{output "\n"}{if first_client_greeting {first_client_greeting=0;{script client_greeting.qsp}}} {script client_asking.qsp} {script show_road_stats.qsp}{script show_client.qsp}[ANSWERTIME 20][TIMEEXPIRED client_go_away]
+																																											[GOTO say_your_price]
+																																											[GOTO cancel_work]
+																																											[GOTO price_is_1x]
+																																											[GOTO price_is_1.5x]
+																																											[GOTO price_is_2x]
+																																											[GOTO price_is_3x]
+																																											[GOTO price_is_4x]
+																																											[GOTO price_is_5x]
+																																											{return_mark="client_asks_price"}[GOTO dvd_on]
+																																											[GOTO taxing_enough]
+																																											[GOTO go_to_other_location]
+																																								[client_not_found]{script show_game_stats.qsp}{output "\n"}{script spent_time.qsp}Ты безуспешно ждал клиента в течении: {output spent_time} часа.[ANSWERTIME 20][TIMEEXPIRED location_actions]{script show_client}
+																																									...[ANSWERIMAGE icons/three_dots.png|295;400]
+																																										[mark_pj1f2z584797l02plu1t][GOTO location_actions]
+																																								[gop_stop]ОМГ! Да это же бандит! {if things[thing_gun,1] {output "Ты направил на него ствол и он трусливо убежал прочь."} else {robbed_sum=(money/2):0 + (money/2*random):0;if robbed_sum<=money/3 {output "Он попытался ограбить тебя, но у него не получилось."} else {output "Он ограбил тебя на: " + robbed_sum;money-=robbed_sum;robbed_money+=robbed_sum}}}{script rounding.qsp}{script show_gop_stop}[ANSWERTIME 10][TIMEEXPIRED {output return_mark}]
+																																									...[ANSWERIMAGE icons/next.png|295;400]
+																																										[mark_e7h0ff5i2e3edi6pxbo6][GOTO {output return_mark}]
+																																								[client_go_away]Клиент ушел.{new_location=location;client_type=0}{script show_client.qsp}[ANSWERTIME 1][TIMEEXPIRED taxing]
+																																						[vip_client_has_pretense]{script client_pretense.qsp}{vip_call=0}{script show_client.qsp}[ANSWERTIME 20][TIMEEXPIRED new_location]
+																																							...[ANSWERIMAGE icons/three_dots.png|295;400]
+																																								[mark_21bu90i96695hyxno153][GOTO new_location]
+																																	[GOTO change_location]
+																																	[have_a_rest]{rest_hours_needed=(rest_norm-driver_rest_hours):1;if rest_hours_needed>0 {client_type=0;output "Отдохну[ANSWERIMAGE icons/sleep.png|440;400]"}}
+																																		[mark_l61072db56z42ypusc55]{new_location=location}{script show_game_stats.qsp}{output "\n"}Сколько будешь отдыхать?{script calc_damage_car_probability.qsp}{script show_client}
+																																			Отдохнуть полностью (требуется часов отдыха: {output rest_hours_needed})[ANSWERIMAGE icons/sleep.png|200;400]
+																																				[mark_b1ysc7nky6ijg6740258]{game_hours+=rest_hours_needed;rest_hours=rest_hours_needed;driver_rest_hours=rest_norm;total_driver_rest_hours+=rest_hours}
+																																					
+																																						[check_damage_car_probability]{script calc_damage_car_probability.qsp}{if (random < damage_car_probability) && (damage_car>=1) {output ""} else {output "[GOTO new_location]"}}
+																																							
+																																								[mark_ww3z3d57798t9z69a8h9]Пока ты отдыхал, кто-то врезался в твою машину и нанес ей ущерб: {output damage_car}% !{car_state-=damage_car;crushes_not_own++}{script rounding.qsp}{script show_client}[SOUNDFX brakes_crash.mp3]
+																																									Проклятье!!![ANSWERIMAGE icons/fist.png|295;400]
+																																										[mark_xcr1gpvk8q729x298vly]{script spent_time.qsp}{if compensation_coef >= 0.1 {money+=compensation_sum;output "Тебе удалось вытрясти с виновника на ремонт: " + compensation_sum} else {output "Виновник скрылся с места проишествия..."}}{script show_client}
+																																											[ANSWERIMAGE icons/good.png|295;400]
+																																												[mark_260hr1v36f4o24m35guf]{if car_state<=0 {output "[GOTO car_total_crush]"} else {output "[GOTO new_location]"}}
+																																			Ввести кол-во часов отдыха вручную[ANSWERIMAGE icons/how_much.png|260;400]
+																																				[how_long_have_rest]Сколько часов отдыхать (0 - {output rest_hours_needed})?{script show_client}
+																																					[INPUTN rest_hours]
+																																						[mark_g1hdc28k0nvwz6na0x21]{if (rest_hours>=0)&&(rest_hours<=rest_hours_needed) {driver_rest_hours+=rest_hours;game_hours+=rest_hours;total_driver_rest_hours+=rest_hours;output "[GOTO check_damage_car_probability]"} else {output "[GOTO how_long_have_rest]"}}
+																																			Передумал отдыхать[ANSWERIMAGE icons/cancel.png|320;400]
+																																				[mark_w86a960id4rl6m537uev][GOTO new_location]
+																																	{if (things[thing_vip_radio,1])&&(things[thing_vip_radio,3])&&(random>0.1)&&(vip_call==0) {output "Поступил вызов от VIP-клиента по рации. Отвечу." + "[ANSWERIMAGE icons/vip_call.png|140;400]"}}
+																																		[mark_p85fr4ued62bvftg3ayi]{script calc_vip_client.qsp}{script show_client.qsp}
+																																			Поеду за VIP-клиентом[ANSWERIMAGE icons/change_place.png|260;400]
+																																				[mark_qpo8r9306ku747603y6c]{if location == vip_location {output "[GOTO new_location]"} else {output "[GOTO main_menu]"}}
+																																			Пропущу вызов[ANSWERIMAGE icons/cancel.png|320;400]
+																																				[mark_0he799u501ub69x4cru8]{vip_call=0}[GOTO new_location]
+																																	{if (things[thing_vip_radio,1])&&(things[thing_vip_radio,3]==0) {output "Настрою частоту рации для приема заявок от VIP-клиентов." + "[ANSWERIMAGE icons/call.png|140;400]"}}
+																																		[input_radio_freq]Введи номер частоты (0 - 1000000)? (0 = выход)[BGNDIMAGE vip_radio.jpg][ANSWERTIME 30][TIMEEXPIRED new_location]
+																																			[INPUTN radio_freq]
+																																				[mark_w43083s54ddmirt48y1i]{if (radio_freq<0) || (radio_freq>1000000) {output "[GOTO input_radio_freq]"}}
+																																					
+																																						[mark_svp3f33oc4126l87cb1i]{if radio_freq == vip_radio_freq {output "[GOTO vip_freq_found]"} else {output "Шум в эфире, похоже неправильная частота.[SOUNDFX radio_noise.mp3]"}}[BGNDIMAGE vip_radio.jpg][ANSWERTIME 20][TIMEEXPIRED new_location]
+																																							Попробую еще[ANSWERIMAGE icons/call.png|260;400]
+																																								[mark_n4mf60whj3k340r2lq7s][GOTO input_radio_freq]
+																																							Хватит, надоело[ANSWERIMAGE icons/cancel.png|320;400]
+																																								[mark_91b24d5296zc3i24azs9][GOTO new_location]
+																																						[vip_freq_found]Частота подобрана. Теперь какое то время можно принимать заявки от VIP-клиентов.{things[thing_vip_radio,3]=1}{script calc_radio_vip_freq.qsp}[BGNDIMAGE vip_radio.jpg][ANSWERTIME 30][TIMEEXPIRED new_location]
+																																							[ANSWERIMAGE icons/cool.png|295;400]
+																																								[mark_rn35o25280263720d5w1][GOTO new_location]
+																																	{return_mark="location_actions"}[GOTO dvd_on]
+																																		[mark_20289716qd7g1e11p87a]
+																																			[dvd_on]{if (things[thing_dvd,1]) {output things[thing_dvd,0] + "[ANSWERIMAGE icons/dvd.png|30;350]"}}
+																																				[dvd_actions]Что хочешь сделать?[BGNDIMAGE black_screen.jpg&dvd.png|-300;-500;2;2;0;1]
+																																					{if (things[thing_psycho_dvd_film,1]) {output "Посмотрю: " + things[thing_psycho_dvd_film,0] + "[ANSWERIMAGE icons/dvd_film.png|295;350]"}}
+																																						[see_film]Если внимательно вглядеться в лица людей, то можно заметить, что они всегда выражают одно из трех настроений: веселое, нормальное и плохое.[BGNDIMAGE client5_3_0.png|-300;0;1;1;0&client5_3_1.png|-100;0;1;1;0&client5_3_2.png|100;0;1;1;0][AMBIENT track3.mp3]
+																																							Дальше...[ANSWERIMAGE icons/next.png|295;400]
+																																								[mark_012416vbq8mi1337trg3]Поэтому и платят люди по-разному: веселые щедры, а грустные скупы. Повышайте цену, когда видите, что человеку хорошо.[BGNDIMAGE client5_3_0.png|100;0;1;1;0]
+																																									Дальше...[ANSWERIMAGE icons/next.png|295;400]
+																																										[mark_bo6fm11ph65iaoo4350a]Но учитывайте, что максимальная цена напрямую зависит от социального слоя, к которому принадлежит человек.[BGNDIMAGE client3_2_2.png|-200;0;1;1;0&client5_3_1.png|100;0;1;1;0]
+																																											Дальше...[ANSWERIMAGE icons/next.png|295;400]
+																																												[mark_2tkve98l2mwq9k3e46v6]У каждого типа клиентов есть небольшая разница в цене, которую он готов добавить к своему последнему слову. Определите её, чтобы вытянуть еще 20-30% к сумме за поездку.[BGNDIMAGE client2_2_2.png]
+																																													Дальше...[ANSWERIMAGE icons/next.png|295;400]
+																																														[mark_t8bi0g8ak34v4xw9x66p]Пьяный человек, зачастую плохо контролирует свои действия и может согласиться на сумму в 2-3 раза больше обычной.[BGNDIMAGE client8_4_0.png]
+																																															Дальше...[ANSWERIMAGE icons/next.png|295;400]
+																																																[mark_37mnh2zriyc32nt44340]Срочно спешащий человек или попавший под дождь всегда более сговорчив.[BGNDIMAGE client3_2_2.png&rain.swf]
+																																																	Дальше...[ANSWERIMAGE icons/next.png|295;400]
+																																																		[mark_89zt9igl229h04wn3t05]Каждый социальный слой предпочитает свои места в городе. Вычислите эти места, а также время суток (день/ночь), когда там появляются богатые клиенты.[BGNDIMAGE bg/background3.jpg]
+																																																			Дальше...[ANSWERIMAGE icons/next.png|295;400]
+																																																				[mark_k70v334fa466q8od93ja]Теперь о плохом. Каждый раз, когда вы отказываете человеку в поездке, окружающий мир становится немного злее.[BGNDIMAGE gop_stop1_1.png]
+																																																					Дальше...[ANSWERIMAGE icons/next.png|295;400]
+																																																						[mark_maa6sk0fo9f82baot105]И в один прекрасный момент люди начнут забывать о таких понятиях, как честность и справедливость.[BGNDIMAGE skins.jpg&gop_stop1_1.png|-200;200;1;1;0;1&gop_stop2_1.png|200;200;1;1;0;1]
+																																																							Дальше...[ANSWERIMAGE icons/next.png|295;400]
+																																																								[mark_rffyt6ns5j0v83n38c35]Делайте мир добрее, помогайте людям и они не остануться в долгу.[BGNDIMAGE ask_fuel.jpg]
+																																																									Дальше...[ANSWERIMAGE icons/next.png|295;400]
+																																																										[mark_6ck99wp2o98sp5xoqf44]Следите за собой, не забывайте вовремя отдыхать, чтобы не попасть в аварию. Не забывайте чинить и чистить машину, так как некоторые клиенты никогда не сядут в грязную или разбитую машину.{loc=location;location=15}{script show_in_autoservice.qsp}{location=loc}{things[thing_psycho_dvd_film,3]=1}
+																																																											Дальше...[ANSWERIMAGE icons/next.png|295;400][AMBIENT none.mp3]
+																																																												[mark_g27ffx2zkc26667j4q6y][GOTO dvd_actions]
+																																					Включу Track1[BGNDMUSIC track1.mp3][ANSWERIMAGE icons/music.png|30;350]
+																																						[mark_c9382qzg8q1l90qt3pm6]{dvd_playing=1}[GOTO dvd_actions]
+																																					Включу Track2[BGNDMUSIC track2.mp3][ANSWERIMAGE icons/music.png|30;400]
+																																						[mark_3f5983v8gz18w8383au0]{dvd_playing=1}[GOTO dvd_actions]
+																																					Включу Track3[BGNDMUSIC track3.mp3][ANSWERIMAGE icons/music.png|90;400]
+																																						[mark_2ir249qi46lnc531nd1q]{dvd_playing=1}[GOTO dvd_actions]
+																																					{if things[thing_tuningkit,1] == 1 {output "Включу Track4[BGNDMUSIC track4.mp3][ANSWERIMAGE icons/music.png|150;400]"}}
+																																						[mark_yv5irk7iv39iyving5pz]{dvd_playing=1}[GOTO dvd_actions]
+																																					Радио1[ANSWERIMAGE icons/radio.png|210;400]
+																																						[mark_y48fc4s0ohtwkh4goq85]{script radio1.qsp}
+																																							
+																																								[mark_v645h0r1rm815643g3j9]{dvd_playing=1}[GOTO dvd_actions]
+																																					Радио2[ANSWERIMAGE icons/radio.png|270;400]
+																																						[mark_x3717tpm7wc9x0lkx0m3]{script radio2.qsp}
+																																							
+																																								[mark_58shbgn0qi9179s44xd3]{dvd_playing=1}[GOTO dvd_actions]
+																																					Радио3[ANSWERIMAGE icons/radio.png|330;400]
+																																						[mark_ypg06agb63869aa3733n]{script radio3.qsp}
+																																							
+																																								[mark_o2qh6e16bql1urj7d3o7]{dvd_playing=1}[GOTO dvd_actions]
+																																					Радио4[ANSWERIMAGE icons/radio.png|390;400]
+																																						[mark_pido03r40l52565kg20c]{script radio4.qsp}
+																																							
+																																								[mark_n00v3dpdl820d0u1368w]{dvd_playing=1}[GOTO dvd_actions]
+																																					Радио5[ANSWERIMAGE icons/radio.png|450;400]
+																																						[mark_ndy9owiopo6ky5te0hn6]{script radio5.qsp}
+																																							
+																																								[mark_b85svlrqs01geju75x71]{dvd_playing=1}[GOTO dvd_actions]
+																																					Выключу[ANSWERIMAGE icons/cancel.png|510;400]
+																																						[mark_8yj36u7mfs897rutpa8k][BGNDMUSIC none.mp3]
+																																							
+																																								[mark_0q1jd3iu8us96jwblr2g]{dvd_playing=0}[GOTO dvd_actions]
+																																					Вернуться в меню[ANSWERIMAGE icons/exit.png|570;390]
+																																						[mark_ud59ie6443qc6bxkw42p]{output "[GOTO " + return_mark + "]"}
+																																	Посмотрю статистику[ANSWERIMAGE icons/stats.png|500;400]
+																																		[show_statistic]Статистика{script show_client.qsp}
+																																			Подвезено клиентов: {i=1;cl_count=0; while i<=max_client_types {cl_count+=clients[i,1];i++} output cl_count}. Смотреть детально...[ANSWERIMAGE icons/next.png|30;400]
+																																				[mark_a8p7mb0ua30e7q8pcg93]Детально по типам клиентов:{output "\n";i=1; while i<= max_client_types {output clients[i,0] + ": " + clients[i,1] + ". ";i++}}
+																																					Вернуться[ANSWERIMAGE icons/exit.png|295;400]
+																																						[mark_82ot0b5r944zzt97m4d1][GOTO show_statistic]
+																																			Выручка, денег: {output money_earned}[ANSWERIMAGE icons/stats.png|90;400]
+																																				[mark_6d7145jj40zi2x449qq7][GOTO show_statistic]
+																																			Потрачено бензина: {output fuel_wasted}[ANSWERIMAGE icons/stats.png|150;400]
+																																				[mark_3ex8s1m3845wq7oo43ty][GOTO show_statistic]
+																																			Приобретено вещей и бонусов: {i=1;things_count=0; while i<=max_things {things_count+=things[i,1];i++} output things_count + " из " + max_things}. Смотреть детально...[ANSWERIMAGE icons/next.png|210;400]
+																																				[mark_de0h76iu4bvog8eooig2]В наличии: {i=1; while i<= max_things {if things[i,1]==1 {output things[i,0] + ". "} i++}}
+																																					Дальше...[ANSWERIMAGE icons/next.png|295;400]
+																																						[mark_c89d6dvtj90db18o10n3]Не хватает: {i=1; while i<= max_things {if things[i,1]==0 {output things[i,0] + ". "}i++}}
+																																							Вернуться[ANSWERIMAGE icons/exit.png|295;400]
+																																								[mark_7wbcbv7514o3x93e6i1m][GOTO show_statistic]
+																																			Озлобленность народа: {output (people_negative*100/people_negative_max):0}%[ANSWERIMAGE icons/stats.png|270;400]
+																																				[mark_l2jcl027b9pa3u6t4v55][GOTO show_statistic]
+																																			Накатано, км: {output car_mileage}[ANSWERIMAGE icons/stats.png|330;400]
+																																				[mark_f1w7ghw5p7g68sjet044][GOTO show_statistic]
+																																			Мастерство вождения: {output (driver_craft*100):2}%[ANSWERIMAGE icons/stats.png|390;400]
+																																				[mark_9qjbbx8chv668i9xk5y1][GOTO show_statistic]
+																																			Аварий: {output crushes_own + crushes_not_own}. По своей вине: {output crushes_own}. По чужой вине: {output crushes_not_own}[ANSWERIMAGE icons/stats.png|450;400]
+																																				[mark_0cj6e7706q796h8ywk6a][GOTO show_statistic]
+																																			Дано ответов по ПДД: {output pdd_wrong + pdd_right}. Правильно: {output pdd_right}. Неправильно: {output pdd_wrong}[ANSWERIMAGE icons/stats.png|510;400]
+																																				[mark_794al9y4u72041tvfhl5][GOTO show_statistic]
+																																			Часов отдыха: {output total_driver_rest_hours}[ANSWERIMAGE icons/stats.png|390;350]
+																																				[mark_04xi45mi08vq35q15l0i][GOTO show_statistic]
+																																			Денег отнято бандитами: {output robbed_money}[ANSWERIMAGE icons/stats.png|330;350]
+																																				[mark_1ds4y209zht825814461][GOTO show_statistic]
+																																			Выиграно денег в казино: {output casino_win_money}[ANSWERIMAGE icons/stats.png|270;350]
+																																				[mark_a06fr4z9y3uqoeo9l509][GOTO location_actions]
+																																			Доход от наркобизнеса: {output drugMoney}[ANSWERIMAGE icons/stats.png|450;350]
+																																				[mark_8bd2q9oi4v2p605k656f][GOTO location_actions]
+																																			Вернуться в меню[ANSWERIMAGE icons/exit.png|570;390]
+																																				[mark_s59w1oe4m8v021k5xipu][GOTO location_actions]
+																																[vip_client_found][GOTO vip_taxing]
+																																[vip_client_not_found]VIP-клиента не видно. Похоже ты приехал не туда...{vip_call=0}{script show_client}
+																																	...[ANSWERIMAGE icons/three_dots.png|295;400]
+																																		[mark_g2i19yi04x93fz46k32x][GOTO location_actions]
+																	{new_location=2;output locations[new_location, 0] + "[ANSWERIMAGE map_mark.png|"+locations[new_location, 1]+";"+locations[new_location,2]+"]"}
+																		[mark_pbt793nja2ovygekd3wf]{script stay_or_change_location.qsp}
+																	{new_location=3;output locations[new_location, 0] + "[ANSWERIMAGE map_mark.png|"+locations[new_location, 1]+";"+locations[new_location,2]+"]"}
+																		[mark_la67zdu8b7us62l7186b]{script stay_or_change_location.qsp}
+																	{new_location=4;output locations[new_location, 0] + "[ANSWERIMAGE map_mark.png|"+locations[new_location, 1]+";"+locations[new_location,2]+"]"}
+																		[mark_eti0vr337djh35mgwm3r]{script stay_or_change_location.qsp}
+																	{new_location=5;output locations[new_location, 0] + "[ANSWERIMAGE map_mark.png|"+locations[new_location, 1]+";"+locations[new_location,2]+"]"}
+																		[mark_dhw49u60c74w79ccp67g]{script stay_or_change_location.qsp}
+																	{new_location=6;output locations[new_location, 0] + "[ANSWERIMAGE map_mark.png|"+locations[new_location, 1]+";"+locations[new_location,2]+"]"}
+																		[mark_m1jw14p8yyynuqz8s3p8]{script stay_or_change_location.qsp}
+																	{new_location=7;output locations[new_location, 0] + "[ANSWERIMAGE map_mark.png|"+locations[new_location, 1]+";"+locations[new_location,2]+"]"}
+																		[mark_f65m63g1b62l4uotw8j7]{script stay_or_change_location.qsp}
+																	{new_location=8;output locations[new_location, 0] + "[ANSWERIMAGE map_mark.png|"+locations[new_location, 1]+";"+locations[new_location,2]+"]"}
+																		[mark_mn5bp879qxnpk4xu57lj]{script stay_or_change_location.qsp}
+																	{new_location=9;output locations[new_location, 0] + "[ANSWERIMAGE map_mark.png|"+locations[new_location, 1]+";"+locations[new_location,2]+"]"}
+																		[mark_j13runwc02441pnefc22]{script stay_or_change_location.qsp}
+																	{new_location=10;output locations[new_location, 0] + "[ANSWERIMAGE map_mark.png|"+locations[new_location, 1]+";"+locations[new_location,2]+"]"}
+																		[mark_p50b608ww95ku0mw1cn1]{script stay_or_change_location.qsp}
+																	{new_location=11;output locations[new_location, 0] + "[ANSWERIMAGE map_mark.png|"+locations[new_location, 1]+";"+locations[new_location,2]+"]"}
+																		[mark_22r76ti068nesp9eixx1]{script stay_or_change_location.qsp}
+																	{new_location=12;output locations[new_location, 0] + "[ANSWERIMAGE map_mark.png|"+locations[new_location, 1]+";"+locations[new_location,2]+"]"}
+																		[mark_927ya4m2do9648eq177a]{script stay_or_change_location.qsp}
+																	{new_location=13;output locations[new_location, 0] + "[ANSWERIMAGE map_mark.png|"+locations[new_location, 1]+";"+locations[new_location,2]+"]"}
+																		[mark_c9ank732w472lbkcvr4d]{script stay_or_change_location.qsp}
+																	{new_location=14;output locations[new_location, 0] + "[ANSWERIMAGE map_mark.png|"+locations[new_location, 1]+";"+locations[new_location,2]+"]"}
+																		[mark_919j70ii0uvwb344i96p]{script stay_or_change_location.qsp}
+																	{new_location=15;output locations[new_location, 0] + "[ANSWERIMAGE map_mark.png|"+locations[new_location, 1]+";"+locations[new_location,2]+"]"}
+																		[mark_15jy40f03463644ksnt4]{script stay_or_change_location.qsp}
+																	{new_location=16;output locations[new_location, 0] + "[ANSWERIMAGE map_mark.png|"+locations[new_location, 1]+";"+locations[new_location,2]+"]"}
+																		[mark_r18k2fuf224ce2a50ibm]{script stay_or_change_location.qsp}
+																	{new_location=17;output locations[new_location, 0] + "[ANSWERIMAGE map_mark.png|"+locations[new_location, 1]+";"+locations[new_location,2]+"]"}
+																		[mark_05puxe708t2obi3w7cej]{script stay_or_change_location.qsp}
+																	{new_location=18;output locations[new_location, 0] + "[ANSWERIMAGE map_mark.png|"+locations[new_location, 1]+";"+locations[new_location,2]+"]"}
+																		[mark_41mqf72g69c0j1f63j00]{script stay_or_change_location.qsp}
+																	{new_location=19;output locations[new_location, 0] + "[ANSWERIMAGE map_mark.png|"+locations[new_location, 1]+";"+locations[new_location,2]+"]"}
+																		[mark_ft17f2a5qsauh18487t8]{script stay_or_change_location.qsp}
+																	{new_location=20;output locations[new_location, 0] + "[ANSWERIMAGE map_mark.png|"+locations[new_location, 1]+";"+locations[new_location,2]+"]"}
+																		[mark_dl7w25m312jbw653499h]{script stay_or_change_location.qsp}
+																	{new_location=21;output locations[new_location, 0] + "[ANSWERIMAGE map_mark.png|"+locations[new_location, 1]+";"+locations[new_location,2]+"]"}
+																		[mark_4004ii0zw0n0h5q1sksq]{script stay_or_change_location.qsp}
+																	{new_location=22;output locations[new_location, 0] + "[ANSWERIMAGE map_mark.png|"+locations[new_location, 1]+";"+locations[new_location,2]+"]"}
+																		[mark_l443hzfvi8580k174r4a]{script stay_or_change_location.qsp}
+																	{new_location=23;output locations[new_location, 0] + "[ANSWERIMAGE map_mark.png|"+locations[new_location, 1]+";"+locations[new_location,2]+"]"}
+																		[mark_3n8d3bqm2o43u5r1c2a8]{script stay_or_change_location.qsp}
+																	{new_location=24;output locations[new_location, 0] + "[ANSWERIMAGE map_mark.png|"+locations[new_location, 1]+";"+locations[new_location,2]+"]"}
+																		[mark_6kbk1dnh9ran4pd4vj96]{script stay_or_change_location.qsp}
+																	{if things[thing_known_garage,1] {new_location=25;output locations[new_location, 0] + "[ANSWERIMAGE map_mark.png|"+locations[new_location, 1]+";"+locations[new_location,2]+"]"}}
+																		[mark_j16ux7jbf5bo6n43e0qt]{script stay_or_change_location.qsp}
+										[you_win]Поздравления! Кредит выплачен полностью! Игра пройдена.{script show_bank.qsp}[AMBIENT final.mp3][MUSIC none.mp3]
+											Класс!!![ANSWERIMAGE icons/cool.png|295;400]
+												[mark_a8u68uf5i8969l1iv2i0][GOTO mark_final]
+												[mark_v860427mpf1hj2e9390i]{script init_vars.qsp}{script rounding.qsp}
+													
+														[mark_final]{show_meteor=0;show_meteor_explosion=0;show_smoke=0;s=0.4;a=1}
+															
+																[more_closer]{script show_final.qsp}[HIDEANSWERS ON][ANSWERTIME 0.1]{if s<1 {s+=0.1;output "[TIMEEXPIRED more_closer]"} else {output "[TIMEEXPIRED finish]"}}]
+																	>>>
+																		[finish]{show_meteor_explosion=1}{script show_final.qsp}[SOUNDFX boom.mp3][HIDEANSWERS ON][ANSWERTIME 1][TIMEEXPIRED more_smoke]
+																			>>>
+																				[more_smoke]{a-=0.1}{show_meteor=1;show_meteor_explosion=0;show_smoke=1}{script show_final.qsp}[HIDEANSWERS ON][ANSWERTIME 0.1]{if a>0 {output "[TIMEEXPIRED more_smoke]"} else {output "[TIMEEXPIRED the_end]"}}
+																					>>>
+																						[the_end]На твою машину упал метеорит...[ANSWERTIME 30][TIMEEXPIRED poster_final]{script show_final.qsp}
+																							О, нет![ANSWERIMAGE icons/three_dots.png|295;400]
+																								[poster_final]"Таксоман", 2010 год. КГ "Социофильм". sociofilm@mail.ru[BGNDIMAGE final_poster.jpg]
+																									Перейти в режим воспоминаний[ANSWERIMAGE icons/next.png|295;400]
+																										[mark_ve3u0eirvom03v59791o][GOTO test_mode]
+										[car_broke][FINAL Из-за плохого технического состояния машины ты погиб в ДТП. Надо было лучше следить за своим автомобилем. Ты проиграл.][BGNDIMAGE car_crushed_total.jpg][SOUNDFX brakes_crash.mp3]
+										[fuel_empty]У тебя кончился бензин...{show_evacuator=0;show_gazel=0}{script show_empty_fuel.qsp}
+											[stop_car_for_fuel]Остановлю кого-нибудь и попрошу бензин[ANSWERIMAGE icons/canister.png|260;400]
+												[try_get_fuel]{script spent_time.qsp}Ты безуспешно провел {output spent_time} ч. времени, пытаясь раздобыть бензин.{script show_empty_fuel.qsp}
+													Попробую еще[ANSWERIMAGE icons/canister.png|260;400]
+														[mark_b7yex9608b9zo3xp11uu][GOTO try_get_fuel, try_get_fuel, try_get_fuel, fuel_found]
+															
+																[fuel_found]{some_fuel=(1+random*2):1}Тебе повезло раздобыть {output some_fuel} л. бензина!{fuel+=some_fuel}{script rounding.qsp}{script show_empty_fuel.qsp}
+																	{if fuel<max_fuel {output "Раздобуду еще бензина[ANSWERIMAGE icons/canister.png|260;400]"}}
+																		[mark_4lc5m9nygeg7p2ha7iea][GOTO try_get_fuel]
+																	Мне хватит этого бензина {output fuel} л., поеду дальше.[ANSWERIMAGE icons/steering_wheel.png|320;400]
+																		[mark_7m289oyw6mi8jyob0gs0][GOTO main_menu]
+													[GOTO stop_car_for_rope]
+													{if fuel>0 {output "Поеду дальше (бензин: " + fuel + " л.)[ANSWERIMAGE icons/steering_wheel.png|380;400]"}}
+														[mark_177p425p2a7bp7w57it6][GOTO main_menu]
+											[stop_car_for_rope]Попрошу кого-нибудь дотянуть меня на веревке до АЗС[ANSWERIMAGE icons/fuel_station.png|320;400]
+												[mark_65a2q36438457vu6a94a][GOTO rope_found, try_find_rope]
+													
+														[try_find_rope]{script spent_time.qsp}Ты безуспешно провел {output spent_time} ч. времени, пытаясь найти, кто дотянет тебя на веревке.{script show_empty_fuel.qsp}
+															Попробую еще[ANSWERIMAGE icons/fuel_station.png|320;400]
+																[mark_c9updo79t291b9ds502v][GOTO rope_found, try_find_rope]
+																	
+																		[rope_found]{script spent_time.qsp}Тебе повезло! Тебя согласились дотянуть на троссе до АЗС{script rounding.qsp}{show_gazel=1}{script show_empty_fuel.qsp}
+																			Отлично![ANSWERIMAGE icons/cool.png|295;400]
+																				[mark_rgl9565uc5xoe283lc0e]{new_location=13}[GOTO new_location]
+															[GOTO stop_car_for_fuel]
+											{evacuation_cost=10*Inflation;if money >= evacuation_cost {output "Вызову эвакуатор, цена: " + evacuation_cost + "[ANSWERIMAGE icons/evacuator.png|380;400]"}}
+												[mark_3j60i5f150qntam94v52]{script spent_time.qsp}{money-=evacuation_cost}{new_location=13;location=13;client_type=0;show_evacuator=1}Эвакуатор довезет тебя до АЗС.{script show_empty_fuel.qsp}
+													Отлично.[ANSWERIMAGE icons/cool.png|295;400]
+														[mark_6417ohsj763rvv790l18][GOTO new_location]
+										[credit_payday]Тебя разыскали коллекторы. Ты задолжал Банку: {output credit_delay_sum}.[BGNDIMAGE collectors.jpg][ANSWERTIME 20][TIMEEXPIRED creditback]
+											...[ANSWERIMAGE icons/three_dots.png|295;400]
+												[creditback]{credit_delay_fine=50*Inflation;if money>=credit_delay_sum + credit_delay_fine {money-=credit_delay_sum-credit_delay_fine;credit_rest_sum-=credit_delay_sum;output "Тебе повезло, что у тебя было с собой достаточно денег, чтобы погасить просроченный платеж и штраф " + credit_delay_fine + " . Тебя отпустили."} else {output "[FINAL Твоя машина была продана, чтобы погасить кредит. Отрицательный финал.][BGNDIMAGE collectors.jpg]"}}
+													...[ANSWERIMAGE icons/three_dots.png|295;400]
+														[mark_4dgdm1tn52q49lm5st58][GOTO {output return_mark}]
+										[barsuk_reckon]Тебя разыскали коллекторы. Ты должен бару Барсук: {output barsuk_credit}, плюс: {output barsuk_collectors_cost*Inflation} за уклонение от оплаты.{barsuk_credit+=barsuk_collectors_cost*Inflation}[BGNDIMAGE collectors.jpg][ANSWERTIME 20][TIMEEXPIRED barsuk_credit_back]
+											...[ANSWERIMAGE icons/three_dots.png|295;400]
+												[barsuk_credit_back]{if money>=barsuk_credit {money-=barsuk_credit;barsukPsy=2;output "Тебе повезло, что у тебя было с собой достаточно денег. Тебя отпустили.[BGNDIMAGE collectors.jpg]"} else {output "[GOTO barsuk_bill]"}}
+													...[ANSWERIMAGE icons/three_dots.png|295;400]
+														[mark_76j99dt9abw22rwn0v50][GOTO {output return_mark}]
+										[sleep_driving]Надо было больше отдыхать, ты заснул за рулем...[BGNDIMAGE black_screen.jpg][ANSWERTIME 15][TIMEEXPIRED crushed]
+											...[ANSWERIMAGE icons/three_dots.png|295;400]
+												[mark_aw7945swf5q10b10tzjm][GOTO crushed]
+										[crushed]{vip_call=0;crushes_own++}{script calc_car_crush.qsp}Авария! Повреждение машины: {output car_damage}%. Текущее состояние машины: {output car_state}%.{if car_state>0 {script show_car_crushed.qsp} else {output "[BGNDIMAGE car_crushed_total.jpg]"}}[SOUNDFX brakes_crash.mp3]
+											...[ANSWERIMAGE icons/three_dots.png|295;400]
+												[mark_49u8ffjt84o9pd2tw9sc]{if car_state>0 {client_type=0;location=new_location;output "[GOTO location_actions]"}}
+													
+														[car_total_crush][FINAL Машина восстановлению не подлежит... Отрицательный финал.][BGNDIMAGE car_crushed_total.jpg]
+										[dangerous_moment]{if pdd_questions < ((game_hours+12)/24)@0 {output "ВНИМАНИЕ! ОПАСНЫЙ МОМЕНТ![BGNDIMAGE attention.jpg][ANSWERTIME 10][TIMEEXPIRED ask_pdd_question]"} else {output "[GOTO human_asks_help]"}}
+											Дальше...[ANSWERIMAGE icons/next.png|295;400]
+												[ask_pdd_question]{pdd_questions++}[GOTO pdd5_14,pdd5_15,pdd6_11,pdd7_11,pdd7_13,pdd4_14,pdd19_11,pdd32_15,pdd11_13,pdd21_14]
+													
+														[pdd5_14]Кому надо уступить?[BGNDIMAGE pdd/pdd5_14]
+															Уступлю легковушке[ANSWERIMAGE icons/one.png|235;400]
+																[mark_97p17889h2385y4vv49f][GOTO wrong_pdd_answer]
+															Уступлю трамваю[ANSWERIMAGE icons/two.png|295;400]
+																[mark_p66yz56zdcr7du2tfg01][GOTO right_pdd_answer]
+															Уступлю обоим[ANSWERIMAGE icons/three.png|355;400]
+																[mark_03ba02628424elw13a60][GOTO wrong_pdd_answer]
+														[pdd5_15]Ты собирался повернуть налево, твои действия?[BGNDIMAGE pdd/pdd5_15]
+															Проеду перекресток первым[ANSWERIMAGE icons/one.png|235;400]
+																[mark_p8b7c3t19841vm7y7dk5][GOTO right_pdd_answer]
+															Уступлю грузовику с включенным проблесковым маячком[ANSWERIMAGE icons/two.png|295;400]
+																[mark_3m7k796r9okpq0504g38][GOTO wrong_pdd_answer]
+															Уступлю обоим[ANSWERIMAGE icons/three.png|355;400]
+																[mark_rp0w4mb8v2035bp06p5d][GOTO wrong_pdd_answer]
+														[pdd6_11]Уступишь дорогу встречному авто?[BGNDIMAGE pdd/pdd6_11]
+															Да[ANSWERIMAGE icons/one.png|260;400]
+																[mark_k50p900a06ro53bm13zk][GOTO right_pdd_answer]
+															Нет[ANSWERIMAGE icons/two.png|320;400]
+																[mark_54evx98v7b5g5og163sf][GOTO wrong_pdd_answer]
+														[pdd7_11]Разрешено ли начинать обгон в конце подъема?[BGNDIMAGE pdd/pdd7_11]
+															Да, если скорость обгоняемого средства менее 30км/ч[ANSWERIMAGE icons/one.png|235;400]
+																[mark_ez52sm0341p35y5z2d13][GOTO wrong_pdd_answer]
+															Да[ANSWERIMAGE icons/two.png|295;400]
+																[mark_7g70jj66x5bkb8cfw56c][GOTO wrong_pdd_answer]
+															Нет[ANSWERIMAGE icons/three.png|355;400]
+																[mark_y536q922690i9k4s2d3u][GOTO right_pdd_answer]
+														[pdd7_13]Как нужно действовать, чтобы повернуть налево?[BGNDIMAGE pdd/pdd7_13]
+															Остановиться перед стоп-линией и после проезда легкового автомобиля повернуть налево[ANSWERIMAGE icons/one.png|235;400]
+																[mark_1ts742qv73056avpze5l][GOTO wrong_pdd_answer]
+															Выехать за стоп-линию и остановиться на перекрестке, чтобы уступить дорогу встречному автомобилю[ANSWERIMAGE icons/two.png|295;400]
+																[mark_f8p97wg771rmf15m117v][GOTO right_pdd_answer]
+															Проехать первым[ANSWERIMAGE icons/three.png|355;400]
+																[mark_jyi9760vx404o6z573cb][GOTO wrong_pdd_answer]
+														[pdd4_14]Как нужно действовать, чтобы проехать перекресток прямо?[BGNDIMAGE pdd/pdd4_14]
+															Проеду перекресток первым[ANSWERIMAGE icons/one.png|235;400]
+																[mark_tz0xyhx22c2gb50o5qaa][GOTO wrong_pdd_answer]
+															Продолжу движение только после выезда на перекресток легкового автомобиля[ANSWERIMAGE icons/two.png|295;400]
+																[mark_08o33jq798c4g4g4r807][GOTO right_pdd_answer]
+															Уступлю дорогу обоим[ANSWERIMAGE icons/three.png|355;400]
+																[mark_iqh238w0a42gftcs72jl][GOTO wrong_pdd_answer]
+														[pdd19_11]Как поступить в данной ситуации?[BGNDIMAGE pdd/pdd19_11]
+															Обогнать грузовой автомобиль справа по обочине[ANSWERIMAGE icons/one.png|235;400]
+																[mark_5352573s8u8dvs1hzo93][GOTO wrong_pdd_answer]
+															Продолжу движение прямо только после того, как грузовой автомобиль освободит полосу движения[ANSWERIMAGE icons/two.png|295;400]
+																[mark_973v5va29v05842b3ar6][GOTO right_pdd_answer]
+															Разрешается любое из перечисленных действий[ANSWERIMAGE icons/three.png|355;400]
+																[mark_el06t44107354412kx8t][GOTO wrong_pdd_answer]
+														[pdd32_15]Кому следует уступить дорогу, чтобы проехать прямо?[BGNDIMAGE pdd/pdd32_15]
+															Только трамваю[ANSWERIMAGE icons/one.png|200;400]
+																[mark_3896n8v4j0rm6fx01207][GOTO wrong_pdd_answer]
+															Трамваю и легковому автомобилю[ANSWERIMAGE icons/two.png|260;400]
+																[mark_v76z1wzhi0j5xim1nh5p][GOTO right_pdd_answer]
+															Только легковому автомобилю[ANSWERIMAGE icons/three.png|320;400]
+																[mark_6md55888nuzj8zr3741a][GOTO wrong_pdd_answer]
+															Всем транспортным средствам[ANSWERIMAGE icons/four.png|380;400]
+																[mark_2s604549b0766nc5hkqj][GOTO wrong_pdd_answer]
+														[pdd11_13]Нужно ли уступить дорогу легковому автомобилю, чтобы повернуть направо?[BGNDIMAGE pdd/pdd11_13]
+															Нет[ANSWERIMAGE icons/one.png|260;400]
+																[mark_48qkak340727g4183b61][GOTO wrong_pdd_answer]
+															Да[ANSWERIMAGE icons/two.png|320;400]
+																[mark_np10v48hp0087s56fz8l][GOTO right_pdd_answer]
+														[pdd21_14]Ваши действия, чтобы повернуть налево?[BGNDIMAGE pdd/pdd21_14]
+															Проеду перекресток последним после проезда мотоцикла[ANSWERIMAGE icons/one.png|260;400]
+																[mark_2ygx6cdb16me55m7aww0][GOTO right_pdd_answer]
+															Проеду перекресток первым одновременно со встречным автомобилем[ANSWERIMAGE icons/two.png|320;400]
+																[mark_42lu5sq070s79cg3cv6s][GOTO wrong_pdd_answer]
+														[wrong_pdd_answer]{pdd_wrong++}
+															
+																[mark_4f35b8w5ipz21vcbkm9u][GOTO crushed]
+														[right_pdd_answer]{pdd_right++}
+															
+																[mark_31tytrs1kz6jkcw02r78][GOTO human_asks_help]
+										[human_asks_help]{if random*people_negative_max < people_negative {output "[GOTO select_human_help]"} else {output "[GOTO " + return_mark + "]"}}
+											
+												[select_human_help]Похоже человек просит помощи. Остановишься?{ask_fuel_yes=0}{script show_ask_fuel.qsp}[ANSWERTIME 15][TIMEEXPIRED give_no_fuel]
+													Да, помогу человеку[ANSWERIMAGE icons/good.png|260;400]
+														[mark_ct241s7sv873o0x9p42m]{ask_fuel_yes=1}Дружище, поделись бензином, если не трудно?{script show_ask_fuel.qsp}[ANSWERTIME 15][TIMEEXPIRED give_no_fuel]
+															Солью сколько не жалко[ANSWERIMAGE icons/good.png|260;400]
+																[mark_71n6gwdxol7c8pu5ed40][GOTO input_fuel_for_help{if random*people_negative_max/2 < people_negative {asked_fuel=1;output ",gop_stop"}}]
+																	
+																		[input_fuel_for_help]Введи количество бензина? (0 - {output fuel}){script show_ask_fuel.qsp}[ANSWERTIME 60][TIMEEXPIRED give_no_fuel]
+																			[INPUTN some_fuel]
+																				[mark_r1s5ou4v7h89327ml1h3]{if (some_fuel<0) || (some_fuel>fuel) {output "[GOTO input_fuel_for_help]"}}
+																					
+																						[mark_58sa4ti81qe7ep6267v0]{if some_fuel >=1 {fuel-=some_fuel;people_negative-=(5+some_fuel);{script spent_time.qsp}output "Спасибо тебе, дружище!"} else {output "Ты что, издеваешься? А ну вали отсюда!";people_negative+=1}}{script rounding.qsp}{script show_ask_fuel.qsp}[ANSWERTIME 15][TIMEEXPIRED {output return_mark}]
+																							Пойду дальше.[ANSWERIMAGE icons/next.png|295;400]
+																								[mark_54mjziccue80hssr9bn6]{output "[GOTO " + return_mark + "]"}
+															Не могу, извини[ANSWERIMAGE icons/cancel.png|320;400]
+																[mark_ixl4697s24ve73r73ts9][GOTO {output return_mark}]
+													Нет, проеду мимо[ANSWERIMAGE icons/cancel.png|320;400]
+														[give_no_fuel][GOTO {output return_mark}]
+										[different_situations]{random_people_negative = random * people_negative_max / 2; if (is_daytime) && (random_people_negative < people_negative) {output "[GOTO traffic_congestion]"} else {output "[GOTO dangerous_moment]"}}
+											
+												[traffic_congestion]{script spent_time}{script rounding.qsp}Ты попал в пробку и провел в ней времени: {output spent_time} ч.{script show_traffic_congestion.qsp}[ANSWERTIME 10][TIMEEXPIRED dangerous_moment]
+													Дальше...[ANSWERIMAGE icons/next.png|295;400]
+														[mark_ha498312r54629zhsz1k][GOTO dangerous_moment]
+										[test_mode]{script init_vars.qsp}{car_state=100;client_type=1;client_subtype=1;client_state=0;weather=0;is_daytime=1;driver_show_gun=0;view=1;location=1;things[thing_tuningkit,3]=1;max_waiting=4;waiting=100}[AMBIENT what_is_love.mp3 ]
+											
+												[test_view]{script rounding.qsp}{script show_game_stats.qsp}{if view == 1 {script show_client_inside_rear.qsp} else {if view == 0 {script show_client.qsp} else {if view == 2 {script show_client_travel} else {if view == 3 {script show_in_abandoned_garage.qsp} else {if view == 4 {script show_traffic_congestion.qsp}}}}}}
+													Сменить главный вид: {output view}[ANSWERIMAGE icons/one.png|30;400]
+														[mark_h64ck8c2sfxrfi19q172]{view++; if view>4 {view=0}}[GOTO test_view]
+													{if view==0 {output "Сменить локацию[ANSWERIMAGE icons/change_location.png|30;440]"}}
+														[mark_1qh65z7q39pb7kwy5r56]{location++; if location>24 {location=0}}[GOTO test_view]
+													Следующий клиент[ANSWERIMAGE icons/two.png|90;400]
+														[mark_hmf2b7b43t25ivrag579]{client_type++;client_subtype=1;if client_type>9 {client_type=1}}[GOTO test_view]
+													Следующий подвид клиента[ANSWERIMAGE icons/three.png|150;400]
+														[mark_pdxq9br06d3n7s3v5l61]{client_subtype++}[GOTO test_view]
+													Следующее настроение клиента[ANSWERIMAGE icons/four.png|210;400]
+														[mark_9c7adz39qh6fx2cik151]{client_state++; if client_state>2 {client_state=0}}[GOTO test_view]
+													Сменить погоду[ANSWERIMAGE icons/five.png|270;400]
+														[mark_5t70w2oxuo87l3sy0132]{weather++; if weather>2 {weather=0}}[GOTO test_view]
+													Добавить +3 часа времени[ANSWERIMAGE icons/six.png|330;400]
+														[mark_1h938g56x45ba1kjwt0e]{game_hours+=3}[GOTO test_view]
+													Оружие[ANSWERIMAGE icons/gun.png|390;400]
+														[mark_zr344yt8l7z847qr3fxi]{driver_show_gun++; if driver_show_gun>1 {driver_show_gun=0}}[GOTO test_view]
+													Повреждение машины -30%[ANSWERIMAGE icons/options.png|450;400]
+														[mark_508xkh21aa2n654o4o7l]{car_state-=30; if car_state<0 {car_state=100}}[GOTO test_view]
+													Тюнинг машины[ANSWERIMAGE icons/cool.png|510;400]
+														[mark_3g6spc98pn9i5dyb0j50]{things[thing_tuningkit,3]=1-things[thing_tuningkit,3]}[GOTO test_view]
+													Чистота машины -30%[ANSWERIMAGE icons/car_wash.png|570;400]
+														[mark_yffd4167oc6ur5h471h5]{car_cleanness-=30;if car_cleanness<0 {car_cleanness=100}}[GOTO test_view]
+										[business1,client_proposes_casino_bet]{if (things[thing_vinyl_dog,3])&&(things[thing_casino_bet,1]==0)&&(things[thing_casino_bet,3]==0)&&(client_type==8) {cct=client_subtype;output ""} else {output "[GOTO business2]"}}
+											
+												[mark_8878446dr9me5q85pwqs]Послушай, дружище, есть у меня к тебе деловое предложение... Интересно?{script show_client_inside_rear.qsp}
+													Ну говори...[ANSWERIMAGE icons/next.png|260;400]
+														[mark_v70c8t8p59h98zsic58b]Ты не смотри, что я так странно выгляжу. На самом деле я работаю крупье в казино. Мой босс обидел меня, и я хочу ему отомстить. Я очень долго сидел в баре, пил и придумал способ.{script show_client_inside_rear.qsp}
+															Что за способ?[ANSWERIMAGE icons/next.png|295;400]
+																[mark_g5w889mi2c4r69n9315d]Я могу подстроить случайный выигрыш в рулетку. Он увеличит твою ставку в 36 раз!{script show_client_inside_rear.qsp}
+																	Просто пришел, поставил и выиграл?[ANSWERIMAGE icons/next.png|295;400]
+																		[mark_no934fi55t9yz25ohb64]Не совсем... Приезжай завтра в любое время в {output locations[12,0]}, подходи к рулетке и делай ставку на число 29. Это самое редковстречаемое число в нашем казино, на него почти никогда не ставят. Затем забираешь деньги и уходишь...{script show_client_inside_rear.qsp}
+																			А твой интерес?[ANSWERIMAGE icons/next.png|295;400]
+																				[mark_8r197kwydgz1t54ju8o5]Позже ты отдашь мне половину выигрыша. Ну что, согласен?{script show_client_inside_rear.qsp}
+																					Пожалуй да[ANSWERIMAGE icons/good.png|260;400]
+																						[mark_aeid237b4z2f25i099ff]Договорились. Завтра. Казино. Любое время. Число 29. Это наш шанс разбогатеть, дружище, не упусти его! И помни, ставка сыграет всего только один раз!!!{casino_win_day=(game_hours/24+1)@0}{script show_client_inside_rear.qsp}
+																							Хорошо, я буду там.[ANSWERIMAGE icons/next.png|295;400]
+																								[mark_1axem71626jjc47h8csl]... и вот еще что, не вздумай потратить весь выигрыш на себя! А то у твоей машины могут отказать тормоза.{script show_client_inside_rear.qsp}
+																									Да, я понял.[ANSWERIMAGE icons/next.png|295;400]
+																										[mark_0d29kc6a5w9984371a74]{things[thing_casino_bet,1]=1}[GOTO business2]
+																					Нет, это противозаконно[ANSWERIMAGE icons/cancel.png|320;400]
+																						[mark_li1p5ig27if9lcbi6u1t][GOTO business2]
+													Нет.[ANSWERIMAGE icons/cancel.png|320;400]
+														[mark_9mssq9qv462z3d59l8z2][GOTO business2]
+										[business2]{{radio_cost=(((things[thing_dvd,2]*Inflation/(1+random*3))/100):0)*100}; if (things[thing_dvd,1]==0) && ((client_type==6) || (client_type==2)) && (money>=radio_cost) {output ""} else {output "[GOTO business3]"}}
+											
+												[mark_z91177cj338s75if4a25]Слышь, братан, купи у меня магнитолу? Совсем дешево отдам.{script show_client_inside_rear.qsp}
+													Покажи.[ANSWERIMAGE icons/next.png|260;400]
+														[mark_n1uv9m3403ond1qut221]Почти новая. Уступлю за: {output radio_cost}{value_to_show=radio_cost}{script calc_client_price_picture.qsp}{show_dvd=1}{script show_client_inside_rear.qsp}
+															Ладно, беру[ANSWERIMAGE icons/good.png|260;400]
+																[mark_l844v9943n93k187s961]Вот и отличненько, братан!{money-=radio_cost;things[thing_dvd,1]=1;stolen_dvd=1;people_negative+=5}{client_state=0}{show_dvd=0}{script show_client_inside_rear.qsp}
+																	Спасибо.[ANSWERIMAGE icons/next.png|295;400]
+																		[mark_946u84by28528nnv48z6][GOTO business3]
+															[no_need_radio]Нет, не надо[ANSWERIMAGE icons/cancel.png|320;400]
+																[mark_6o79680y34t6y7fwc5cw]{show_dvd=0}[GOTO business3]
+													[GOTO no_need_radio]
+										[business3]{{vip_radio_cost=(((things[thing_vip_radio,2]*Inflation/(1+random*3))/100):0)*100}; if (things[thing_vip_radio,1]==0) && (client_type==1) && (money>=vip_radio_cost) && (random<0.5) {output ""} else {output "[GOTO business4]"}}
+											
+												[mark_2hjjw9bya6z4x401022p]{show_vip_radio_box=1}У меня есть подходящий для вас товар, называется {output things[thing_vip_radio,0]}, не хотите ли купить, скажем за {output vip_radio_cost}?{value_to_show=vip_radio_cost}{script calc_client_price_picture.qsp}{script show_client_inside_rear.qsp}
+													Беру[ANSWERIMAGE icons/good.png|260;400]
+														[mark_5ehs0np9cjrc1i1h97i1]Это отличный прибор, работает, как часы! Сам паял. Пользуйтесь на здоровье!{money-=vip_radio_cost;things[thing_vip_radio,1]=1}{show_vip_radio_box=0;client_state=0}{script show_client_inside_rear.qsp}
+															Спасибо.[ANSWERIMAGE icons/good.png|295;400]
+																[mark_ec84ztf1my8jrl0f4823][GOTO business4]
+													Нет, не надо[ANSWERIMAGE icons/cancel.png|320;400]
+														[mark_21x4r183x1r9ucssxh1h]{show_vip_radio_box=0}[GOTO business4]
+										[business4]{thing_cost=500 + (random*5):0*100}{if (random < 0.5) && (things[thing_known_garage,1]==0) && (client_type==4) && (money >= thing_cost) {output "[GOTO garage_proposal]"} else {output "[GOTO business5]"}}
+											
+												[garage_proposal]Скажи, а ты свою машину сам чинишь или в автосервисе? Есть деловое предложение.{script show_client_inside_rear.qsp}
+													Да, сам[ANSWERIMAGE icons/one.png|260;400]
+														[mark_g61az9238n87g2285bjv]Это ты правильно делаешь. Значит гараж у тебя уже есть?{script show_client_inside_rear.qsp}
+															Да[ANSWERIMAGE icons/one.png|260;400]
+																[mark_7g93dux40e73747p15b7]Ну ладно, рули дальше.{script show_client_inside_rear.qsp}
+																	Дальше...[ANSWERIMAGE icons/next.png|260;400]
+																		[mark_91obcmg7ysc56ra3oqcg][GOTO business5]
+															Нет[ANSWERIMAGE icons/two.png|320;400]
+																[mark_87jewl74a41zw84hz785]Как же ты чинишь?{script show_client_inside_rear.qsp}
+																	На улице[ANSWERIMAGE icons/one.png|260;400]
+																		[mark_e96mg1d3th1v3oo9k1f2][GOTO sell_garage_location]
+																	Нет, я ошибся, чиню в сервисе[ANSWERIMAGE icons/two.png|320;400]
+																		[mark_t0k08y1x33hd886s26t8][GOTO sell_garage_location]
+													В автосервисе, где же еще.[ANSWERIMAGE icons/two.png|320;400]
+														[sell_garage_location]Могу подсказать один заброшенный гараж, сможешь самостоятельно чинить. Если, конечно, у тебя есть: {output things[thing_repairing_toolkit,0]}, {output things[thing_repairing_book,0]} и руки не из жопы растут.{script show_client_inside_rear.qsp}
+															Ну скажи[ANSWERIMAGE icons/good.png|260;400]
+																[mark_56014mbbskq57882j925]Эта информация будет стоит: {output thing_cost}, потому что зарплата у меня маленькая, а жена злая.{value_to_show=thing_cost}{script calc_client_price_picture.qsp}{script show_client_inside_rear.qsp}
+																	Я согласен[ANSWERIMAGE icons/good.png|260;400]
+																		[mark_85w48x3tp557294n558e]{if thing_cost < money {output "[GOTO tell_garage_secret_place]"}}
+																			
+																				[mark_1c6r58v936xzlh2825zg]Ты бы деньжат сначала накопил, чтобы тайны слушать...{script show_client_inside_rear.qsp}
+																					...[ANSWERIMAGE icons/three_dots.png|295;400]
+																						[mark_rgpf2p63gc31652ug299][GOTO business5]
+																		[tell_garage_secret_place]Значит так, гараж располагается на бывшей военной базе в пригороде. Я тебе отметил на карте, посмотришь потом.{money-=thing_cost;things[thing_known_garage,1]=1}{script show_client_inside_rear.qsp}
+																			Спасибо[ANSWERIMAGE icons/good.png|295;400]
+																				[mark_7124jj4umu01ypamd27o][GOTO business5]
+																	[no_need_in_garage]Не нужно, спасибо[ANSWERIMAGE icons/cancel.png|200;400]
+																		[mark_i7y2905nu30evsw3004d][GOTO business5]
+															[GOTO no_need_in_garage]
+													Я еще не чинил ни разу[ANSWERIMAGE icons/two.png|380;400]
+														[mark_0r56d522ww898gm8l5c6]Рано или поздно все равно придется ремонтировать, а автосервис тебе такие цены выставит, что мама не горюй.{script show_client_inside_rear.qsp}
+															Дальше...[ANSWERIMAGE icons/next.png|295;400]
+																[mark_67ew2wle2sswv52f2m12][GOTO sell_garage_location]
+													[GOTO no_need_in_garage]
+										[business5]{{thing_cost=(((things[thing_fuel_discount,2]*Inflation/(1+random*3))/100):0)*100}; if (things[thing_fuel_discount,1]==0) && (client_type==2) && (money>=thing_cost) {output ""} else {output "[GOTO business6]"}}
+											
+												[mark_6od9cu9oo0423ns564zx]Братэлла, слышь, у меня тут уникальная вещица имеется, карточка: {output things[thing_fuel_discount,0]}. Хочешь, продам тебе за: {output thing_cost}?{value_to_show=thing_cost}{script calc_client_price_picture.qsp}{script show_client_inside_rear.qsp}
+													Не нужно, спасибо[ANSWERIMAGE icons/cancel.png|320;400]
+														[mark_tdy290rmqvn67u4zt6qi]Гужбан, ты меня не понял, в городе таких очень мало. Будешь на бензинчике экономить. Выгодная сделка.{script show_client_inside_rear.qsp}
+															[ok_buy_fuel_discount_card]Давай, куплю[ANSWERIMAGE icons/good.png|260;400]
+																[mark_ap57yr2v2n769hz97cil]Пользуйся, гужбан... помни мою доброту.{money-=thing_cost;things[thing_fuel_discount,1]=1}{client_state=0}{script show_client_inside_rear.qsp}
+																	Спасибо.[ANSWERIMAGE icons/good.png|295;400]
+																		[mark_73680257nj0hvu654p67][GOTO business6]
+															Нет[ANSWERIMAGE icons/cancel.png|320;400]
+																[mark_1je71j0pv692hd0j385k][GOTO business6]
+													[GOTO ok_buy_fuel_discount_card]
+										[business6]{if (drugDealer == 1) && (client_type==6) && (drugDealerGoodsDriver>0) {output "[GOTO drug_distribution]"} else {output "[GOTO business7]"} }
+											
+												[drug_distribution]Братишь... у тебя ведь есть что-то для меня?{nark_money=((drugDealerGoodsCost*Inflation/drugGoodsInPackage)*(1+random*4):0):0}{script show_client_inside_rear.qsp}
+													Возможно.[ANSWERIMAGE icons/one.png|260;400]
+														[how_much_drug_costs]Продай не за дорого, братишь?{if random < 0.5 {output " Давай за " + nark_money + "?";{value_to_show=nark_money}{script calc_client_price_picture.qsp}}}{script show_client_inside_rear.qsp}
+															[drug_price_is_1x]{drug_price=((drugDealerGoodsCost*Inflation/drugGoodsInPackage)*1):0;output drug_price}[ANSWERIMAGE icons/money1.png|90;400]
+																[buy_drugs]{if (nark_money<drug_price) {output "[GOTO nark_try_reduce_price]"} else {output "[GOTO nark_buy_drug]"}}
+																	
+																		[nark_try_reduce_price]Слух, у меня малёха не хватает, уступи чуток?{script show_client_inside_rear.qsp}
+																			Ладно.[ANSWERIMAGE icons/good.png|260;400]
+																				[mark_pwbxe3emjzx50mb9c74h][GOTO how_much_drug_costs]
+																			Нет.[ANSWERIMAGE icons/cancel.png|320;400]
+																				[mark_b2tjijib8tvafdo753t6]{if client_state==2 {output "[GOTO nark_fury]"} else {output "[GOTO nark_relaxed]"}}
+																					
+																						[nark_fury]Ты чо, не видишь меня ломает???{script show_client_inside_rear.qsp}
+																							...[ANSWERIMAGE icons/three_dots.png|295;400]
+																								[mark_17lq7749t28h5kxmeqm9]Продай за {output nark_money}! Это все что есть!{value_to_show=nark_money}{script calc_client_price_picture.qsp}{script show_client_inside_rear.qsp}
+																									Ладно.[ANSWERIMAGE icons/good.png|260;400]
+																										[mark_wk02z5y87w34w98u11m9]{drug_price=nark_money}[GOTO nark_buy_drug]
+																									Нет.[ANSWERIMAGE icons/cancel.png|320;400]
+																										[mark_iuh16zzogq75flb76s62]{if things[thing_gun,1]==1 {output "[GOTO show_gun_to_nark]"} else {output "[GOTO nark_kill_driver]"}}
+																											
+																												[show_gun_to_nark]{driver_show_gun=1}Клиент хотел тебя убить, но ты вовремя выхватил ствол!{script show_client_inside_rear.qsp}
+																													...[ANSWERIMAGE icons/three_dots.png|295;400]
+																														[mark_6ndio08y50s42ntr9c87]{driver_show_gun=0}[GOTO business7]
+																												[nark_kill_driver][FINAL Тебя убил наркоман из-за дозы... Игра окончена.][BGNDIMAGE blood.jpg][SOUNDFX brakes_crash.mp3]
+																						[nark_relaxed]Зря ты так братуха...{people_negative+=2}{script show_client_inside_rear.qsp}
+																							...[ANSWERIMAGE icons/three_dots.png|295;400]
+																								[mark_jm63s895444j5z51666j][GOTO business7]
+																		[nark_buy_drug]Спасибо, братишь!{money+=drug_price;drugMoney+=drug_price;drugDealerGoodsDriver--;people_negative+=2}{script rounding.qsp}{script show_client_inside_rear.qsp}
+																			...[ANSWERIMAGE icons/good.png|295;400]
+																				[mark_60wyfzs83dnm5itg5sdx][GOTO business7]
+															[drug_price_is_2x]{drug_price=((drugDealerGoodsCost*Inflation/drugGoodsInPackage)*2):0;output drug_price}[ANSWERIMAGE icons/money2.png|150;400]
+																[mark_pg53127b4z3u7s52b1m8][GOTO buy_drugs]
+															[drug_price_is_3x]{drug_price=((drugDealerGoodsCost*Inflation/drugGoodsInPackage)*3):0;output drug_price}[ANSWERIMAGE icons/money3.png|210;400]
+																[mark_p7499g306q6metzi17vb][GOTO buy_drugs]
+															[drug_price_is_4x]{drug_price=((drugDealerGoodsCost*Inflation/drugGoodsInPackage)*4):0;output drug_price}[ANSWERIMAGE icons/money4.png|270;400]
+																[mark_ws2m9u1ieof3r098m52e][GOTO buy_drugs]
+															[drug_price_is_5x]{drug_price=((drugDealerGoodsCost*Inflation/drugGoodsInPackage)*5):0;output drug_price}[ANSWERIMAGE icons/money5.png|330;400]
+																[mark_6g2a032th99s967rg60w][GOTO buy_drugs]
+															Отказать.[ANSWERIMAGE icons/cancel.png|390;400]
+																[mark_2zbpmy311ls16t4zscf5][GOTO buy_drugs]
+															Отдам все бесплатно.[ANSWERIMAGE icons/drug.png|450;400]
+																[mark_blt22m30wmthto020tsl]{drugDealerGoodsDriver=0;client_state=0}Ох ты! Них... да ты, братишь, ваще... братан! Спасибо тебе!{script show_client_inside_rear.qsp}
+																	...[ANSWERIMAGE icons/three_dots.png|295;400]
+																		[mark_6s0dykiow55p9ria5sak][GOTO business7]
+													Промолчу.[ANSWERIMAGE icons/two.png|320;400]
+														[mark_0siqcdshcuunp9u61fl4][GOTO business7]
+										[business7]{if (drugDealer == 0) && (client_type==6) && (money>=drugDealerGoodsCost*Inflation) {output "[GOTO drug_dealer]"} else {output "[GOTO business8]"} }
+											
+												[drug_dealer]Братишь, разреши тебе один вопрос задать?{script show_client_inside_rear.qsp}
+													Ну задавай.[ANSWERIMAGE icons/next.png|260;400]
+														[mark_hp9y182orpo4142w2426]Хочешь нормуль заработать?{script show_client_inside_rear.qsp}
+															Криминал?[ANSWERIMAGE icons/next.png|260;400]
+																[mark_n52dn677993fh9ul5n02]Нее, нее! Не криминал! Торговый бизнес, братишь!{script show_client_inside_rear.qsp}
+																	Ну говори.[ANSWERIMAGE icons/next.png|260;400]
+																		[mark_ro3fpz4s5fo6752v3465]Смотри, тут такое дело... надо моим корешам кое-какой товар передавать... Ясен перец, не бесплатно.{script show_client_inside_rear.qsp}
+																			Какой товар?[ANSWERIMAGE icons/next.png|260;400]
+																				[mark_m3hmx8b0at377d7a417r]Да не важно какой! Тебе ж не за вопросы будут платить! Обычный товар, лекарственный... для больных людей. Будет у тебя своя аптека на колесах. Ы-ы-ы-ы...{script show_client_inside_rear.qsp}
+																					...[ANSWERIMAGE icons/three_dots.png|295;400]
+																						[mark_2ii0k4b8u0f5pg7j0t0h]Берешь товар по {output drugDealerGoodsCost*Inflation}, продаешь намного дороже. Согласен?{script show_client_inside_rear.qsp}
+																							Да.[ANSWERIMAGE icons/good.png|260;400]
+																								[mark_5ac0ho2hhd359x301gf9]{drugDealer=1}Короче, схема такая... едешь в банк... переводишь {output drugDealerGoodsCost*Inflation} на номер карты, которую я тебе дам... Потом едешь в Ракетный и забираешь товар в условном месте...{script show_client_inside_rear.qsp}
+																									...[ANSWERIMAGE icons/three_dots.png|295;400]
+																										[mark_7ms9iiqhc3094z2is475]Товар продаешь у себя в таксишке... людям, похожим на меня... по цене... эээ... какой захочешь... Не боись! Больные люди брать будут однозначно, по себе знаю...{script show_client_inside_rear.qsp}
+																											...[ANSWERIMAGE icons/three_dots.png|295;400]
+																												[mark_7n7l5h5f02ivk73wz68x]Да, чуть не забыл... в одной упаковке товара - {output drugGoodsInPackage} пакетиков. Надо найти ... эээ... {output drugGoodsInPackage} больных людей. Хороший бизнес... завидую тебе, братишь... быстро разбогатеешь!{script show_client_inside_rear.qsp}
+																													А ты сам почему этим не займешься?[ANSWERIMAGE icons/how_much.png|295;400]
+																														[mark_3r82o431xm1u79k5gck1]Я занимался... тоже таксист был... просто по другому делу долг появился... машину пришлось продать.{script show_client_inside_rear.qsp}
+																															...[ANSWERIMAGE icons/three_dots.png|292;400]
+																																[mark_20krd3yxeqtc7yjhq6tc][GOTO business8]
+																							[no_drugs]Нет.[ANSWERIMAGE icons/cancel.png|320;400]
+																								[mark_87p0o3i3g147k2qv6927][GOTO business8]
+															[GOTO no_drugs]
+													[GOTO no_drugs]
+										[business8]{if drugMoney > drugMaxMoneyEarn {output "[GOTO police_catch_drug_dealer]"} else {output "[GOTO business9]"}}
+											
+												[police_catch_drug_dealer][FINAL Тебя за наркоту поймала полиция! Игра окончена.][BGNDIMAGE collectors.jpg]
+										[business9]{if (client_type==5) && (client_subtype==1) && (barsukPsy>0) && (barsukPsy<3){output "[GOTO ask_barsuk]"} else {output "[GOTO business10]"}} 
+											
+												[ask_barsuk]Этот человек похож на того кидалу из бара Барсук!{script show_client_inside_rear.qsp}
+													Вот ты и попался, Барсук![ANSWERIMAGE icons/fist.png|260;400]
+														[mark_s8ua06uu8942x67u6z6t]Эй, эй! Полегче! Вы меня с кем-то путаете...{script show_client_inside_rear.qsp}
+															Хмм... Он или не он?[ANSWERIMAGE icons/three_dots.png|295;400]
+																[mark_fr3220o8w534r0716n5n][GOTO business10]
+													Нет, Барсука надо искать в баре...[ANSWERIMAGE icons/three_dots.png|320;400]
+														[mark_4b48o61o528tzyh16qu5][GOTO business10]
+										[business10]{if (stolen_dvd==1) && (client_type==4) && (random < 0.7) {output "[GOTO stolen_dvd]"} else {output "[GOTO business11]"}} 
+											
+												[stolen_dvd]Ну-ка, ну-ка... постой, таксист... Да это же моя магнитола! Признавайся, где взял?{script show_client_inside_rear.qsp}
+													Чем докажешь?[ANSWERIMAGE icons/how_much.png|235;400]
+														[mark_4hzvckxtu6s8p1je172l]Сбоку должна быть царапина. Это я её уронил, когда обмывал.{script show_client_inside_rear.qsp}
+															Да, есть царапина...[ANSWERIMAGE icons/three_dots.png|295;400]
+																[give_me_my_dvd]Ну что, сам отдашь магнитолу или силу применить надо?{script show_client_inside_rear.qsp}
+																	{if things[thing_gun,1]==1 {output "Не отдам![ANSWERIMAGE icons/gun.png|235;400]"}}
+																		[mark_6xs87g95p969o2166095]{driver_show_gun=1;client_state=2}Ты думаешь меня, военного человека, этой пукалкой испугать?{script show_client_inside_rear.qsp}
+																			...[ANSWERIMAGE icons/three_dots.png|295;400]
+																				[mark_og411m99f608p483yq85]{driver_show_gun=0}Опа! И нет у тебя пушки.. Давай сюда магнитолу! Живо!{things[thing_gun,1]=0}{script show_client_inside_rear.qsp}
+																					[eh_take_dvd]Эх... забирай![ANSWERIMAGE icons/three_dots.png|295;400]
+																						[mark_5zr4p17miq7oz7k6d82q]Вот и ладненько.{things[thing_dvd,1]=0; dvd_playing=0;stolen_dvd=0;client_state=0}{script show_client_inside_rear.qsp}
+																							[took_dvd]...[ANSWERIMAGE icons/three_dots.png|295;400]
+																								[mark_085g04u0t2f3r0k49lnw][GOTO business11]
+																	[GOTO eh_take_dvd]
+													С рук купил.[ANSWERIMAGE icons/three_dots.png|295;400]
+														[mark_4741edx5ftui1649o9hs][GOTO give_me_my_dvd]
+										[business11][GOTO client_arriving]
+					Пропустить заставку[ANSWERIMAGE icons/steering_wheel.png|320;420]
+						[mark_xe72jh70wng5iteh660h][GOTO init_vars]
+			English / Английский[ANSWERIMAGE icons/en.png|360;400]
+				[mark_3xkp6ond143dfj8rjbyt]Перевод отсутствует. Если есть желание перевести, пишите: sociofilm@mail.ru
+					Дальше...[ANSWERIMAGE icons/next.png|295;400]
+						[mark_6yx11f131mn0hw3864qa][GOTO choose_language]
+						[mark_9k48mt7l5uy37h6x1w28][BGNDIMAGE dvd_film.jpg,vip_radio_box.png,car_front_tuning.png,car_inside_rear_tuning.png,car_body_tuning.png,abandoned_garage.jpg,ask_fuel.jpg,ask_fuel_yes.jpg,attention.jpg,black_screen.jpg,broken_windshield.png,bush.jpg,car.png,car_body.png,car_body_damaged.png,car_crushed_total.jpg,car_damaged_front_side.png,car_damaged_rear_side.png,car_door.png,car_door_closed.png,car_front.png,car_front_wipers.png,car_inside_rear.png,car_tuned.png,car_tuned_damaged_front_side.png,car_tuned_damaged_rear_side.png,car_tuning_basic.png,car_tuning_extra.png,casino.jpg,city.jpg,city_hall_inside.jpg,client1_1_0.png,client1_1_1.png,client1_1_2.png,client1_2_0.png,client1_2_1.png,client1_2_2.png,client2_1_0.png,client2_1_1.png,client2_1_2.png,client2_2_0.png,client2_2_1.png,client2_2_2.png,client3_1_0.png,client3_1_1.png,client3_1_2.png,client3_2_0.png,client3_2_1.png,client3_2_2.png,client3_3_0.png,client3_3_1.png,client3_3_2.png,client3_4_0.png,client3_4_1.png,client3_4_2.png,client4_1_0.png,client4_1_1.png,client4_1_2.png,client4_2_0.png,client4_2_1.png,client4_2_2.png,client4_3_0.png,client4_3_1.png,client4_3_2.png,client5_1_0.png,client5_1_1.png,client5_1_2.png,client5_2_0.png,client5_2_1.png,client5_2_2.png,client5_3_0.png,client5_3_1.png,client5_3_2.png,client5_4_0.png,client5_4_1.png,client5_4_2.png,client6_1_0.png,client6_1_1.png,client6_1_2.png,client6_2_0.png,client6_2_1.png,client6_2_2.png,client6_3_0.png,client6_3_1.png,client6_3_2.png,client6_4_0.png,client6_4_1.png,client6_4_2.png,client7_1_0.png,client7_1_1.png,client7_1_2.png,client7_2_0.png,client7_2_1.png,client7_2_2.png,client8_1_0.png,client8_1_1.png,client8_1_2.png,client8_2_0.png,client8_2_1.png,client8_2_2.png,client8_3_0.png,client8_3_1.png,client8_3_2.png,client8_4_0.png,client8_4_1.png,client8_4_2.png,client8_5_0.png,client8_5_1.png,client8_5_2.png,client9_1_1.png,client9_2_1.png,client9_3_1.png,client9_4_1.png,client9_5_1.png,client9_6_1.png,client9_7_1.png,client9_8_1.png,client9_9_1.png,collectors.jpg,cranny.png,driver_gun.png,dust.png,dust_tuning.png,evacuator.png,final_poster.jpg,front_dust.png,front_toning.png,gazel.png,gop_stop1_1.png,gop_stop1_2.png,gop_stop2_1.png,gop_stop2_2.png,in_autoservice15.jpg,in_autoservice18.jpg,in_bank.jpg,in_carwashing14.jpg,in_carwashing17.jpg,in_shopping_center.jpg,left_side_dust.png,map.jpg,map_locations.png,map_locations_garage.png,meteor.png,meteor_explosion.png,night.png,official.jpg,poster.jpg,rain.swf,repairing_book.jpg,repairing_book1.jpg,repairing_book2.jpg,repairing_book3.jpg,repairing_book4.jpg,repairing_toolkit.jpg,right_side_dust.png,right_side_toning.png,skins.jpg,smoke.jpg,tuningkit.jpg,vinyl_dog.png,vinyl_dog_for_sale.jpg,vip_radio.jpg][BGNDVIDEO background1.flv,background10.flv,background11.flv,background12.flv,background13.flv,background14.flv,background15.flv,background16.flv,background17.flv,background18.flv,background19.flv,background2.flv,background20.flv,background21.flv,background22.flv,background23.flv,background24.flv,background25.flv,background3.flv,background4.flv,background5.flv,background6.flv,background7.flv,background8.flv,background9.flv,change_location1.flv,change_location2.flv,change_location3.flv,change_location4.flv,client_travel1.flv,client_travel2.flv,client_travel3.flv,client_travel4.flv,client_travel5.flv,client_travel6.flv,client_travel_rear1.flv,empty_fuel.flv,traffic_congestion1.flv,traffic_congestion2.flv,traffic_congestion3.flv][MUSIC AmbientStreet.mp3,autoservice.mp3,boom.mp3,brakes_crash.mp3,car_door_closed.mp3,casino.mp3,final.mp3,garage.mp3,intro.mp3,malibu.mp3,megapolice.mp3,none.mp3,radio_noise.mp3,track1.mp3,track2.mp3,water.mp3,what_is_love.mp3,applause.mp3,coin.mp3,evil_laugh_woman.mp3]

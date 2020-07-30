@@ -1,0 +1,16 @@
+this.payment_pending = false;
+this.payment_success = false;
+
+this.cryptoKey = 100;
+this.checkSumByte = 121;
+this.separator = '!!!!';
+this.separatorCheckSum = '^^^^';
+
+this.certificate='';
+
+this.MAX_RATE_DIFF_POINTS=4;
+this.MAX_RATE_DELTA_PERCENT=10;
+
+this.firstQuiz=true;
+
+'';

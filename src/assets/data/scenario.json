@@ -1,0 +1,430 @@
+﻿{
+  "node": [
+    {
+      "node": [
+        {
+          "node": [
+            {
+              "node": [
+                {
+                  "node": [
+                    {
+                      "node": [
+                        {
+                          "node": [
+                            {
+                              "node": [
+                                {
+                                  "node": [
+                                    {
+                                      "node": [
+                                        {
+                                          "node": [
+                                            {
+                                              "node": [
+                                                {
+                                                  "node": [
+                                                    {
+                                                      "node": [
+                                                        {
+                                                          "node": [
+                                                            {
+                                                              "node": [
+                                                                {
+                                                                  "node": [
+                                                                    {
+                                                                      "node": [
+                                                                        {
+                                                                          "node": [
+                                                                            {
+                                                                              "node": [
+                                                                                {
+                                                                                  "node": [
+                                                                                    {
+                                                                                      "node": [
+                                                                                        {
+                                                                                          "node": [
+                                                                                            {
+                                                                                              "node": [
+                                                                                                {
+                                                                                                  "node": [
+                                                                                                    {
+                                                                                                      "node": [
+                                                                                                        {
+                                                                                                          "node": [
+                                                                                                            {
+                                                                                                              "node": [
+                                                                                                                {
+                                                                                                                  "node": [
+                                                                                                                    {
+                                                                                                                      "node": [
+                                                                                                                        {
+                                                                                                                          "node": [
+                                                                                                                            {
+                                                                                                                              "node": [
+                                                                                                                                {
+                                                                                                                                  "node": [
+                                                                                                                                    {
+                                                                                                                                      "node": [
+                                                                                                                                        {
+                                                                                                                                          "node": [
+                                                                                                                                            {
+                                                                                                                                              "node": [
+                                                                                                                                                {
+                                                                                                                                                  "node": [
+                                                                                                                                                    {
+                                                                                                                                                      "node": [
+                                                                                                                                                        {
+                                                                                                                                                          "_mark": "calc_question",
+                                                                                                                                                          "_content": "[LABEL {script calcQuestion}{if (this.isResult) '[GOTO result]'; else '[GOTO question]'}]"
+                                                                                                                                                        }
+                                                                                                                                                      ],
+                                                                                                                                                      "_mark": "",
+                                                                                                                                                      "_content": "[LABEL ]"
+                                                                                                                                                    }
+                                                                                                                                                  ],
+                                                                                                                                                  "_mark": "mark_c79m8i7ztrq3m86ec2sb",
+                                                                                                                                                  "_content": "[LABEL {this.answer=1;'';}][GOTO calc_question]"
+                                                                                                                                                }
+                                                                                                                                              ],
+                                                                                                                                              "_mark": "",
+                                                                                                                                              "_content": "[LABEL {this.answerNo=1;'';}{script getAnswer}]"
+                                                                                                                                            },
+                                                                                                                                            {
+                                                                                                                                              "node": [
+                                                                                                                                                {
+                                                                                                                                                  "_mark": "mark_5wd4ye77yw8p559970p1",
+                                                                                                                                                  "_content": "[LABEL {this.answer=2;'';}][GOTO calc_question]"
+                                                                                                                                                }
+                                                                                                                                              ],
+                                                                                                                                              "_mark": "",
+                                                                                                                                              "_content": "[LABEL {this.answerNo=2;'';}{script getAnswer}]"
+                                                                                                                                            },
+                                                                                                                                            {
+                                                                                                                                              "node": [
+                                                                                                                                                {
+                                                                                                                                                  "_mark": "mark_4w4dypw8834264h4r6yy",
+                                                                                                                                                  "_content": "[LABEL {this.answer=3;'';}][GOTO calc_question]"
+                                                                                                                                                }
+                                                                                                                                              ],
+                                                                                                                                              "_mark": "",
+                                                                                                                                              "_content": "[LABEL {this.answerNo=3;'';}{script getAnswer}]"
+                                                                                                                                            },
+                                                                                                                                            {
+                                                                                                                                              "node": [
+                                                                                                                                                {
+                                                                                                                                                  "_mark": "mark_458nri3utg540f7d890f",
+                                                                                                                                                  "_content": "[LABEL {this.answer=4;'';}][GOTO calc_question]"
+                                                                                                                                                }
+                                                                                                                                              ],
+                                                                                                                                              "_mark": "",
+                                                                                                                                              "_content": "[LABEL {this.answerNo=4;'';}{script getAnswer}]"
+                                                                                                                                            },
+                                                                                                                                            {
+                                                                                                                                              "node": [
+                                                                                                                                                {
+                                                                                                                                                  "_mark": "mark_d36801fkavh59q68g12z",
+                                                                                                                                                  "_content": "[LABEL {this.answer=5;'';}][GOTO calc_question]"
+                                                                                                                                                }
+                                                                                                                                              ],
+                                                                                                                                              "_mark": "",
+                                                                                                                                              "_content": "[LABEL {this.answerNo=5;'';}{script getAnswer}]"
+                                                                                                                                            }
+                                                                                                                                          ],
+                                                                                                                                          "_mark": "question",
+                                                                                                                                          "_content": "[LABEL {script getQuestion}][VIDEO GopSpeechLoadingLoop][IMAGE {script showRatings}][AUDIO questions/q{this.qId}][BGNDVIDEO GopStandsStillLoop][BGNDIMAGE {script showRatings}]"
+                                                                                                                                        }
+                                                                                                                                      ],
+                                                                                                                                      "_mark": "",
+                                                                                                                                      "_content": "[LABEL ]"
+                                                                                                                                    }
+                                                                                                                                  ],
+                                                                                                                                  "_mark": "once_again",
+                                                                                                                                  "_content": "[LABEL {script resetStats}]"
+                                                                                                                                }
+                                                                                                                              ],
+                                                                                                                              "_mark": "",
+                                                                                                                              "_content": "[LABEL ]"
+                                                                                                                            }
+                                                                                                                          ],
+                                                                                                                          "_mark": "BEGIN",
+                                                                                                                          "_content": "[LABEL Я начинаю задавать вопросы.][VIDEO GopSpeechLoadingLoop][AUDIO start_ask_questions]"
+                                                                                                                        }
+                                                                                                                      ],
+                                                                                                                      "_mark": "",
+                                                                                                                      "_content": "[LABEL ]"
+                                                                                                                    }
+                                                                                                                  ],
+                                                                                                                  "_mark": "mark_9135683a6g856ilvnbi3",
+                                                                                                                  "_content": "[LABEL ][GOTO enter_friends]"
+                                                                                                                }
+                                                                                                              ],
+                                                                                                              "_mark": "",
+                                                                                                              "_content": "[LABEL Хорошо]"
+                                                                                                            }
+                                                                                                          ],
+                                                                                                          "_mark": "invalid_friends",
+                                                                                                          "_content": "[LABEL Неправильно набираешь. Внимательно прочитай, как надо.][VIDEO GopSpeechLoadingLoop][AUDIO invalid_friends][BGNDVIDEO GopStandsBouncing]"
+                                                                                                        }
+                                                                                                      ],
+                                                                                                      "_mark": "",
+                                                                                                      "_content": "[LABEL ]"
+                                                                                                    }
+                                                                                                  ],
+                                                                                                  "_mark": "mark_5528jv783l93i90xud0p",
+                                                                                                  "_content": "[LABEL {script checkFriends}{if (this.isFriendsChecked) '[GOTO BEGIN]'; else '[GOTO invalid_friends]'}]"
+                                                                                                }
+                                                                                              ],
+                                                                                              "_mark": "",
+                                                                                              "_content": "[LABEL ][INPUTS this.friends]"
+                                                                                            }
+                                                                                          ],
+                                                                                          "_mark": "enter_friends",
+                                                                                          "_content": "[LABEL Введи фамилии своих поручителей (через запятую от 5 до 40 символов!)\nЛибо введи их погоняла, если у них уже есть сертификат.][VIDEO GopSpeechSimpleLoop][AUDIO enter_friends][BGNDVIDEO GopStandsBouncing]"
+                                                                                        },
+                                                                                        {
+                                                                                          "node": [
+                                                                                            {
+                                                                                              "node": [
+                                                                                                {
+                                                                                                  "node": [
+                                                                                                    {
+                                                                                                      "node": [
+                                                                                                        {
+                                                                                                          "_mark": "mark_38n94k0dz91363b0j2zg",
+                                                                                                          "_content": "[LABEL ][GOTO repeat_nickname]"
+                                                                                                        }
+                                                                                                      ],
+                                                                                                      "_mark": "",
+                                                                                                      "_content": "[LABEL Повторить погоняло еще раз]"
+                                                                                                    },
+                                                                                                    {
+                                                                                                      "node": [
+                                                                                                        {
+                                                                                                          "node": [
+                                                                                                            {
+                                                                                                              "node": [
+                                                                                                                {
+                                                                                                                  "_mark": "mark_800w8wb78wr0x46vfdiu",
+                                                                                                                  "_content": "[LABEL ][GOTO repeat_nickname]"
+                                                                                                                }
+                                                                                                              ],
+                                                                                                              "_mark": "",
+                                                                                                              "_content": "[LABEL ][INPUTS this.certificate]"
+                                                                                                            }
+                                                                                                          ],
+                                                                                                          "_mark": "mark_mnz7555x594o13eq4h43",
+                                                                                                          "_content": "[LABEL Это твой сертификат.\n(нажми OK чтобы скопировать его в буффер обмена, а затем сохрани где-нибудь)][VIDEO GopSpeechLoadingLoop][AUDIO its_your_certificate][BGNDVIDEO GopStandsBouncing]"
+                                                                                                        }
+                                                                                                      ],
+                                                                                                      "_mark": "",
+                                                                                                      "_content": "[LABEL Получить сертификат]"
+                                                                                                    },
+                                                                                                    {
+                                                                                                      "node": [
+                                                                                                        {
+                                                                                                          "_mark": "mark_q85i6acllrxxllbni19k",
+                                                                                                          "_content": "[LABEL ][GOTO once_again]"
+                                                                                                        }
+                                                                                                      ],
+                                                                                                      "_mark": "",
+                                                                                                      "_content": "[LABEL Пройти тест заново]"
+                                                                                                    },
+                                                                                                    {
+                                                                                                      "node": [
+                                                                                                        {
+                                                                                                          "_mark": "mark_m43bcrv7ry707t1ms392",
+                                                                                                          "_content": "[LABEL ][GOTO enter_friends]"
+                                                                                                        }
+                                                                                                      ],
+                                                                                                      "_mark": "",
+                                                                                                      "_content": "[LABEL Ввести других поручителей]"
+                                                                                                    }
+                                                                                                  ],
+                                                                                                  "_mark": "repeat_nickname",
+                                                                                                  "_content": "[LABEL Твое погоняло: {this.nickName}\nПоручители: {this.friends}][VIDEO GopSpeechLoadingLoop][IMAGE {script showRatings}][AUDIO your_nickname,{this.audioTag}][BGNDVIDEO GopEatsSunflowerSeedsLoop][BGNDIMAGE {script showRatings}][ANSWERSORDER OFF]"
+                                                                                                }
+                                                                                              ],
+                                                                                              "_mark": "",
+                                                                                              "_content": "[LABEL ]"
+                                                                                            }
+                                                                                          ],
+                                                                                          "_mark": "result",
+                                                                                          "_content": "[LABEL {script getResultName}{this.firstQuiz=false;'';}]"
+                                                                                        }
+                                                                                      ],
+                                                                                      "_mark": "",
+                                                                                      "_content": "[LABEL Начать тест.]"
+                                                                                    },
+                                                                                    {
+                                                                                      "node": [
+                                                                                        {
+                                                                                          "node": [
+                                                                                            {
+                                                                                              "node": [
+                                                                                                {
+                                                                                                  "node": [
+                                                                                                    {
+                                                                                                      "node": [
+                                                                                                        {
+                                                                                                          "node": [
+                                                                                                            {
+                                                                                                              "node": [
+                                                                                                                {
+                                                                                                                  "_mark": "mark_851xb7s88u85296l8sd8",
+                                                                                                                  "_content": "[LABEL ][GOTO valid_certificate]"
+                                                                                                                }
+                                                                                                              ],
+                                                                                                              "_mark": "",
+                                                                                                              "_content": "[LABEL Повтори погоняло еще раз]"
+                                                                                                            },
+                                                                                                            {
+                                                                                                              "node": [
+                                                                                                                {
+                                                                                                                  "_mark": "mark_wom7890ll15qflzoy77x",
+                                                                                                                  "_content": "[LABEL ][GOTO INTRO]"
+                                                                                                                }
+                                                                                                              ],
+                                                                                                              "_mark": "",
+                                                                                                              "_content": "[LABEL OK]"
+                                                                                                            }
+                                                                                                          ],
+                                                                                                          "_mark": "valid_certificate",
+                                                                                                          "_content": "[LABEL Твое погоняло: {this.nickName}\nПоручители: {this.friends}][VIDEO GopSpeechLoadingLoop][AUDIO your_nickname,{this.audioTag}][BGNDVIDEO GopStandsBouncing][ANSWERSORDER OFF]"
+                                                                                                        },
+                                                                                                        {
+                                                                                                          "node": [
+                                                                                                            {
+                                                                                                              "node": [
+                                                                                                                {
+                                                                                                                  "_mark": "mark_o2k5eyqcsg5n58bh9q77",
+                                                                                                                  "_content": "[LABEL ][GOTO enter_certificate]"
+                                                                                                                }
+                                                                                                              ],
+                                                                                                              "_mark": "",
+                                                                                                              "_content": "[LABEL Давай, исправлю.]"
+                                                                                                            },
+                                                                                                            {
+                                                                                                              "node": [
+                                                                                                                {
+                                                                                                                  "_mark": "mark_fu13r52lyqz6se221hem",
+                                                                                                                  "_content": "[LABEL ][GOTO INTRO]"
+                                                                                                                }
+                                                                                                              ],
+                                                                                                              "_mark": "",
+                                                                                                              "_content": "[LABEL Хмм...мдэ...]"
+                                                                                                            }
+                                                                                                          ],
+                                                                                                          "_mark": "invalid_certificate",
+                                                                                                          "_content": "[LABEL Неправильный сертификат.][VIDEO GopSpeechLoadingLoop][AUDIO invalid_certificate][BGNDVIDEO GopStandsBouncing][ANSWERSORDER OFF]"
+                                                                                                        }
+                                                                                                      ],
+                                                                                                      "_mark": "",
+                                                                                                      "_content": "[LABEL ]"
+                                                                                                    }
+                                                                                                  ],
+                                                                                                  "_mark": "mark_k60yr41n79jy1w5zyfss",
+                                                                                                  "_content": "[LABEL {script checkCertificate}{if (this.isValidCertificate) '[GOTO valid_certificate]'; else '[GOTO invalid_certificate]'}]"
+                                                                                                }
+                                                                                              ],
+                                                                                              "_mark": "",
+                                                                                              "_content": "[LABEL ][INPUTS this.certificate]"
+                                                                                            }
+                                                                                          ],
+                                                                                          "_mark": "enter_certificate",
+                                                                                          "_content": "[LABEL Введи или скопируй строку сертификата и нажми ОК.][VIDEO GopSpeechLoadingLoop][AUDIO check_certificate][BGNDVIDEO GopStandsBouncing]"
+                                                                                        }
+                                                                                      ],
+                                                                                      "_mark": "check_certificate",
+                                                                                      "_content": "[LABEL Проверить сертификат.]"
+                                                                                    }
+                                                                                  ],
+                                                                                  "_mark": "INTRO,GAME_SAVEPOINT",
+                                                                                  "_content": "[LABEL {if (this.firstQuiz) {'Ну что, погнали за твоим погонялом?';} else {'Еще раз?'}}][VIDEO GopSpeechSimpleLoop][AUDIO {this.firstQuiz ? 'lets_go' : 'lets_again'}][BGNDVIDEO GopStandsBouncing][ANSWERSORDER OFF]"
+                                                                                }
+                                                                              ],
+                                                                              "_mark": "",
+                                                                              "_content": "[LABEL Отлично]"
+                                                                            }
+                                                                          ],
+                                                                          "_mark": "mark_b4ijzr9au23r98u42fx1",
+                                                                          "_content": "[LABEL Еще хочу сказать, у меня есть и элитные кликухи (золотая, серебрянная и бронзовая), но их я даю только самым одаренным людям. Возможно, ты будешь одним из них.][VIDEO GopSpeechSimpleLoop][AUDIO rules/rules07][BGNDVIDEO GopStandsBouncing]"
+                                                                        }
+                                                                      ],
+                                                                      "_mark": "",
+                                                                      "_content": "[LABEL Да, я понял]"
+                                                                    }
+                                                                  ],
+                                                                  "_mark": "mark_32x4ej434z44wz39ezwc",
+                                                                  "_content": "[LABEL Но, запомни, Толян! Любой чел сможет потом спросить твоих поручителей про тебя. И, если, вдруг, окажется, что ты сам себе выписал фартовую кликуху, то станешь ты \"просто вася\", Толян.][VIDEO GopSpeechSimpleLoop][AUDIO rules/rules06][BGNDVIDEO GopStandsBouncing]"
+                                                                }
+                                                              ],
+                                                              "_mark": "",
+                                                              "_content": "[LABEL Да, это верно]"
+                                                            }
+                                                          ],
+                                                          "_mark": "mark_5tfl6i46zh2aj51o8jo5",
+                                                          "_content": "[LABEL И чем солидней будут твои поручители, тем больше будет к тебе уважения, Толян. Лучше, чтобы поручители были уже с сертификатами, это будет самая реальная тема для всех.][VIDEO GopSpeechSimpleLoop][AUDIO rules/rules05][BGNDVIDEO GopStandsBouncing]"
+                                                        }
+                                                      ],
+                                                      "_mark": "",
+                                                      "_content": "[LABEL Ладно]"
+                                                    }
+                                                  ],
+                                                  "_mark": "mark_29ewi18dv2742cwyk306",
+                                                  "_content": "[LABEL Как только я почувствую, кто ты есть, то сразу скажу твое погоняло и твое место в жизни. И выдам тебе зашифрованный сертификат, куда впишу твое погоняло и имена твоих поручителей.][VIDEO GopSpeechSimpleLoop][AUDIO rules/rules04][BGNDVIDEO GopStandsBouncing]"
+                                                }
+                                              ],
+                                              "_mark": "",
+                                              "_content": "[LABEL Понял]"
+                                            }
+                                          ],
+                                          "_mark": "mark_1eta3ru4snypwf6vc550",
+                                          "_content": "[LABEL Поручители - это те люди, которые смогут потом подтвердить, что ты не врал, а прошел тест по-чесноку.][VIDEO GopSpeechSimpleLoop][AUDIO rules/rules03][BGNDVIDEO GopStandsBouncing]"
+                                        }
+                                      ],
+                                      "_mark": "",
+                                      "_content": "[LABEL Ладно]"
+                                    }
+                                  ],
+                                  "_mark": "mark_e5clk197gpb673ill77w",
+                                  "_content": "[LABEL Не обязательно отвечать правильно, Толян. Отвечай от души и честно. А чтобы ты реально отвечал честно, мне нужно, чтобы рядом с тобой были 2 поручителя.][VIDEO GopSpeechSimpleLoop][AUDIO rules/rules02][BGNDVIDEO GopStandsBouncing]"
+                                }
+                              ],
+                              "_mark": "",
+                              "_content": "[LABEL Далее]"
+                            }
+                          ],
+                          "_mark": "mark_6alypq5q1m98ft66te87",
+                          "_content": "[LABEL Короче, Толян, расклад такой: я задам тебе несколько вопросов. На каждый вопрос есть 5 ответов.][VIDEO GopSpeechSimpleLoop][AUDIO rules/rules01][BGNDVIDEO GopStandsBouncing]"
+                        }
+                      ],
+                      "_mark": "",
+                      "_content": "[LABEL Расскажи]"
+                    },
+                    {
+                      "node": [
+                        {
+                          "_mark": "mark_a7c215315ost6ki2p7z8",
+                          "_content": "[LABEL ][GOTO INTRO]"
+                        }
+                      ],
+                      "_mark": "skip_rules",
+                      "_content": "[LABEL Уже знаю]"
+                    }
+                  ],
+                  "_mark": "mark_au0e5w32c3m410n44507",
+                  "_content": "[LABEL Здарова! Мне отсюда плохо видно - кто ты такой: лох, пацан или женщина. Для простоты, я буду звать тебя - Толян. Рассказать тебе правила, Толян?][VIDEO GopSpeechSimpleLoop][AUDIO hello][BGNDVIDEO GopStandsBouncing][ANSWERSORDER OFF]"
+                }
+              ],
+              "_mark": "",
+              "_content": "[LABEL НАЧАТЬ ИГРУ / START THE GAME]"
+            }
+          ],
+          "_mark": "mark_6qt33ij77wk9z089lj79",
+          "_content": "[LABEL Stop Gop 4. Pogonyalo. Симулятор гопника, узнай свое погоняло!{script initQuestions}{script initNames}{script initSystem}][BGNDIMAGE Intro.jpg][ANSWERSORDER OFF]"
+        }
+      ]
+    }
+  ]
+}
