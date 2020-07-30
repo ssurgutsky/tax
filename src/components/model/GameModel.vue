@@ -382,6 +382,8 @@ export default {
         for (let i in this.currentNode.node) {
           let gotoNode = this.processGOTONode(this.currentNode.node[i])
 
+          console.log('ANSWER#' + i + ': ', gotoNode._parsedContent)
+
           let text = commonUtils.getTagValueLABEL(gotoNode._parsedContent)
 
           if (totalAnswersCount > 1 && text === '') continue
