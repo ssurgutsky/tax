@@ -88,7 +88,7 @@
                                                                                                                                                 }
                                                                                                                                               ],
                                                                                                                                               "_mark": "",
-                                                                                                                                              "_content": "[LABEL {if (this.location==1) {\"Зайду в \" + this.locations[location][0] + \"[ANSWERIMAGE icons/enter.png|260;400]\"}}]"
+                                                                                                                                              "_content": "[LABEL {if (this.location==1) {\"Зайду в \" + this.locations[this.location][0] + \"[ANSWERIMAGE icons/enter.png|260;400]\"}}]"
                                                                                                                                             },
                                                                                                                                             {
                                                                                                                                               "node": [
@@ -120,11 +120,11 @@
                                                                                                                                                                         }
                                                                                                                                                                       ],
                                                                                                                                                                       "_mark": "exit_bar",
-                                                                                                                                                                      "_content": "[LABEL Выйду наружу][AMBIENT none.mp3][BGNDMUSIC none.mp3][ANSWERIMAGE icons/enter.png|320;400]"
+                                                                                                                                                                      "_content": "[LABEL Выйду наружу][AMBIENT none][BGNDMUSIC none][ANSWERIMAGE icons/enter.png|320;400]"
                                                                                                                                                                     }
                                                                                                                                                                   ],
                                                                                                                                                                   "_mark": "client_in_bar_saying",
-                                                                                                                                                                  "_content": "[LABEL {client_say=1;game_hours++}{script show_client_in_bar.qsp}]"
+                                                                                                                                                                  "_content": "[LABEL {this.client_say=1;this.game_hours++;'';}{script show_client_in_bar.qsp}]"
                                                                                                                                                                 }
                                                                                                                                                               ],
                                                                                                                                                               "_mark": "",
@@ -136,7 +136,7 @@
                                                                                                                                                             }
                                                                                                                                                           ],
                                                                                                                                                           "_mark": "mark_w268xwuo96s86di0pwpi",
-                                                                                                                                                          "_content": "[LABEL Эээ... привет! Не занято? Давай поговорим!{client_say=0;client_type_in_bar = (1 + random*4):0}{script show_client_in_bar.qsp}]"
+                                                                                                                                                          "_content": "[LABEL Эээ... привет! Не занято? Давай поговорим!{this.client_say=0;this.client_type_in_bar = Math.ceil(1 + Math.random()*4);'';}{script show_client_in_bar.qsp}]"
                                                                                                                                                         }
                                                                                                                                                       ],
                                                                                                                                                       "_mark": "",
@@ -148,11 +148,11 @@
                                                                                                                                                     }
                                                                                                                                                   ],
                                                                                                                                                   "_mark": "mark_al3kb004qv3vdr14857k",
-                                                                                                                                                  "_content": "[LABEL {dvd_playing=0}{this.locations[location][0]}][BGNDIMAGE in_bar.jpg]"
+                                                                                                                                                  "_content": "[LABEL {this.dvd_playing=0}{this.locations[this.location][0]}][BGNDIMAGE in_bar.jpg]"
                                                                                                                                                 }
                                                                                                                                               ],
                                                                                                                                               "_mark": "",
-                                                                                                                                              "_content": "[LABEL {if (this.location==2) {\"Зайду в \" + this.locations[this.location][0] + \"[ANSWERIMAGE icons/enter.png|260;400]\"}}{script radio3.qsp}][MUSIC none.mp3][AMBIENT cafe.mp3]"
+                                                                                                                                              "_content": "[LABEL {if (this.location==2) {\"Зайду в \" + this.locations[this.location][0] + \"[ANSWERIMAGE icons/enter.png|260;400]\"}}{script radio3.qsp}][MUSIC none][AMBIENT cafe.mp3]"
                                                                                                                                             },
                                                                                                                                             {
                                                                                                                                               "node": [
@@ -232,11 +232,11 @@
                                                                                                                                                     }
                                                                                                                                                   ],
                                                                                                                                                   "_mark": "mark_1miki32n971qt5fp2893",
-                                                                                                                                                  "_content": "[LABEL {dvd_playing=0}{this.locations[location][0]}][BGNDIMAGE in_railway_station.jpg&briefcase.png|528;356]"
+                                                                                                                                                  "_content": "[LABEL {this.dvd_playing=0}{this.locations[this.location][0]}][BGNDIMAGE in_railway_station.jpg&briefcase.png|528;356]"
                                                                                                                                                 }
                                                                                                                                               ],
                                                                                                                                               "_mark": "",
-                                                                                                                                              "_content": "[LABEL {if (this.location==4) {\"Зайду в \" + this.locations[this.location][0] + \"[ANSWERIMAGE icons/enter.png|260;400]\"}}][MUSIC none.mp3][AMBIENT none.mp3][BGNDMUSIC none.mp3]"
+                                                                                                                                              "_content": "[LABEL {if (this.location==4) {\"Зайду в \" + this.locations[this.location][0] + \"[ANSWERIMAGE icons/enter.png|260;400]\"}}][MUSIC none][AMBIENT none][BGNDMUSIC none]"
                                                                                                                                             },
                                                                                                                                             {
                                                                                                                                               "node": [
@@ -338,11 +338,11 @@
                                                                                                                                                     }
                                                                                                                                                   ],
                                                                                                                                                   "_mark": "mark_gkq4xj6b2j2rjxcz0e10",
-                                                                                                                                                  "_content": "[LABEL {dvd_playing=0}Здравствуйте! Ознакомьтесь с нашими ассортиментом, пожалуйста.][BGNDIMAGE pharmacy1.jpg]"
+                                                                                                                                                  "_content": "[LABEL {this.dvd_playing=0}Здравствуйте! Ознакомьтесь с нашими ассортиментом, пожалуйста.][BGNDIMAGE pharmacy1.jpg]"
                                                                                                                                                 }
                                                                                                                                               ],
                                                                                                                                               "_mark": "",
-                                                                                                                                              "_content": "[LABEL {if (this.location==5) {\"Зайду в \" + this.locations[this.location][0] + \"[ANSWERIMAGE icons/enter.png|260;400]\"}}][MUSIC none.mp3][AMBIENT none.mp3][BGNDMUSIC none.mp3]"
+                                                                                                                                              "_content": "[LABEL {if (this.location==5) {\"Зайду в \" + this.locations[this.location][0] + \"[ANSWERIMAGE icons/enter.png|260;400]\"}}][MUSIC none][AMBIENT none][BGNDMUSIC none]"
                                                                                                                                             },
                                                                                                                                             {
                                                                                                                                               "node": [
@@ -512,15 +512,15 @@
                                                                                                                                                         }
                                                                                                                                                       ],
                                                                                                                                                       "_mark": "",
-                                                                                                                                                      "_content": "[LABEL Выйду наружу][AMBIENT none.mp3][ANSWERIMAGE icons/enter.png|540;400]"
+                                                                                                                                                      "_content": "[LABEL Выйду наружу][AMBIENT none][ANSWERIMAGE icons/enter.png|540;400]"
                                                                                                                                                     }
                                                                                                                                                   ],
                                                                                                                                                   "_mark": "in_store",
-                                                                                                                                                  "_content": "[LABEL {dvd_playing=0}{script rounding.qsp}{script show_game_stats.qsp}{output \"\n\"}{this.locations[location][0]}. Что хочешь посмотреть?][BGNDIMAGE in_shopping_center.jpg]"
+                                                                                                                                                  "_content": "[LABEL {this.dvd_playing=0}{script rounding.qsp}{script show_game_stats.qsp}{output \"\n\"}{this.locations[this.location][0]}. Что хочешь посмотреть?][BGNDIMAGE in_shopping_center.jpg]"
                                                                                                                                                 }
                                                                                                                                               ],
                                                                                                                                               "_mark": "",
-                                                                                                                                              "_content": "[LABEL {if (this.location==8) {\"Зайду в \" + this.locations[this.location][0] + \"[ANSWERIMAGE icons/enter.png|260;400]\"}}][MUSIC none.mp3][AMBIENT megapolice.mp3][BGNDMUSIC none.mp3]"
+                                                                                                                                              "_content": "[LABEL {if (this.location==8) {\"Зайду в \" + this.locations[this.location][0] + \"[ANSWERIMAGE icons/enter.png|260;400]\"}}][MUSIC none][AMBIENT megapolice.mp3][BGNDMUSIC none]"
                                                                                                                                             },
                                                                                                                                             {
                                                                                                                                               "node": [
@@ -582,11 +582,11 @@
                                                                                                                                                     }
                                                                                                                                                   ],
                                                                                                                                                   "_mark": "mark_7861400rcmpb9k3pess3",
-                                                                                                                                                  "_content": "[LABEL {dvd_playing=0}{this.locations[location][0]}. Что будешь делать?][BGNDIMAGE city_hall_inside.jpg]"
+                                                                                                                                                  "_content": "[LABEL {this.dvd_playing=0}{this.locations[this.location][0]}. Что будешь делать?][BGNDIMAGE city_hall_inside.jpg]"
                                                                                                                                                 }
                                                                                                                                               ],
                                                                                                                                               "_mark": "",
-                                                                                                                                              "_content": "[LABEL {if (this.location==9) {\"Зайду в \" + this.locations[this.location][0] + \"[ANSWERIMAGE icons/enter.png|260;400]\"}}][MUSIC none.mp3][AMBIENT none.mp3][BGNDMUSIC none.mp3]"
+                                                                                                                                              "_content": "[LABEL {if (this.location==9) {\"Зайду в \" + this.locations[this.location][0] + \"[ANSWERIMAGE icons/enter.png|260;400]\"}}][MUSIC none][AMBIENT none][BGNDMUSIC none]"
                                                                                                                                             },
                                                                                                                                             {
                                                                                                                                               "node": [
@@ -1430,11 +1430,11 @@
                                                                                                                                                     }
                                                                                                                                                   ],
                                                                                                                                                   "_mark": "mark_y924pw9n2h049vv8ksl7",
-                                                                                                                                                  "_content": "[LABEL {dvd_playing=0}{this.locations[location][0]}. Вход в бар стоит: {output barsuk_entry_cost*Inflation}][BGNDIMAGE barsuk_main.jpg]"
+                                                                                                                                                  "_content": "[LABEL {this.dvd_playing=0}{this.locations[this.location][0]}. Вход в бар стоит: {output barsuk_entry_cost*Inflation}][BGNDIMAGE barsuk_main.jpg]"
                                                                                                                                                 }
                                                                                                                                               ],
                                                                                                                                               "_mark": "",
-                                                                                                                                              "_content": "[LABEL {if (this.location==10) {\"Зайду в \" + this.locations[this.location][0] + \"[ANSWERIMAGE icons/enter.png|260;400]\"}}][MUSIC none.mp3][AMBIENT none.mp3][BGNDMUSIC none.mp3]"
+                                                                                                                                              "_content": "[LABEL {if (this.location==10) {\"Зайду в \" + this.locations[this.location][0] + \"[ANSWERIMAGE icons/enter.png|260;400]\"}}][MUSIC none][AMBIENT none][BGNDMUSIC none]"
                                                                                                                                             },
                                                                                                                                             {
                                                                                                                                               "node": [
@@ -1590,7 +1590,7 @@
                                                                                                                                                                                                     }
                                                                                                                                                                                                   ],
                                                                                                                                                                                                   "_mark": "mark_8vg9ma430c08g5d3kn17",
-                                                                                                                                                                                                  "_content": "[LABEL {casino_bet_return=1}{client_type=8;client_subtype=cct;client_state=2}Уже уезжаешь? Как там насчет того, чтобы вернуть мне мою долю?{script show_client.qsp}]"
+                                                                                                                                                                                                  "_content": "[LABEL {casino_bet_return=1}{this.client_type=8;client_subtype=cct;client_state=2}Уже уезжаешь? Как там насчет того, чтобы вернуть мне мою долю?{script show_client.qsp}]"
                                                                                                                                                                                                 }
                                                                                                                                                                                               ],
                                                                                                                                                                                               "_mark": "",
@@ -1602,7 +1602,7 @@
                                                                                                                                                                                         }
                                                                                                                                                                                       ],
                                                                                                                                                                                       "_mark": "",
-                                                                                                                                                                                      "_content": "[LABEL Покинуть казино][MUSIC AmbientStreet.mp3][AMBIENT none.mp3][ANSWERIMAGE icons/enter.png|320;400]"
+                                                                                                                                                                                      "_content": "[LABEL Покинуть казино][MUSIC AmbientStreet.mp3][AMBIENT none][ANSWERIMAGE icons/enter.png|320;400]"
                                                                                                                                                                                     }
                                                                                                                                                                                   ],
                                                                                                                                                                                   "_mark": "mark_44874qwy006h8xw93dbh",
@@ -1638,11 +1638,11 @@
                                                                                                                                                     }
                                                                                                                                                   ],
                                                                                                                                                   "_mark": "do_bet",
-                                                                                                                                                  "_content": "[LABEL {dvd_playing=0}{script rounding.qsp}{script calc_casino.qsp}{this.locations[location][0]}. Сколько денег ставишь на европейскую рулетку (100 - {output max_bet})?{script show_in_casino.qsp}]"
+                                                                                                                                                  "_content": "[LABEL {this.dvd_playing=0}{script rounding.qsp}{script calc_casino.qsp}{this.locations[this.location][0]}. Сколько денег ставишь на европейскую рулетку (100 - {output max_bet})?{script show_in_casino.qsp}]"
                                                                                                                                                 }
                                                                                                                                               ],
                                                                                                                                               "_mark": "",
-                                                                                                                                              "_content": "[LABEL {if (this.location == 12 && this.money>=100) {\"Зайду в \" + this.locations[this.location][0] + \"[ANSWERIMAGE icons/enter.png|260;400]\"}}][MUSIC none.mp3][AMBIENT casino.mp3][BGNDMUSIC none.mp3]"
+                                                                                                                                              "_content": "[LABEL {if (this.location == 12 && this.money>=100) {\"Зайду в \" + this.locations[this.location][0] + \"[ANSWERIMAGE icons/enter.png|260;400]\"}}][MUSIC none][AMBIENT casino.mp3][BGNDMUSIC none]"
                                                                                                                                             },
                                                                                                                                             {
                                                                                                                                               "node": [
@@ -1724,7 +1724,7 @@
                                                                                                                                                     }
                                                                                                                                                   ],
                                                                                                                                                   "_mark": "fuel_station",
-                                                                                                                                                  "_content": "[LABEL {script rounding.qsp}{script show_game_stats.qsp}{output \"\n\"}{this.locations[location][0]}. Бензин здесь стоит: {output fuel_cost; if things[thing_fuel_discount,1] {output \" (с учетом скидки \" + fuel_discount_value + \"%)\"}}{script show_client}]"
+                                                                                                                                                  "_content": "[LABEL {script rounding.qsp}{script show_game_stats.qsp}{output \"\n\"}{this.locations[this.location][0]}. Бензин здесь стоит: {output fuel_cost; if things[thing_fuel_discount,1] {output \" (с учетом скидки \" + fuel_discount_value + \"%)\"}}{script show_client}]"
                                                                                                                                                 }
                                                                                                                                               ],
                                                                                                                                               "_mark": "",
@@ -1746,7 +1746,7 @@
                                                                                                                                                                 }
                                                                                                                                                               ],
                                                                                                                                                               "_mark": "leave_carwashing",
-                                                                                                                                                              "_content": "[LABEL Уеду отсюда][AMBIENT none.mp3][ANSWERIMAGE icons/enter.png|320;400]"
+                                                                                                                                                              "_content": "[LABEL Уеду отсюда][AMBIENT none][ANSWERIMAGE icons/enter.png|320;400]"
                                                                                                                                                             }
                                                                                                                                                           ],
                                                                                                                                                           "_mark": "mark_u6x2p8mk6p4c7v64rmx8",
@@ -1762,11 +1762,11 @@
                                                                                                                                                     }
                                                                                                                                                   ],
                                                                                                                                                   "_mark": "car_washing",
-                                                                                                                                                  "_content": "[LABEL {dvd_playing=0}{script rounding.qsp}{script show_game_stats.qsp}{output \"\n\"}{this.locations[location][0]}. Помыть машину здесь стоит: {output car_washing_cost}{if things[thing_carwashing_discount,1]>0 {output \" (с учетом скидки от Махмуда)\"}}{script show_in_carwashing.qsp}]"
+                                                                                                                                                  "_content": "[LABEL {this.dvd_playing=0}{script rounding.qsp}{script show_game_stats.qsp}{output \"\n\"}{this.locations[this.location][0]}. Помыть машину здесь стоит: {output car_washing_cost}{if things[thing_carwashing_discount,1]>0 {output \" (с учетом скидки от Махмуда)\"}}{script show_in_carwashing.qsp}]"
                                                                                                                                                 }
                                                                                                                                               ],
                                                                                                                                               "_mark": "",
-                                                                                                                                              "_content": "[LABEL {if (this.location == 14 || this.location == 17) {\"Заеду помыть машину\" + \"[ANSWERIMAGE icons/enter.png|260;400]\"}}][AMBIENT water.mp3][BGNDMUSIC none.mp3]"
+                                                                                                                                              "_content": "[LABEL {if (this.location == 14 || this.location == 17) {\"Заеду помыть машину\" + \"[ANSWERIMAGE icons/enter.png|260;400]\"}}][AMBIENT water.mp3][BGNDMUSIC none]"
                                                                                                                                             },
                                                                                                                                             {
                                                                                                                                               "node": [
@@ -1832,7 +1832,7 @@
                                                                                                                                                                         }
                                                                                                                                                                       ],
                                                                                                                                                                       "_mark": "wouldnot_repair_car",
-                                                                                                                                                                      "_content": "[LABEL Уеду отсюда][AMBIENT none.mp3][ANSWERIMAGE icons/enter.png|320;400]"
+                                                                                                                                                                      "_content": "[LABEL Уеду отсюда][AMBIENT none][ANSWERIMAGE icons/enter.png|320;400]"
                                                                                                                                                                     }
                                                                                                                                                                   ],
                                                                                                                                                                   "_mark": "mark_747xdlw7f0cfj1yy2ph9",
@@ -1932,7 +1932,7 @@
                                                                                                                                                             }
                                                                                                                                                           ],
                                                                                                                                                           "_mark": "autoservice",
-                                                                                                                                                          "_content": "[LABEL {script rounding.qsp}{script show_game_stats.qsp}{output \"\n\"}{this.locations[location][0]}. Полность починить машину здесь стоит: {output car_repair_cost}. Займет времени: {output car_repair_time} часов.{script show_in_autoservice.qsp}]"
+                                                                                                                                                          "_content": "[LABEL {script rounding.qsp}{script show_game_stats.qsp}{output \"\n\"}{this.locations[this.location][0]}. Полность починить машину здесь стоит: {output car_repair_cost}. Займет времени: {output car_repair_time} часов.{script show_in_autoservice.qsp}]"
                                                                                                                                                         }
                                                                                                                                                       ],
                                                                                                                                                       "_mark": "",
@@ -1940,7 +1940,7 @@
                                                                                                                                                     }
                                                                                                                                                   ],
                                                                                                                                                   "_mark": "mark_top79e67nbb2ufx9xd83",
-                                                                                                                                                  "_content": "[LABEL {dvd_playing=0}{if car_cleanness<70 {output \"[GOTO too_dirt_car_in_autoservice]\"}}]"
+                                                                                                                                                  "_content": "[LABEL {this.dvd_playing=0}{if car_cleanness<70 {output \"[GOTO too_dirt_car_in_autoservice]\"}}]"
                                                                                                                                                 },
                                                                                                                                                 {
                                                                                                                                                   "node": [
@@ -1952,7 +1952,7 @@
                                                                                                                                                         }
                                                                                                                                                       ],
                                                                                                                                                       "_mark": "",
-                                                                                                                                                      "_content": "[LABEL ...][AMBIENT none.mp3][ANSWERIMAGE icons/three_dots.png|295;400]"
+                                                                                                                                                      "_content": "[LABEL ...][AMBIENT none][ANSWERIMAGE icons/three_dots.png|295;400]"
                                                                                                                                                     }
                                                                                                                                                   ],
                                                                                                                                                   "_mark": "too_dirt_car_in_autoservice",
@@ -1960,7 +1960,7 @@
                                                                                                                                                 }
                                                                                                                                               ],
                                                                                                                                               "_mark": "",
-                                                                                                                                              "_content": "[LABEL {if ((this.location == 15 || this.location == 18) && this.money>0) {\"Заеду в \" + this.locations[this.location][0] + \"[ANSWERIMAGE icons/enter.png|260;400]\"}}][MUSIC none.mp3][AMBIENT autoservice.mp3][BGNDMUSIC none.mp3]"
+                                                                                                                                              "_content": "[LABEL {if ((this.location == 15 || this.location == 18) && this.money>0) {\"Заеду в \" + this.locations[this.location][0] + \"[ANSWERIMAGE icons/enter.png|260;400]\"}}][MUSIC none][AMBIENT autoservice.mp3][BGNDMUSIC none]"
                                                                                                                                             },
                                                                                                                                             {
                                                                                                                                               "node": [
@@ -1982,7 +1982,7 @@
                                                                                                                                                             }
                                                                                                                                                           ],
                                                                                                                                                           "_mark": "how_many_for_credit",
-                                                                                                                                                          "_content": "[LABEL {script rounding.qsp}{script show_game_stats.qsp}{output \"\n\"}{this.locations[location][0]}.{output \"\n\"}Сколько заплатишь по кредиту: 0 - {output credit_max_payment}? (срочный платеж: {output credit_delay_sum}, остаток по кредиту: {output credit_rest_sum})][BGNDIMAGE in_bank.jpg]"
+                                                                                                                                                          "_content": "[LABEL {script rounding.qsp}{script show_game_stats.qsp}{output \"\n\"}{this.locations[this.location][0]}.{output \"\n\"}Сколько заплатишь по кредиту: 0 - {output credit_max_payment}? (срочный платеж: {output credit_delay_sum}, остаток по кредиту: {output credit_rest_sum})][BGNDIMAGE in_bank.jpg]"
                                                                                                                                                         }
                                                                                                                                                       ],
                                                                                                                                                       "_mark": "",
@@ -2050,11 +2050,11 @@
                                                                                                                                                     }
                                                                                                                                                   ],
                                                                                                                                                   "_mark": "in_bank",
-                                                                                                                                                  "_content": "[LABEL {dvd_playing=0}{script show_game_stats.qsp}{output \"\n\"}{this.locations[location][0]}.][BGNDIMAGE in_bank.jpg]"
+                                                                                                                                                  "_content": "[LABEL {this.dvd_playing=0}{script show_game_stats.qsp}{output \"\n\"}{this.locations[this.location][0]}.][BGNDIMAGE in_bank.jpg]"
                                                                                                                                                 }
                                                                                                                                               ],
                                                                                                                                               "_mark": "",
-                                                                                                                                              "_content": "[LABEL {if (this.location==19) {\"Зайду в \" + this.locations[this.location][0] + \"[ANSWERIMAGE icons/enter.png|260;400]\"}}][MUSIC none.mp3][AMBIENT none.mp3][BGNDMUSIC none.mp3]"
+                                                                                                                                              "_content": "[LABEL {if (this.location==19) {\"Зайду в \" + this.locations[this.location][0] + \"[ANSWERIMAGE icons/enter.png|260;400]\"}}][MUSIC none][AMBIENT none][BGNDMUSIC none]"
                                                                                                                                             },
                                                                                                                                             {
                                                                                                                                               "node": [
@@ -2182,7 +2182,7 @@
                                                                                                                                                         }
                                                                                                                                                       ],
                                                                                                                                                       "_mark": "",
-                                                                                                                                                      "_content": "[LABEL Уеду из гаража][AMBIENT none.mp3][ANSWERIMAGE icons/enter.png|210;400]"
+                                                                                                                                                      "_content": "[LABEL Уеду из гаража][AMBIENT none][ANSWERIMAGE icons/enter.png|210;400]"
                                                                                                                                                     },
                                                                                                                                                     {
                                                                                                                                                       "node": [
@@ -2312,11 +2312,11 @@
                                                                                                                                                     }
                                                                                                                                                   ],
                                                                                                                                                   "_mark": "in_abandoned_garage",
-                                                                                                                                                  "_content": "[LABEL {dvd_playing=0}{script show_game_stats.qsp}{output \"\n\"}{script calc_car_self_repair.qsp}{this.locations[location][0]}. {if (things[thing_repairing_book,1])&&(things[thing_repairing_book,3])&&(things[thing_repairing_toolkit,1])&&(car_state<=99) {output \"Чтобы полностью починить машину (\" + full_repair_pct + \"%) тебе потребуется времени: \" + full_repair_time + \" ч.\"}}{script show_in_abandoned_garage.qsp}]"
+                                                                                                                                                  "_content": "[LABEL {this.dvd_playing=0}{script show_game_stats.qsp}{output \"\n\"}{script calc_car_self_repair.qsp}{this.locations[this.location][0]}. {if (things[thing_repairing_book,1])&&(things[thing_repairing_book,3])&&(things[thing_repairing_toolkit,1])&&(car_state<=99) {output \"Чтобы полностью починить машину (\" + full_repair_pct + \"%) тебе потребуется времени: \" + full_repair_time + \" ч.\"}}{script show_in_abandoned_garage.qsp}]"
                                                                                                                                                 }
                                                                                                                                               ],
                                                                                                                                               "_mark": "",
-                                                                                                                                              "_content": "[LABEL {if (this.location==25) {\"Заеду в \" + this.locations[this.location][0] + \"[ANSWERIMAGE icons/enter.png|260;400]\"}}][MUSIC none.mp3][AMBIENT garage.mp3][BGNDMUSIC none.mp3]"
+                                                                                                                                              "_content": "[LABEL {if (this.location==25) {\"Заеду в \" + this.locations[this.location][0] + \"[ANSWERIMAGE icons/enter.png|260;400]\"}}][MUSIC none][AMBIENT garage.mp3][BGNDMUSIC none]"
                                                                                                                                             },
                                                                                                                                             {
                                                                                                                                               "node": [
@@ -2622,7 +2622,7 @@
                                                                                                                                                                                                                                                                                                                                     }
                                                                                                                                                                                                                                                                                                                                   ],
                                                                                                                                                                                                                                                                                                                                   "_mark": "client_really_has_no_money",
-                                                                                                                                                                                                                                                                                                                                  "_content": "[LABEL Похоже у клиента действительно нет денег. Пришлось отпустить...{client_type=0;driver_show_gun=0}{script show_client}][TIMEEXPIRED client_go_away][ANSWERTIME 5]"
+                                                                                                                                                                                                                                                                                                                                  "_content": "[LABEL Похоже у клиента действительно нет денег. Пришлось отпустить...{this.client_type=0;driver_show_gun=0}{script show_client}][TIMEEXPIRED client_go_away][ANSWERTIME 5]"
                                                                                                                                                                                                                                                                                                                                 }
                                                                                                                                                                                                                                                                                                                               ],
                                                                                                                                                                                                                                                                                                                               "_mark": "",
@@ -2670,7 +2670,7 @@
                                                                                                                                                                                                                                                                                                                                                     }
                                                                                                                                                                                                                                                                                                                                                   ],
                                                                                                                                                                                                                                                                                                                                                   "_mark": "client_barfed",
-                                                                                                                                                                                                                                                                                                                                                  "_content": "[LABEL Вотц э фак? Чем так воняет? Кажется клиента вырвало прямо на твое авто!{car_cleanness=0;client_type=0}{script show_client.qsp}][TIMEEXPIRED taxing][ANSWERTIME 10]"
+                                                                                                                                                                                                                                                                                                                                                  "_content": "[LABEL Вотц э фак? Чем так воняет? Кажется клиента вырвало прямо на твое авто!{car_cleanness=0;this.client_type=0}{script show_client.qsp}][TIMEEXPIRED taxing][ANSWERTIME 10]"
                                                                                                                                                                                                                                                                                                                                                 }
                                                                                                                                                                                                                                                                                                                                               ],
                                                                                                                                                                                                                                                                                                                                               "_mark": "",
@@ -2678,7 +2678,7 @@
                                                                                                                                                                                                                                                                                                                                             }
                                                                                                                                                                                                                                                                                                                                           ],
                                                                                                                                                                                                                                                                                                                                           "_mark": "barfed",
-                                                                                                                                                                                                                                                                                                                                          "_content": "[LABEL ][GOTO this.new_location{if (client_type==8)&&(random<0.1) {output \",client_barfed\"}}]"
+                                                                                                                                                                                                                                                                                                                                          "_content": "[LABEL ][GOTO this.new_location{if (this.client_type==8)&&(random<0.1) {output \",client_barfed\"}}]"
                                                                                                                                                                                                                                                                                                                                         }
                                                                                                                                                                                                                                                                                                                                       ],
                                                                                                                                                                                                                                                                                                                                       "_mark": "",
@@ -2708,7 +2708,7 @@
                                                                                                                                                                                                                                                                                                                             }
                                                                                                                                                                                                                                                                                                                           ],
                                                                                                                                                                                                                                                                                                                           "_mark": "client_escaped",
-                                                                                                                                                                                                                                                                                                                          "_content": "[LABEL Клиент убежал от тебя!{client_type=0}{script show_client}][TIMEEXPIRED taxing][ANSWERTIME 10]"
+                                                                                                                                                                                                                                                                                                                          "_content": "[LABEL Клиент убежал от тебя!{this.client_type=0}{script show_client}][TIMEEXPIRED taxing][ANSWERTIME 10]"
                                                                                                                                                                                                                                                                                                                         }
                                                                                                                                                                                                                                                                                                                       ],
                                                                                                                                                                                                                                                                                                                       "_mark": "",
@@ -3108,7 +3108,7 @@
                                                                                                                                                                         },
                                                                                                                                                                         {
                                                                                                                                                                           "_mark": "client_go_away",
-                                                                                                                                                                          "_content": "[LABEL Клиент ушел.{this.new_location=location;client_type=0}{script show_client.qsp}][TIMEEXPIRED taxing][ANSWERTIME 1]"
+                                                                                                                                                                          "_content": "[LABEL Клиент ушел.{this.new_location=location;this.client_type=0}{script show_client.qsp}][TIMEEXPIRED taxing][ANSWERTIME 1]"
                                                                                                                                                                         }
                                                                                                                                                                       ],
                                                                                                                                                                       "_mark": "",
@@ -3116,7 +3116,7 @@
                                                                                                                                                                     }
                                                                                                                                                                   ],
                                                                                                                                                                   "_mark": "mark_6235a3o2qo2883gs96wd",
-                                                                                                                                                                  "_content": "[LABEL {if client_type != 0 {/**/output \"[GOTO client_found]\"} else {output \"[GOTO client_not_found]\"}}]"
+                                                                                                                                                                  "_content": "[LABEL {if this.client_type != 0 {/**/output \"[GOTO client_found]\"} else {output \"[GOTO client_not_found]\"}}]"
                                                                                                                                                                 },
                                                                                                                                                                 {
                                                                                                                                                                   "node": [
@@ -3148,7 +3148,7 @@
                                                                                                                                                     }
                                                                                                                                                   ],
                                                                                                                                                   "_mark": "taxing",
-                                                                                                                                                  "_content": "[LABEL {driver_show_gun=0;vip_call=0;client_type=0}{script calc_weather.qsp}{script show_client.qsp}]"
+                                                                                                                                                  "_content": "[LABEL {driver_show_gun=0;vip_call=0;this.client_type=0}{script calc_weather.qsp}{script show_client.qsp}]"
                                                                                                                                                 }
                                                                                                                                               ],
                                                                                                                                               "_mark": "",
@@ -3424,7 +3424,7 @@
                                                                                                                                                                                                                                                         }
                                                                                                                                                                                                                                                       ],
                                                                                                                                                                                                                                                       "_mark": "",
-                                                                                                                                                                                                                                                      "_content": "[LABEL Дальше...][AMBIENT none.mp3][ANSWERIMAGE icons/next.png|295;400]"
+                                                                                                                                                                                                                                                      "_content": "[LABEL Дальше...][AMBIENT none][ANSWERIMAGE icons/next.png|295;400]"
                                                                                                                                                                                                                                                     }
                                                                                                                                                                                                                                                   ],
                                                                                                                                                                                                                                                   "_mark": "mark_6ck99wp2o98sp5xoqf44",
@@ -3518,7 +3518,7 @@
                                                                                                                                                               "node": [
                                                                                                                                                                 {
                                                                                                                                                                   "_mark": "mark_c9382qzg8q1l90qt3pm6",
-                                                                                                                                                                  "_content": "[LABEL {dvd_playing=1}][GOTO dvd_actions]"
+                                                                                                                                                                  "_content": "[LABEL {this.dvd_playing=1}][GOTO dvd_actions]"
                                                                                                                                                                 }
                                                                                                                                                               ],
                                                                                                                                                               "_mark": "",
@@ -3528,7 +3528,7 @@
                                                                                                                                                               "node": [
                                                                                                                                                                 {
                                                                                                                                                                   "_mark": "mark_3f5983v8gz18w8383au0",
-                                                                                                                                                                  "_content": "[LABEL {dvd_playing=1}][GOTO dvd_actions]"
+                                                                                                                                                                  "_content": "[LABEL {this.dvd_playing=1}][GOTO dvd_actions]"
                                                                                                                                                                 }
                                                                                                                                                               ],
                                                                                                                                                               "_mark": "",
@@ -3538,7 +3538,7 @@
                                                                                                                                                               "node": [
                                                                                                                                                                 {
                                                                                                                                                                   "_mark": "mark_2ir249qi46lnc531nd1q",
-                                                                                                                                                                  "_content": "[LABEL {dvd_playing=1}][GOTO dvd_actions]"
+                                                                                                                                                                  "_content": "[LABEL {this.dvd_playing=1}][GOTO dvd_actions]"
                                                                                                                                                                 }
                                                                                                                                                               ],
                                                                                                                                                               "_mark": "",
@@ -3548,7 +3548,7 @@
                                                                                                                                                               "node": [
                                                                                                                                                                 {
                                                                                                                                                                   "_mark": "mark_yv5irk7iv39iyving5pz",
-                                                                                                                                                                  "_content": "[LABEL {dvd_playing=1}][GOTO dvd_actions]"
+                                                                                                                                                                  "_content": "[LABEL {this.dvd_playing=1}][GOTO dvd_actions]"
                                                                                                                                                                 }
                                                                                                                                                               ],
                                                                                                                                                               "_mark": "",
@@ -3562,7 +3562,7 @@
                                                                                                                                                                       "node": [
                                                                                                                                                                         {
                                                                                                                                                                           "_mark": "mark_v645h0r1rm815643g3j9",
-                                                                                                                                                                          "_content": "[LABEL {dvd_playing=1}][GOTO dvd_actions]"
+                                                                                                                                                                          "_content": "[LABEL {this.dvd_playing=1}][GOTO dvd_actions]"
                                                                                                                                                                         }
                                                                                                                                                                       ],
                                                                                                                                                                       "_mark": "",
@@ -3584,7 +3584,7 @@
                                                                                                                                                                       "node": [
                                                                                                                                                                         {
                                                                                                                                                                           "_mark": "mark_58shbgn0qi9179s44xd3",
-                                                                                                                                                                          "_content": "[LABEL {dvd_playing=1}][GOTO dvd_actions]"
+                                                                                                                                                                          "_content": "[LABEL {this.dvd_playing=1}][GOTO dvd_actions]"
                                                                                                                                                                         }
                                                                                                                                                                       ],
                                                                                                                                                                       "_mark": "",
@@ -3606,7 +3606,7 @@
                                                                                                                                                                       "node": [
                                                                                                                                                                         {
                                                                                                                                                                           "_mark": "mark_o2qh6e16bql1urj7d3o7",
-                                                                                                                                                                          "_content": "[LABEL {dvd_playing=1}][GOTO dvd_actions]"
+                                                                                                                                                                          "_content": "[LABEL {this.dvd_playing=1}][GOTO dvd_actions]"
                                                                                                                                                                         }
                                                                                                                                                                       ],
                                                                                                                                                                       "_mark": "",
@@ -3628,7 +3628,7 @@
                                                                                                                                                                       "node": [
                                                                                                                                                                         {
                                                                                                                                                                           "_mark": "mark_n00v3dpdl820d0u1368w",
-                                                                                                                                                                          "_content": "[LABEL {dvd_playing=1}][GOTO dvd_actions]"
+                                                                                                                                                                          "_content": "[LABEL {this.dvd_playing=1}][GOTO dvd_actions]"
                                                                                                                                                                         }
                                                                                                                                                                       ],
                                                                                                                                                                       "_mark": "",
@@ -3650,7 +3650,7 @@
                                                                                                                                                                       "node": [
                                                                                                                                                                         {
                                                                                                                                                                           "_mark": "mark_b85svlrqs01geju75x71",
-                                                                                                                                                                          "_content": "[LABEL {dvd_playing=1}][GOTO dvd_actions]"
+                                                                                                                                                                          "_content": "[LABEL {this.dvd_playing=1}][GOTO dvd_actions]"
                                                                                                                                                                         }
                                                                                                                                                                       ],
                                                                                                                                                                       "_mark": "",
@@ -3672,7 +3672,7 @@
                                                                                                                                                                       "node": [
                                                                                                                                                                         {
                                                                                                                                                                           "_mark": "mark_0q1jd3iu8us96jwblr2g",
-                                                                                                                                                                          "_content": "[LABEL {dvd_playing=0}][GOTO dvd_actions]"
+                                                                                                                                                                          "_content": "[LABEL {this.dvd_playing=0}][GOTO dvd_actions]"
                                                                                                                                                                         }
                                                                                                                                                                       ],
                                                                                                                                                                       "_mark": "",
@@ -3680,7 +3680,7 @@
                                                                                                                                                                     }
                                                                                                                                                                   ],
                                                                                                                                                                   "_mark": "mark_8yj36u7mfs897rutpa8k",
-                                                                                                                                                                  "_content": "[LABEL ][BGNDMUSIC none.mp3]"
+                                                                                                                                                                  "_content": "[LABEL ][BGNDMUSIC none]"
                                                                                                                                                                 }
                                                                                                                                                               ],
                                                                                                                                                               "_mark": "",
@@ -3978,7 +3978,7 @@
                                                                                     }
                                                                                   ],
                                                                                   "_mark": "mark_if3cl0a2n3zy9p9t4529",
-                                                                                  "_content": "[LABEL {script stay_or_change_location.qsp}]"
+                                                                                  "_content": "[LABEL {this.new_location=1;'';}{script stay_or_change_location.qsp}]"
                                                                                 }
                                                                               ],
                                                                               "_mark": "",
@@ -3988,7 +3988,7 @@
                                                                               "node": [
                                                                                 {
                                                                                   "_mark": "mark_pbt793nja2ovygekd3wf",
-                                                                                  "_content": "[LABEL {script stay_or_change_location.qsp}]"
+                                                                                  "_content": "[LABEL {this.new_location=2;'';}{script stay_or_change_location.qsp}]"
                                                                                 }
                                                                               ],
                                                                               "_mark": "",
@@ -3998,7 +3998,7 @@
                                                                               "node": [
                                                                                 {
                                                                                   "_mark": "mark_la67zdu8b7us62l7186b",
-                                                                                  "_content": "[LABEL {script stay_or_change_location.qsp}]"
+                                                                                  "_content": "[LABEL {this.new_location=3;'';}{script stay_or_change_location.qsp}]"
                                                                                 }
                                                                               ],
                                                                               "_mark": "",
@@ -4008,7 +4008,7 @@
                                                                               "node": [
                                                                                 {
                                                                                   "_mark": "mark_eti0vr337djh35mgwm3r",
-                                                                                  "_content": "[LABEL {script stay_or_change_location.qsp}]"
+                                                                                  "_content": "[LABEL {this.new_location=4;'';}{script stay_or_change_location.qsp}]"
                                                                                 }
                                                                               ],
                                                                               "_mark": "",
@@ -4018,7 +4018,7 @@
                                                                               "node": [
                                                                                 {
                                                                                   "_mark": "mark_dhw49u60c74w79ccp67g",
-                                                                                  "_content": "[LABEL {script stay_or_change_location.qsp}]"
+                                                                                  "_content": "[LABEL {this.new_location=5;'';}{script stay_or_change_location.qsp}]"
                                                                                 }
                                                                               ],
                                                                               "_mark": "",
@@ -4028,7 +4028,7 @@
                                                                               "node": [
                                                                                 {
                                                                                   "_mark": "mark_m1jw14p8yyynuqz8s3p8",
-                                                                                  "_content": "[LABEL {script stay_or_change_location.qsp}]"
+                                                                                  "_content": "[LABEL {this.new_location=6;'';}{script stay_or_change_location.qsp}]"
                                                                                 }
                                                                               ],
                                                                               "_mark": "",
@@ -4038,7 +4038,7 @@
                                                                               "node": [
                                                                                 {
                                                                                   "_mark": "mark_f65m63g1b62l4uotw8j7",
-                                                                                  "_content": "[LABEL {script stay_or_change_location.qsp}]"
+                                                                                  "_content": "[LABEL {this.new_location=7;'';}{script stay_or_change_location.qsp}]"
                                                                                 }
                                                                               ],
                                                                               "_mark": "",
@@ -4048,7 +4048,7 @@
                                                                               "node": [
                                                                                 {
                                                                                   "_mark": "mark_mn5bp879qxnpk4xu57lj",
-                                                                                  "_content": "[LABEL {script stay_or_change_location.qsp}]"
+                                                                                  "_content": "[LABEL {this.new_location=8;'';}{script stay_or_change_location.qsp}]"
                                                                                 }
                                                                               ],
                                                                               "_mark": "",
@@ -4058,7 +4058,7 @@
                                                                               "node": [
                                                                                 {
                                                                                   "_mark": "mark_j13runwc02441pnefc22",
-                                                                                  "_content": "[LABEL {script stay_or_change_location.qsp}]"
+                                                                                  "_content": "[LABEL {this.new_location=9;'';}{script stay_or_change_location.qsp}]"
                                                                                 }
                                                                               ],
                                                                               "_mark": "",
@@ -4068,7 +4068,7 @@
                                                                               "node": [
                                                                                 {
                                                                                   "_mark": "mark_p50b608ww95ku0mw1cn1",
-                                                                                  "_content": "[LABEL {script stay_or_change_location.qsp}]"
+                                                                                  "_content": "[LABEL {this.new_location=10;'';}{script stay_or_change_location.qsp}]"
                                                                                 }
                                                                               ],
                                                                               "_mark": "",
@@ -4078,7 +4078,7 @@
                                                                               "node": [
                                                                                 {
                                                                                   "_mark": "mark_22r76ti068nesp9eixx1",
-                                                                                  "_content": "[LABEL {script stay_or_change_location.qsp}]"
+                                                                                  "_content": "[LABEL {this.new_location=11;'';}{script stay_or_change_location.qsp}]"
                                                                                 }
                                                                               ],
                                                                               "_mark": "",
@@ -4088,7 +4088,7 @@
                                                                               "node": [
                                                                                 {
                                                                                   "_mark": "mark_927ya4m2do9648eq177a",
-                                                                                  "_content": "[LABEL {script stay_or_change_location.qsp}]"
+                                                                                  "_content": "[LABEL {this.new_location=12;'';}{script stay_or_change_location.qsp}]"
                                                                                 }
                                                                               ],
                                                                               "_mark": "",
@@ -4098,7 +4098,7 @@
                                                                               "node": [
                                                                                 {
                                                                                   "_mark": "mark_c9ank732w472lbkcvr4d",
-                                                                                  "_content": "[LABEL {script stay_or_change_location.qsp}]"
+                                                                                  "_content": "[LABEL {this.new_location=13;'';}{script stay_or_change_location.qsp}]"
                                                                                 }
                                                                               ],
                                                                               "_mark": "",
@@ -4108,7 +4108,7 @@
                                                                               "node": [
                                                                                 {
                                                                                   "_mark": "mark_919j70ii0uvwb344i96p",
-                                                                                  "_content": "[LABEL {script stay_or_change_location.qsp}]"
+                                                                                  "_content": "[LABEL {this.new_location=14;'';}{script stay_or_change_location.qsp}]"
                                                                                 }
                                                                               ],
                                                                               "_mark": "",
@@ -4118,7 +4118,7 @@
                                                                               "node": [
                                                                                 {
                                                                                   "_mark": "mark_15jy40f03463644ksnt4",
-                                                                                  "_content": "[LABEL {script stay_or_change_location.qsp}]"
+                                                                                  "_content": "[LABEL {this.new_location=15;'';}{script stay_or_change_location.qsp}]"
                                                                                 }
                                                                               ],
                                                                               "_mark": "",
@@ -4128,7 +4128,7 @@
                                                                               "node": [
                                                                                 {
                                                                                   "_mark": "mark_r18k2fuf224ce2a50ibm",
-                                                                                  "_content": "[LABEL {script stay_or_change_location.qsp}]"
+                                                                                  "_content": "[LABEL {this.new_location=16;'';}{script stay_or_change_location.qsp}]"
                                                                                 }
                                                                               ],
                                                                               "_mark": "",
@@ -4138,7 +4138,7 @@
                                                                               "node": [
                                                                                 {
                                                                                   "_mark": "mark_05puxe708t2obi3w7cej",
-                                                                                  "_content": "[LABEL {script stay_or_change_location.qsp}]"
+                                                                                  "_content": "[LABEL {this.new_location=17;'';}{script stay_or_change_location.qsp}]"
                                                                                 }
                                                                               ],
                                                                               "_mark": "",
@@ -4148,7 +4148,7 @@
                                                                               "node": [
                                                                                 {
                                                                                   "_mark": "mark_41mqf72g69c0j1f63j00",
-                                                                                  "_content": "[LABEL {script stay_or_change_location.qsp}]"
+                                                                                  "_content": "[LABEL {this.new_location=18;'';}{script stay_or_change_location.qsp}]"
                                                                                 }
                                                                               ],
                                                                               "_mark": "",
@@ -4158,7 +4158,7 @@
                                                                               "node": [
                                                                                 {
                                                                                   "_mark": "mark_ft17f2a5qsauh18487t8",
-                                                                                  "_content": "[LABEL {script stay_or_change_location.qsp}]"
+                                                                                  "_content": "[LABEL {this.new_location=19;'';}{script stay_or_change_location.qsp}]"
                                                                                 }
                                                                               ],
                                                                               "_mark": "",
@@ -4168,7 +4168,7 @@
                                                                               "node": [
                                                                                 {
                                                                                   "_mark": "mark_dl7w25m312jbw653499h",
-                                                                                  "_content": "[LABEL {script stay_or_change_location.qsp}]"
+                                                                                  "_content": "[LABEL {this.new_location=20;'';}{script stay_or_change_location.qsp}]"
                                                                                 }
                                                                               ],
                                                                               "_mark": "",
@@ -4178,7 +4178,7 @@
                                                                               "node": [
                                                                                 {
                                                                                   "_mark": "mark_4004ii0zw0n0h5q1sksq",
-                                                                                  "_content": "[LABEL {script stay_or_change_location.qsp}]"
+                                                                                  "_content": "[LABEL {this.new_location=21;'';}{script stay_or_change_location.qsp}]"
                                                                                 }
                                                                               ],
                                                                               "_mark": "",
@@ -4188,7 +4188,7 @@
                                                                               "node": [
                                                                                 {
                                                                                   "_mark": "mark_l443hzfvi8580k174r4a",
-                                                                                  "_content": "[LABEL {script stay_or_change_location.qsp}]"
+                                                                                  "_content": "[LABEL {this.new_location=22;'';}{script stay_or_change_location.qsp}]"
                                                                                 }
                                                                               ],
                                                                               "_mark": "",
@@ -4198,7 +4198,7 @@
                                                                               "node": [
                                                                                 {
                                                                                   "_mark": "mark_3n8d3bqm2o43u5r1c2a8",
-                                                                                  "_content": "[LABEL {script stay_or_change_location.qsp}]"
+                                                                                  "_content": "[LABEL {this.new_location=23;'';}{script stay_or_change_location.qsp}]"
                                                                                 }
                                                                               ],
                                                                               "_mark": "",
@@ -4208,7 +4208,7 @@
                                                                               "node": [
                                                                                 {
                                                                                   "_mark": "mark_6kbk1dnh9ran4pd4vj96",
-                                                                                  "_content": "[LABEL {script stay_or_change_location.qsp}]"
+                                                                                  "_content": "[LABEL {this.new_location=24;'';}{script stay_or_change_location.qsp}]"
                                                                                 }
                                                                               ],
                                                                               "_mark": "",
@@ -4218,7 +4218,7 @@
                                                                               "node": [
                                                                                 {
                                                                                   "_mark": "mark_j16ux7jbf5bo6n43e0qt",
-                                                                                  "_content": "[LABEL {script stay_or_change_location.qsp}]"
+                                                                                  "_content": "[LABEL {this.new_location=25;'';}{script stay_or_change_location.qsp}]"
                                                                                 }
                                                                               ],
                                                                               "_mark": "",
@@ -4234,7 +4234,7 @@
                                                                     }
                                                                   ],
                                                                   "_mark": "GAME_SAVEPOINT,init_vars",
-                                                                  "_content": "[LABEL Инициализация переменных...{script init_vars.qsp}{this.recalc_costs=1}{script calc_car_repair.qsp}{script calc_car_washing.qsp}{script calc_car_fuel.qsp}{this.recalc_costs=0}][BGNDIMAGE black_screen.jpg][MUSIC AmbientStreet.mp3][AMBIENT none.mp3]"
+                                                                  "_content": "[LABEL Инициализация переменных...{script init_vars.qsp}{this.recalc_costs=1}{script calc_car_repair.qsp}{script calc_car_washing.qsp}{script calc_car_fuel.qsp}{this.recalc_costs=0}][BGNDIMAGE black_screen.jpg][MUSIC AmbientStreet.mp3][AMBIENT none]"
                                                                 }
                                                               ],
                                                               "_mark": "",
@@ -4298,7 +4298,7 @@
                                                                                                             }
                                                                                                           ],
                                                                                                           "_mark": "poster_final",
-                                                                                                          "_content": "[LABEL \"Таксоман\", 2010 год. КГ \"Социофильм\". sociofilm@mail.ru][BGNDIMAGE final_poster.jpg]"
+                                                                                                          "_content": "[LABEL \"Таксоман\", 2010-2020 год.][BGNDIMAGE final_poster.jpg]"
                                                                                                         }
                                                                                                       ],
                                                                                                       "_mark": "",
@@ -4314,7 +4314,7 @@
                                                                                             }
                                                                                           ],
                                                                                           "_mark": "more_smoke",
-                                                                                          "_content": "[LABEL {a-=0.1}{show_meteor=1;show_meteor_explosion=0;show_smoke=1}{script show_final.qsp}{if a>0 {output \"[TIMEEXPIRED more_smoke]\"} else {output \"[TIMEEXPIRED the_end]\"}}][ANSWERTIME 0.1][HIDEANSWERS ON]"
+                                                                                          "_content": "[LABEL {this.a-=0.1}{this.show_meteor=1;this.show_meteor_explosion=0;this.show_smoke=1}{script show_final.qsp}{if (this.a>0) {\"[TIMEEXPIRED more_smoke]\"} else {\"[TIMEEXPIRED the_end]\"}}][ANSWERTIME 0.1][HIDEANSWERS ON]"
                                                                                         }
                                                                                       ],
                                                                                       "_mark": "",
@@ -4322,7 +4322,7 @@
                                                                                     }
                                                                                   ],
                                                                                   "_mark": "finish",
-                                                                                  "_content": "[LABEL {show_meteor_explosion=1}{script show_final.qsp}][SOUNDFX boom.mp3][TIMEEXPIRED more_smoke][ANSWERTIME 1][HIDEANSWERS ON]"
+                                                                                  "_content": "[LABEL {this.show_meteor_explosion=1}{script show_final.qsp}][SOUNDFX boom.mp3][TIMEEXPIRED more_smoke][ANSWERTIME 1][HIDEANSWERS ON]"
                                                                                 }
                                                                               ],
                                                                               "_mark": "",
@@ -4330,7 +4330,7 @@
                                                                             }
                                                                           ],
                                                                           "_mark": "more_closer",
-                                                                          "_content": "[LABEL {script show_final.qsp}{if s<1 {s+=0.1;output \"[TIMEEXPIRED more_closer]\"} else {output \"[TIMEEXPIRED finish]\"}}]][ANSWERTIME 0.1][HIDEANSWERS ON]"
+                                                                          "_content": "[LABEL {script show_final.qsp}{if (this.s<1) {this.s+=0.1;\"[TIMEEXPIRED more_closer]\"} else {\"[TIMEEXPIRED finish]\"}}]][ANSWERTIME 0.1][HIDEANSWERS ON]"
                                                                         }
                                                                       ],
                                                                       "_mark": "",
@@ -4338,7 +4338,7 @@
                                                                     }
                                                                   ],
                                                                   "_mark": "mark_final",
-                                                                  "_content": "[LABEL {show_meteor=0;show_meteor_explosion=0;show_smoke=0;s=0.4;a=1}]"
+                                                                  "_content": "[LABEL {this.show_meteor=0;this.show_meteor_explosion=0;this.show_smoke=0;this.s=0.4;this.a=1}]"
                                                                 }
                                                               ],
                                                               "_mark": "",
@@ -4354,7 +4354,7 @@
                                                     }
                                                   ],
                                                   "_mark": "you_win",
-                                                  "_content": "[LABEL Поздравления! Кредит выплачен полностью! Игра пройдена.{script show_bank.qsp}][MUSIC none.mp3][AMBIENT final.mp3]"
+                                                  "_content": "[LABEL Поздравления! Кредит выплачен полностью! Игра пройдена.{script show_bank.qsp}][MUSIC none][AMBIENT final.mp3]"
                                                 },
                                                 {
                                                   "_mark": "car_broke",
@@ -4510,7 +4510,7 @@
                                                             }
                                                           ],
                                                           "_mark": "mark_3j60i5f150qntam94v52",
-                                                          "_content": "[LABEL {script spent_time.qsp}{money-=evacuation_cost}{this.new_location=13;location=13;client_type=0;show_evacuator=1}Эвакуатор довезет тебя до АЗС.{script show_empty_fuel.qsp}]"
+                                                          "_content": "[LABEL {script spent_time.qsp}{money-=evacuation_cost}{this.new_location=13;location=13;this.client_type=0;show_evacuator=1}Эвакуатор довезет тебя до АЗС.{script show_empty_fuel.qsp}]"
                                                         }
                                                       ],
                                                       "_mark": "",
@@ -4518,7 +4518,7 @@
                                                     }
                                                   ],
                                                   "_mark": "fuel_empty",
-                                                  "_content": "[LABEL У тебя кончился бензин...{show_evacuator=0;show_gazel=0}{script show_empty_fuel.qsp}]"
+                                                  "_content": "[LABEL У тебя кончился бензин...{this.show_evacuator=0;this.show_gazel=0;'';}{script show_empty_fuel.qsp}]"
                                                 },
                                                 {
                                                   "node": [
@@ -4610,7 +4610,7 @@
                                                             }
                                                           ],
                                                           "_mark": "mark_49u8ffjt84o9pd2tw9sc",
-                                                          "_content": "[LABEL {if car_state>0 {client_type=0;location=this.new_location;output \"[GOTO location_actions]\"}}]"
+                                                          "_content": "[LABEL {if car_state>0 {this.client_type=0;location=this.new_location;output \"[GOTO location_actions]\"}}]"
                                                         }
                                                       ],
                                                       "_mark": "",
@@ -5182,7 +5182,7 @@
                                                               "node": [
                                                                 {
                                                                   "_mark": "mark_hmf2b7b43t25ivrag579",
-                                                                  "_content": "[LABEL {client_type++;client_subtype=1;if client_type>9 {client_type=1}}][GOTO test_view]"
+                                                                  "_content": "[LABEL {this.client_type++;client_subtype=1;if this.client_type>9 {this.client_type=1}}][GOTO test_view]"
                                                                 }
                                                               ],
                                                               "_mark": "",
@@ -5278,7 +5278,7 @@
                                                     }
                                                   ],
                                                   "_mark": "test_mode",
-                                                  "_content": "[LABEL {script init_vars.qsp}{car_state=100;client_type=1;client_subtype=1;client_state=0;weather=0;is_daytime=1;driver_show_gun=0;view=1;location=1;things[thing_tuningkit,3]=1;max_waiting=4;waiting=100}][AMBIENT what_is_love.mp3]"
+                                                  "_content": "[LABEL {script init_vars.qsp}{car_state=100;this.client_type=1;client_subtype=1;client_state=0;weather=0;is_daytime=1;driver_show_gun=0;view=1;location=1;things[thing_tuningkit,3]=1;max_waiting=4;waiting=100}][AMBIENT what_is_love.mp3]"
                                                 },
                                                 {
                                                   "node": [
@@ -5398,7 +5398,7 @@
                                                     }
                                                   ],
                                                   "_mark": "business1,client_proposes_casino_bet",
-                                                  "_content": "[LABEL {if (things[thing_vinyl_dog,3])&&(things[thing_casino_bet,1]==0)&&(things[thing_casino_bet,3]==0)&&(client_type==8) {cct=client_subtype;output \"\"} else {output \"[GOTO business2]\"}}]"
+                                                  "_content": "[LABEL {if (things[thing_vinyl_dog,3])&&(things[thing_casino_bet,1]==0)&&(things[thing_casino_bet,3]==0)&&(this.client_type==8) {cct=client_subtype;output \"\"} else {output \"[GOTO business2]\"}}]"
                                                 },
                                                 {
                                                   "node": [
@@ -5464,7 +5464,7 @@
                                                     }
                                                   ],
                                                   "_mark": "business2",
-                                                  "_content": "[LABEL {{radio_cost=(((things[thing_dvd,2]*Inflation/(1+random*3))/100):0)*100}; if (things[thing_dvd][1]==0) && ((client_type==6) || (client_type==2)) && (money>=radio_cost) {output \"\"} else {output \"[GOTO business3]\"}}]"
+                                                  "_content": "[LABEL {{radio_cost=(((things[thing_dvd,2]*Inflation/(1+random*3))/100):0)*100}; if (things[thing_dvd][1]==0) && ((this.client_type==6) || (this.client_type==2)) && (money>=radio_cost) {output \"\"} else {output \"[GOTO business3]\"}}]"
                                                 },
                                                 {
                                                   "node": [
@@ -5514,7 +5514,7 @@
                                                     }
                                                   ],
                                                   "_mark": "business3",
-                                                  "_content": "[LABEL {{vip_radio_cost=(((things[thing_vip_radio,2]*Inflation/(1+random*3))/100):0)*100}; if (things[thing_vip_radio,1]==0) && (client_type==1) && (money>=vip_radio_cost) && (random<0.5) {output \"\"} else {output \"[GOTO business4]\"}}]"
+                                                  "_content": "[LABEL {{vip_radio_cost=(((things[thing_vip_radio,2]*Inflation/(1+random*3))/100):0)*100}; if (things[thing_vip_radio,1]==0) && (this.client_type==1) && (money>=vip_radio_cost) && (random<0.5) {output \"\"} else {output \"[GOTO business4]\"}}]"
                                                 },
                                                 {
                                                   "node": [
@@ -5712,7 +5712,7 @@
                                                     }
                                                   ],
                                                   "_mark": "business4",
-                                                  "_content": "[LABEL {thing_cost=500 + (random*5):0*100}{if (random < 0.5) && (things[thing_known_garage,1]==0) && (client_type==4) && (money >= thing_cost) {output \"[GOTO garage_proposal]\"} else {output \"[GOTO business5]\"}}]"
+                                                  "_content": "[LABEL {thing_cost=500 + (random*5):0*100}{if (random < 0.5) && (things[thing_known_garage,1]==0) && (this.client_type==4) && (money >= thing_cost) {output \"[GOTO garage_proposal]\"} else {output \"[GOTO business5]\"}}]"
                                                 },
                                                 {
                                                   "node": [
@@ -5778,7 +5778,7 @@
                                                     }
                                                   ],
                                                   "_mark": "business5",
-                                                  "_content": "[LABEL {{thing_cost=(((things[thing_fuel_discount,2]*Inflation/(1+random*3))/100):0)*100}; if (things[thing_fuel_discount,1]==0) && (client_type==2) && (money>=thing_cost) {output \"\"} else {output \"[GOTO business6]\"}}]"
+                                                  "_content": "[LABEL {{thing_cost=(((things[thing_fuel_discount,2]*Inflation/(1+random*3))/100):0)*100}; if (things[thing_fuel_discount,1]==0) && (this.client_type==2) && (money>=thing_cost) {output \"\"} else {output \"[GOTO business6]\"}}]"
                                                 },
                                                 {
                                                   "node": [
@@ -6040,7 +6040,7 @@
                                                     }
                                                   ],
                                                   "_mark": "business6",
-                                                  "_content": "[LABEL {if (drugDealer == 1) && (client_type==6) && (drugDealerGoodsDriver>0) {output \"[GOTO drug_distribution]\"} else {output \"[GOTO business7]\"} }]"
+                                                  "_content": "[LABEL {if (drugDealer == 1) && (this.client_type==6) && (drugDealerGoodsDriver>0) {output \"[GOTO drug_distribution]\"} else {output \"[GOTO business7]\"} }]"
                                                 },
                                                 {
                                                   "node": [
@@ -6194,7 +6194,7 @@
                                                     }
                                                   ],
                                                   "_mark": "business7",
-                                                  "_content": "[LABEL {if (drugDealer == 0) && (client_type==6) && (money>=drugDealerGoodsCost*Inflation) {output \"[GOTO drug_dealer]\"} else {output \"[GOTO business8]\"} }]"
+                                                  "_content": "[LABEL {if (drugDealer == 0) && (this.client_type==6) && (money>=drugDealerGoodsCost*Inflation) {output \"[GOTO drug_dealer]\"} else {output \"[GOTO business8]\"} }]"
                                                 },
                                                 {
                                                   "node": [
@@ -6260,7 +6260,7 @@
                                                     }
                                                   ],
                                                   "_mark": "business9",
-                                                  "_content": "[LABEL {if (client_type==5) && (client_subtype==1) && (barsukPsy>0) && (barsukPsy<3){output \"[GOTO ask_barsuk]\"} else {output \"[GOTO business10]\"}} ]"
+                                                  "_content": "[LABEL {if (this.client_type==5) && (client_subtype==1) && (barsukPsy>0) && (barsukPsy<3){output \"[GOTO ask_barsuk]\"} else {output \"[GOTO business10]\"}} ]"
                                                 },
                                                 {
                                                   "node": [
@@ -6300,7 +6300,7 @@
                                                                                                     }
                                                                                                   ],
                                                                                                   "_mark": "mark_5zr4p17miq7oz7k6d82q",
-                                                                                                  "_content": "[LABEL Вот и ладненько.{things[thing_dvd][1]=0; dvd_playing=0;stolen_dvd=0;client_state=0}{script show_client_inside_rear.qsp}]"
+                                                                                                  "_content": "[LABEL Вот и ладненько.{things[thing_dvd][1]=0; this.dvd_playing=0;stolen_dvd=0;client_state=0}{script show_client_inside_rear.qsp}]"
                                                                                                 }
                                                                                               ],
                                                                                               "_mark": "eh_take_dvd",
@@ -6362,7 +6362,7 @@
                                                     }
                                                   ],
                                                   "_mark": "business10",
-                                                  "_content": "[LABEL {if (stolen_dvd==1) && (client_type==4) && (random < 0.7) {output \"[GOTO stolen_dvd]\"} else {output \"[GOTO business11]\"}} ]"
+                                                  "_content": "[LABEL {if (stolen_dvd==1) && (this.client_type==4) && (random < 0.7) {output \"[GOTO stolen_dvd]\"} else {output \"[GOTO business11]\"}} ]"
                                                 },
                                                 {
                                                   "_mark": "business11",
