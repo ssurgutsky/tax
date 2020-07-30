@@ -273,7 +273,7 @@ export default {
         }
         console.log(jsCode)
 
-        let jsCodeResult = eval(jsCode)
+        let jsCodeResult = eval(jsCode) || ''
 
         console.log('jsCodeResult', jsCodeResult)
 
