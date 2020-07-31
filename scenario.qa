@@ -560,7 +560,7 @@
 																																																			[go_to_other_location]Поеду в другое место[ANSWERIMAGE icons/change_place.png|570;330]{if (this.dvd_playing == 0) {"[AMBIENT AmbientStreet.mp3]"}}
 																																																				[mark_e630cumru98haec87a0s][GOTO main_menu]
 																																											[cancel_work]Отказаться[ANSWERIMAGE icons/cancel.png|90;400]
-																																												[mark_q802xdff7ncy1r86ecgv]Клиент обиделся{this.new_location=this.location;this.people_negative++;this.client_state=2;'';}{script show_client.qsp}{script spent_time.qsp}{script calc_weather}[ANSWERTIME 1][TIMEEXPIRED taxing]
+																																												[mark_q802xdff7ncy1r86ecgv]Клиент обиделся{this.new_location=this.location;this.people_negative++;this.client_state=2;'';}{script show_client.qsp}{script spent_time.qsp}{script calc_weather}[ANSWERTIME 5][TIMEEXPIRED taxing]
 																																													...[ANSWERIMAGE icons/next.png|295;400]
 																																														[mark_2l834a5pqvw0om7a19j0][GOTO taxing]
 																																											[GOTO price_is_1x]
@@ -590,7 +590,7 @@
 																																								[gop_stop]ОМГ! Да это же бандит! {if (this.things[this.thing_gun][1]) {"Ты направил на него ствол и он трусливо убежал прочь."} else {this.robbed_sum=Math.floor(this.money/2) + Math.floor(this.money/2*Math.random());if (this.robbed_sum <= this.money/3) {"Он попытался ограбить тебя, но у него не получилось."} else {"Он ограбил тебя на: " + this.robbed_sum;this.money -= this.robbed_sum;this.robbed_money+= this.robbed_sum}}}{script rounding.qsp}{script show_gop_stop}[ANSWERTIME 10][TIMEEXPIRED {output return_mark}]
 																																									...[ANSWERIMAGE icons/next.png|295;400]
 																																										[mark_e7h0ff5i2e3edi6pxbo6][GOTO {this.return_mark}]
-																																								[client_go_away]Клиент ушел.{this.new_location=this.location;this.client_type=0;'';}{script show_client.qsp}[ANSWERTIME 1][TIMEEXPIRED taxing]
+																																								[client_go_away]Клиент ушел.{this.new_location=this.location;this.client_type=0;'';}{script show_client.qsp}[ANSWERTIME 5][TIMEEXPIRED taxing]
 																																						[vip_client_has_pretense]{script client_pretense.qsp}{this.vip_call=0;'';}{script show_client.qsp}[ANSWERTIME 20][TIMEEXPIRED new_location]
 																																							...[ANSWERIMAGE icons/three_dots.png|295;400]
 																																								[mark_21bu90i96695hyxno153][GOTO new_location]

@@ -74,8 +74,8 @@ export default {
       this.$refs.answersView.hideAnswers()
     },
 
-    setTimer (seconds) {
-      this.$refs.timerView.setTimer(seconds)
+    setTimer (seconds, mark) {
+      this.$refs.timerView.setTimer(seconds, mark)
     },
 
     clearTimer (seconds) {

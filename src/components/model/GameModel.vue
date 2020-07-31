@@ -273,6 +273,11 @@ export default {
 
       this.processNodeMusic(this.currentNode)
       this.processNodeBgndMusic(this.currentNode)
+
+      this.answerTime = commonUtils.getTagValueANSWERTIME(this.currentNode._parsedContent)
+      this.timeExpiredMark = commonUtils.getTagValueTIMEEXPIRED(this.currentNode._parsedContent)
+
+      console.log(']]]]]]]]]]]]]]', this.answerTime, this.timeExpiredMark)
     },
 
     hasEmptyQuestion () {
@@ -418,9 +423,6 @@ export default {
           commonUtils.shuffle(this.currentAnswers)
         }
       }
-
-      this.answerTime = commonUtils.getTagValueANSWERTIME(this.currentNode._parsedContent)
-      this.timeExpiredMark = commonUtils.getTagValueTIMEEXPIRED(this.currentNode._parsedContent)
     },
 
     hasEmptyAnswer () {
@@ -522,11 +524,14 @@ export default {
     },
 
     processTimeExpired () {
+      console.log('this.timeExpiredMark', this.timeExpiredMark)
       if (this.timeExpiredMark !== '') {
         let gotoNode = this.findNodeWithMark(this.scenario, this.timeExpiredMark)
+        console.log('gotoNode', gotoNode)
         if (gotoNode) {
           this.currentNode = gotoNode
         }
+        this.timeExpiredMark = ''
       }
     },
 

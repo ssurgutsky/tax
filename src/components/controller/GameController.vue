@@ -106,6 +106,7 @@ export default {
     },
 
     showCurrentQuestion () {
+      this.mainView.clearTimer()
       this.gameModel.prepareCurrentQuestion()
       this.mainView.clearAnswers()
 
@@ -162,7 +163,7 @@ export default {
       let inputSVal = this.gameModel.inputSVarValue
 
       this.mainView.showAnswers(this.gameModel.getCurrentAnswers(), isInputS, inputSVal)
-      this.mainView.setTimer(this.gameModel.getAnswerTime())
+      this.mainView.setTimer(this.gameModel.getAnswerTime(), this.gameModel.timeExpiredMark)
     },
 
     processAnswer (item) {

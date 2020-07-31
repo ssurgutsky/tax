@@ -98,7 +98,6 @@ export default {
   },
 
   getTagValueBGNDMUSIC (content) {
-    console.log('BGNMMUSIC content', content)
     return this.getTagValueAudioSequence(content, 'BGNDMUSIC')
   },
 
@@ -274,17 +273,17 @@ export default {
           scriptName = scriptName + '.qsp'
           console.log('SCRIPT NAME:', scriptName)
           let text = CacheController.getAssetByName(CacheController.CATEGORY_SCRIPTS, scriptName)
-          console.log('=============', text)
+          // console.log('=============', text)
           jsCode = text
           if (!jsCode) {
             console.log('Script not found!', scriptName)
           }
         }
-        console.log(jsCode)
+        // console.log(jsCode)
 
         let jsCodeResult = eval(jsCode) || ''
 
-        console.log('jsCodeResult', jsCodeResult)
+        // console.log('jsCodeResult', jsCodeResult)
 
         result = result + jsCodeResult
         lastEnd = end + 1
