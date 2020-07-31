@@ -459,11 +459,11 @@
 																																							
 																																								[client_found]{this.first_client_greeting=1;this.return_mark="taxing";'';}{script calc_road.qsp}[GOTO {if (Math.random()*100 < this.people_negative && this.money>0) {this.asked_fuel=0;"gop_stop"} else {if (Math.random() < 0.5) {"client_says_price"} else {"client_asks_price"}}}]
 																																									
-																																										[client_says_price]{script show_game_stats.qsp}\n{if (this.first_client_greeting) {this.first_client_greeting=0;{script client_greeting.qsp}}} {script client_asking}{this.client_bargained=1}{script show_road_stats.qsp};if (this.client_price < 1) {"Бесплатно?"} else {this.client_price + "?"}}{this.value_to_show=this.client_price}{script calc_client_price_picture.qsp}{script show_client.qsp}[ANSWERTIME 20][TIMEEXPIRED client_go_away]
+																																										[client_says_price]{script show_game_stats.qsp}\n{if (this.first_client_greeting) {this.first_client_greeting=0;{script client_greeting.qsp}}} {script client_asking}{this.client_bargained=1;'';}{script show_road_stats.qsp}{if (this.client_price < 1) {"Бесплатно?"} else {this.client_price + "?"}}{this.value_to_show=this.client_price}{script calc_client_price_picture.qsp}{script show_client.qsp}[ANSWERTIME 20][TIMEEXPIRED client_go_away]
 																																											[GOTO ok_travel]
 																																											[say_your_price]Назвать свою цену поездки[ANSWERIMAGE icons/how_much_money.png|510;400]
 																																												[what_is_your_cost]Цена поездки ? (0 - {100*this.Inflation}){script show_client.qsp}[ANSWERTIME 30][TIMEEXPIRED client_go_away]
-																																													[INPUTN driver_price]
+																																													[INPUTN this.driver_price]
 																																														[driver_said_price]{if (this.driver_price < 0 || this.driver_price > 100*this.Inflation) {"[GOTO what_is_your_cost]"} else {"[GOTO client_should_think]"}}
 																																															
 																																																[client_should_think]{script client_thinking.qsp}{"[GOTO " + this.client_solution + "]"}
@@ -543,7 +543,7 @@
 																																																				[mark_wrp0ryq17o42e31jge6h][GOTO travel_road]
 																																																			[GOTO say_your_price]
 																																																			[GOTO cancel_work]
-																																																			[price_is_1x]Довезу за {this.driver_price=1*this.Inflation;driver_price}[ANSWERIMAGE icons/money1.png|150;400]
+																																																			[price_is_1x]Довезу за {this.driver_price=1*this.Inflation;this.driver_price}[ANSWERIMAGE icons/money1.png|150;400]
 																																																				[mark_369kddqz301lyll4of56][GOTO driver_said_price]
 																																																			[price_is_1.5x]Довезу за {this.driver_price=1.5*this.Inflation;this.driver_price}[ANSWERIMAGE icons/money2.png|210;400]
 																																																				[mark_18y3i591f8p075krave0][GOTO driver_said_price]
@@ -591,7 +591,7 @@
 																																									...[ANSWERIMAGE icons/next.png|295;400]
 																																										[mark_e7h0ff5i2e3edi6pxbo6][GOTO {this.return_mark}]
 																																								[client_go_away]Клиент ушел.{this.new_location=this.location;this.client_type=0;'';}{script show_client.qsp}[ANSWERTIME 1][TIMEEXPIRED taxing]
-																																						[vip_client_has_pretense]{script client_pretense.qsp}{this.vip_call=0;'';}{script show_client.qsp}[ANSWERTIME 20][TIMEEXPIRED this.new_location]
+																																						[vip_client_has_pretense]{script client_pretense.qsp}{this.vip_call=0;'';}{script show_client.qsp}[ANSWERTIME 20][TIMEEXPIRED new_location]
 																																							...[ANSWERIMAGE icons/three_dots.png|295;400]
 																																								[mark_21bu90i96695hyxno153][GOTO new_location]
 																																	[GOTO change_location]
@@ -620,7 +620,7 @@
 																																			Пропущу вызов[ANSWERIMAGE icons/cancel.png|320;400]
 																																				[mark_0he799u501ub69x4cru8]{this.vip_call=0;'';}[GOTO new_location]
 																																	{if (this.things[this.thing_vip_radio][1] && this.things[this.thing_vip_radio][3]==0) {"Настрою частоту рации для приема заявок от VIP-клиентов." + "[ANSWERIMAGE icons/call.png|140;400]"}}
-																																		[input_radio_freq]Введи номер частоты (0 - 1000000)? (0 = выход)[BGNDIMAGE vip_radio.jpg][ANSWERTIME 30][TIMEEXPIRED this.new_location]
+																																		[input_radio_freq]Введи номер частоты (0 - 1000000)? (0 = выход)[BGNDIMAGE vip_radio.jpg][ANSWERTIME 30][TIMEEXPIRED new_location]
 																																			[INPUTN this.radio_freq]
 																																				[mark_w43083s54ddmirt48y1i]{if (this.radio_freq < 0 || this.radio_freq > 1000000) {"[GOTO input_radio_freq]"}}
 																																					
@@ -629,7 +629,7 @@
 																																								[mark_n4mf60whj3k340r2lq7s][GOTO input_radio_freq]
 																																							Хватит, надоело[ANSWERIMAGE icons/cancel.png|320;400]
 																																								[mark_91b24d5296zc3i24azs9][GOTO new_location]
-																																						[vip_freq_found]Частота подобрана. Теперь какое то время можно принимать заявки от VIP-клиентов.{this.things[this.thing_vip_radio][3]=1;'';}{script calc_radio_vip_freq.qsp}[BGNDIMAGE vip_radio.jpg][ANSWERTIME 30][TIMEEXPIRED this.new_location]
+																																						[vip_freq_found]Частота подобрана. Теперь какое то время можно принимать заявки от VIP-клиентов.{this.things[this.thing_vip_radio][3]=1;'';}{script calc_radio_vip_freq.qsp}[BGNDIMAGE vip_radio.jpg][ANSWERTIME 30][TIMEEXPIRED new_location]
 																																							[ANSWERIMAGE icons/cool.png|295;400]
 																																								[mark_rn35o25280263720d5w1][GOTO new_location]
 																																	{this.return_mark="location_actions"}[GOTO dvd_on]
