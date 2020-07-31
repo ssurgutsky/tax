@@ -138,6 +138,7 @@ export default {
       this.playAmbient()
       this.playSoundFx()
       this.playMusic()
+      this.playBgndMusic()
     },
 
     showAfterQuestion () {
@@ -181,6 +182,7 @@ export default {
       this.playAmbient()
       this.playSoundFx()
       this.playMusic()
+      this.playBgndMusic()
 
       this.mode = this.MODE_ANSWER
       this.playVideoAndAudio()
@@ -350,6 +352,22 @@ export default {
     processMusicEnded (name) {
       console.log('music ended:', name)
       this.playMusic(true)
+    },
+
+    playBgndMusic (isNextRandomMusic) {
+      if (this.gameModel.hasBgndMusicEmpty()) return
+
+      if (!this.gameModel.isNewBgndMusic && !isNextRandomMusic) return
+
+      this.gameModel.setNextRandomBgndMusic()
+
+      let name = this.gameModel.getCurrentBgndMusicName()
+      this.mainView.playBgndMusic(name)
+    },
+
+    processBgndMusicEnded (name) {
+      console.log('bgnd music ended:', name)
+      this.playBgndMusic(true)
     },
 
     processTimeExpired () {

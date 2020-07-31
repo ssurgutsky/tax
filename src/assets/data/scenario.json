@@ -148,11 +148,11 @@
                                                                                                                                                     }
                                                                                                                                                   ],
                                                                                                                                                   "_mark": "mark_al3kb004qv3vdr14857k",
-                                                                                                                                                  "_content": "[LABEL {this.dvd_playing=0}{this.locations[this.location][0]}][BGNDIMAGE in_bar.jpg]"
+                                                                                                                                                  "_content": "[LABEL {this.dvd_playing=0}{this.locations[this.location][0]}{script radio3.qsp}][BGNDIMAGE in_bar.jpg][MUSIC none][AMBIENT cafe.mp3]"
                                                                                                                                                 }
                                                                                                                                               ],
                                                                                                                                               "_mark": "",
-                                                                                                                                              "_content": "[LABEL {if (this.location==2) {\"Зайду в \" + this.locations[this.location][0] + \"[ANSWERIMAGE icons/enter.png|260;400]\"}}{script radio3.qsp}][MUSIC none][AMBIENT cafe.mp3]"
+                                                                                                                                              "_content": "[LABEL {if (this.location==2) {\"Зайду в \" + this.locations[this.location][0] + \"[ANSWERIMAGE icons/enter.png|260;400]\"}}]"
                                                                                                                                             },
                                                                                                                                             {
                                                                                                                                               "node": [
@@ -232,11 +232,11 @@
                                                                                                                                                     }
                                                                                                                                                   ],
                                                                                                                                                   "_mark": "mark_1miki32n971qt5fp2893",
-                                                                                                                                                  "_content": "[LABEL {this.dvd_playing=0}{this.locations[this.location][0]}][BGNDIMAGE in_railway_station.jpg&briefcase.png|528;356]"
+                                                                                                                                                  "_content": "[LABEL {this.dvd_playing=0}{this.locations[this.location][0]}][BGNDIMAGE in_railway_station.jpg&briefcase.png|528;356][MUSIC none][AMBIENT none][BGNDMUSIC none]"
                                                                                                                                                 }
                                                                                                                                               ],
                                                                                                                                               "_mark": "",
-                                                                                                                                              "_content": "[LABEL {if (this.location==4) {\"Зайду в \" + this.locations[this.location][0] + \"[ANSWERIMAGE icons/enter.png|260;400]\"}}][MUSIC none][AMBIENT none][BGNDMUSIC none]"
+                                                                                                                                              "_content": "[LABEL {if (this.location==4) {\"Зайду в \" + this.locations[this.location][0] + \"[ANSWERIMAGE icons/enter.png|260;400]\"}}]"
                                                                                                                                             },
                                                                                                                                             {
                                                                                                                                               "node": [
@@ -338,11 +338,11 @@
                                                                                                                                                     }
                                                                                                                                                   ],
                                                                                                                                                   "_mark": "mark_gkq4xj6b2j2rjxcz0e10",
-                                                                                                                                                  "_content": "[LABEL {this.dvd_playing=0}Здравствуйте! Ознакомьтесь с нашими ассортиментом, пожалуйста.][BGNDIMAGE pharmacy1.jpg]"
+                                                                                                                                                  "_content": "[LABEL {this.dvd_playing=0}Здравствуйте! Ознакомьтесь с нашими ассортиментом, пожалуйста.][BGNDIMAGE pharmacy1.jpg][MUSIC none][AMBIENT none][BGNDMUSIC none]"
                                                                                                                                                 }
                                                                                                                                               ],
                                                                                                                                               "_mark": "",
-                                                                                                                                              "_content": "[LABEL {if (this.location==5) {\"Зайду в \" + this.locations[this.location][0] + \"[ANSWERIMAGE icons/enter.png|260;400]\"}}][MUSIC none][AMBIENT none][BGNDMUSIC none]"
+                                                                                                                                              "_content": "[LABEL {if (this.location==5) {\"Зайду в \" + this.locations[this.location][0] + \"[ANSWERIMAGE icons/enter.png|260;400]\"}}]"
                                                                                                                                             },
                                                                                                                                             {
                                                                                                                                               "node": [
@@ -466,7 +466,7 @@
                                                                                                                                                                 }
                                                                                                                                                               ],
                                                                                                                                                               "_mark": "present_thing",
-                                                                                                                                                              "_content": "[LABEL {thing_cost=things[thing,2]*Inflation; if things[thing,1]==0 {output things[thing,0] + \". Цена: \" + thing_cost + \"[ANSWERIMAGE icons/\"+things[thing,4]+\".png|\"+thing*60+\";400]\"}}]"
+                                                                                                                                                              "_content": "[LABEL {thing_cost=things[thing,2]*this.Inflation; if things[thing,1]==0 {output things[thing,0] + \". Цена: \" + thing_cost + \"[ANSWERIMAGE icons/\"+things[thing,4]+\".png|\"+thing*60+\";400]\"}}]"
                                                                                                                                                             }
                                                                                                                                                           ],
                                                                                                                                                           "_mark": "mark_6f0140ie71g9jp2wg53f",
@@ -516,11 +516,11 @@
                                                                                                                                                     }
                                                                                                                                                   ],
                                                                                                                                                   "_mark": "in_store",
-                                                                                                                                                  "_content": "[LABEL {this.dvd_playing=0}{script rounding.qsp}{script show_game_stats.qsp}{output \"\n\"}{this.locations[this.location][0]}. Что хочешь посмотреть?][BGNDIMAGE in_shopping_center.jpg]"
+                                                                                                                                                  "_content": "[LABEL {this.dvd_playing=0}{script rounding.qsp}{script show_game_stats.qsp}{output \"\n\"}{this.locations[this.location][0]}. Что хочешь посмотреть?][BGNDIMAGE in_shopping_center.jpg][MUSIC none][AMBIENT megapolice.mp3][BGNDMUSIC none]"
                                                                                                                                                 }
                                                                                                                                               ],
                                                                                                                                               "_mark": "",
-                                                                                                                                              "_content": "[LABEL {if (this.location==8) {\"Зайду в \" + this.locations[this.location][0] + \"[ANSWERIMAGE icons/enter.png|260;400]\"}}][MUSIC none][AMBIENT megapolice.mp3][BGNDMUSIC none]"
+                                                                                                                                              "_content": "[LABEL {if (this.location==8) {\"Зайду в \" + this.locations[this.location][0] + \"[ANSWERIMAGE icons/enter.png|260;400]\"}}]"
                                                                                                                                             },
                                                                                                                                             {
                                                                                                                                               "node": [
@@ -564,7 +564,7 @@
                                                                                                                                                             }
                                                                                                                                                           ],
                                                                                                                                                           "_mark": "mark_z69jw151c3di817zildw",
-                                                                                                                                                          "_content": "[LABEL Все очень просто, вы платите в кассу {vip_freq_cost = 100*Inflation;output vip_freq_cost}, после этого вам сообщат код радиочастоты. Настроите её в рации и неделю сможете получать заказы. После этого приезжайте и покупайте новый код.][BGNDIMAGE official.jpg]"
+                                                                                                                                                          "_content": "[LABEL Все очень просто, вы платите в кассу {vip_freq_cost = 100*this.Inflation;output vip_freq_cost}, после этого вам сообщат код радиочастоты. Настроите её в рации и неделю сможете получать заказы. После этого приезжайте и покупайте новый код.][BGNDIMAGE official.jpg]"
                                                                                                                                                         }
                                                                                                                                                       ],
                                                                                                                                                       "_mark": "",
@@ -582,11 +582,11 @@
                                                                                                                                                     }
                                                                                                                                                   ],
                                                                                                                                                   "_mark": "mark_7861400rcmpb9k3pess3",
-                                                                                                                                                  "_content": "[LABEL {this.dvd_playing=0}{this.locations[this.location][0]}. Что будешь делать?][BGNDIMAGE city_hall_inside.jpg]"
+                                                                                                                                                  "_content": "[LABEL {this.dvd_playing=0}{this.locations[this.location][0]}. Что будешь делать?][BGNDIMAGE city_hall_inside.jpg][MUSIC none][AMBIENT none][BGNDMUSIC none]"
                                                                                                                                                 }
                                                                                                                                               ],
                                                                                                                                               "_mark": "",
-                                                                                                                                              "_content": "[LABEL {if (this.location==9) {\"Зайду в \" + this.locations[this.location][0] + \"[ANSWERIMAGE icons/enter.png|260;400]\"}}][MUSIC none][AMBIENT none][BGNDMUSIC none]"
+                                                                                                                                              "_content": "[LABEL {if (this.location==9) {\"Зайду в \" + this.locations[this.location][0] + \"[ANSWERIMAGE icons/enter.png|260;400]\"}}]"
                                                                                                                                             },
                                                                                                                                             {
                                                                                                                                               "node": [
@@ -674,7 +674,7 @@
                                                                                                                                                                                                                                         }
                                                                                                                                                                                                                                       ],
                                                                                                                                                                                                                                       "_mark": "",
-                                                                                                                                                                                                                                      "_content": "[LABEL Ну... {output 10*Inflation} могу...][ANSWERIMAGE icons/money3.png|260;400]"
+                                                                                                                                                                                                                                      "_content": "[LABEL Ну... {output 10*this.Inflation} могу...][ANSWERIMAGE icons/money3.png|260;400]"
                                                                                                                                                                                                                                     },
                                                                                                                                                                                                                                     {
                                                                                                                                                                                                                                       "node": [
@@ -754,11 +754,11 @@
                                                                                                                                                                                                                                                     }
                                                                                                                                                                                                                                                   ],
                                                                                                                                                                                                                                                   "_mark": "check_money_for_showgirls",
-                                                                                                                                                                                                                                                  "_content": "[LABEL {if money<barsuk_showgirls_cost*Inflation {output \"[GOTO no_money_for_showgirls]\"} else {money-=barsuk_showgirls_cost*Inflation;output \"[GOTO enter_showgirls]\"}}]"
+                                                                                                                                                                                                                                                  "_content": "[LABEL {if money<barsuk_showgirls_cost*this.Inflation {output \"[GOTO no_money_for_showgirls]\"} else {money-=barsuk_showgirls_cost*this.Inflation;output \"[GOTO enter_showgirls]\"}}]"
                                                                                                                                                                                                                                                 }
                                                                                                                                                                                                                                               ],
                                                                                                                                                                                                                                               "_mark": "",
-                                                                                                                                                                                                                                              "_content": "[LABEL Заплачу {output barsuk_showgirls_cost*Inflation}][ANSWERIMAGE icons/money6.png|235;400]"
+                                                                                                                                                                                                                                              "_content": "[LABEL Заплачу {output barsuk_showgirls_cost*this.Inflation}][ANSWERIMAGE icons/money6.png|235;400]"
                                                                                                                                                                                                                                             },
                                                                                                                                                                                                                                             {
                                                                                                                                                                                                                                               "_mark": "",
@@ -770,7 +770,7 @@
                                                                                                                                                                                                                                         }
                                                                                                                                                                                                                                       ],
                                                                                                                                                                                                                                       "_mark": "",
-                                                                                                                                                                                                                                      "_content": "[LABEL Предположим {output barsuk_showgirls_cost*Inflation}][ANSWERIMAGE icons/money6.png|320;400]"
+                                                                                                                                                                                                                                      "_content": "[LABEL Предположим {output barsuk_showgirls_cost*this.Inflation}][ANSWERIMAGE icons/money6.png|320;400]"
                                                                                                                                                                                                                                     }
                                                                                                                                                                                                                                   ],
                                                                                                                                                                                                                                   "_mark": "mark_7s6ugma2k33403p9p4np",
@@ -862,7 +862,7 @@
                                                                                                                                                                                                             }
                                                                                                                                                                                                           ],
                                                                                                                                                                                                           "_mark": "mark_76gqhhvt8n2dtn2g1z5q",
-                                                                                                                                                                                                          "_content": "[LABEL Хорошо, хорошо! Извини меня! Это тебе вместе с компенсацией...{money+=barsuk_psy_food_cost*2*Inflation;barsukPsy=3}][BGNDIMAGE barsuk_toilet.jpg&client5_1_2.png|0;100&driver_gun.png|150;0]"
+                                                                                                                                                                                                          "_content": "[LABEL Хорошо, хорошо! Извини меня! Это тебе вместе с компенсацией...{money+=barsuk_psy_food_cost*2*this.Inflation;barsukPsy=3}][BGNDIMAGE barsuk_toilet.jpg&client5_1_2.png|0;100&driver_gun.png|150;0]"
                                                                                                                                                                                                         }
                                                                                                                                                                                                       ],
                                                                                                                                                                                                       "_mark": "",
@@ -1120,7 +1120,7 @@
                                                                                                                                                                                                                                                                                                                                                     }
                                                                                                                                                                                                                                                                                                                                                   ],
                                                                                                                                                                                                                                                                                                                                                   "_mark": "mark_r87m9n9julwryzsxoyr0",
-                                                                                                                                                                                                                                                                                                                                                  "_content": "[LABEL Cэр, ваш счет: {barsuk_credit=barsuk_psy_food_cost*Inflation;output barsuk_credit;barsukPsy=1}. За вас и вашего друга.][BGNDIMAGE barsuk_main.jpg&client4_2_1.png|200;30]"
+                                                                                                                                                                                                                                                                                                                                                  "_content": "[LABEL Cэр, ваш счет: {barsuk_credit=barsuk_psy_food_cost*this.Inflation;output barsuk_credit;barsukPsy=1}. За вас и вашего друга.][BGNDIMAGE barsuk_main.jpg&client4_2_1.png|200;30]"
                                                                                                                                                                                                                                                                                                                                                 }
                                                                                                                                                                                                                                                                                                                                               ],
                                                                                                                                                                                                                                                                                                                                               "_mark": "",
@@ -1160,7 +1160,7 @@
                                                                                                                                                                                                                                                                                                             }
                                                                                                                                                                                                                                                                                                           ],
                                                                                                                                                                                                                                                                                                           "_mark": "get_barsuk_psy",
-                                                                                                                                                                                                                                                                                                          "_content": "[LABEL {money -= barsuk_psy_cost*Inflation}Ну вот и отлично! Официант! Где там мой поросенок?][BGNDIMAGE barsuk_right3.jpg&client5_1_1.png|-300;50;1.5;1.5]"
+                                                                                                                                                                                                                                                                                                          "_content": "[LABEL {money -= barsuk_psy_cost*this.Inflation}Ну вот и отлично! Официант! Где там мой поросенок?][BGNDIMAGE barsuk_right3.jpg&client5_1_1.png|-300;50;1.5;1.5]"
                                                                                                                                                                                                                                                                                                         },
                                                                                                                                                                                                                                                                                                         {
                                                                                                                                                                                                                                                                                                           "node": [
@@ -1190,7 +1190,7 @@
                                                                                                                                                                                                                                                                                                     }
                                                                                                                                                                                                                                                                                                   ],
                                                                                                                                                                                                                                                                                                   "_mark": "mark_0okvrk0tzcv4341cs24c",
-                                                                                                                                                                                                                                                                                                  "_content": "[LABEL {if money < barsuk_psy_cost*Inflation {output \"[GOTO no_money_for_barsuk_psy]\"} else {output \"[GOTO get_barsuk_psy]\"}}]"
+                                                                                                                                                                                                                                                                                                  "_content": "[LABEL {if money < barsuk_psy_cost*this.Inflation {output \"[GOTO no_money_for_barsuk_psy]\"} else {output \"[GOTO get_barsuk_psy]\"}}]"
                                                                                                                                                                                                                                                                                                 }
                                                                                                                                                                                                                                                                                               ],
                                                                                                                                                                                                                                                                                               "_mark": "",
@@ -1214,7 +1214,7 @@
                                                                                                                                                                                                                                                                                             }
                                                                                                                                                                                                                                                                                           ],
                                                                                                                                                                                                                                                                                           "_mark": "mark_pi8vdlw2g72bme082c4c",
-                                                                                                                                                                                                                                                                                          "_content": "[LABEL Честно говоря, я не могу рассказать вам бесплатно. Это моя тайна, но я готов поделиться ей за {output barsuk_psy_cost*Inflation}. И даже наглядно продемонстрировать. Вы согласны?][BGNDIMAGE barsuk_right3.jpg&client5_1_0.png|-300;50;1.5;1.5]"
+                                                                                                                                                                                                                                                                                          "_content": "[LABEL Честно говоря, я не могу рассказать вам бесплатно. Это моя тайна, но я готов поделиться ей за {output barsuk_psy_cost*this.Inflation}. И даже наглядно продемонстрировать. Вы согласны?][BGNDIMAGE barsuk_right3.jpg&client5_1_0.png|-300;50;1.5;1.5]"
                                                                                                                                                                                                                                                                                         }
                                                                                                                                                                                                                                                                                       ],
                                                                                                                                                                                                                                                                                       "_mark": "",
@@ -1332,11 +1332,11 @@
                                                                                                                                                                                                             }
                                                                                                                                                                                                           ],
                                                                                                                                                                                                           "_mark": "mark_2gxloc69p928mk12w25b",
-                                                                                                                                                                                                          "_content": "[LABEL {if money<barsuk_food_cost*Inflation {output \"[GOTO no_money_for_barsuk_food]\"} else {money-=barsuk_food_cost*Inflation;output \"[GOTO get_barsuk_food]\"}}]"
+                                                                                                                                                                                                          "_content": "[LABEL {if money<barsuk_food_cost*this.Inflation {output \"[GOTO no_money_for_barsuk_food]\"} else {money-=barsuk_food_cost*this.Inflation;output \"[GOTO get_barsuk_food]\"}}]"
                                                                                                                                                                                                         }
                                                                                                                                                                                                       ],
                                                                                                                                                                                                       "_mark": "",
-                                                                                                                                                                                                      "_content": "[LABEL Заплачу {output barsuk_food_cost*Inflation}][ANSWERIMAGE icons/money2.png|235;400]"
+                                                                                                                                                                                                      "_content": "[LABEL Заплачу {output barsuk_food_cost*this.Inflation}][ANSWERIMAGE icons/money2.png|235;400]"
                                                                                                                                                                                                     },
                                                                                                                                                                                                     {
                                                                                                                                                                                                       "_mark": "",
@@ -1344,7 +1344,7 @@
                                                                                                                                                                                                     }
                                                                                                                                                                                                   ],
                                                                                                                                                                                                   "_mark": "mark_bnb0oj1y3h5cpj03inpf",
-                                                                                                                                                                                                  "_content": "[LABEL Фирменное блюдо здесь стоит {output barsuk_food_cost*Inflation}. Бокал вина в подарок.][BGNDIMAGE barsuk_right3.jpg]"
+                                                                                                                                                                                                  "_content": "[LABEL Фирменное блюдо здесь стоит {output barsuk_food_cost*this.Inflation}. Бокал вина в подарок.][BGNDIMAGE barsuk_right3.jpg]"
                                                                                                                                                                                                 }
                                                                                                                                                                                               ],
                                                                                                                                                                                               "_mark": "",
@@ -1408,11 +1408,11 @@
                                                                                                                                                             }
                                                                                                                                                           ],
                                                                                                                                                           "_mark": "mark_d85nla52hholox80t4z4",
-                                                                                                                                                          "_content": "[LABEL {if money<barsuk_entry_cost*Inflation {output \"[GOTO no_money_for_barsuk]\"} else {money-=barsuk_entry_cost*Inflation;barsukFoundInToilet=(random<0.5);output \"[GOTO enter_barsuk]\"}}]"
+                                                                                                                                                          "_content": "[LABEL {if money<barsuk_entry_cost*this.Inflation {output \"[GOTO no_money_for_barsuk]\"} else {money-=barsuk_entry_cost*this.Inflation;barsukFoundInToilet=(random<0.5);output \"[GOTO enter_barsuk]\"}}]"
                                                                                                                                                         }
                                                                                                                                                       ],
                                                                                                                                                       "_mark": "",
-                                                                                                                                                      "_content": "[LABEL Заплачу за вход {output barsuk_entry_cost*Inflation}][ANSWERIMAGE icons/money3.png|260;400]"
+                                                                                                                                                      "_content": "[LABEL Заплачу за вход {output barsuk_entry_cost*this.Inflation}][ANSWERIMAGE icons/money3.png|260;400]"
                                                                                                                                                     },
                                                                                                                                                     {
                                                                                                                                                       "_mark": "",
@@ -1430,11 +1430,11 @@
                                                                                                                                                     }
                                                                                                                                                   ],
                                                                                                                                                   "_mark": "mark_y924pw9n2h049vv8ksl7",
-                                                                                                                                                  "_content": "[LABEL {this.dvd_playing=0}{this.locations[this.location][0]}. Вход в бар стоит: {output barsuk_entry_cost*Inflation}][BGNDIMAGE barsuk_main.jpg]"
+                                                                                                                                                  "_content": "[LABEL {this.dvd_playing=0}{this.locations[this.location][0]}. Вход в бар стоит: {output barsuk_entry_cost*this.Inflation}][BGNDIMAGE barsuk_main.jpg][MUSIC none][AMBIENT none][BGNDMUSIC none]"
                                                                                                                                                 }
                                                                                                                                               ],
                                                                                                                                               "_mark": "",
-                                                                                                                                              "_content": "[LABEL {if (this.location==10) {\"Зайду в \" + this.locations[this.location][0] + \"[ANSWERIMAGE icons/enter.png|260;400]\"}}][MUSIC none][AMBIENT none][BGNDMUSIC none]"
+                                                                                                                                              "_content": "[LABEL {if (this.location==10) {\"Зайду в \" + this.locations[this.location][0] + \"[ANSWERIMAGE icons/enter.png|260;400]\"}}]"
                                                                                                                                             },
                                                                                                                                             {
                                                                                                                                               "node": [
@@ -1638,11 +1638,11 @@
                                                                                                                                                     }
                                                                                                                                                   ],
                                                                                                                                                   "_mark": "do_bet",
-                                                                                                                                                  "_content": "[LABEL {this.dvd_playing=0}{script rounding.qsp}{script calc_casino.qsp}{this.locations[this.location][0]}. Сколько денег ставишь на европейскую рулетку (100 - {output max_bet})?{script show_in_casino.qsp}]"
+                                                                                                                                                  "_content": "[LABEL {this.dvd_playing=0}{script rounding.qsp}{script calc_casino.qsp}{this.locations[this.location][0]}. Сколько денег ставишь на европейскую рулетку (100 - {output max_bet})?{script show_in_casino.qsp}][MUSIC none][AMBIENT casino.mp3][BGNDMUSIC none]"
                                                                                                                                                 }
                                                                                                                                               ],
                                                                                                                                               "_mark": "",
-                                                                                                                                              "_content": "[LABEL {if (this.location == 12 && this.money>=100) {\"Зайду в \" + this.locations[this.location][0] + \"[ANSWERIMAGE icons/enter.png|260;400]\"}}][MUSIC none][AMBIENT casino.mp3][BGNDMUSIC none]"
+                                                                                                                                              "_content": "[LABEL {if (this.location == 12 && this.money>=100) {\"Зайду в \" + this.locations[this.location][0] + \"[ANSWERIMAGE icons/enter.png|260;400]\"}}]"
                                                                                                                                             },
                                                                                                                                             {
                                                                                                                                               "node": [
@@ -1652,11 +1652,11 @@
                                                                                                                                                       "node": [
                                                                                                                                                         {
                                                                                                                                                           "_mark": "mark_kr482j5dhp90wjg68a45",
-                                                                                                                                                          "_content": "[LABEL {money=(money-car_fuel_needed*fuel_cost):2;fuel=max_fuel}{script rounding.qsp}{script calc_car_fuel.qsp}][GOTO new_location]"
+                                                                                                                                                          "_content": "[LABEL {money=(money-car_fuel_needed*this.fuel_cost):2;this.fuel=this.max_fuel}{script rounding.qsp}{script calc_car_fuel.qsp}][GOTO new_location]"
                                                                                                                                                         }
                                                                                                                                                       ],
                                                                                                                                                       "_mark": "",
-                                                                                                                                                      "_content": "[LABEL {if fuel_by_money>=car_fuel_needed {output \"Заправить полный бак, требуется литров: \" + car_fuel_needed + \"[ANSWERIMAGE icons/money6.png|200;400]\"}}]"
+                                                                                                                                                      "_content": "[LABEL {if this.fuel_by_money>=car_fuel_needed {output \"Заправить полный бак, требуется литров: \" + car_fuel_needed + \"[ANSWERIMAGE icons/money6.png|200;400]\"}}]"
                                                                                                                                                     },
                                                                                                                                                     {
                                                                                                                                                       "node": [
@@ -1666,11 +1666,11 @@
                                                                                                                                                               "node": [
                                                                                                                                                                 {
                                                                                                                                                                   "_mark": "mark_li763547sgcz39426ne1",
-                                                                                                                                                                  "_content": "[LABEL {if (fuel_liters>=0) && (fuel_liters<=max_car_can_fuel) {fuel+=fuel_liters;money-=fuel_cost*fuel_liters;{script rounding.qsp}{script calc_car_fuel.qsp}output \"[GOTO new_location]\"} else {output \"[GOTO how_many_fuel]\"}}]"
+                                                                                                                                                                  "_content": "[LABEL {if (this.fuel_liters>=0) && (this.fuel_liters<=max_car_can_fuel) {this.fuel+=this.fuel_liters;money-=this.fuel_cost*this.fuel_liters;{script rounding.qsp}{script calc_car_fuel.qsp}output \"[GOTO new_location]\"} else {output \"[GOTO how_many_fuel]\"}}]"
                                                                                                                                                                 }
                                                                                                                                                               ],
                                                                                                                                                               "_mark": "",
-                                                                                                                                                              "_content": "[LABEL ][INPUTN fuel_liters]"
+                                                                                                                                                              "_content": "[LABEL ][INPUTN this.fuel_liters]"
                                                                                                                                                             }
                                                                                                                                                           ],
                                                                                                                                                           "_mark": "how_many_fuel",
@@ -1684,11 +1684,11 @@
                                                                                                                                                       "node": [
                                                                                                                                                         {
                                                                                                                                                           "_mark": "mark_inu1zf7v531a1e4tr474",
-                                                                                                                                                          "_content": "[LABEL {money=0;fuel+=fuel_by_money}{script rounding.qsp}{script calc_car_fuel.qsp}][GOTO new_location]"
+                                                                                                                                                          "_content": "[LABEL {money=0;this.fuel+=this.fuel_by_money}{script rounding.qsp}{script calc_car_fuel.qsp}][GOTO new_location]"
                                                                                                                                                         }
                                                                                                                                                       ],
                                                                                                                                                       "_mark": "",
-                                                                                                                                                      "_content": "[LABEL {if (money > 0) && (fuel_by_money<=car_fuel_needed) {output \"Заправить на все оставшиеся деньги[ANSWERIMAGE icons/money1.png|380;400]\"}}]"
+                                                                                                                                                      "_content": "[LABEL {if (money > 0) && (this.fuel_by_money<=car_fuel_needed) {output \"Заправить на все оставшиеся деньги[ANSWERIMAGE icons/money1.png|380;400]\"}}]"
                                                                                                                                                     },
                                                                                                                                                     {
                                                                                                                                                       "node": [
@@ -1698,11 +1698,11 @@
                                                                                                                                                               "node": [
                                                                                                                                                                 {
                                                                                                                                                                   "_mark": "mark_71rd4pgx3e7thf2905eg",
-                                                                                                                                                                  "_content": "[LABEL {if (fuel_sum>=0) && (fuel_sum<=max_money_for_fuel) {money-=fuel_sum;fuel+=fuel_sum/fuel_cost;{script rounding.qsp}{script calc_car_fuel.qsp}output \"[GOTO new_location]\"} else {output \"[GOTO how_many_fuel_sum]\"}}]"
+                                                                                                                                                                  "_content": "[LABEL {if (this.fuel_sum>=0) && (this.fuel_sum<=max_money_for_fuel) {money-=this.fuel_sum;this.fuel+=this.fuel_sum/this.fuel_cost;{script rounding.qsp}{script calc_car_fuel.qsp}output \"[GOTO new_location]\"} else {output \"[GOTO how_many_fuel_sum]\"}}]"
                                                                                                                                                                 }
                                                                                                                                                               ],
                                                                                                                                                               "_mark": "",
-                                                                                                                                                              "_content": "[LABEL ][INPUTN fuel_sum]"
+                                                                                                                                                              "_content": "[LABEL ][INPUTN this.fuel_sum]"
                                                                                                                                                             }
                                                                                                                                                           ],
                                                                                                                                                           "_mark": "how_many_fuel_sum",
@@ -1724,7 +1724,7 @@
                                                                                                                                                     }
                                                                                                                                                   ],
                                                                                                                                                   "_mark": "fuel_station",
-                                                                                                                                                  "_content": "[LABEL {script rounding.qsp}{script show_game_stats.qsp}{output \"\n\"}{this.locations[this.location][0]}. Бензин здесь стоит: {output fuel_cost; if things[thing_fuel_discount,1] {output \" (с учетом скидки \" + fuel_discount_value + \"%)\"}}{script show_client}]"
+                                                                                                                                                  "_content": "[LABEL {script rounding.qsp}{script show_game_stats.qsp}{output \"\n\"}{this.locations[this.location][0]}. Бензин здесь стоит: {output this.fuel_cost; if things[thing_fuel_discount,1] {output \" (с учетом скидки \" + this.fuel_discount_value + \"%)\"}}{script show_client}]"
                                                                                                                                                 }
                                                                                                                                               ],
                                                                                                                                               "_mark": "",
@@ -1762,11 +1762,11 @@
                                                                                                                                                     }
                                                                                                                                                   ],
                                                                                                                                                   "_mark": "car_washing",
-                                                                                                                                                  "_content": "[LABEL {this.dvd_playing=0}{script rounding.qsp}{script show_game_stats.qsp}{output \"\n\"}{this.locations[this.location][0]}. Помыть машину здесь стоит: {output car_washing_cost}{if things[thing_carwashing_discount,1]>0 {output \" (с учетом скидки от Махмуда)\"}}{script show_in_carwashing.qsp}]"
+                                                                                                                                                  "_content": "[LABEL {this.dvd_playing=0}{script rounding.qsp}{script show_game_stats.qsp}{output \"\n\"}{this.locations[this.location][0]}. Помыть машину здесь стоит: {output car_washing_cost}{if things[thing_carwashing_discount,1]>0 {output \" (с учетом скидки от Махмуда)\"}}{script show_in_carwashing.qsp}][AMBIENT water.mp3][BGNDMUSIC none]"
                                                                                                                                                 }
                                                                                                                                               ],
                                                                                                                                               "_mark": "",
-                                                                                                                                              "_content": "[LABEL {if (this.location == 14 || this.location == 17) {\"Заеду помыть машину\" + \"[ANSWERIMAGE icons/enter.png|260;400]\"}}][AMBIENT water.mp3][BGNDMUSIC none]"
+                                                                                                                                              "_content": "[LABEL {if (this.location == 14 || this.location == 17) {\"Заеду помыть машину\" + \"[ANSWERIMAGE icons/enter.png|260;400]\"}}]"
                                                                                                                                             },
                                                                                                                                             {
                                                                                                                                               "node": [
@@ -1866,7 +1866,7 @@
                                                                                                                                                                             }
                                                                                                                                                                           ],
                                                                                                                                                                           "_mark": "install_tuning_in_autoservice",
-                                                                                                                                                                          "_content": "[LABEL {money-=tuningkit_install_cost*Inflation;things[thing_tuningkit,3]=1;things[thing_tuningkit,1]=1;game_hours+=24}Ух ты! Теперь даже самый предвзятый VIP-клиент не откажется прокатиться на твоей тачке. Смело повышай цены!{script show_in_autoservice.qsp}]"
+                                                                                                                                                                          "_content": "[LABEL {money-=tuningkit_install_cost*this.Inflation;things[thing_tuningkit,3]=1;things[thing_tuningkit,1]=1;game_hours+=24}Ух ты! Теперь даже самый предвзятый VIP-клиент не откажется прокатиться на твоей тачке. Смело повышай цены!{script show_in_autoservice.qsp}]"
                                                                                                                                                                         },
                                                                                                                                                                         {
                                                                                                                                                                           "node": [
@@ -1916,7 +1916,7 @@
                                                                                                                                                                             }
                                                                                                                                                                           ],
                                                                                                                                                                           "_mark": "mark_aqe9wy57c476mfjl8787",
-                                                                                                                                                                          "_content": "[LABEL Неплохо получилось! Теперь с клиентов можно просить больше денег за такую красоту.{game_hours+=6;money-=vinyl_dog_install_cost*Inflation;things[thing_vinyl_dog,3]=1}{script show_in_autoservice.qsp}]"
+                                                                                                                                                                          "_content": "[LABEL Неплохо получилось! Теперь с клиентов можно просить больше денег за такую красоту.{game_hours+=6;money-=vinyl_dog_install_cost*this.Inflation;things[thing_vinyl_dog,3]=1}{script show_in_autoservice.qsp}]"
                                                                                                                                                                         }
                                                                                                                                                                       ],
                                                                                                                                                                       "_mark": "",
@@ -1940,7 +1940,7 @@
                                                                                                                                                     }
                                                                                                                                                   ],
                                                                                                                                                   "_mark": "mark_top79e67nbb2ufx9xd83",
-                                                                                                                                                  "_content": "[LABEL {this.dvd_playing=0}{if car_cleanness<70 {output \"[GOTO too_dirt_car_in_autoservice]\"}}]"
+                                                                                                                                                  "_content": "[LABEL {this.dvd_playing=0}{if car_cleanness<70 {output \"[GOTO too_dirt_car_in_autoservice]\"}}][MUSIC none][BGNDMUSIC none]"
                                                                                                                                                 },
                                                                                                                                                 {
                                                                                                                                                   "node": [
@@ -1960,7 +1960,7 @@
                                                                                                                                                 }
                                                                                                                                               ],
                                                                                                                                               "_mark": "",
-                                                                                                                                              "_content": "[LABEL {if ((this.location == 15 || this.location == 18) && this.money>0) {\"Заеду в \" + this.locations[this.location][0] + \"[ANSWERIMAGE icons/enter.png|260;400]\"}}][MUSIC none][AMBIENT autoservice.mp3][BGNDMUSIC none]"
+                                                                                                                                              "_content": "[LABEL {if ((this.location == 15 || this.location == 18) && this.money>0) {\"Заеду в \" + this.locations[this.location][0] + \"[ANSWERIMAGE icons/enter.png|260;400]\"}}][AMBIENT autoservice.mp3]"
                                                                                                                                             },
                                                                                                                                             {
                                                                                                                                               "node": [
@@ -2008,7 +2008,7 @@
                                                                                                                                                                     }
                                                                                                                                                                   ],
                                                                                                                                                                   "_mark": "transfer_money_for_drugs",
-                                                                                                                                                                  "_content": "[LABEL {money-=drugDealerGoodsCost*Inflation;drugDealerGoodsPlanted++}{script rounding.qsp}Деньги успешно переведены.][BGNDIMAGE in_bank.jpg]"
+                                                                                                                                                                  "_content": "[LABEL {money-=drugDealerGoodsCost*this.Inflation;drugDealerGoodsPlanted++}{script rounding.qsp}Деньги успешно переведены.][BGNDIMAGE in_bank.jpg]"
                                                                                                                                                                 },
                                                                                                                                                                 {
                                                                                                                                                                   "node": [
@@ -2032,11 +2032,11 @@
                                                                                                                                                             }
                                                                                                                                                           ],
                                                                                                                                                           "_mark": "mark_rl035584qcu9ml2sul0c",
-                                                                                                                                                          "_content": "[LABEL {if money<drugDealerGoodsCost*Inflation {output \"[GOTO no_money_for_drugs]\"} else {output \"[GOTO transfer_money_for_drugs]\"}}]"
+                                                                                                                                                          "_content": "[LABEL {if money<drugDealerGoodsCost*this.Inflation {output \"[GOTO no_money_for_drugs]\"} else {output \"[GOTO transfer_money_for_drugs]\"}}]"
                                                                                                                                                         }
                                                                                                                                                       ],
                                                                                                                                                       "_mark": "",
-                                                                                                                                                      "_content": "[LABEL {if (drugDealer == 1) && (drugDealerGoodsPlanted == 0) && (drugDealerGoodsDriver==0) {output \"Переведу на карту денег (\"+drugDealerGoodsCost*Inflation+\")[ANSWERIMAGE icons/money2.png|320;400]\"}}]"
+                                                                                                                                                      "_content": "[LABEL {if (drugDealer == 1) && (drugDealerGoodsPlanted == 0) && (drugDealerGoodsDriver==0) {output \"Переведу на карту денег (\"+drugDealerGoodsCost*this.Inflation+\")[ANSWERIMAGE icons/money2.png|320;400]\"}}]"
                                                                                                                                                     },
                                                                                                                                                     {
                                                                                                                                                       "node": [
@@ -2050,11 +2050,11 @@
                                                                                                                                                     }
                                                                                                                                                   ],
                                                                                                                                                   "_mark": "in_bank",
-                                                                                                                                                  "_content": "[LABEL {this.dvd_playing=0}{script show_game_stats.qsp}{output \"\n\"}{this.locations[this.location][0]}.][BGNDIMAGE in_bank.jpg]"
+                                                                                                                                                  "_content": "[LABEL {this.dvd_playing=0}{script show_game_stats.qsp}{output \"\n\"}{this.locations[this.location][0]}.][BGNDIMAGE in_bank.jpg][MUSIC none][AMBIENT none][BGNDMUSIC none]"
                                                                                                                                                 }
                                                                                                                                               ],
                                                                                                                                               "_mark": "",
-                                                                                                                                              "_content": "[LABEL {if (this.location==19) {\"Зайду в \" + this.locations[this.location][0] + \"[ANSWERIMAGE icons/enter.png|260;400]\"}}][MUSIC none][AMBIENT none][BGNDMUSIC none]"
+                                                                                                                                              "_content": "[LABEL {if (this.location==19) {\"Зайду в \" + this.locations[this.location][0] + \"[ANSWERIMAGE icons/enter.png|260;400]\"}}]"
                                                                                                                                             },
                                                                                                                                             {
                                                                                                                                               "node": [
@@ -2312,11 +2312,11 @@
                                                                                                                                                     }
                                                                                                                                                   ],
                                                                                                                                                   "_mark": "in_abandoned_garage",
-                                                                                                                                                  "_content": "[LABEL {this.dvd_playing=0}{script show_game_stats.qsp}{output \"\n\"}{script calc_car_self_repair.qsp}{this.locations[this.location][0]}. {if (things[thing_repairing_book,1])&&(things[thing_repairing_book,3])&&(things[thing_repairing_toolkit,1])&&(car_state<=99) {output \"Чтобы полностью починить машину (\" + full_repair_pct + \"%) тебе потребуется времени: \" + full_repair_time + \" ч.\"}}{script show_in_abandoned_garage.qsp}]"
+                                                                                                                                                  "_content": "[LABEL {this.dvd_playing=0}{script show_game_stats.qsp}{output \"\n\"}{script calc_car_self_repair.qsp}{this.locations[this.location][0]}. {if (things[thing_repairing_book,1])&&(things[thing_repairing_book,3])&&(things[thing_repairing_toolkit,1])&&(car_state<=99) {output \"Чтобы полностью починить машину (\" + full_repair_pct + \"%) тебе потребуется времени: \" + full_repair_time + \" ч.\"}}{script show_in_abandoned_garage.qsp}][MUSIC none][AMBIENT garage.mp3][BGNDMUSIC none]"
                                                                                                                                                 }
                                                                                                                                               ],
                                                                                                                                               "_mark": "",
-                                                                                                                                              "_content": "[LABEL {if (this.location==25) {\"Заеду в \" + this.locations[this.location][0] + \"[ANSWERIMAGE icons/enter.png|260;400]\"}}][MUSIC none][AMBIENT garage.mp3][BGNDMUSIC none]"
+                                                                                                                                              "_content": "[LABEL {if (this.location==25) {\"Заеду в \" + this.locations[this.location][0] + \"[ANSWERIMAGE icons/enter.png|260;400]\"}}]"
                                                                                                                                             },
                                                                                                                                             {
                                                                                                                                               "node": [
@@ -2596,7 +2596,7 @@
                                                                                                                                                                                                                                                                                                                               "node": [
                                                                                                                                                                                                                                                                                                                                 {
                                                                                                                                                                                                                                                                                                                                   "_mark": "mark_fg42vxh33x7f21m110ja",
-                                                                                                                                                                                                                                                                                                                                  "_content": "[LABEL {if (random*people_negative_max < people_negative)||(random*rest_norm>driver_rest_hours) {output \"[GOTO client_escaped]\"} else {output \"[GOTO client_has_no_money,client_returned_money]\"}}]"
+                                                                                                                                                                                                                                                                                                                                  "_content": "[LABEL {if (random*people_negative_max < people_negative)||(random*this.rest_norm>driver_rest_hours) {output \"[GOTO client_escaped]\"} else {output \"[GOTO client_has_no_money,client_returned_money]\"}}]"
                                                                                                                                                                                                                                                                                                                                 },
                                                                                                                                                                                                                                                                                                                                 {
                                                                                                                                                                                                                                                                                                                                   "node": [
@@ -2850,7 +2850,7 @@
                                                                                                                                                                                                                         }
                                                                                                                                                                                                                       ],
                                                                                                                                                                                                                       "_mark": "price_is_1x",
-                                                                                                                                                                                                                      "_content": "[LABEL Довезу за {driver_price=1*Inflation;output driver_price}][ANSWERIMAGE icons/money1.png|150;400]"
+                                                                                                                                                                                                                      "_content": "[LABEL Довезу за {driver_price=1*this.Inflation;output driver_price}][ANSWERIMAGE icons/money1.png|150;400]"
                                                                                                                                                                                                                     },
                                                                                                                                                                                                                     {
                                                                                                                                                                                                                       "node": [
@@ -2860,7 +2860,7 @@
                                                                                                                                                                                                                         }
                                                                                                                                                                                                                       ],
                                                                                                                                                                                                                       "_mark": "price_is_1.5x",
-                                                                                                                                                                                                                      "_content": "[LABEL Довезу за {driver_price=1.5*Inflation;output driver_price}][ANSWERIMAGE icons/money2.png|210;400]"
+                                                                                                                                                                                                                      "_content": "[LABEL Довезу за {driver_price=1.5*this.Inflation;output driver_price}][ANSWERIMAGE icons/money2.png|210;400]"
                                                                                                                                                                                                                     },
                                                                                                                                                                                                                     {
                                                                                                                                                                                                                       "node": [
@@ -2870,7 +2870,7 @@
                                                                                                                                                                                                                         }
                                                                                                                                                                                                                       ],
                                                                                                                                                                                                                       "_mark": "price_is_2x",
-                                                                                                                                                                                                                      "_content": "[LABEL Довезу за {driver_price=2*Inflation;output driver_price}][ANSWERIMAGE icons/money3.png|270;400]"
+                                                                                                                                                                                                                      "_content": "[LABEL Довезу за {driver_price=2*this.Inflation;output driver_price}][ANSWERIMAGE icons/money3.png|270;400]"
                                                                                                                                                                                                                     },
                                                                                                                                                                                                                     {
                                                                                                                                                                                                                       "node": [
@@ -2880,7 +2880,7 @@
                                                                                                                                                                                                                         }
                                                                                                                                                                                                                       ],
                                                                                                                                                                                                                       "_mark": "price_is_3x",
-                                                                                                                                                                                                                      "_content": "[LABEL Довезу за {driver_price=3*Inflation;output driver_price}][ANSWERIMAGE icons/money4.png|330;400]"
+                                                                                                                                                                                                                      "_content": "[LABEL Довезу за {driver_price=3*this.Inflation;output driver_price}][ANSWERIMAGE icons/money4.png|330;400]"
                                                                                                                                                                                                                     },
                                                                                                                                                                                                                     {
                                                                                                                                                                                                                       "node": [
@@ -2890,7 +2890,7 @@
                                                                                                                                                                                                                         }
                                                                                                                                                                                                                       ],
                                                                                                                                                                                                                       "_mark": "price_is_4x",
-                                                                                                                                                                                                                      "_content": "[LABEL Довезу за {driver_price=4*Inflation;output driver_price}][ANSWERIMAGE icons/money5.png|390;400]"
+                                                                                                                                                                                                                      "_content": "[LABEL Довезу за {driver_price=4*this.Inflation;output driver_price}][ANSWERIMAGE icons/money5.png|390;400]"
                                                                                                                                                                                                                     },
                                                                                                                                                                                                                     {
                                                                                                                                                                                                                       "node": [
@@ -2900,7 +2900,7 @@
                                                                                                                                                                                                                         }
                                                                                                                                                                                                                       ],
                                                                                                                                                                                                                       "_mark": "price_is_5x",
-                                                                                                                                                                                                                      "_content": "[LABEL Довезу за {driver_price=5*Inflation;output driver_price}][ANSWERIMAGE icons/money6.png|450;400]"
+                                                                                                                                                                                                                      "_content": "[LABEL Довезу за {driver_price=5*this.Inflation;output driver_price}][ANSWERIMAGE icons/money6.png|450;400]"
                                                                                                                                                                                                                     },
                                                                                                                                                                                                                     {
                                                                                                                                                                                                                       "node": [
@@ -2940,7 +2940,7 @@
                                                                                                                                                                                                     }
                                                                                                                                                                                                   ],
                                                                                                                                                                                                   "_mark": "driver_said_price",
-                                                                                                                                                                                                  "_content": "[LABEL {if (driver_price < 0) || (driver_price >100*Inflation) {output \"[GOTO what_is_your_cost]\"} else {output \"[GOTO client_should_think]\"}}]"
+                                                                                                                                                                                                  "_content": "[LABEL {if (driver_price < 0) || (driver_price >100*this.Inflation) {output \"[GOTO what_is_your_cost]\"} else {output \"[GOTO client_should_think]\"}}]"
                                                                                                                                                                                                 }
                                                                                                                                                                                               ],
                                                                                                                                                                                               "_mark": "",
@@ -2948,7 +2948,7 @@
                                                                                                                                                                                             }
                                                                                                                                                                                           ],
                                                                                                                                                                                           "_mark": "what_is_your_cost",
-                                                                                                                                                                                          "_content": "[LABEL Цена поездки ? (0 - {output 100*Inflation}){script show_client.qsp}][TIMEEXPIRED client_go_away][ANSWERTIME 30]"
+                                                                                                                                                                                          "_content": "[LABEL Цена поездки ? (0 - {output 100*this.Inflation}){script show_client.qsp}][TIMEEXPIRED client_go_away][ANSWERTIME 30]"
                                                                                                                                                                                         }
                                                                                                                                                                                       ],
                                                                                                                                                                                       "_mark": "say_your_price",
@@ -3214,7 +3214,7 @@
                                                                                                                                                             }
                                                                                                                                                           ],
                                                                                                                                                           "_mark": "mark_b1ysc7nky6ijg6740258",
-                                                                                                                                                          "_content": "[LABEL {game_hours+=rest_hours_needed;rest_hours=rest_hours_needed;driver_rest_hours=rest_norm;total_driver_rest_hours+=rest_hours}]"
+                                                                                                                                                          "_content": "[LABEL {game_hours+=rest_hours_needed;rest_hours=rest_hours_needed;driver_rest_hours=this.rest_norm;total_driver_rest_hours+=rest_hours}]"
                                                                                                                                                         }
                                                                                                                                                       ],
                                                                                                                                                       "_mark": "",
@@ -3756,7 +3756,7 @@
                                                                                                                                                         }
                                                                                                                                                       ],
                                                                                                                                                       "_mark": "",
-                                                                                                                                                      "_content": "[LABEL Потрачено бензина: {output fuel_wasted}][ANSWERIMAGE icons/stats.png|150;400]"
+                                                                                                                                                      "_content": "[LABEL Потрачено бензина: {output this.fuel_wasted}][ANSWERIMAGE icons/stats.png|150;400]"
                                                                                                                                                     },
                                                                                                                                                     {
                                                                                                                                                       "node": [
@@ -4382,7 +4382,7 @@
                                                                                 }
                                                                               ],
                                                                               "_mark": "",
-                                                                              "_content": "[LABEL {if fuel<max_fuel {output \"Раздобуду еще бензина[ANSWERIMAGE icons/canister.png|260;400]\"}}]"
+                                                                              "_content": "[LABEL {if this.fuel<this.max_fuel {output \"Раздобуду еще бензина[ANSWERIMAGE icons/canister.png|260;400]\"}}]"
                                                                             },
                                                                             {
                                                                               "node": [
@@ -4392,11 +4392,11 @@
                                                                                 }
                                                                               ],
                                                                               "_mark": "",
-                                                                              "_content": "[LABEL Мне хватит этого бензина {output fuel} л., поеду дальше.][ANSWERIMAGE icons/steering_wheel.png|320;400]"
+                                                                              "_content": "[LABEL Мне хватит этого бензина {output this.fuel} л., поеду дальше.][ANSWERIMAGE icons/steering_wheel.png|320;400]"
                                                                             }
                                                                           ],
                                                                           "_mark": "fuel_found",
-                                                                          "_content": "[LABEL {some_fuel=(1+random*2):1}Тебе повезло раздобыть {output some_fuel} л. бензина!{fuel+=some_fuel}{script rounding.qsp}{script show_empty_fuel.qsp}]"
+                                                                          "_content": "[LABEL {some_fuel=(1+random*2):1}Тебе повезло раздобыть {output some_fuel} л. бензина!{this.fuel+=some_fuel}{script rounding.qsp}{script show_empty_fuel.qsp}]"
                                                                         }
                                                                       ],
                                                                       "_mark": "",
@@ -4422,7 +4422,7 @@
                                                                 }
                                                               ],
                                                               "_mark": "",
-                                                              "_content": "[LABEL {if fuel>0 {output \"Поеду дальше (бензин: \" + fuel + \" л.)[ANSWERIMAGE icons/steering_wheel.png|380;400]\"}}]"
+                                                              "_content": "[LABEL {if this.fuel>0 {output \"Поеду дальше (бензин: \" + this.fuel + \" л.)[ANSWERIMAGE icons/steering_wheel.png|380;400]\"}}]"
                                                             }
                                                           ],
                                                           "_mark": "try_get_fuel",
@@ -4514,7 +4514,7 @@
                                                         }
                                                       ],
                                                       "_mark": "",
-                                                      "_content": "[LABEL {evacuation_cost=10*Inflation;if money >= evacuation_cost {output \"Вызову эвакуатор, цена: \" + evacuation_cost + \"[ANSWERIMAGE icons/evacuator.png|380;400]\"}}]"
+                                                      "_content": "[LABEL {evacuation_cost=10*this.Inflation;if money >= evacuation_cost {output \"Вызову эвакуатор, цена: \" + evacuation_cost + \"[ANSWERIMAGE icons/evacuator.png|380;400]\"}}]"
                                                     }
                                                   ],
                                                   "_mark": "fuel_empty",
@@ -4538,7 +4538,7 @@
                                                             }
                                                           ],
                                                           "_mark": "creditback",
-                                                          "_content": "[LABEL {credit_delay_fine=50*Inflation;if money>=credit_delay_sum + credit_delay_fine {money-=credit_delay_sum-credit_delay_fine;credit_rest_sum-=credit_delay_sum;output \"Тебе повезло, что у тебя было с собой достаточно денег, чтобы погасить просроченный платеж и штраф \" + credit_delay_fine + \" . Тебя отпустили.\"} else {output \"[FINAL Твоя машина была продана, чтобы погасить кредит. Отрицательный финал.][BGNDIMAGE collectors.jpg]\"}}]"
+                                                          "_content": "[LABEL {credit_delay_fine=50*this.Inflation;if money>=credit_delay_sum + credit_delay_fine {money-=credit_delay_sum-credit_delay_fine;credit_rest_sum-=credit_delay_sum;output \"Тебе повезло, что у тебя было с собой достаточно денег, чтобы погасить просроченный платеж и штраф \" + credit_delay_fine + \" . Тебя отпустили.\"} else {output \"[FINAL Твоя машина была продана, чтобы погасить кредит. Отрицательный финал.][BGNDIMAGE collectors.jpg]\"}}]"
                                                         }
                                                       ],
                                                       "_mark": "",
@@ -4574,7 +4574,7 @@
                                                     }
                                                   ],
                                                   "_mark": "barsuk_reckon",
-                                                  "_content": "[LABEL Тебя разыскали коллекторы. Ты должен бару Барсук: {output barsuk_credit}, плюс: {output barsuk_collectors_cost*Inflation} за уклонение от оплаты.{barsuk_credit+=barsuk_collectors_cost*Inflation}][BGNDIMAGE collectors.jpg][TIMEEXPIRED barsuk_credit_back][ANSWERTIME 20]"
+                                                  "_content": "[LABEL Тебя разыскали коллекторы. Ты должен бару Барсук: {output barsuk_credit}, плюс: {output barsuk_collectors_cost*this.Inflation} за уклонение от оплаты.{barsuk_credit+=barsuk_collectors_cost*this.Inflation}][BGNDIMAGE collectors.jpg][TIMEEXPIRED barsuk_credit_back][ANSWERTIME 20]"
                                                 },
                                                 {
                                                   "node": [
@@ -5054,7 +5054,7 @@
                                                                                                     }
                                                                                                   ],
                                                                                                   "_mark": "mark_58sa4ti81qe7ep6267v0",
-                                                                                                  "_content": "[LABEL {if some_fuel >=1 {fuel-=some_fuel;people_negative-=(5+some_fuel);{script spent_time.qsp}output \"Спасибо тебе, дружище!\"} else {output \"Ты что, издеваешься? А ну вали отсюда!\";people_negative+=1}}{script rounding.qsp}{script show_ask_fuel.qsp}][TIMEEXPIRED {output return_mark}][ANSWERTIME 15]"
+                                                                                                  "_content": "[LABEL {if some_fuel >=1 {this.fuel-=some_fuel;people_negative-=(5+some_fuel);{script spent_time.qsp}output \"Спасибо тебе, дружище!\"} else {output \"Ты что, издеваешься? А ну вали отсюда!\";people_negative+=1}}{script rounding.qsp}{script show_ask_fuel.qsp}][TIMEEXPIRED {output return_mark}][ANSWERTIME 15]"
                                                                                                 }
                                                                                               ],
                                                                                               "_mark": "",
@@ -5062,7 +5062,7 @@
                                                                                             }
                                                                                           ],
                                                                                           "_mark": "mark_r1s5ou4v7h89327ml1h3",
-                                                                                          "_content": "[LABEL {if (some_fuel<0) || (some_fuel>fuel) {output \"[GOTO input_fuel_for_help]\"}}]"
+                                                                                          "_content": "[LABEL {if (some_fuel<0) || (some_fuel>this.fuel) {output \"[GOTO input_fuel_for_help]\"}}]"
                                                                                         }
                                                                                       ],
                                                                                       "_mark": "",
@@ -5070,7 +5070,7 @@
                                                                                     }
                                                                                   ],
                                                                                   "_mark": "input_fuel_for_help",
-                                                                                  "_content": "[LABEL Введи количество бензина? (0 - {output fuel}){script show_ask_fuel.qsp}][TIMEEXPIRED give_no_fuel][ANSWERTIME 60]"
+                                                                                  "_content": "[LABEL Введи количество бензина? (0 - {output this.fuel}){script show_ask_fuel.qsp}][TIMEEXPIRED give_no_fuel][ANSWERTIME 60]"
                                                                                 }
                                                                               ],
                                                                               "_mark": "",
@@ -5464,7 +5464,7 @@
                                                     }
                                                   ],
                                                   "_mark": "business2",
-                                                  "_content": "[LABEL {{radio_cost=(((things[thing_dvd,2]*Inflation/(1+random*3))/100):0)*100}; if (things[thing_dvd][1]==0) && ((this.client_type==6) || (this.client_type==2)) && (money>=radio_cost) {output \"\"} else {output \"[GOTO business3]\"}}]"
+                                                  "_content": "[LABEL {{radio_cost=(((things[thing_dvd,2]*this.Inflation/(1+random*3))/100):0)*100}; if (things[thing_dvd][1]==0) && ((this.client_type==6) || (this.client_type==2)) && (money>=radio_cost) {output \"\"} else {output \"[GOTO business3]\"}}]"
                                                 },
                                                 {
                                                   "node": [
@@ -5514,7 +5514,7 @@
                                                     }
                                                   ],
                                                   "_mark": "business3",
-                                                  "_content": "[LABEL {{vip_radio_cost=(((things[thing_vip_radio,2]*Inflation/(1+random*3))/100):0)*100}; if (things[thing_vip_radio,1]==0) && (this.client_type==1) && (money>=vip_radio_cost) && (random<0.5) {output \"\"} else {output \"[GOTO business4]\"}}]"
+                                                  "_content": "[LABEL {{vip_radio_cost=(((things[thing_vip_radio,2]*this.Inflation/(1+random*3))/100):0)*100}; if (things[thing_vip_radio,1]==0) && (this.client_type==1) && (money>=vip_radio_cost) && (random<0.5) {output \"\"} else {output \"[GOTO business4]\"}}]"
                                                 },
                                                 {
                                                   "node": [
@@ -5778,7 +5778,7 @@
                                                     }
                                                   ],
                                                   "_mark": "business5",
-                                                  "_content": "[LABEL {{thing_cost=(((things[thing_fuel_discount,2]*Inflation/(1+random*3))/100):0)*100}; if (things[thing_fuel_discount,1]==0) && (this.client_type==2) && (money>=thing_cost) {output \"\"} else {output \"[GOTO business6]\"}}]"
+                                                  "_content": "[LABEL {{thing_cost=(((things[thing_fuel_discount,2]*this.Inflation/(1+random*3))/100):0)*100}; if (things[thing_fuel_discount,1]==0) && (this.client_type==2) && (money>=thing_cost) {output \"\"} else {output \"[GOTO business6]\"}}]"
                                                 },
                                                 {
                                                   "node": [
@@ -5938,7 +5938,7 @@
                                                                         }
                                                                       ],
                                                                       "_mark": "drug_price_is_1x",
-                                                                      "_content": "[LABEL {drug_price=((drugDealerGoodsCost*Inflation/drugGoodsInPackage)*1):0;output drug_price}][ANSWERIMAGE icons/money1.png|90;400]"
+                                                                      "_content": "[LABEL {drug_price=((drugDealerGoodsCost*this.Inflation/drugGoodsInPackage)*1):0;output drug_price}][ANSWERIMAGE icons/money1.png|90;400]"
                                                                     },
                                                                     {
                                                                       "node": [
@@ -5948,7 +5948,7 @@
                                                                         }
                                                                       ],
                                                                       "_mark": "drug_price_is_2x",
-                                                                      "_content": "[LABEL {drug_price=((drugDealerGoodsCost*Inflation/drugGoodsInPackage)*2):0;output drug_price}][ANSWERIMAGE icons/money2.png|150;400]"
+                                                                      "_content": "[LABEL {drug_price=((drugDealerGoodsCost*this.Inflation/drugGoodsInPackage)*2):0;output drug_price}][ANSWERIMAGE icons/money2.png|150;400]"
                                                                     },
                                                                     {
                                                                       "node": [
@@ -5958,7 +5958,7 @@
                                                                         }
                                                                       ],
                                                                       "_mark": "drug_price_is_3x",
-                                                                      "_content": "[LABEL {drug_price=((drugDealerGoodsCost*Inflation/drugGoodsInPackage)*3):0;output drug_price}][ANSWERIMAGE icons/money3.png|210;400]"
+                                                                      "_content": "[LABEL {drug_price=((drugDealerGoodsCost*this.Inflation/drugGoodsInPackage)*3):0;output drug_price}][ANSWERIMAGE icons/money3.png|210;400]"
                                                                     },
                                                                     {
                                                                       "node": [
@@ -5968,7 +5968,7 @@
                                                                         }
                                                                       ],
                                                                       "_mark": "drug_price_is_4x",
-                                                                      "_content": "[LABEL {drug_price=((drugDealerGoodsCost*Inflation/drugGoodsInPackage)*4):0;output drug_price}][ANSWERIMAGE icons/money4.png|270;400]"
+                                                                      "_content": "[LABEL {drug_price=((drugDealerGoodsCost*this.Inflation/drugGoodsInPackage)*4):0;output drug_price}][ANSWERIMAGE icons/money4.png|270;400]"
                                                                     },
                                                                     {
                                                                       "node": [
@@ -5978,7 +5978,7 @@
                                                                         }
                                                                       ],
                                                                       "_mark": "drug_price_is_5x",
-                                                                      "_content": "[LABEL {drug_price=((drugDealerGoodsCost*Inflation/drugGoodsInPackage)*5):0;output drug_price}][ANSWERIMAGE icons/money5.png|330;400]"
+                                                                      "_content": "[LABEL {drug_price=((drugDealerGoodsCost*this.Inflation/drugGoodsInPackage)*5):0;output drug_price}][ANSWERIMAGE icons/money5.png|330;400]"
                                                                     },
                                                                     {
                                                                       "node": [
@@ -6032,7 +6032,7 @@
                                                             }
                                                           ],
                                                           "_mark": "drug_distribution",
-                                                          "_content": "[LABEL Братишь... у тебя ведь есть что-то для меня?{nark_money=((drugDealerGoodsCost*Inflation/drugGoodsInPackage)*(1+random*4):0):0}{script show_client_inside_rear.qsp}]"
+                                                          "_content": "[LABEL Братишь... у тебя ведь есть что-то для меня?{nark_money=((drugDealerGoodsCost*this.Inflation/drugGoodsInPackage)*(1+random*4):0):0}{script show_client_inside_rear.qsp}]"
                                                         }
                                                       ],
                                                       "_mark": "",
@@ -6120,7 +6120,7 @@
                                                                                                             }
                                                                                                           ],
                                                                                                           "_mark": "mark_5ac0ho2hhd359x301gf9",
-                                                                                                          "_content": "[LABEL {drugDealer=1}Короче, схема такая... едешь в банк... переводишь {output drugDealerGoodsCost*Inflation} на номер карты, которую я тебе дам... Потом едешь в Ракетный и забираешь товар в условном месте...{script show_client_inside_rear.qsp}]"
+                                                                                                          "_content": "[LABEL {drugDealer=1}Короче, схема такая... едешь в банк... переводишь {output drugDealerGoodsCost*this.Inflation} на номер карты, которую я тебе дам... Потом едешь в Ракетный и забираешь товар в условном месте...{script show_client_inside_rear.qsp}]"
                                                                                                         }
                                                                                                       ],
                                                                                                       "_mark": "",
@@ -6138,7 +6138,7 @@
                                                                                                     }
                                                                                                   ],
                                                                                                   "_mark": "mark_2ii0k4b8u0f5pg7j0t0h",
-                                                                                                  "_content": "[LABEL Берешь товар по {output drugDealerGoodsCost*Inflation}, продаешь намного дороже. Согласен?{script show_client_inside_rear.qsp}]"
+                                                                                                  "_content": "[LABEL Берешь товар по {output drugDealerGoodsCost*this.Inflation}, продаешь намного дороже. Согласен?{script show_client_inside_rear.qsp}]"
                                                                                                 }
                                                                                               ],
                                                                                               "_mark": "",
@@ -6194,7 +6194,7 @@
                                                     }
                                                   ],
                                                   "_mark": "business7",
-                                                  "_content": "[LABEL {if (drugDealer == 0) && (this.client_type==6) && (money>=drugDealerGoodsCost*Inflation) {output \"[GOTO drug_dealer]\"} else {output \"[GOTO business8]\"} }]"
+                                                  "_content": "[LABEL {if (drugDealer == 0) && (this.client_type==6) && (money>=drugDealerGoodsCost*this.Inflation) {output \"[GOTO drug_dealer]\"} else {output \"[GOTO business8]\"} }]"
                                                 },
                                                 {
                                                   "node": [

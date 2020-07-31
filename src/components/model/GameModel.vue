@@ -31,8 +31,11 @@ export default {
     currentAmbientName: '',
     currentMusicSequence: [],
     currentMusicIndex: 0,
+    currentBgndMusicSequence: [],
+    currentBgndMusicIndex: 0,
     currentSoundFxName: '',
     isNewMusic: false,
+    isNewBgndMusic: false,
     navigateUrl: '',
     episodeNo: 1
   }),
@@ -269,6 +272,7 @@ export default {
       this.currentSoundFxName = commonUtils.getTagValueSOUNDFX(this.currentNode._parsedContent)
 
       this.processNodeMusic(this.currentNode)
+      this.processNodeBgndMusic(this.currentNode)
     },
 
     hasEmptyQuestion () {
@@ -309,6 +313,11 @@ export default {
       return result
     },
 
+    getCurrentBgndMusicName () {
+      let result = this.currentBgndMusicSequence[this.currentBgndMusicIndex]
+      return result
+    },
+
     setNextVideo () {
       this.currentVideoIndex++
     },
@@ -323,6 +332,15 @@ export default {
 
       while (this.currentMusicSequence.length > 1 && oldIndex === this.currentMusicIndex) {
         this.currentMusicIndex = commonUtils.getArrayRandomIndex(this.currentMusicSequence)
+      }
+    },
+
+    setNextRandomBgndMusic () {
+      if (this.hasBgndMusicEmpty()) return
+      const oldIndex = this.currentBgndMusicIndex
+
+      while (this.currentBgndMusicSequence.length > 1 && oldIndex === this.currentBgndMusicIndex) {
+        this.currentBgndMusicIndex = commonUtils.getArrayRandomIndex(this.currentBgndMusicSequence)
       }
     },
 
@@ -360,6 +378,10 @@ export default {
 
     hasMusicEmpty () {
       return this.currentMusicSequence.length === 0
+    },
+
+    hasBgndMusicEmpty () {
+      return this.currentBgndMusicSequence.length === 0
     },
 
     prepareCurrentAnswers () {
@@ -443,6 +465,7 @@ export default {
       this.currentSoundFxName = commonUtils.getTagValueSOUNDFX(this.currentNode._parsedContent)
 
       this.processNodeMusic(this.currentNode)
+      this.processNodeBgndMusic(this.currentNode)
     },
 
     processNodeMusic (node) {
@@ -451,6 +474,15 @@ export default {
       if (this.isNewMusic) {
         this.currentMusicSequence = musicSequence
         this.currentMusicIndex = 0
+      }
+    },
+
+    processNodeBgndMusic (node) {
+      const bgndMusicSequence = commonUtils.getTagValueBGNDMUSIC(node._parsedContent)
+      this.isNewBgndMusic = bgndMusicSequence.length > 0
+      if (this.isNewBgndMusic) {
+        this.currentBgndMusicSequence = bgndMusicSequence
+        this.currentBgndMusicIndex = 0
       }
     },
 

@@ -6,6 +6,7 @@
     <AudioPlayer class="audio-container" ref="audioPlayer"
       @audioEnded="processAudioEnded"
       @musicEnded="processMusicEnded"
+      @bgndMusicEnded="processBgndMusicEnded"
     />
     <QuestionView class="questions-container" ref="questionView"/>
     <TimerView class="timer-container" ref="timerView" @timeExpired="processTimeExpired" />
@@ -121,6 +122,10 @@ export default {
       this.$refs.audioPlayer.playMusic(name)
     },
 
+    playBgndMusic (name, loop) {
+      this.$refs.audioPlayer.playBgndMusic(name)
+    },
+
     playSFX (name, loop) {
       this.$refs.audioPlayer.playSFX(name)
     },
@@ -147,6 +152,11 @@ export default {
     processMusicEnded (name) {
       // console.log('musicEnded', name)
       this.$emit('musicEnded', name)
+    },
+
+    processBgndMusicEnded (name) {
+      // console.log('bgndMusicEnded', name)
+      this.$emit('bgndMusicEnded', name)
     },
 
     processTimeExpired () {

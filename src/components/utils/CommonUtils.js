@@ -17,6 +17,7 @@ export default {
     'AMBIENT',
     'SOUNDFX',
     'MUSIC',
+    'BGNDMUSIC',
     'ANSWERSORDER',
     'ANSWERTIME',
     'TIMEEXPIRED',
@@ -96,6 +97,11 @@ export default {
     return this.getTagValueAudioSequence(content, 'MUSIC')
   },
 
+  getTagValueBGNDMUSIC (content) {
+    console.log('BGNMMUSIC content', content)
+    return this.getTagValueAudioSequence(content, 'BGNDMUSIC')
+  },
+
   getTagValueVideoSequence (content, tagName) {
     const sequence = this.getTagValueSequence(content, tagName)
     const result = sequence.map(item => item.trim().replace('.mp4', '').replace('.flv', ''))
@@ -131,7 +137,7 @@ export default {
     // console.log('getTagValue::tagName', tagName)
     // console.log('getTagValue::content', content)
     let tmp = content.split('[' + tagName + ' ')
-    //    console.log('getTagValue::tmp', tmp)
+    // console.log(tagName, 'getTagValue::tmp', tmp)
     if (tmp[1]) {
       let isFound = false
       let tagValue = tmp[1]
@@ -141,7 +147,10 @@ export default {
         let tag = this.ALL_TAGS[i]
         // console.log('getTagValue::tag', tag)
         if (tag !== tagName) {
-          let tmp2 = tagValue.split('][' + tag + ' ')
+          let tmp2 = tagValue.split(']][' + tag + ' ')
+          if (tmp2.length === 1) {
+            tmp2 = tagValue.split('][' + tag + ' ')
+          }
           // console.log('getTagValue::tmp2', tmp2)
           if (tmp2.length > 1) {
             subresult = tmp2[0]
@@ -154,7 +163,7 @@ export default {
             let tmp3 = tagValue.split('[' + tag + ' ')
             if (tmp3.length > 1) {
               subresult = tmp3[0]
-              // console.log('getTagValue::result', result, tag)
+              // console.log('getTagValue::result3', result, tag)
               isFound = true
               if (subresult.length < result.length || result === '') {
                 result = subresult
