@@ -18,21 +18,21 @@
 																	{this.new_location=1;this.locations[this.new_location][0] + "[ANSWERIMAGE map_mark.png|"+this.locations[this.new_location][1]+";"+this.locations[this.new_location][2]+"]"}
 																		[mark_if3cl0a2n3zy9p9t4529]{this.new_location=1;'';}{script stay_or_change_location.qsp}
 																			
-																				[show_road_to_new_location]{script calc_distance.qsp}{this.road_quality=Math.ceil(Math.random()*2);this.urgency=1}{script calc_road.qsp}{script travel_road.qsp}{script rounding.qsp}[IMAGE black_screen.jpg][AUDIO silent_0.1][AMBIENT AmbientTraffic]
+																				[show_road_to_new_location]{script calc_distance.qsp}{this.road_quality=Math.ceil(Math.random()*2);this.urgency=1;'';}{script calc_road.qsp}{script travel_road.qsp}{script rounding.qsp}...[IMAGE black_screen.jpg][AUDIO silent_0.1][AMBIENT AmbientTraffic]
 																					
 																						[mark_nid8314k523sgs52at73]{if (this.waiting<=5) {"[GOTO calc_new_location]"}}
 																							
 																								[mark_s068d2m1ji1mfxqw8hs6]{script show_change_location.qsp}
 																									
-																										[calc_new_location]{this.recalc_costs=1}{script calc_car_repair.qsp}{script calc_car_washing.qsp}{script calc_car_fuel.qsp}{this.recalc_costs=0}{this.return_mark="new_location"}{script check_states.qsp}
+																										[calc_new_location]{this.recalc_costs=1}{script calc_car_repair.qsp}{script calc_car_washing.qsp}{script calc_car_fuel.qsp}{this.recalc_costs=0;'';}{this.return_mark="new_location"}{script check_states.qsp}
 																											
-																												[new_location]{this.location=this.new_location;this.client_type=0}{script rounding.qsp}[IMAGE black_screen.jpg][AUDIO silent_0.1][AMBIENT AmbientStreet]
+																												[new_location]{this.location=this.new_location;this.client_type=0;'';}{script rounding.qsp}[IMAGE black_screen.jpg][AUDIO silent_0.1][AMBIENT AmbientStreet]
 																													
 																														[mark_248af57to678vsev711m]{if (this.vip_call) {if (this.vip_location==this.location) {"[GOTO vip_client_found]"} else {"[GOTO vip_client_not_found]"}}}
 																															
 																																[location_actions]{script show_game_stats.qsp}\nМесто: {this.locations[this.location][0]}\nЧто будешь делать?{script show_client}{if (this.location == 3 && this.dvd_playing != 1) {"[AMBIENT malibu.mp3]"} else {"[MUSIC AmbientStreet.mp3]"}}
 																																	{if (this.location==1) {"Зайду в " + this.locations[this.location][0] + "[ANSWERIMAGE icons/enter.png|260;400]"}}
-																																		[mark_w2tsoy96eg984q4jb4tl]Не для того ты таксистом становился, чтобы во всякие универы ходить.
+																																		[mark_w2tsoy96eg984q4jb4tl]Не для того ты таксистом становился, чтобы во всякие универы ходить.{script show_client}
 																																			Точно!
 																																				[mark_hxubw05ai8ycr0v8574f][GOTO new_location]
 																																	{if (this.location==2) {"Зайду в " + this.locations[this.location][0] + "[ANSWERIMAGE icons/enter.png|260;400]"}}
@@ -357,7 +357,7 @@
 																																					{if (this.things[this.thing_tuningkit][3] == 0 && this.things[this.thing_tuningkit][1] > 0 && this.money>=this.tuningkit_install_cost) {"Установить " + this.things[this.thing_tuningkit][0] + ". Цена: " + this.tuningkit_install_cost*this.Inflation + ". Потребуется времени: 1 день"+ "[ANSWERIMAGE icons/tuningkit.png|380;400]"}}
 																																						[mark_fv6323j9fbd39hs98m4q]{if car_state<90 {output "[GOTO damaged_car_not_tuned_in_autoservice]"} else {output "[GOTO install_tuning_in_autoservice]"}}
 																																							
-																																								[install_tuning_in_autoservice]{money-=tuningkit_install_cost*this.Inflation;things[thing_tuningkit,3]=1;things[thing_tuningkit,1]=1;game_hours+=24}Ух ты! Теперь даже самый предвзятый VIP-клиент не откажется прокатиться на твоей тачке. Смело повышай цены!{script show_in_autoservice.qsp}
+																																								[install_tuning_in_autoservice]{money-=tuningkit_install_cost*this.Inflation;this.things[this.thing_tuningkit][3]=1;things[thing_tuningkit,1]=1;game_hours+=24}Ух ты! Теперь даже самый предвзятый VIP-клиент не откажется прокатиться на твоей тачке. Смело повышай цены!{script show_in_autoservice.qsp}
 																																									Отлично![ANSWERIMAGE icons/cool.png|295;400]
 																																										[mark_w96gf8x4d47i6yqz6b5c][GOTO autoservice]
 																																								[damaged_car_not_tuned_in_autoservice]Разбитые машины не тюненгуют. Сначала тебе необходимо починить машину.{script show_in_autoservice.qsp}
@@ -413,10 +413,10 @@
 																																								[mark_t8j64xw5i8t33k3549p8][GOTO reparing_done]
 																																			Уеду из гаража[AMBIENT none][ANSWERIMAGE icons/enter.png|210;400]
 																																				[mark_a1v4fkui28844r926rcn][GOTO new_location]
-																																			{if (things[thing_tuningkit,3] == 0)&& (things[thing_tuningkit,1] > 0) {output "Самостоятельно установлю " + things[thing_tuningkit,0] + ". Потребуется времени: 3 дня"+ "[ANSWERIMAGE icons/tuningkit.png|270;400]"}}
+																																			{if (this.things[this.thing_tuningkit][3] == 0)&& (things[thing_tuningkit,1] > 0) {output "Самостоятельно установлю " + things[thing_tuningkit,0] + ". Потребуется времени: 3 дня"+ "[ANSWERIMAGE icons/tuningkit.png|270;400]"}}
 																																				[mark_n0bvh57shj2pdir3jof2]{if car_state<90 {output "[GOTO too_damaged_car_in_garage]"} else {if car_cleanness<70 {output "[GOTO too_dirt_car_in_garage]"} else {output "[GOTO install_tuning_in_abandoned_garage]"}}}
 																																					Дальше...[ANSWERIMAGE icons/next.png|295;400]
-																																						[install_tuning_in_abandoned_garage]Прошло 3 дня... Ух ты! Теперь даже самый педантичный VIP-клиент захочет прокатиться на твоей тачке. Смело повышай цены!{things[thing_tuningkit,3]=1;things[thing_tuningkit,1]=1;game_hours+=3*24}{script show_in_abandoned_garage.qsp}
+																																						[install_tuning_in_abandoned_garage]Прошло 3 дня... Ух ты! Теперь даже самый педантичный VIP-клиент захочет прокатиться на твоей тачке. Смело повышай цены!{this.things[this.thing_tuningkit][3]=1;things[thing_tuningkit,1]=1;game_hours+=3*24}{script show_in_abandoned_garage.qsp}
 																																							Класс![ANSWERIMAGE icons/cool.png|295;400]
 																																								[mark_g6o4cp2296c318868sj3][GOTO in_abandoned_garage]
 																																						[too_damaged_car_in_garage]Слишком разбитая машина. Сначала необходимо починить.{script show_in_abandoned_garage.qsp}
@@ -425,7 +425,7 @@
 																																						[too_dirt_car_in_garage]Трудно что либо делать с такой грязной машиной.{script show_in_abandoned_garage.qsp}
 																																							...[ANSWERIMAGE icons/three_dots.png|295;400]
 																																								[mark_xb821466e835oic837e9][GOTO in_abandoned_garage]
-																																			{if (things[thing_tuningkit,3] == 0)&& (things[thing_vinyl_dog,1] > 0) && (things[thing_vinyl_dog,3]==0) {output "Самостоятельно установлю " + things[thing_vinyl_dog,0] + ". Потребуется времени: 1 день"+ "[ANSWERIMAGE icons/vynil_dog.png|330;400]"}}
+																																			{if (this.things[this.thing_tuningkit][3] == 0)&& (things[thing_vinyl_dog,1] > 0) && (things[thing_vinyl_dog,3]==0) {output "Самостоятельно установлю " + things[thing_vinyl_dog,0] + ". Потребуется времени: 1 день"+ "[ANSWERIMAGE icons/vynil_dog.png|330;400]"}}
 																																				[mark_u6nl4s650l5fp348n3j7]{if car_cleanness < 70 {output "[GOTO too_dirt_car_in_garage]"}}
 																																					
 																																						[mark_5ffvr037j9163k17250k]Прошел 1 день. Неплохо получилось! За такую красоту можно смело повышать цены.{things[thing_vinyl_dog,3]=1}{script show_in_abandoned_garage.qsp}
@@ -451,86 +451,86 @@
 																																													Класс![ANSWERIMAGE icons/cool.png|295;400]
 																																														[mark_bi21fuxrh2zao9813d10]{things[thing_repairing_book,3]=1}{script calc_car_repair.qsp}[GOTO new_location]
 																																	Буду таксовать[ANSWERIMAGE icons/taxi.png|320;400]{this.vip_call=0;'';}
-																																		[taxing]{driver_show_gun=0;vip_call=0;this.client_type=0}{script calc_weather.qsp}{script show_client.qsp}
+																																		[taxing]{this.driver_show_gun=0;this.vip_call=0;this.client_type=0;'';}{script calc_weather.qsp}{script show_client.qsp}
 																																			
-																																				[vip_taxing]{script calc_client_type.qsp}{if (vip_call) && (client_pretense>0) {output "[GOTO vip_client_has_pretense]"}}
+																																				[vip_taxing]{script calc_client_type.qsp}{if (this.vip_call && this.client_pretense>0) {"[GOTO vip_client_has_pretense]"}}
 																																					
-																																						[mark_6235a3o2qo2883gs96wd]{if this.client_type != 0 {/**/output "[GOTO client_found]"} else {output "[GOTO client_not_found]"}}
+																																						[mark_6235a3o2qo2883gs96wd]{if (this.client_type != 0) {"[GOTO client_found]"} else {"[GOTO client_not_found]"}}
 																																							
-																																								[client_found]{first_client_greeting=1;return_mark="taxing"}{script calc_road.qsp}[GOTO {if (random*100<people_negative)&&(money>0) {asked_fuel=0;output "gop_stop"} else { if random<0.5 {output "client_says_price"} else {output "client_asks_price"}}}]
+																																								[client_found]{this.first_client_greeting=1;this.return_mark="taxing";'';}{script calc_road.qsp}[GOTO {if (Math.random()*100 < this.people_negative && this.money>0) {this.asked_fuel=0;"gop_stop"} else {if (Math.random() < 0.5) {"client_says_price"} else {"client_asks_price"}}}]
 																																									
-																																										[client_says_price]{script show_game_stats.qsp}{output "\n"}{if first_client_greeting {first_client_greeting=0;{script client_greeting.qsp}}} {script client_asking}{client_bargained=1}{script show_road_stats.qsp}{output "\n";if client_price<1 {output "Бесплатно?"} else {output client_price + "?"}}{value_to_show=client_price}{script calc_client_price_picture.qsp}{script show_client.qsp}[ANSWERTIME 20][TIMEEXPIRED client_go_away]
+																																										[client_says_price]{script show_game_stats.qsp}\n{if (this.first_client_greeting) {this.first_client_greeting=0;{script client_greeting.qsp}}} {script client_asking}{this.client_bargained=1}{script show_road_stats.qsp};if (this.client_price < 1) {"Бесплатно?"} else {this.client_price + "?"}}{this.value_to_show=this.client_price}{script calc_client_price_picture.qsp}{script show_client.qsp}[ANSWERTIME 20][TIMEEXPIRED client_go_away]
 																																											[GOTO ok_travel]
 																																											[say_your_price]Назвать свою цену поездки[ANSWERIMAGE icons/how_much_money.png|510;400]
-																																												[what_is_your_cost]Цена поездки ? (0 - {output 100*this.Inflation}){script show_client.qsp}[ANSWERTIME 30][TIMEEXPIRED client_go_away]
+																																												[what_is_your_cost]Цена поездки ? (0 - {100*this.Inflation}){script show_client.qsp}[ANSWERTIME 30][TIMEEXPIRED client_go_away]
 																																													[INPUTN driver_price]
-																																														[driver_said_price]{if (driver_price < 0) || (driver_price >100*this.Inflation) {output "[GOTO what_is_your_cost]"} else {output "[GOTO client_should_think]"}}
+																																														[driver_said_price]{if (this.driver_price < 0 || this.driver_price > 100*this.Inflation) {"[GOTO what_is_your_cost]"} else {"[GOTO client_should_think]"}}
 																																															
-																																																[client_should_think]{script client_thinking.qsp}{output "[GOTO " + client_solution + "]"}
+																																																[client_should_think]{script client_thinking.qsp}{"[GOTO " + this.client_solution + "]"}
 																																																	
-																																																		[client_refused]{people_negative++}{script client_refused.qsp}{script show_client.qsp}[ANSWERTIME 20][TIMEEXPIRED client_go_away]
+																																																		[client_refused]{this.people_negative++}{script client_refused.qsp}{script show_client.qsp}[ANSWERTIME 20][TIMEEXPIRED client_go_away]
 																																																			Ну, как знаешь...[ANSWERIMAGE icons/cancel.png|320;400]
 																																																				[mark_k63l06852359hf0ylx01][GOTO taxing]
-																																																			{if client_bargained==1 {output "Постой, поехали за " + client_price + "[ANSWERIMAGE icons/good.png|260;400]"}}
+																																																			{if (this.client_bargained==1) {"Постой, поехали за " + this.client_price + "[ANSWERIMAGE icons/good.png|260;400]"}}
 																																																				[mark_26734saq61095049c8v6][GOTO client_agreed]
 																																																		[client_agreed]{script client_agreed.qsp}{script show_client}[ANSWERTIME {output waiting/10}][TIMEEXPIRED travel_road]
 																																																			Едем[ANSWERIMAGE icons/good.png|295;400]
 																																																				[travel_road][IMAGE black_screen.jpg][AUDIO silent_0.1][SOUNDFX car_door_closed.mp3][AMBIENT AmbientTraffic]
 																																																					
-																																																						[mark_t2w5t28rjfq2u1k3tc22]{if waiting<=5 {output "[GOTO client_saying]"} else {script show_client_travel.qsp}}
+																																																						[mark_t2w5t28rjfq2u1k3tc22]{if (waiting<=5) {"[GOTO client_saying]"} else {script show_client_travel.qsp}}
 																																																							
 																																																								[mark_3av9y84nac38434pu6xb][IMAGE black_screen.jpg][AUDIO silent_0.1]
 																																																									
-																																																										[client_saying]{client_empty_saying=(random<0.5)&&(client_price>0); if client_empty_saying {{script client_says_empty.qsp}{script show_client_inside_rear.qsp}}output "[ANSWERTIME 10][TIMEEXPIRED client_business_proposal]"}
-																																																											{if client_empty_saying {output "...[ANSWERIMAGE icons/three_dots.png|295;400]"}}
+																																																										[client_saying]{this.client_empty_saying=(Math.random() < 0.5 && this.client_price > 0); if (this.client_empty_saying) {{script client_says_empty.qsp}{script show_client_inside_rear.qsp}}output "[ANSWERTIME 10][TIMEEXPIRED client_business_proposal]"}
+																																																											{if (this.client_empty_saying) {"...[ANSWERIMAGE icons/three_dots.png|295;400]"}}
 																																																												[client_business_proposal][GOTO business1]
 																																																													
 																																																														[client_arriving][IMAGE black_screen.jpg][AUDIO silent_0.1][AMBIENT AmbientStreet.mp3]
 																																																															
-																																																																[mark_r50140ja057dkb6x1y45]{location=this.new_location;people_negative--}{script travel_road.qsp}{script rounding.qsp}{return_mark="client_arrived"}{script check_states.qsp}
+																																																																[mark_r50140ja057dkb6x1y45]{this.location=this.new_location;this.people_negative--;'';}{script travel_road.qsp}{script rounding.qsp}{this.return_mark="client_arrived"}{script check_states.qsp}
 																																																																	
-																																																																		[client_arrived]{if (client_price < Inflation/5) && (random<0.5) {output "[GOTO client_gives_present]"} else {output "[GOTO client_goodbye]"}}
+																																																																		[client_arrived]{if (this.client_price < this.Inflation/5 && Math.random() < 0.5) {"[GOTO client_gives_present]"} else {"[GOTO client_goodbye]"}}
 																																																																			
-																																																																				[client_gives_present]{script client_gives_present.qsp}{if was_present {script show_client.qsp} else {output "[GOTO client_goodbye]"}}
+																																																																				[client_gives_present]{script client_gives_present.qsp}{if (this.was_present) {script show_client.qsp} else {"[GOTO client_goodbye]"}}
 																																																																					Спасибо.[ANSWERIMAGE icons/good.png|295;400]
 																																																																						[mark_m9kad1uk3visn1aa4pf6][GOTO new_location]
 																																																																				[client_goodbye]{script client_goodbye}{script show_client.qsp}[ANSWERTIME 1][TIMEEXPIRED money_for_trip]
 																																																																					Всего хорошего.[ANSWERIMAGE icons/good.png|295;400]
-																																																																						[money_for_trip]{get_back_money_tries=0}[GOTO client_gave_money{if (client_price>0) && ((random*people_negative_max < people_negative) || (random*100 > client_payable_rate)) {output ",client_squeezed_money"}}]
+																																																																						[money_for_trip]{this.get_back_money_tries=0;'';}[GOTO client_gave_money{if (this.client_price > 0 && (Math.random() * this.people_negative_max < this.people_negative || Math.random()*100 > this.client_payable_rate) {",client_squeezed_money"}}]
 																																																																							
-																																																																								[client_gave_money]{driver_show_gun=0}{money+=client_price;money_earned+=client_price;tip_sum=0}{if (random < 0.5 - people_negative/people_negative_max) && (get_back_money_tries==0) {output "[GOTO client_gives_tip]"} else {output "[GOTO client_doesnt_give_tip]"}}
+																																																																								[client_gave_money]{this.driver_show_gun=0;'';}{this.money+=this.client_price;this.money_earned+=this.client_price;this.tip_sum=0;''}{if (Math.random() < 0.5 - this.people_negative / this.people_negative_max && this.get_back_money_tries == 0) {"[GOTO client_gives_tip]"} else {"[GOTO client_doesnt_give_tip]"}}
 																																																																									
-																																																																										[client_gives_tip]{script client_gives_tip.qsp}{value_to_show=tip_sum}{script calc_client_price_picture.qsp}{script show_client.qsp}[ANSWERTIME 15][TIMEEXPIRED barfed]
-																																																																											{if tip_sum > 0 {output "Спасибо[ANSWERIMAGE icons/good.png|295;400]"}}
+																																																																										[client_gives_tip]{script client_gives_tip.qsp}{this.value_to_show=this.tip_sum;'';}{script calc_client_price_picture.qsp}{script show_client.qsp}[ANSWERTIME 15][TIMEEXPIRED barfed]
+																																																																											{if (this.tip_sum > 0) {"Спасибо[ANSWERIMAGE icons/good.png|295;400]"}}
 																																																																												[mark_618953m1ziz7339bxl62][GOTO barfed]
 																																																																										[client_doesnt_give_tip][GOTO barfed]
 																																																																								[client_squeezed_money]Клиент не отдал тебе денег за поездку!{script show_client}[ANSWERTIME 10][TIMEEXPIRED client_go_away]
 																																																																									Спрошу его: "А заплатить?"[ANSWERIMAGE icons/how_much_money.png|200;400]
 																																																																										[mark_65532vsy3kq934v8l2g0][GOTO client_returned_money, client_has_no_money]
-																																																																									{if things[thing_gun,1] {output "Пригрожу пистолетом...[ANSWERIMAGE icons/gun.png|260;400]"}}
-																																																																										[mark_j2r89n52bk1ygv1163kl]{driver_show_gun=1}[GOTO client_returned_money, client_has_no_money]
+																																																																									{if (this.things[this.thing_gun][1]) {"Пригрожу пистолетом...[ANSWERIMAGE icons/gun.png|260;400]"}}
+																																																																										[mark_j2r89n52bk1ygv1163kl]{this.driver_show_gun=1;''}[GOTO client_returned_money, client_has_no_money]
 																																																																											
-																																																																												[client_returned_money]Клиент отдал тебе деньги{client_state=2}{script show_client}
+																																																																												[client_returned_money]Клиент отдал тебе деньги{this.client_state=2;'';}{script show_client}
 																																																																													...[ANSWERIMAGE icons/three_dots.png|295;400]
 																																																																														[mark_9g67103z3l326enx5vp1][GOTO client_gave_money]
-																																																																												[client_has_no_money]{script client_has_no_money}{get_back_money_tries++}{script show_client}[ANSWERTIME 20][TIMEEXPIRED client_go_away]
+																																																																												[client_has_no_money]{script client_has_no_money}{this.get_back_money_tries++;'';}{script show_client}[ANSWERTIME 20][TIMEEXPIRED client_go_away]
 																																																																													Давай сюда мои деньги![ANSWERIMAGE icons/fist.png|200;400]
-																																																																														[mark_fg42vxh33x7f21m110ja]{if (random*people_negative_max < people_negative)||(random*this.rest_norm>driver_rest_hours) {output "[GOTO client_escaped]"} else {output "[GOTO client_has_no_money,client_returned_money]"}}
-																																																																														[client_really_has_no_money]Похоже у клиента действительно нет денег. Пришлось отпустить...{this.client_type=0;driver_show_gun=0}{script show_client}[ANSWERTIME 5][TIMEEXPIRED client_go_away]
+																																																																														[mark_fg42vxh33x7f21m110ja]{if (Math.random() * this.people_negative_max < this.people_negative || Math.random() * this.rest_norm > this.driver_rest_hours) {"[GOTO client_escaped]"} else {"[GOTO client_has_no_money,client_returned_money]"}}
+																																																																														[client_really_has_no_money]Похоже у клиента действительно нет денег. Пришлось отпустить...{this.client_type=0;this.driver_show_gun=0;'';}{script show_client}[ANSWERTIME 5][TIMEEXPIRED client_go_away]
 																																																																															[search_client_again]Продолжу поиски клиентов[ANSWERIMAGE icons/taxi.png|320;400]
 																																																																																[mark_os2u19tixzcle6dk32ym][GOTO barfed]
 																																																																															[change_location]Поеду в другое место[ANSWERIMAGE icons/change_place.png|380;400]{if (this.dvd_playing == 0) {"[AMBIENT AmbientStreet.mp3]"}}
 																																																																																[mark_69mfon6o859rsg778pvt][GOTO main_menu]
-																																																																													{if things[thing_gun,1] {client_price+=Inflation;driver_show_gun=1;output "Теперь ты мне отдашь " + client_price + ". Гони сюда мои деньги!...[ANSWERIMAGE icons/gun.png|380;400]"}}
-																																																																														[mark_8xd194zv05qm9zu7m89p]{if get_back_money_tries<3 {output "[GOTO client_has_no_money,client_returned_money]"} else {output "[GOTO client_really_has_no_money]"}}
-																																																																													А ну вали отсюда![ANSWERIMAGE icons/next.png|260;400]{people_negative++}
-																																																																														[mark_80595jbt634967d50p01][GOTO barfed]
-																																																																													Ладно, ступай с миром[ANSWERIMAGE icons/three_dots.png|320;400]{people_negative--}
-																																																																														[mark_4803w0z17v212g8gj6ii]{driver_show_gun=0}{if random<0.5 {{script client_gives_present.qsp}{script show_client.qsp}} else {output "[GOTO barfed]"}}
+																																																																													{if (this.things[this.thing_gun][1]) {this.client_price += this.Inflation;this.driver_show_gun=1;"Теперь ты мне отдашь " + this.client_price + ". Гони сюда мои деньги!...[ANSWERIMAGE icons/gun.png|380;400]"}}
+																																																																														[mark_8xd194zv05qm9zu7m89p]{if (this.get_back_money_tries < 3) {"[GOTO client_has_no_money,client_returned_money]"} else {"[GOTO client_really_has_no_money]"}}
+																																																																													А ну вали отсюда![ANSWERIMAGE icons/next.png|260;400]
+																																																																														[mark_80595jbt634967d50p01][GOTO barfed]{this.people_negative++;'';}
+																																																																													Ладно, ступай с миром[ANSWERIMAGE icons/three_dots.png|320;400]
+																																																																														[mark_4803w0z17v212g8gj6ii]{this.people_negative--;this.driver_show_gun=0;'';}{if (Math.random() < 0.5) {{script client_gives_present.qsp}{script show_client.qsp}} else {"[GOTO barfed]"}}
 																																																																															Спасибо![ANSWERIMAGE icons/cool.png|295;400]
-																																																																																[barfed][GOTO this.new_location{if (this.client_type==8)&&(random<0.1) {output ",client_barfed"}}]
+																																																																																[barfed][GOTO new_location{if (this.client_type==8 && Math.random() < 0.1) {",client_barfed"}}]
 																																																																																	
-																																																																																		[client_barfed]Вотц э фак? Чем так воняет? Кажется клиента вырвало прямо на твое авто!{car_cleanness=0;this.client_type=0}{script show_client.qsp}[ANSWERTIME 10][TIMEEXPIRED taxing]
+																																																																																		[client_barfed]Вотц э фак? Чем так воняет? Кажется клиента вырвало прямо на твое авто!{this.car_cleanness=0;this.client_type=0;'';}{script show_client.qsp}[ANSWERTIME 10][TIMEEXPIRED taxing]
 																																																																																			[GOTO search_client_again]
 																																																																																			[GOTO change_location]
 																																																																												[client_escaped]Клиент убежал от тебя!{this.client_type=0}{script show_client}[ANSWERTIME 10][TIMEEXPIRED taxing]
@@ -538,29 +538,29 @@
 																																																																													[GOTO change_location]
 																																																																									[GOTO search_client_again]
 																																																																									[GOTO change_location]
-																																																		[client_bargain]{script client_bargain.qsp}{client_state=1}{value_to_show=client_price}{script calc_client_price_picture.qsp}{script show_client.qsp}[ANSWERTIME 20][TIMEEXPIRED client_go_away]
-																																																			[ok_travel]Ладно, поехали за {output client_price}[ANSWERIMAGE icons/good.png|30;400]
+																																																		[client_bargain]{script client_bargain.qsp}{this.client_state=1;this.value_to_show=this.client_price;''}{script calc_client_price_picture.qsp}{script show_client.qsp}[ANSWERTIME 20][TIMEEXPIRED client_go_away]
+																																																			[ok_travel]Ладно, поехали за {this.client_price}[ANSWERIMAGE icons/good.png|30;400]
 																																																				[mark_wrp0ryq17o42e31jge6h][GOTO travel_road]
 																																																			[GOTO say_your_price]
 																																																			[GOTO cancel_work]
-																																																			[price_is_1x]Довезу за {driver_price=1*this.Inflation;output driver_price}[ANSWERIMAGE icons/money1.png|150;400]
+																																																			[price_is_1x]Довезу за {this.driver_price=1*this.Inflation;driver_price}[ANSWERIMAGE icons/money1.png|150;400]
 																																																				[mark_369kddqz301lyll4of56][GOTO driver_said_price]
-																																																			[price_is_1.5x]Довезу за {driver_price=1.5*this.Inflation;output driver_price}[ANSWERIMAGE icons/money2.png|210;400]
+																																																			[price_is_1.5x]Довезу за {this.driver_price=1.5*this.Inflation;this.driver_price}[ANSWERIMAGE icons/money2.png|210;400]
 																																																				[mark_18y3i591f8p075krave0][GOTO driver_said_price]
-																																																			[price_is_2x]Довезу за {driver_price=2*this.Inflation;output driver_price}[ANSWERIMAGE icons/money3.png|270;400]
+																																																			[price_is_2x]Довезу за {this.driver_price=2*this.Inflation;this.driver_price}[ANSWERIMAGE icons/money3.png|270;400]
 																																																				[mark_fp43r6562k0af317c2cm][GOTO driver_said_price]
-																																																			[price_is_3x]Довезу за {driver_price=3*this.Inflation;output driver_price}[ANSWERIMAGE icons/money4.png|330;400]
+																																																			[price_is_3x]Довезу за {this.driver_price=3*this.Inflation;this.driver_price}[ANSWERIMAGE icons/money4.png|330;400]
 																																																				[mark_25yri145ow83t614055o][GOTO driver_said_price]
-																																																			[price_is_4x]Довезу за {driver_price=4*this.Inflation;output driver_price}[ANSWERIMAGE icons/money5.png|390;400]
+																																																			[price_is_4x]Довезу за {this.driver_price=4*this.Inflation;this.driver_price}[ANSWERIMAGE icons/money5.png|390;400]
 																																																				[mark_97jqfceh941484aqyc00][GOTO driver_said_price]
-																																																			[price_is_5x]Довезу за {driver_price=5*this.Inflation;output driver_price}[ANSWERIMAGE icons/money6.png|450;400]
+																																																			[price_is_5x]Довезу за {this.driver_price=5*this.Inflation;this.driver_price}[ANSWERIMAGE icons/money6.png|450;400]
 																																																				[mark_7x22b85jk53g9q2yvkf7][GOTO driver_said_price]
 																																																			[taxing_enough]Передумал таксовать[ANSWERIMAGE icons/exit.png|570;390]
-																																																				[mark_ofc394466pkc69325121]{this.new_location=location}[GOTO new_location]
-																																																			[go_to_other_location]Поеду в другое место[ANSWERIMAGE icons/change_place.png|570;330]{if (this.dvd_playing == 0) {output "[AMBIENT AmbientStreet.mp3]"}}
+																																																				[mark_ofc394466pkc69325121]{this.new_location=this.location}[GOTO new_location]
+																																																			[go_to_other_location]Поеду в другое место[ANSWERIMAGE icons/change_place.png|570;330]{if (this.dvd_playing == 0) {"[AMBIENT AmbientStreet.mp3]"}}
 																																																				[mark_e630cumru98haec87a0s][GOTO main_menu]
 																																											[cancel_work]Отказаться[ANSWERIMAGE icons/cancel.png|90;400]
-																																												[mark_q802xdff7ncy1r86ecgv]Клиент обиделся{this.new_location=location;people_negative++;client_state=2}{script show_client.qsp}{script spent_time.qsp}{script calc_weather}[ANSWERTIME 1][TIMEEXPIRED taxing]
+																																												[mark_q802xdff7ncy1r86ecgv]Клиент обиделся{this.new_location=this.location;this.people_negative++;this.client_state=2;'';}{script show_client.qsp}{script spent_time.qsp}{script calc_weather}[ANSWERTIME 1][TIMEEXPIRED taxing]
 																																													...[ANSWERIMAGE icons/next.png|295;400]
 																																														[mark_2l834a5pqvw0om7a19j0][GOTO taxing]
 																																											[GOTO price_is_1x]
@@ -569,10 +569,10 @@
 																																											[GOTO price_is_3x]
 																																											[GOTO price_is_4x]
 																																											[GOTO price_is_5x]
-																																											{return_mark="client_says_price"}[GOTO dvd_on]
+																																											{this.return_mark="client_says_price";'';}[GOTO dvd_on]
 																																											[GOTO taxing_enough]
 																																											[GOTO go_to_other_location]
-																																										[client_asks_price]{script show_game_stats.qsp}{output "\n"}{if first_client_greeting {first_client_greeting=0;{script client_greeting.qsp}}} {script client_asking.qsp} {script show_road_stats.qsp}{script show_client.qsp}[ANSWERTIME 20][TIMEEXPIRED client_go_away]
+																																										[client_asks_price]{script show_game_stats.qsp}\n{if (this.first_client_greeting) {this.first_client_greeting=0;{script client_greeting.qsp}}} {script client_asking.qsp} {script show_road_stats.qsp}{script show_client.qsp}[ANSWERTIME 20][TIMEEXPIRED client_go_away]
 																																											[GOTO say_your_price]
 																																											[GOTO cancel_work]
 																																											[GOTO price_is_1x]
@@ -581,62 +581,62 @@
 																																											[GOTO price_is_3x]
 																																											[GOTO price_is_4x]
 																																											[GOTO price_is_5x]
-																																											{return_mark="client_asks_price"}[GOTO dvd_on]
+																																											{this.return_mark="client_asks_price";'';}[GOTO dvd_on]
 																																											[GOTO taxing_enough]
 																																											[GOTO go_to_other_location]
-																																								[client_not_found]{script show_game_stats.qsp}{output "\n"}{script spent_time.qsp}Ты безуспешно ждал клиента в течении: {output spent_time} часа.[ANSWERTIME 20][TIMEEXPIRED location_actions]{script show_client}
+																																								[client_not_found]{script show_game_stats.qsp}\n{script spent_time.qsp}Ты безуспешно ждал клиента в течении: {this.spent_time} часа.[ANSWERTIME 20][TIMEEXPIRED location_actions]{script show_client}
 																																									...[ANSWERIMAGE icons/three_dots.png|295;400]
 																																										[mark_pj1f2z584797l02plu1t][GOTO location_actions]
-																																								[gop_stop]ОМГ! Да это же бандит! {if things[thing_gun,1] {output "Ты направил на него ствол и он трусливо убежал прочь."} else {robbed_sum=(money/2):0 + (money/2*random):0;if robbed_sum<=money/3 {output "Он попытался ограбить тебя, но у него не получилось."} else {output "Он ограбил тебя на: " + robbed_sum;money-=robbed_sum;robbed_money+=robbed_sum}}}{script rounding.qsp}{script show_gop_stop}[ANSWERTIME 10][TIMEEXPIRED {output return_mark}]
+																																								[gop_stop]ОМГ! Да это же бандит! {if (this.things[this.thing_gun][1]) {"Ты направил на него ствол и он трусливо убежал прочь."} else {this.robbed_sum=Math.floor(this.money/2) + Math.floor(this.money/2*Math.random());if (this.robbed_sum <= this.money/3) {"Он попытался ограбить тебя, но у него не получилось."} else {"Он ограбил тебя на: " + this.robbed_sum;this.money -= this.robbed_sum;this.robbed_money+= this.robbed_sum}}}{script rounding.qsp}{script show_gop_stop}[ANSWERTIME 10][TIMEEXPIRED {output return_mark}]
 																																									...[ANSWERIMAGE icons/next.png|295;400]
-																																										[mark_e7h0ff5i2e3edi6pxbo6][GOTO {output return_mark}]
-																																								[client_go_away]Клиент ушел.{this.new_location=location;this.client_type=0}{script show_client.qsp}[ANSWERTIME 1][TIMEEXPIRED taxing]
-																																						[vip_client_has_pretense]{script client_pretense.qsp}{vip_call=0}{script show_client.qsp}[ANSWERTIME 20][TIMEEXPIRED this.new_location]
+																																										[mark_e7h0ff5i2e3edi6pxbo6][GOTO {this.return_mark}]
+																																								[client_go_away]Клиент ушел.{this.new_location=this.location;this.client_type=0;'';}{script show_client.qsp}[ANSWERTIME 1][TIMEEXPIRED taxing]
+																																						[vip_client_has_pretense]{script client_pretense.qsp}{this.vip_call=0;'';}{script show_client.qsp}[ANSWERTIME 20][TIMEEXPIRED this.new_location]
 																																							...[ANSWERIMAGE icons/three_dots.png|295;400]
 																																								[mark_21bu90i96695hyxno153][GOTO new_location]
 																																	[GOTO change_location]
 																																	[have_a_rest]{this.rest_hours_needed=+(this.rest_norm-this.driver_rest_hours).toFixed(1);if (this.rest_hours_needed>0) {this.client_type=0;"Отдохну[ANSWERIMAGE icons/sleep.png|440;400]"}}
-																																		[mark_l61072db56z42ypusc55]{this.new_location=location}{script show_game_stats.qsp}{output "\n"}Сколько будешь отдыхать?{script calc_damage_car_probability.qsp}{script show_client}
-																																			Отдохнуть полностью (требуется часов отдыха: {output rest_hours_needed})[ANSWERIMAGE icons/sleep.png|200;400]
-																																				[mark_b1ysc7nky6ijg6740258]{game_hours+=rest_hours_needed;rest_hours=rest_hours_needed;driver_rest_hours=this.rest_norm;total_driver_rest_hours+=rest_hours}
+																																		[mark_l61072db56z42ypusc55]{this.new_location = this.location;'';}{script show_game_stats.qsp}\nСколько будешь отдыхать?{script calc_damage_car_probability.qsp}{script show_client}
+																																			Отдохнуть полностью (требуется часов отдыха: {this.rest_hours_needed})[ANSWERIMAGE icons/sleep.png|200;400]
+																																				[mark_b1ysc7nky6ijg6740258]{this.game_hours+=this.rest_hours_needed;this.rest_hours=this.rest_hours_needed;this.driver_rest_hours=this.rest_norm;this.total_driver_rest_hours+=this.rest_hours;'';}
 																																					
-																																						[check_damage_car_probability]{script calc_damage_car_probability.qsp}{if (random < damage_car_probability) && (damage_car>=1) {output ""} else {output "[GOTO new_location]"}}
+																																						[check_damage_car_probability]{script calc_damage_car_probability.qsp}{if (Math.random() < this.damage_car_probability && this.damage_car >= 1) {"..."} else {"[GOTO new_location]"}}
 																																							
-																																								[mark_ww3z3d57798t9z69a8h9]Пока ты отдыхал, кто-то врезался в твою машину и нанес ей ущерб: {output damage_car}% !{car_state-=damage_car;crushes_not_own++}{script rounding.qsp}{script show_client}[SOUNDFX brakes_crash.mp3]
+																																								[mark_ww3z3d57798t9z69a8h9]Пока ты отдыхал, кто-то врезался в твою машину и нанес ей ущерб: {this.damage_car}% !{this.car_state -= this.damage_car;this.crushes_not_own++;'';}{script rounding.qsp}{script show_client}[SOUNDFX brakes_crash.mp3]
 																																									Проклятье!!![ANSWERIMAGE icons/fist.png|295;400]
-																																										[mark_xcr1gpvk8q729x298vly]{script spent_time.qsp}{if compensation_coef >= 0.1 {money+=compensation_sum;output "Тебе удалось вытрясти с виновника на ремонт: " + compensation_sum} else {output "Виновник скрылся с места проишествия..."}}{script show_client}
+																																										[mark_xcr1gpvk8q729x298vly]{script spent_time.qsp}{if (this.compensation_coef >= 0.1) {this.money+=this.compensation_sum;"Тебе удалось вытрясти с виновника на ремонт: " + this.compensation_sum} else {"Виновник скрылся с места проишествия..."}}{script show_client}
 																																											[ANSWERIMAGE icons/good.png|295;400]
-																																												[mark_260hr1v36f4o24m35guf]{if car_state<=0 {output "[GOTO car_total_crush]"} else {output "[GOTO new_location]"}}
+																																												[mark_260hr1v36f4o24m35guf]{if (this.car_state<=0) {"[GOTO car_total_crush]"} else {"[GOTO new_location]"}}
 																																			Ввести кол-во часов отдыха вручную[ANSWERIMAGE icons/how_much.png|260;400]
-																																				[how_long_have_rest]Сколько часов отдыхать (0 - {output rest_hours_needed})?{script show_client}
-																																					[INPUTN rest_hours]
-																																						[mark_g1hdc28k0nvwz6na0x21]{if (rest_hours>=0)&&(rest_hours<=rest_hours_needed) {driver_rest_hours+=rest_hours;game_hours+=rest_hours;total_driver_rest_hours+=rest_hours;output "[GOTO check_damage_car_probability]"} else {output "[GOTO how_long_have_rest]"}}
+																																				[how_long_have_rest]Сколько часов отдыхать (0 - {this.rest_hours_needed})?{script show_client}
+																																					[INPUTN this.rest_hours]
+																																						[mark_g1hdc28k0nvwz6na0x21]{if (this.rest_hours>=0 && this.rest_hours <= this.rest_hours_needed) {this.driver_rest_hours+= this.rest_hours; this.game_hours += this.rest_hours; this.total_driver_rest_hours+= this.rest_hours;"[GOTO check_damage_car_probability]"} else {"[GOTO how_long_have_rest]"}}
 																																			Передумал отдыхать[ANSWERIMAGE icons/cancel.png|320;400]
 																																				[mark_w86a960id4rl6m537uev][GOTO new_location]
 																																	{if (this.things[this.thing_vip_radio][1] && this.things[this.thing_vip_radio][3] && Math.random()>0.1 && this.vip_call==0) {"Поступил вызов от VIP-клиента по рации. Отвечу." + "[ANSWERIMAGE icons/vip_call.png|140;400]"}}
 																																		[mark_p85fr4ued62bvftg3ayi]{script calc_vip_client.qsp}{script show_client.qsp}
 																																			Поеду за VIP-клиентом[ANSWERIMAGE icons/change_place.png|260;400]
-																																				[mark_qpo8r9306ku747603y6c]{if location == vip_location {output "[GOTO new_location]"} else {output "[GOTO main_menu]"}}
+																																				[mark_qpo8r9306ku747603y6c]{if (this.location == this.vip_location) {"[GOTO new_location]"} else {"[GOTO main_menu]"}}
 																																			Пропущу вызов[ANSWERIMAGE icons/cancel.png|320;400]
-																																				[mark_0he799u501ub69x4cru8]{vip_call=0}[GOTO new_location]
+																																				[mark_0he799u501ub69x4cru8]{this.vip_call=0;'';}[GOTO new_location]
 																																	{if (this.things[this.thing_vip_radio][1] && this.things[this.thing_vip_radio][3]==0) {"Настрою частоту рации для приема заявок от VIP-клиентов." + "[ANSWERIMAGE icons/call.png|140;400]"}}
 																																		[input_radio_freq]Введи номер частоты (0 - 1000000)? (0 = выход)[BGNDIMAGE vip_radio.jpg][ANSWERTIME 30][TIMEEXPIRED this.new_location]
-																																			[INPUTN radio_freq]
-																																				[mark_w43083s54ddmirt48y1i]{if (radio_freq<0) || (radio_freq>1000000) {output "[GOTO input_radio_freq]"}}
+																																			[INPUTN this.radio_freq]
+																																				[mark_w43083s54ddmirt48y1i]{if (this.radio_freq < 0 || this.radio_freq > 1000000) {"[GOTO input_radio_freq]"}}
 																																					
-																																						[mark_svp3f33oc4126l87cb1i]{if radio_freq == vip_radio_freq {output "[GOTO vip_freq_found]"} else {output "Шум в эфире, похоже неправильная частота.[SOUNDFX radio_noise.mp3]"}}[BGNDIMAGE vip_radio.jpg][ANSWERTIME 20][TIMEEXPIRED this.new_location]
+																																						[mark_svp3f33oc4126l87cb1i]{if (this.radio_freq == this.vip_radio_freq) {"[GOTO vip_freq_found]"} else {"Шум в эфире, похоже неправильная частота.[SOUNDFX radio_noise.mp3]"}}[BGNDIMAGE vip_radio.jpg][ANSWERTIME 20][TIMEEXPIRED new_location]
 																																							Попробую еще[ANSWERIMAGE icons/call.png|260;400]
 																																								[mark_n4mf60whj3k340r2lq7s][GOTO input_radio_freq]
 																																							Хватит, надоело[ANSWERIMAGE icons/cancel.png|320;400]
 																																								[mark_91b24d5296zc3i24azs9][GOTO new_location]
-																																						[vip_freq_found]Частота подобрана. Теперь какое то время можно принимать заявки от VIP-клиентов.{things[thing_vip_radio,3]=1}{script calc_radio_vip_freq.qsp}[BGNDIMAGE vip_radio.jpg][ANSWERTIME 30][TIMEEXPIRED this.new_location]
+																																						[vip_freq_found]Частота подобрана. Теперь какое то время можно принимать заявки от VIP-клиентов.{this.things[this.thing_vip_radio][3]=1;'';}{script calc_radio_vip_freq.qsp}[BGNDIMAGE vip_radio.jpg][ANSWERTIME 30][TIMEEXPIRED this.new_location]
 																																							[ANSWERIMAGE icons/cool.png|295;400]
 																																								[mark_rn35o25280263720d5w1][GOTO new_location]
 																																	{this.return_mark="location_actions"}[GOTO dvd_on]
 																																		[mark_20289716qd7g1e11p87a]
 																																			[dvd_on]{if (this.things[this.thing_dvd][1]) {this.things[this.thing_dvd][0] + "[ANSWERIMAGE icons/dvd.png|30;350]"}}
 																																				[dvd_actions]Что хочешь сделать?[BGNDIMAGE black_screen.jpg&dvd.png|-300;-500;2;2;0;1]
-																																					{if (things[thing_psycho_dvd_film,1]) {output "Посмотрю: " + things[thing_psycho_dvd_film,0] + "[ANSWERIMAGE icons/dvd_film.png|295;350]"}}
+																																					{if (this.things[this.thing_psycho_dvd_film][1]) {"Посмотрю: " + this.things[this.thing_psycho_dvd_film][0] + "[ANSWERIMAGE icons/dvd_film.png|295;350]"}}
 																																						[see_film]Если внимательно вглядеться в лица людей, то можно заметить, что они всегда выражают одно из трех настроений: веселое, нормальное и плохое.[BGNDIMAGE client5_3_0.png|-300;0;1;1;0&client5_3_1.png|-100;0;1;1;0&client5_3_2.png|100;0;1;1;0][AMBIENT track3.mp3]
 																																							Дальше...[ANSWERIMAGE icons/next.png|295;400]
 																																								[mark_012416vbq8mi1337trg3]Поэтому и платят люди по-разному: веселые щедры, а грустные скупы. Повышайте цену, когда видите, что человеку хорошо.[BGNDIMAGE client5_3_0.png|100;0;1;1;0]
@@ -657,17 +657,17 @@
 																																																							Дальше...[ANSWERIMAGE icons/next.png|295;400]
 																																																								[mark_rffyt6ns5j0v83n38c35]Делайте мир добрее, помогайте людям и они не остануться в долгу.[BGNDIMAGE ask_fuel.jpg]
 																																																									Дальше...[ANSWERIMAGE icons/next.png|295;400]
-																																																										[mark_6ck99wp2o98sp5xoqf44]Следите за собой, не забывайте вовремя отдыхать, чтобы не попасть в аварию. Не забывайте чинить и чистить машину, так как некоторые клиенты никогда не сядут в грязную или разбитую машину.{loc=location;location=15}{script show_in_autoservice.qsp}{location=loc}{things[thing_psycho_dvd_film,3]=1}
+																																																										[mark_6ck99wp2o98sp5xoqf44]Следите за собой, не забывайте вовремя отдыхать, чтобы не попасть в аварию. Не забывайте чинить и чистить машину, так как некоторые клиенты никогда не сядут в грязную или разбитую машину.{this.loc=this.location;this.location=15;'';}{script show_in_autoservice.qsp}{this.location=this.loc}{this.things[this.thing_psycho_dvd_film][3]=1;'';}
 																																																											Дальше...[ANSWERIMAGE icons/next.png|295;400][AMBIENT none]
 																																																												[mark_g27ffx2zkc26667j4q6y][GOTO dvd_actions]
 																																					Включу Track1[BGNDMUSIC track1.mp3][ANSWERIMAGE icons/music.png|30;350]
-																																						[mark_c9382qzg8q1l90qt3pm6]{this.dvd_playing=1}[GOTO dvd_actions]
+																																						[mark_c9382qzg8q1l90qt3pm6]{this.dvd_playing=1;'';}[GOTO dvd_actions]
 																																					Включу Track2[BGNDMUSIC track2.mp3][ANSWERIMAGE icons/music.png|30;400]
-																																						[mark_3f5983v8gz18w8383au0]{this.dvd_playing=1}[GOTO dvd_actions]
+																																						[mark_3f5983v8gz18w8383au0]{this.dvd_playing=1;'';}[GOTO dvd_actions]
 																																					Включу Track3[BGNDMUSIC track3.mp3][ANSWERIMAGE icons/music.png|90;400]
-																																						[mark_2ir249qi46lnc531nd1q]{this.dvd_playing=1}[GOTO dvd_actions]
-																																					{if things[thing_tuningkit,1] == 1 {output "Включу Track4[BGNDMUSIC track4.mp3][ANSWERIMAGE icons/music.png|150;400]"}}
-																																						[mark_yv5irk7iv39iyving5pz]{this.dvd_playing=1}[GOTO dvd_actions]
+																																						[mark_2ir249qi46lnc531nd1q]{this.dvd_playing=1;'';}[GOTO dvd_actions]
+																																					{if (this.things[this.thing_tuningkit][1] == 1) {"Включу Track4[BGNDMUSIC track4.mp3][ANSWERIMAGE icons/music.png|150;400]"}}
+																																						[mark_yv5irk7iv39iyving5pz]{this.dvd_playing=1;'';}[GOTO dvd_actions]
 																																					Радио1[ANSWERIMAGE icons/radio.png|210;400]
 																																						[mark_y48fc4s0ohtwkh4goq85]{script radio1.qsp}
 																																							
@@ -691,47 +691,47 @@
 																																					Выключу[ANSWERIMAGE icons/cancel.png|510;400]
 																																						[mark_8yj36u7mfs897rutpa8k][BGNDMUSIC none]
 																																							
-																																								[mark_0q1jd3iu8us96jwblr2g]{this.dvd_playing=0}[GOTO dvd_actions]
+																																								[mark_0q1jd3iu8us96jwblr2g]{this.dvd_playing=0;'';}[GOTO dvd_actions]
 																																					Вернуться в меню[ANSWERIMAGE icons/exit.png|570;390]
-																																						[mark_ud59ie6443qc6bxkw42p]{output "[GOTO " + return_mark + "]"}
+																																						[mark_ud59ie6443qc6bxkw42p][GOTO {this.return_mark}]
 																																	Посмотрю статистику[ANSWERIMAGE icons/stats.png|500;400]
 																																		[show_statistic]Статистика{script show_client.qsp}
-																																			Подвезено клиентов: {i=1;cl_count=0; while i<=max_client_types {cl_count+=clients[i,1];i++} output cl_count}. Смотреть детально...[ANSWERIMAGE icons/next.png|30;400]
-																																				[mark_a8p7mb0ua30e7q8pcg93]Детально по типам клиентов:{output "\n";i=1; while i<= max_client_types {output clients[i,0] + ": " + clients[i,1] + ". ";i++}}
+																																			Подвезено клиентов: {let i=1;let cl_count=0; while (i <= this.max_client_types) {cl_count+= this.clients[i][1];i++} cl_count}. Смотреть детально...[ANSWERIMAGE icons/next.png|30;400]
+																																				[mark_a8p7mb0ua30e7q8pcg93]Детально по типам клиентов:\n{let i=1; while (i<= this.max_client_types) {clients[i][0] + ": " + clients[i][1] + ". ";i++}}
 																																					Вернуться[ANSWERIMAGE icons/exit.png|295;400]
 																																						[mark_82ot0b5r944zzt97m4d1][GOTO show_statistic]
-																																			Выручка, денег: {output money_earned}[ANSWERIMAGE icons/stats.png|90;400]
+																																			Выручка, денег: {this.money_earned}[ANSWERIMAGE icons/stats.png|90;400]
 																																				[mark_6d7145jj40zi2x449qq7][GOTO show_statistic]
-																																			Потрачено бензина: {output this.fuel_wasted}[ANSWERIMAGE icons/stats.png|150;400]
+																																			Потрачено бензина: {this.fuel_wasted}[ANSWERIMAGE icons/stats.png|150;400]
 																																				[mark_3ex8s1m3845wq7oo43ty][GOTO show_statistic]
-																																			Приобретено вещей и бонусов: {i=1;things_count=0; while i<=max_things {things_count+=things[i,1];i++} output things_count + " из " + max_things}. Смотреть детально...[ANSWERIMAGE icons/next.png|210;400]
-																																				[mark_de0h76iu4bvog8eooig2]В наличии: {i=1; while i<= max_things {if things[i,1]==1 {output things[i,0] + ". "} i++}}
+																																			Приобретено вещей и бонусов: {let i=1;let things_count=0; while (i<=this.max_things) {things_count+=this.things[i][1];i++} things_count + " из " + this.max_things}. Смотреть детально...[ANSWERIMAGE icons/next.png|210;400]
+																																				[mark_de0h76iu4bvog8eooig2]В наличии: {let i=1; while (i<=this.max_things) {if (this.things[i][1]==1) {this.things[i][0] + ". "} i++}}
 																																					Дальше...[ANSWERIMAGE icons/next.png|295;400]
-																																						[mark_c89d6dvtj90db18o10n3]Не хватает: {i=1; while i<= max_things {if things[i,1]==0 {output things[i,0] + ". "}i++}}
+																																						[mark_c89d6dvtj90db18o10n3]Не хватает: {let i=1; while (i<= max_things) {if (this.things[i][1]==0) {this.things[i][0] + ". "}i++}}
 																																							Вернуться[ANSWERIMAGE icons/exit.png|295;400]
 																																								[mark_7wbcbv7514o3x93e6i1m][GOTO show_statistic]
-																																			Озлобленность народа: {output (people_negative*100/people_negative_max):0}%[ANSWERIMAGE icons/stats.png|270;400]
+																																			Озлобленность народа: {Math.floor(this.people_negative*100/this.people_negative_max)}%[ANSWERIMAGE icons/stats.png|270;400]
 																																				[mark_l2jcl027b9pa3u6t4v55][GOTO show_statistic]
-																																			Накатано, км: {output car_mileage}[ANSWERIMAGE icons/stats.png|330;400]
+																																			Накатано, км: {this.car_mileage}[ANSWERIMAGE icons/stats.png|330;400]
 																																				[mark_f1w7ghw5p7g68sjet044][GOTO show_statistic]
-																																			Мастерство вождения: {output (driver_craft*100):2}%[ANSWERIMAGE icons/stats.png|390;400]
+																																			Мастерство вождения: {+(this.driver_craft*100).toFixed(2)}%[ANSWERIMAGE icons/stats.png|390;400]
 																																				[mark_9qjbbx8chv668i9xk5y1][GOTO show_statistic]
-																																			Аварий: {output crushes_own + crushes_not_own}. По своей вине: {output crushes_own}. По чужой вине: {output crushes_not_own}[ANSWERIMAGE icons/stats.png|450;400]
+																																			Аварий: {this.crushes_own + this.crushes_not_own}. По своей вине: {this.crushes_own}. По чужой вине: {this.crushes_not_own}[ANSWERIMAGE icons/stats.png|450;400]
 																																				[mark_0cj6e7706q796h8ywk6a][GOTO show_statistic]
-																																			Дано ответов по ПДД: {output pdd_wrong + pdd_right}. Правильно: {output pdd_right}. Неправильно: {output pdd_wrong}[ANSWERIMAGE icons/stats.png|510;400]
+																																			Дано ответов по ПДД: {this.pdd_wrong + this.pdd_right}. Правильно: {this.pdd_right}. Неправильно: {this.pdd_wrong}[ANSWERIMAGE icons/stats.png|510;400]
 																																				[mark_794al9y4u72041tvfhl5][GOTO show_statistic]
-																																			Часов отдыха: {output total_driver_rest_hours}[ANSWERIMAGE icons/stats.png|390;350]
+																																			Часов отдыха: {this.total_driver_rest_hours}[ANSWERIMAGE icons/stats.png|390;350]
 																																				[mark_04xi45mi08vq35q15l0i][GOTO show_statistic]
-																																			Денег отнято бандитами: {output robbed_money}[ANSWERIMAGE icons/stats.png|330;350]
+																																			Денег отнято бандитами: {this.robbed_money}[ANSWERIMAGE icons/stats.png|330;350]
 																																				[mark_1ds4y209zht825814461][GOTO show_statistic]
-																																			Выиграно денег в казино: {output casino_win_money}[ANSWERIMAGE icons/stats.png|270;350]
+																																			Выиграно денег в казино: {this.casino_win_money}[ANSWERIMAGE icons/stats.png|270;350]
 																																				[mark_a06fr4z9y3uqoeo9l509][GOTO location_actions]
-																																			Доход от наркобизнеса: {output drugMoney}[ANSWERIMAGE icons/stats.png|450;350]
+																																			Доход от наркобизнеса: {this.drugMoney}[ANSWERIMAGE icons/stats.png|450;350]
 																																				[mark_8bd2q9oi4v2p605k656f][GOTO location_actions]
 																																			Вернуться в меню[ANSWERIMAGE icons/exit.png|570;390]
 																																				[mark_s59w1oe4m8v021k5xipu][GOTO location_actions]
 																																[vip_client_found][GOTO vip_taxing]
-																																[vip_client_not_found]VIP-клиента не видно. Похоже ты приехал не туда...{this.vip_call=0}{script show_client}
+																																[vip_client_not_found]VIP-клиента не видно. Похоже ты приехал не туда...{this.vip_call=0;'';}{script show_client}
 																																	...[ANSWERIMAGE icons/three_dots.png|295;400]
 																																		[mark_g2i19yi04x93fz46k32x][GOTO location_actions]
 																	{this.new_location=2;this.locations[this.new_location][0] + "[ANSWERIMAGE map_mark.png|"+this.locations[this.new_location][1]+";"+this.locations[this.new_location][2]+"]"}
@@ -948,7 +948,7 @@
 												[traffic_congestion]{script spent_time}{script rounding.qsp}Ты попал в пробку и провел в ней времени: {output spent_time} ч.{script show_traffic_congestion.qsp}[ANSWERTIME 10][TIMEEXPIRED dangerous_moment]
 													Дальше...[ANSWERIMAGE icons/next.png|295;400]
 														[mark_ha498312r54629zhsz1k][GOTO dangerous_moment]
-										[test_mode]{script init_vars.qsp}{car_state=100;this.client_type=1;client_subtype=1;client_state=0;weather=0;is_daytime=1;driver_show_gun=0;view=1;location=1;things[thing_tuningkit,3]=1;max_waiting=4;waiting=100}[AMBIENT what_is_love.mp3 ]
+										[test_mode]{script init_vars.qsp}{car_state=100;this.client_type=1;client_subtype=1;client_state=0;weather=0;is_daytime=1;driver_show_gun=0;view=1;location=1;this.things[this.thing_tuningkit][3]=1;max_waiting=4;waiting=100}[AMBIENT what_is_love.mp3 ]
 											
 												[test_view]{script rounding.qsp}{script show_game_stats.qsp}{if view == 1 {script show_client_inside_rear.qsp} else {if view == 0 {script show_client.qsp} else {if view == 2 {script show_client_travel} else {if view == 3 {script show_in_abandoned_garage.qsp} else {if view == 4 {script show_traffic_congestion.qsp}}}}}}
 													Сменить главный вид: {output view}[ANSWERIMAGE icons/one.png|30;400]
@@ -970,7 +970,7 @@
 													Повреждение машины -30%[ANSWERIMAGE icons/options.png|450;400]
 														[mark_508xkh21aa2n654o4o7l]{car_state-=30; if car_state<0 {car_state=100}}[GOTO test_view]
 													Тюнинг машины[ANSWERIMAGE icons/cool.png|510;400]
-														[mark_3g6spc98pn9i5dyb0j50]{things[thing_tuningkit,3]=1-things[thing_tuningkit,3]}[GOTO test_view]
+														[mark_3g6spc98pn9i5dyb0j50]{this.things[this.thing_tuningkit][3]=1-this.things[this.thing_tuningkit][3]}[GOTO test_view]
 													Чистота машины -30%[ANSWERIMAGE icons/car_wash.png|570;400]
 														[mark_yffd4167oc6ur5h471h5]{car_cleanness-=30;if car_cleanness<0 {car_cleanness=100}}[GOTO test_view]
 										[business1,client_proposes_casino_bet]{if (things[thing_vinyl_dog,3])&&(things[thing_casino_bet,1]==0)&&(things[thing_casino_bet,3]==0)&&(this.client_type==8) {cct=client_subtype;output ""} else {output "[GOTO business2]"}}
