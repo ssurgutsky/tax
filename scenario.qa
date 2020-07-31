@@ -459,7 +459,7 @@
 																																							
 																																								[client_found]{this.first_client_greeting=1;this.return_mark="taxing";'';}{script calc_road.qsp}[GOTO {if (Math.random()*100 < this.people_negative && this.money>0) {this.asked_fuel=0;"gop_stop"} else {if (Math.random() < 0.5) {"client_says_price"} else {"client_asks_price"}}}]
 																																									
-																																										[client_says_price]{script show_game_stats.qsp}\n{if (this.first_client_greeting) {this.first_client_greeting=0;{script client_greeting.qsp}}} {script client_asking}{this.client_bargained=1;'';}{script show_road_stats.qsp}{if (this.client_price < 1) {"Бесплатно?"} else {this.client_price + "?"}}{this.value_to_show=this.client_price}{script calc_client_price_picture.qsp}{script show_client.qsp}[ANSWERTIME 20][TIMEEXPIRED client_go_away]
+																																										[client_says_price]{script show_game_stats.qsp}\n{if (this.first_client_greeting) {this.first_client_greeting=0;{script client_greeting.qsp}}} {script client_asking}{this.client_bargained=1;'';}{script show_road_stats.qsp}\n{if (this.client_price < 1) {"Бесплатно?"} else {this.client_price + "?"}}{this.value_to_show=this.client_price;'';}{script calc_client_price_picture.qsp}{script show_client.qsp}[ANSWERTIME 20][TIMEEXPIRED client_go_away]
 																																											[GOTO ok_travel]
 																																											[say_your_price]Назвать свою цену поездки[ANSWERIMAGE icons/how_much_money.png|510;400]
 																																												[what_is_your_cost]Цена поездки ? (0 - {100*this.Inflation}){script show_client.qsp}[ANSWERTIME 30][TIMEEXPIRED client_go_away]
@@ -538,7 +538,7 @@
 																																																																													[GOTO change_location]
 																																																																									[GOTO search_client_again]
 																																																																									[GOTO change_location]
-																																																		[client_bargain]{script client_bargain.qsp}{this.client_state=1;this.value_to_show=this.client_price;''}{script calc_client_price_picture.qsp}{script show_client.qsp}[ANSWERTIME 20][TIMEEXPIRED client_go_away]
+																																																		[client_bargain]{script client_bargain.qsp}{this.client_state=1;this.value_to_show=this.client_price;'';}{script calc_client_price_picture.qsp}{script show_client.qsp}[ANSWERTIME 20][TIMEEXPIRED client_go_away]
 																																																			[ok_travel]Ладно, поехали за {this.client_price}[ANSWERIMAGE icons/good.png|30;400]
 																																																				[mark_wrp0ryq17o42e31jge6h][GOTO travel_road]
 																																																			[GOTO say_your_price]
