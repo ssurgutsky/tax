@@ -2788,7 +2788,7 @@
                                                                                                                                                                                                                                                     }
                                                                                                                                                                                                                                                   ],
                                                                                                                                                                                                                                                   "_mark": "client_saying",
-                                                                                                                                                                                                                                                  "_content": "[LABEL {this.client_empty_saying=(Math.random() < 0.5 && this.client_price > 0); if (this.client_empty_saying) {{script client_says_empty.qsp}{script show_client_inside_rear.qsp}}output \"[ANSWERTIME 10][TIMEEXPIRED client_business_proposal]\"}]"
+                                                                                                                                                                                                                                                  "_content": "[LABEL {this.client_empty_saying=(Math.random() < 0.5 && this.client_price > 0); if (this.client_empty_saying) {{script client_says_empty.qsp}{script show_client_inside_rear.qsp}}\"[ANSWERTIME 10][TIMEEXPIRED client_business_proposal]\"}]"
                                                                                                                                                                                                                                                 }
                                                                                                                                                                                                                                               ],
                                                                                                                                                                                                                                               "_mark": "",
@@ -2804,7 +2804,7 @@
                                                                                                                                                                                                                                     }
                                                                                                                                                                                                                                   ],
                                                                                                                                                                                                                                   "_mark": "mark_t2w5t28rjfq2u1k3tc22",
-                                                                                                                                                                                                                                  "_content": "[LABEL {if (waiting<=5) {\"[GOTO client_saying]\"} else {script show_client_travel.qsp}}]"
+                                                                                                                                                                                                                                  "_content": "[LABEL {if (this.waiting<=5) {\"[GOTO client_saying]\"} else {script show_client_travel.qsp}}]"
                                                                                                                                                                                                                                 }
                                                                                                                                                                                                                               ],
                                                                                                                                                                                                                               "_mark": "",
@@ -2812,7 +2812,7 @@
                                                                                                                                                                                                                             }
                                                                                                                                                                                                                           ],
                                                                                                                                                                                                                           "_mark": "travel_road",
-                                                                                                                                                                                                                          "_content": "[LABEL ][IMAGE black_screen.jpg][AUDIO silent_0.1][AMBIENT AmbientTraffic][SOUNDFX car_door_closed.mp3]"
+                                                                                                                                                                                                                          "_content": "[LABEL ...][IMAGE black_screen.jpg][AUDIO silent_0.1][AMBIENT AmbientTraffic][SOUNDFX car_door_closed.mp3]"
                                                                                                                                                                                                                         }
                                                                                                                                                                                                                       ],
                                                                                                                                                                                                                       "_mark": "",
@@ -2820,7 +2820,7 @@
                                                                                                                                                                                                                     }
                                                                                                                                                                                                                   ],
                                                                                                                                                                                                                   "_mark": "client_agreed",
-                                                                                                                                                                                                                  "_content": "[LABEL {script client_agreed.qsp}{script show_client}][TIMEEXPIRED travel_road][ANSWERTIME {output waiting/10}]"
+                                                                                                                                                                                                                  "_content": "[LABEL {script client_agreed.qsp}{script show_client}][TIMEEXPIRED travel_road][ANSWERTIME {this.waiting/10}]"
                                                                                                                                                                                                                 },
                                                                                                                                                                                                                 {
                                                                                                                                                                                                                   "node": [
@@ -2846,7 +2846,7 @@
                                                                                                                                                                                                                       "node": [
                                                                                                                                                                                                                         {
                                                                                                                                                                                                                           "_mark": "mark_369kddqz301lyll4of56",
-                                                                                                                                                                                                                          "_content": "[LABEL ][GOTO driver_said_price]"
+                                                                                                                                                                                                                          "_content": "[LABEL {this.driver_price=1*this.Inflation;'';}][GOTO driver_said_price]"
                                                                                                                                                                                                                         }
                                                                                                                                                                                                                       ],
                                                                                                                                                                                                                       "_mark": "price_is_1x",
@@ -2856,7 +2856,7 @@
                                                                                                                                                                                                                       "node": [
                                                                                                                                                                                                                         {
                                                                                                                                                                                                                           "_mark": "mark_18y3i591f8p075krave0",
-                                                                                                                                                                                                                          "_content": "[LABEL ][GOTO driver_said_price]"
+                                                                                                                                                                                                                          "_content": "[LABEL {this.driver_price=1.5*this.Inflation;'';}][GOTO driver_said_price]"
                                                                                                                                                                                                                         }
                                                                                                                                                                                                                       ],
                                                                                                                                                                                                                       "_mark": "price_is_1.5x",
@@ -2866,7 +2866,7 @@
                                                                                                                                                                                                                       "node": [
                                                                                                                                                                                                                         {
                                                                                                                                                                                                                           "_mark": "mark_fp43r6562k0af317c2cm",
-                                                                                                                                                                                                                          "_content": "[LABEL ][GOTO driver_said_price]"
+                                                                                                                                                                                                                          "_content": "[LABEL {this.driver_price=2*this.Inflation;'';}][GOTO driver_said_price]"
                                                                                                                                                                                                                         }
                                                                                                                                                                                                                       ],
                                                                                                                                                                                                                       "_mark": "price_is_2x",
@@ -2876,7 +2876,7 @@
                                                                                                                                                                                                                       "node": [
                                                                                                                                                                                                                         {
                                                                                                                                                                                                                           "_mark": "mark_25yri145ow83t614055o",
-                                                                                                                                                                                                                          "_content": "[LABEL ][GOTO driver_said_price]"
+                                                                                                                                                                                                                          "_content": "[LABEL {this.driver_price=3*this.Inflation;'';}][GOTO driver_said_price]"
                                                                                                                                                                                                                         }
                                                                                                                                                                                                                       ],
                                                                                                                                                                                                                       "_mark": "price_is_3x",
@@ -2886,7 +2886,7 @@
                                                                                                                                                                                                                       "node": [
                                                                                                                                                                                                                         {
                                                                                                                                                                                                                           "_mark": "mark_97jqfceh941484aqyc00",
-                                                                                                                                                                                                                          "_content": "[LABEL ][GOTO driver_said_price]"
+                                                                                                                                                                                                                          "_content": "[LABEL {this.driver_price=4*this.Inflation;'';}][GOTO driver_said_price]"
                                                                                                                                                                                                                         }
                                                                                                                                                                                                                       ],
                                                                                                                                                                                                                       "_mark": "price_is_4x",
@@ -2896,7 +2896,7 @@
                                                                                                                                                                                                                       "node": [
                                                                                                                                                                                                                         {
                                                                                                                                                                                                                           "_mark": "mark_7x22b85jk53g9q2yvkf7",
-                                                                                                                                                                                                                          "_content": "[LABEL ][GOTO driver_said_price]"
+                                                                                                                                                                                                                          "_content": "[LABEL {this.driver_price=5*this.Inflation;'';}][GOTO driver_said_price]"
                                                                                                                                                                                                                         }
                                                                                                                                                                                                                       ],
                                                                                                                                                                                                                       "_mark": "price_is_5x",
@@ -5314,7 +5314,7 @@
                                                                                                               "node": [
                                                                                                                 {
                                                                                                                   "_mark": "mark_0d29kc6a5w9984371a74",
-                                                                                                                  "_content": "[LABEL {things[thing_casino_bet,1]=1}][GOTO business2]"
+                                                                                                                  "_content": "[LABEL {this.things[this.thing_casino_bet][1]=1;'';}][GOTO business2]"
                                                                                                                 }
                                                                                                               ],
                                                                                                               "_mark": "",
@@ -5330,7 +5330,7 @@
                                                                                                     }
                                                                                                   ],
                                                                                                   "_mark": "mark_aeid237b4z2f25i099ff",
-                                                                                                  "_content": "[LABEL Договорились. Завтра. Казино. Любое время. Число 29. Это наш шанс разбогатеть, дружище, не упусти его! И помни, ставка сыграет всего только один раз!!!{casino_win_day=(game_hours/24+1)@0}{script show_client_inside_rear.qsp}]"
+                                                                                                  "_content": "[LABEL Договорились. Завтра. Казино. Любое время. Число 29. Это наш шанс разбогатеть, дружище, не упусти его! И помни, ставка сыграет всего только один раз!!!{this.casino_win_day=Math.ceil(this.game_hours/24+1)}{script show_client_inside_rear.qsp}]"
                                                                                                 }
                                                                                               ],
                                                                                               "_mark": "",
@@ -5356,7 +5356,7 @@
                                                                                     }
                                                                                   ],
                                                                                   "_mark": "mark_no934fi55t9yz25ohb64",
-                                                                                  "_content": "[LABEL Не совсем... Приезжай завтра в любое время в {this.locations[12,0]}, подходи к рулетке и делай ставку на число 29. Это самое редковстречаемое число в нашем казино, на него почти никогда не ставят. Затем забираешь деньги и уходишь...{script show_client_inside_rear.qsp}]"
+                                                                                  "_content": "[LABEL Не совсем... Приезжай завтра в любое время в {this.locations[12][0]}, подходи к рулетке и делай ставку на число 29. Это самое редковстречаемое число в нашем казино, на него почти никогда не ставят. Затем забираешь деньги и уходишь...{script show_client_inside_rear.qsp}]"
                                                                                 }
                                                                               ],
                                                                               "_mark": "",
@@ -5398,7 +5398,7 @@
                                                     }
                                                   ],
                                                   "_mark": "business1,client_proposes_casino_bet",
-                                                  "_content": "[LABEL {if (things[thing_vinyl_dog,3])&&(things[thing_casino_bet,1]==0)&&(things[thing_casino_bet,3]==0)&&(this.client_type==8) {cct=client_subtype;output \"\"} else {output \"[GOTO business2]\"}}]"
+                                                  "_content": "[LABEL {if (this.things[this.thing_vinyl_dog][3] && this.things[this.thing_casino_bet][1]==0 && this.things[this.thing_casino_bet][3]==0 && this.client_type==8) {this.cct=this.client_subtype;\"\";} else {\"[GOTO business2]\"}}]"
                                                 },
                                                 {
                                                   "node": [
@@ -5426,7 +5426,7 @@
                                                                             }
                                                                           ],
                                                                           "_mark": "mark_l844v9943n93k187s961",
-                                                                          "_content": "[LABEL Вот и отличненько, братан!{money-=radio_cost;things[thing_dvd][1]=1;stolen_dvd=1;people_negative+=5}{client_state=0}{show_dvd=0}{script show_client_inside_rear.qsp}]"
+                                                                          "_content": "[LABEL Вот и отличненько, братан!{this.money-=this.radio_cost;this.things[this.thing_dvd][1]=1;this.stolen_dvd=1;this.people_negative+=5;this.client_state=0;this.show_dvd=0}{script show_client_inside_rear.qsp}]"
                                                                         }
                                                                       ],
                                                                       "_mark": "",
@@ -5436,7 +5436,7 @@
                                                                       "node": [
                                                                         {
                                                                           "_mark": "mark_6o79680y34t6y7fwc5cw",
-                                                                          "_content": "[LABEL {show_dvd=0}][GOTO business3]"
+                                                                          "_content": "[LABEL {this.show_dvd=0}][GOTO business3]"
                                                                         }
                                                                       ],
                                                                       "_mark": "no_need_radio",
@@ -5444,7 +5444,7 @@
                                                                     }
                                                                   ],
                                                                   "_mark": "mark_n1uv9m3403ond1qut221",
-                                                                  "_content": "[LABEL Почти новая. Уступлю за: {output radio_cost}{value_to_show=radio_cost}{script calc_client_price_picture.qsp}{show_dvd=1}{script show_client_inside_rear.qsp}]"
+                                                                  "_content": "[LABEL Почти новая. Уступлю за: {radio_cost}{this.value_to_show=this.radio_cost}{script calc_client_price_picture.qsp}{this.show_dvd=1;'';}{script show_client_inside_rear.qsp}]"
                                                                 }
                                                               ],
                                                               "_mark": "",
@@ -5464,7 +5464,7 @@
                                                     }
                                                   ],
                                                   "_mark": "business2",
-                                                  "_content": "[LABEL {{radio_cost=(((things[thing_dvd,2]*this.Inflation/(1+random*3))/100):0)*100}; if (things[thing_dvd][1]==0) && ((this.client_type==6) || (this.client_type==2)) && (money>=radio_cost) {output \"\"} else {output \"[GOTO business3]\"}}]"
+                                                  "_content": "[LABEL {this.radio_cost=Math.ceil(this.things[this.thing_dvd][2]*this.Inflation/(1+Math.random()*3)/100)*100; if (this.things[this.thing_dvd][1]==0 && (this.client_type==6 || this.client_type==2) && this.money>=this.radio_cost) {\"...\"} else {\"[GOTO business3]\"}}]"
                                                 },
                                                 {
                                                   "node": [
