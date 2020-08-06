@@ -91,12 +91,12 @@
 																																				[mark_3upe3px7su5je1yy0w16][GOTO new_location]
 																																	{if (this.location==8) {"Зайду в " + this.locations[this.location][0] + "[ANSWERIMAGE icons/enter.png|260;400]"}}
 																																		[in_store]{this.dvd_playing=0}{script rounding.qsp}{script show_game_stats.qsp}{output "\n"}{this.locations[this.location][0]}. Что хочешь посмотреть?[BGNDIMAGE in_shopping_center.jpg][AMBIENT megapolice.mp3][MUSIC none][BGNDMUSIC none]
-																																			{thing=thing_gun}[GOTO present_thing]
+																																			{this.thing=this.thing_gun}[GOTO present_thing]
 																																				[mark_6f0140ie71g9jp2wg53f]
-																																					[present_thing]{thing_cost=things[thing,2]*this.Inflation; if things[thing,1]==0 {output things[thing,0] + ". Цена: " + thing_cost + "[ANSWERIMAGE icons/"+things[thing,4]+".png|"+thing*60+";400]"}}
+																																					[present_thing]{this.thing_cost=this.things[this.thing][2]*this.Inflation; if (this.things[this.thing][1]==0) {this.things[this.thing][0] + ". Цена: " + this.thing_cost + "[ANSWERIMAGE icons/"+this.things[this.thing][4]+".png|"+this.thing*60+";400]"}}
 																																						[mark_6h2m5p5cwo391ict47w3]{script show_thing_desc.qsp}
 																																							[buy_thing]Купить[ANSWERIMAGE icons/buy.png|260;400]
-																																								[mark_868y612mtpj6o3945nd1]{if (money<thing_cost) {output "[GOTO no_money_for_thing]"} else {money-=thing_cost;things[thing,1]=1;output "[GOTO bought_thing]"}}
+																																								[mark_868y612mtpj6o3945nd1]{if (this.money<this.thing_cost) {"[GOTO no_money_for_thing]"} else {this.money-=this.thing_cost;this.things[this.thing][1]=1;"[GOTO bought_thing]"}}
 																																									
 																																										[bought_thing]Спасибо за покупку!{script rounding.qsp}[BGNDIMAGE shop_assistant.jpg][ANSWERTIME 10][TIMEEXPIRED in_store]
 																																											Дальше...[ANSWERIMAGE icons/next.png|295;400]
@@ -106,13 +106,13 @@
 																																										[mark_30b1b1j619165fz4823d][GOTO in_store]
 																																							[back_to_store_menu]Вернуться в меню[ANSWERIMAGE icons/exit.png|320;400]
 																																								[mark_3vn1i140cmz7xq0qe3to][GOTO in_store]
-																																			{thing=thing_repairing_book}[GOTO present_thing]
-																																			{thing=thing_repairing_toolkit}[GOTO present_thing]
-																																			{thing=thing_psycho_dvd_film}[GOTO present_thing]
-																																			{thing=thing_vip_radio}[GOTO present_thing]
-																																			{thing=thing_tuningkit}[GOTO present_thing]
-																																			{thing=thing_vinyl_dog}[GOTO present_thing]
-																																			{thing=thing_dvd}[GOTO present_thing]
+																																			{this.thing=this.thing_repairing_book}[GOTO present_thing]
+																																			{this.thing=this.thing_repairing_toolkit}[GOTO present_thing]
+																																			{this.thing=this.thing_psycho_dvd_film}[GOTO present_thing]
+																																			{this.thing=this.thing_vip_radio}[GOTO present_thing]
+																																			{this.thing=this.thing_tuningkit}[GOTO present_thing]
+																																			{this.thing=this.thing_vinyl_dog}[GOTO present_thing]
+																																			{this.thing=this.thing_dvd}[GOTO present_thing]
 																																			Выйду наружу[ANSWERIMAGE icons/enter.png|540;400][AMBIENT none]
 																																				[mark_mko7t4cfq1rhl1z7c9be][GOTO new_location]
 																																	{if (this.location==9) {"Зайду в " + this.locations[this.location][0] + "[ANSWERIMAGE icons/enter.png|260;400]"}}
@@ -181,7 +181,7 @@
 																																										[found_barsuk][BGNDIMAGE barsuk_toilet.jpg&client5_1_0.png]
 																																											Ну, здраствуй, Барсук![ANSWERIMAGE icons/fist.png|235;400]
 																																												[mark_547mz02k3991u3axme81]Вы кто такой? Вы меня с кем-то путаете![BGNDIMAGE barsuk_toilet.jpg&client5_1_1.png]
-																																													{if things[thing_gun,1]==1 {output "За тобой должок.[ANSWERIMAGE icons/gun.png|235;400]"}}
+																																													{if this.things[this.thing_gun][1]==1 {output "За тобой должок.[ANSWERIMAGE icons/gun.png|235;400]"}}
 																																														[mark_1906805gd6i349vg6m52]Эй, эй, я все тебе отдам! Не убивай!!![BGNDIMAGE barsuk_toilet.jpg&client5_1_2.png&driver_gun.png|100;0]
 																																															Давай сюда деньги![ANSWERIMAGE icons/how_much_money.png|235;400]
 																																																[mark_76gqhhvt8n2dtn2g1z5q]Хорошо, хорошо! Извини меня! Это тебе вместе с компенсацией...{money+=barsuk_psy_food_cost*2*this.Inflation;barsukPsy=3}[BGNDIMAGE barsuk_toilet.jpg&client5_1_2.png|0;100&driver_gun.png|150;0]
@@ -278,30 +278,30 @@
 																																			{if barsuk_credit > 0 {output "Верну долг[ANSWERIMAGE icons/money6.png|380;400]"}}
 																																				[mark_375h535dew1mhyz6z1bu][GOTO barsuk_bill]
 																																	{if (this.location == 12 && this.money>=100) {"Зайду в " + this.locations[this.location][0] + "[ANSWERIMAGE icons/enter.png|260;400]"}}
-																																		[do_bet]{this.dvd_playing=0}{script rounding.qsp}{script calc_casino.qsp}{this.locations[this.location][0]}. Сколько денег ставишь на европейскую рулетку (100 - {output max_bet})?{script show_in_casino.qsp}[AMBIENT casino.mp3][MUSIC none][BGNDMUSIC none]
-																																			[INPUTN bet]
-																																				[mark_l1zfk919sn2k31lqxic8]{bet=bet@0;if (bet<100)||(bet>max_bet) {output "[GOTO do_bet]"}}
+																																		[do_bet]{this.dvd_playing=0}{script rounding.qsp}{script calc_casino.qsp}{this.locations[this.location][0]}. Сколько денег ставишь на европейскую рулетку (100 - {this.max_bet})?{script show_in_casino.qsp}[AMBIENT casino.mp3][MUSIC none][BGNDMUSIC none]
+																																			[INPUTN this.bet]
+																																				[mark_l1zfk919sn2k31lqxic8]{this.bet=Math.floor(this.bet);if (this.bet<100 || this.bet>this.max_bet) {"[GOTO do_bet]"}}
 																																					
 																																						[do_bet_on_number]На какое число ставишь (0-36)?{script show_in_casino.qsp}
-																																							[INPUTN num]
-																																								[mark_77se696rfve0c0b748ex]{if (num<0)||(num>36) {output "[GOTO do_bet_on_number]"}}
+																																							[INPUTN this.num]
+																																								[mark_77se696rfve0c0b748ex]{if (this.num<0 || this.num>36) {"[GOTO do_bet_on_number]"}}
 																																									
-																																										[mark_44874qwy006h8xw93dbh]{money-=bet;rnd_num=(random*37):0}{if ((game_hours/24)@0==casino_win_day) && (things[thing_casino_bet,1]) && (things[thing_casino_bet,3]==0) {rnd_num=29;casino_win_bet_sum=bet*36;things[thing_casino_bet,3]=1}}Выпало число: {output rnd_num}. {if rnd_num == num {output "Ты выиграл![SOUNDFX applause.mp3]"; money+=bet*36; casino_win_money+=bet*36} else {output "Ты проиграл...[SOUNDFX evil_laugh_woman.mp3]"}}{game_hours+=1/12}{script show_in_casino.qsp}
-																																											{if money>=100 {output "Сыграть еще раз[ANSWERIMAGE icons/money5.png|260;400]"}}
+																																										[mark_44874qwy006h8xw93dbh]{this.money-=this.bet;this.rnd_num=Math.floor(Math.random()*37)}{if (Math.floor(this.game_hours/24)==this.casino_win_day && this.things[this.thing_casino_bet][1] && this.things[this.thing_casino_bet][3]==0) {this.rnd_num=29;this.casino_win_bet_sum=this.bet*36;this.things[this.thing_casino_bet][3]=1;'';}}Выпало число: {this.rnd_num}. {if (this.rnd_num == this.num) {"Ты выиграл![SOUNDFX applause.mp3]"; this.money+=this.bet*36; this.casino_win_money+=this.bet*36} else {"Ты проиграл...[SOUNDFX evil_laugh_woman.mp3]"}}{this.game_hours+=1/12;'';}{script show_in_casino.qsp}
+																																											{if (this.money>=100) {"Сыграть еще раз[ANSWERIMAGE icons/money5.png|260;400]"}}
 																																												[mark_m1c55c2c59gf3o358f67][GOTO do_bet]
 																																											Покинуть казино[AMBIENT none][MUSIC AmbientStreet.mp3][ANSWERIMAGE icons/enter.png|320;400]
 																																												[mark_247ktew2de126u3o7z68]{if (this.things[this.thing_casino_bet][3] && this.casino_bet_return==0) {"..."} else {"[GOTO new_location]"}}
 																																													
-																																														[mark_8vg9ma430c08g5d3kn17]{casino_bet_return=1}{this.client_type=8;client_subtype=cct;client_state=2}Уже уезжаешь? Как там насчет того, чтобы вернуть мне мою долю?{script show_client.qsp}
+																																														[mark_8vg9ma430c08g5d3kn17]{this.casino_bet_return=1;'';}{this.client_type=8;this.client_subtype=this.cct;this.client_state=2;'';}Уже уезжаешь? Как там насчет того, чтобы вернуть мне мою долю?{script show_client.qsp}
 																																															[give_client_casino_win_sum]Забирай долю[ANSWERIMAGE icons/money6.png|260;400]
-																																																[mark_89xl7564yjvs5afgol7o]{if money<casino_win_bet_sum/2 {output "[GOTO not_all_won_money]"} else {output "[GOTO all_won_money]"}}
+																																																[mark_89xl7564yjvs5afgol7o]{if (this.money<this.casino_win_bet_sum/2) {"[GOTO not_all_won_money]"} else {"[GOTO all_won_money]"}}
 																																																	
-																																																		[all_won_money]Ты отдал подельнику его половину выигрыша в казино: ({output (casino_win_bet_sum/2)@2}){money-=casino_win_bet_sum/2}{client_state=0}{script show_client_inside_rear.qsp}
+																																																		[all_won_money]Ты отдал подельнику его половину выигрыша в казино: ({Math.floor(this.casino_win_bet_sum/2)}){this.money-=Math.floor(this.casino_win_bet_sum/2);this.client_state=0;'';}{script show_client_inside_rear.qsp}
 																																																			Дальше...[ANSWERIMAGE icons/next.png|295;400]
 																																																				[mark_673ev6z67230sr81c418]Спасибо друг! Я знал, что ты честный. Прощай.{script show_client.qsp}
 																																																					Дальше...[ANSWERIMAGE icons/next.png|295;400]
 																																																						[mark_624vn4n626j2r72c0ona][GOTO new_location]
-																																																		[not_all_won_money]Тут не вся моя доля! Куда ты дел остальные деньги? Кинуть меня хочешь? Ты еще пожалеешь об этом!{money=0;people_negative=50}{script show_client.qsp}
+																																																		[not_all_won_money]Тут не вся моя доля! Куда ты дел остальные деньги? Кинуть меня хочешь? Ты еще пожалеешь об этом!{this.money=0;this.people_negative=50;'';}{script show_client.qsp}
 																																																			...[ANSWERIMAGE icons/three_dots.png|295;400]
 																																																				[mark_zx6l0u40h9z6pw35m27w][GOTO new_location]
 																																															Что за доля?[ANSWERIMAGE icons/how_much.png|320;400]"
@@ -310,8 +310,8 @@
 																																																	О чем ты? Я в казино вообще не играю, ты что-то попутал...[ANSWERIMAGE icons/how_much.png|320;400]"
 																																																		[wanna_kick_me]Кинуть меня хочешь? Я предвидел такую ситуацию и подготовился к ней. Уезжай. Теперь ты труп.{script show_client.qsp}
 																																																			...[ANSWERIMAGE icons/three_dots.png|295;400]{driver_show_gun=0}
-																																																				[mark_d5u1777k6768fqqnx371]{driver_show_gun=0;car_state=0}[GOTO new_location]
-																																																	[show_gun_to_casino_guy]{if things[thing_gun,1] {output "Вали отсюда, я тебя не знаю.[ANSWERIMAGE icons/gun.png|380;400]";driver_show_gun=1;}}
+																																																				[mark_d5u1777k6768fqqnx371]{this.driver_show_gun=0;this.car_state=0;'';}[GOTO new_location]
+																																																	[show_gun_to_casino_guy]{if (this.things[this.thing_gun][1] {this.driver_show_gun=1;"Вали отсюда, я тебя не знаю.[ANSWERIMAGE icons/gun.png|380;400]"}}
 																																																		[mark_3efqr10y4b6d70g6g41e][GOTO wanna_kick_me]
 																																															[GOTO show_gun_to_casino_guy]
 																																	{if ((this.location == 13 || this.location == 16) && this.fuel<this.max_fuel && this.money>0) {"Заправлю машину" + "[ANSWERIMAGE icons/fuel_station.png|260;400]"}}
@@ -985,7 +985,7 @@
 																			А твой интерес?[ANSWERIMAGE icons/next.png|295;400]
 																				[mark_8r197kwydgz1t54ju8o5]Позже ты отдашь мне половину выигрыша. Ну что, согласен?{script show_client_inside_rear.qsp}
 																					Пожалуй да[ANSWERIMAGE icons/good.png|260;400]
-																						[mark_aeid237b4z2f25i099ff]Договорились. Завтра. Казино. Любое время. Число 29. Это наш шанс разбогатеть, дружище, не упусти его! И помни, ставка сыграет всего только один раз!!!{this.casino_win_day=Math.ceil(this.game_hours/24+1)}{script show_client_inside_rear.qsp}
+																						[mark_aeid237b4z2f25i099ff]Договорились. Завтра. Казино. Любое время. Число 29. Это наш шанс разбогатеть, дружище, не упусти его! И помни, ставка сыграет всего только один раз!!!{this.casino_win_day=Math.ceil(this.game_hours/24+1);'';}{script show_client_inside_rear.qsp}
 																							Хорошо, я буду там.[ANSWERIMAGE icons/next.png|295;400]
 																								[mark_1axem71626jjc47h8csl]... и вот еще что, не вздумай потратить весь выигрыш на себя! А то у твоей машины могут отказать тормоза.{script show_client_inside_rear.qsp}
 																									Да, я понял.[ANSWERIMAGE icons/next.png|295;400]
@@ -998,24 +998,24 @@
 											
 												[mark_z91177cj338s75if4a25]Слышь, братан, купи у меня магнитолу? Совсем дешево отдам.{script show_client_inside_rear.qsp}
 													Покажи.[ANSWERIMAGE icons/next.png|260;400]
-														[mark_n1uv9m3403ond1qut221]Почти новая. Уступлю за: {radio_cost}{this.value_to_show=this.radio_cost}{script calc_client_price_picture.qsp}{this.show_dvd=1;'';}{script show_client_inside_rear.qsp}
+														[mark_n1uv9m3403ond1qut221]Почти новая. Уступлю за: {this.radio_cost}{this.value_to_show=this.radio_cost}{script calc_client_price_picture.qsp}{this.show_dvd=1;'';}{script show_client_inside_rear.qsp}
 															Ладно, беру[ANSWERIMAGE icons/good.png|260;400]
-																[mark_l844v9943n93k187s961]Вот и отличненько, братан!{this.money-=this.radio_cost;this.things[this.thing_dvd][1]=1;this.stolen_dvd=1;this.people_negative+=5;this.client_state=0;this.show_dvd=0}{script show_client_inside_rear.qsp}
+																[mark_l844v9943n93k187s961]Вот и отличненько, братан!{this.money-=this.radio_cost;this.things[this.thing_dvd][1]=1;this.stolen_dvd=1;this.people_negative+=5;this.client_state=0;this.show_dvd=0;'';}{script show_client_inside_rear.qsp}
 																	Спасибо.[ANSWERIMAGE icons/next.png|295;400]
 																		[mark_946u84by28528nnv48z6][GOTO business3]
 															[no_need_radio]Нет, не надо[ANSWERIMAGE icons/cancel.png|320;400]
 																[mark_6o79680y34t6y7fwc5cw]{this.show_dvd=0}[GOTO business3]
 													[GOTO no_need_radio]
-										[business3]{{vip_radio_cost=(((things[thing_vip_radio,2]*this.Inflation/(1+random*3))/100):0)*100}; if (things[thing_vip_radio,1]==0) && (this.client_type==1) && (money>=vip_radio_cost) && (random<0.5) {output ""} else {output "[GOTO business4]"}}
+										[business3]{{this.vip_radio_cost=(Math.ceil((this.things[this.thing_vip_radio][2]*this.Inflation/(1+Math.random()*3))/100))*100}; if (this.things[this.thing_vip_radio][1]==0 && this.client_type==1 && this.money>=this.vip_radio_cost && Math.random()<0.5) {""} else {"[GOTO business4]"}}
 											
-												[mark_2hjjw9bya6z4x401022p]{show_vip_radio_box=1}У меня есть подходящий для вас товар, называется {output things[thing_vip_radio,0]}, не хотите ли купить, скажем за {output vip_radio_cost}?{value_to_show=vip_radio_cost}{script calc_client_price_picture.qsp}{script show_client_inside_rear.qsp}
+												[mark_2hjjw9bya6z4x401022p]{this.show_vip_radio_box=1;'';}У меня есть подходящий для вас товар, называется {this.things[this.thing_vip_radio][0]}, не хотите ли купить, скажем за {this.vip_radio_cost}?{this.value_to_show=this.vip_radio_cost;'';}{script calc_client_price_picture.qsp}{script show_client_inside_rear.qsp}
 													Беру[ANSWERIMAGE icons/good.png|260;400]
-														[mark_5ehs0np9cjrc1i1h97i1]Это отличный прибор, работает, как часы! Сам паял. Пользуйтесь на здоровье!{money-=vip_radio_cost;things[thing_vip_radio,1]=1}{show_vip_radio_box=0;client_state=0}{script show_client_inside_rear.qsp}
+														[mark_5ehs0np9cjrc1i1h97i1]Это отличный прибор, работает, как часы! Сам паял. Пользуйтесь на здоровье!{this.money-=this.vip_radio_cost;this.things[this.thing_vip_radio][1]=1;this.show_vip_radio_box=0;this.client_state=0;'';}{script show_client_inside_rear.qsp}
 															Спасибо.[ANSWERIMAGE icons/good.png|295;400]
 																[mark_ec84ztf1my8jrl0f4823][GOTO business4]
 													Нет, не надо[ANSWERIMAGE icons/cancel.png|320;400]
-														[mark_21x4r183x1r9ucssxh1h]{show_vip_radio_box=0}[GOTO business4]
-										[business4]{thing_cost=500 + (random*5):0*100}{if (random < 0.5) && (things[thing_known_garage,1]==0) && (this.client_type==4) && (money >= thing_cost) {output "[GOTO garage_proposal]"} else {output "[GOTO business5]"}}
+														[mark_21x4r183x1r9ucssxh1h]{this.show_vip_radio_box=0;'';}[GOTO business4]
+										[business4]{this.thing_cost=500 + Math.ceil(Math.random()*5)*100}{if (Math.random() < 0.5 && this.things[this.thing_known_garage][1]==0 && this.client_type==4 && this.money >= this.thing_cost) {"[GOTO garage_proposal]"} else {"[GOTO business5]"}}
 											
 												[garage_proposal]Скажи, а ты свою машину сам чинишь или в автосервисе? Есть деловое предложение.{script show_client_inside_rear.qsp}
 													Да, сам[ANSWERIMAGE icons/one.png|260;400]
@@ -1031,16 +1031,16 @@
 																	Нет, я ошибся, чиню в сервисе[ANSWERIMAGE icons/two.png|320;400]
 																		[mark_t0k08y1x33hd886s26t8][GOTO sell_garage_location]
 													В автосервисе, где же еще.[ANSWERIMAGE icons/two.png|320;400]
-														[sell_garage_location]Могу подсказать один заброшенный гараж, сможешь самостоятельно чинить. Если, конечно, у тебя есть: {output things[thing_repairing_toolkit,0]}, {output things[thing_repairing_book,0]} и руки не из жопы растут.{script show_client_inside_rear.qsp}
+														[sell_garage_location]Могу подсказать один заброшенный гараж, сможешь самостоятельно чинить. Если, конечно, у тебя есть: {this.things[this.thing_repairing_toolkit][0]}, {this.things[this.thing_repairing_book][0]} и руки не из жопы растут.{script show_client_inside_rear.qsp}
 															Ну скажи[ANSWERIMAGE icons/good.png|260;400]
-																[mark_56014mbbskq57882j925]Эта информация будет стоит: {output thing_cost}, потому что зарплата у меня маленькая, а жена злая.{value_to_show=thing_cost}{script calc_client_price_picture.qsp}{script show_client_inside_rear.qsp}
+																[mark_56014mbbskq57882j925]Эта информация будет стоит: {this.thing_cost}, потому что зарплата у меня маленькая, а жена злая.{this.value_to_show=this.thing_cost;'';}{script calc_client_price_picture.qsp}{script show_client_inside_rear.qsp}
 																	Я согласен[ANSWERIMAGE icons/good.png|260;400]
-																		[mark_85w48x3tp557294n558e]{if thing_cost < money {output "[GOTO tell_garage_secret_place]"}}
+																		[mark_85w48x3tp557294n558e]{if (this.thing_cost < this.money) {"[GOTO tell_garage_secret_place]"}}
 																			
 																				[mark_1c6r58v936xzlh2825zg]Ты бы деньжат сначала накопил, чтобы тайны слушать...{script show_client_inside_rear.qsp}
 																					...[ANSWERIMAGE icons/three_dots.png|295;400]
 																						[mark_rgpf2p63gc31652ug299][GOTO business5]
-																		[tell_garage_secret_place]Значит так, гараж располагается на бывшей военной базе в пригороде. Я тебе отметил на карте, посмотришь потом.{money-=thing_cost;things[thing_known_garage,1]=1}{script show_client_inside_rear.qsp}
+																		[tell_garage_secret_place]Значит так, гараж располагается на бывшей военной базе в пригороде. Я тебе отметил на карте, посмотришь потом.{this.money-=this.thing_cost;this.things[this.thing_known_garage][1]=1;'';}{script show_client_inside_rear.qsp}
 																			Спасибо[ANSWERIMAGE icons/good.png|295;400]
 																				[mark_7124jj4umu01ypamd27o][GOTO business5]
 																	[no_need_in_garage]Не нужно, спасибо[ANSWERIMAGE icons/cancel.png|200;400]
@@ -1051,7 +1051,7 @@
 															Дальше...[ANSWERIMAGE icons/next.png|295;400]
 																[mark_67ew2wle2sswv52f2m12][GOTO sell_garage_location]
 													[GOTO no_need_in_garage]
-										[business5]{{thing_cost=(((things[thing_fuel_discount,2]*this.Inflation/(1+random*3))/100):0)*100}; if (things[thing_fuel_discount,1]==0) && (this.client_type==2) && (money>=thing_cost) {output ""} else {output "[GOTO business6]"}}
+										[business5]{{this.thing_cost=(Math.ceil((this.things[this.thing_fuel_discount][2]*this.Inflation/(1+Math.random()*3))/100))*100}; if (this.things[this.thing_fuel_discount][1]==0 && this.client_type==2 && this.money>=this.thing_cost) {""} else {"[GOTO business6]"}}
 											
 												[mark_6od9cu9oo0423ns564zx]Братэлла, слышь, у меня тут уникальная вещица имеется, карточка: {output things[thing_fuel_discount,0]}. Хочешь, продам тебе за: {output thing_cost}?{value_to_show=thing_cost}{script calc_client_price_picture.qsp}{script show_client_inside_rear.qsp}
 													Не нужно, спасибо[ANSWERIMAGE icons/cancel.png|320;400]
@@ -1063,55 +1063,57 @@
 															Нет[ANSWERIMAGE icons/cancel.png|320;400]
 																[mark_1je71j0pv692hd0j385k][GOTO business6]
 													[GOTO ok_buy_fuel_discount_card]
-										[business6]{if (drugDealer == 1) && (this.client_type==6) && (drugDealerGoodsDriver>0) {output "[GOTO drug_distribution]"} else {output "[GOTO business7]"} }
+										[business6]{if (this.drugDealer == 1 && this.client_type==6 && this.drugDealerGoodsDriver>0) {"[GOTO drug_distribution]"} else {"[GOTO business7]"} }
 											
-												[drug_distribution]Братишь... у тебя ведь есть что-то для меня?{nark_money=((drugDealerGoodsCost*this.Inflation/drugGoodsInPackage)*(1+random*4):0):0}{script show_client_inside_rear.qsp}
+												[drug_distribution]Братишь... у тебя ведь есть что-то для меня?{this.nark_money=Math.ceil(Math.ceil(this.drugDealerGoodsCost*this.Inflation/this.drugGoodsInPackage)*(1+Math.random()*4))}{script show_client_inside_rear.qsp}
 													Возможно.[ANSWERIMAGE icons/one.png|260;400]
-														[how_much_drug_costs]Продай не за дорого, братишь?{if random < 0.5 {output " Давай за " + nark_money + "?";{value_to_show=nark_money}{script calc_client_price_picture.qsp}}}{script show_client_inside_rear.qsp}
-															[drug_price_is_1x]{drug_price=((drugDealerGoodsCost*this.Inflation/drugGoodsInPackage)*1):0;output drug_price}[ANSWERIMAGE icons/money1.png|90;400]
-																[buy_drugs]{if (nark_money<drug_price) {output "[GOTO nark_try_reduce_price]"} else {output "[GOTO nark_buy_drug]"}}
+														[how_much_drug_costs]Продай не за дорого, братишь?{if (Math.random() < 0.5) {" Давай за " + this.nark_money + "?";{this.value_to_show=this.nark_money;'';}{script calc_client_price_picture.qsp}}}{script show_client_inside_rear.qsp}
+															[drug_price_is_1x]{this.drug_price=Math.ceil((this.drugDealerGoodsCost*this.Inflation/this.drugGoodsInPackage)*1);this.drug_price}[ANSWERIMAGE icons/money1.png|90;400]
+																[mark_3a6o048v11trwk1c46o3][GOTO buy_drugs]{this.drug_price=Math.ceil((this.drugDealerGoodsCost*this.Inflation/this.drugGoodsInPackage)*1);'';}
 																	
-																		[nark_try_reduce_price]Слух, у меня малёха не хватает, уступи чуток?{script show_client_inside_rear.qsp}
-																			Ладно.[ANSWERIMAGE icons/good.png|260;400]
-																				[mark_pwbxe3emjzx50mb9c74h][GOTO how_much_drug_costs]
-																			Нет.[ANSWERIMAGE icons/cancel.png|320;400]
-																				[mark_b2tjijib8tvafdo753t6]{if client_state==2 {output "[GOTO nark_fury]"} else {output "[GOTO nark_relaxed]"}}
-																					
-																						[nark_fury]Ты чо, не видишь меня ломает???{script show_client_inside_rear.qsp}
-																							...[ANSWERIMAGE icons/three_dots.png|295;400]
-																								[mark_17lq7749t28h5kxmeqm9]Продай за {output nark_money}! Это все что есть!{value_to_show=nark_money}{script calc_client_price_picture.qsp}{script show_client_inside_rear.qsp}
-																									Ладно.[ANSWERIMAGE icons/good.png|260;400]
-																										[mark_wk02z5y87w34w98u11m9]{drug_price=nark_money}[GOTO nark_buy_drug]
-																									Нет.[ANSWERIMAGE icons/cancel.png|320;400]
-																										[mark_iuh16zzogq75flb76s62]{if things[thing_gun,1]==1 {output "[GOTO show_gun_to_nark]"} else {output "[GOTO nark_kill_driver]"}}
-																											
-																												[show_gun_to_nark]{driver_show_gun=1}Клиент хотел тебя убить, но ты вовремя выхватил ствол!{script show_client_inside_rear.qsp}
-																													...[ANSWERIMAGE icons/three_dots.png|295;400]
-																														[mark_6ndio08y50s42ntr9c87]{driver_show_gun=0}[GOTO business7]
-																												[nark_kill_driver][FINAL Тебя убил наркоман из-за дозы... Игра окончена.][BGNDIMAGE blood.jpg][SOUNDFX brakes_crash.mp3]
-																						[nark_relaxed]Зря ты так братуха...{people_negative+=2}{script show_client_inside_rear.qsp}
-																							...[ANSWERIMAGE icons/three_dots.png|295;400]
-																								[mark_jm63s895444j5z51666j][GOTO business7]
-																		[nark_buy_drug]Спасибо, братишь!{money+=drug_price;drugMoney+=drug_price;drugDealerGoodsDriver--;people_negative+=2}{script rounding.qsp}{script show_client_inside_rear.qsp}
-																			...[ANSWERIMAGE icons/good.png|295;400]
-																				[mark_60wyfzs83dnm5itg5sdx][GOTO business7]
-															[drug_price_is_2x]{drug_price=((drugDealerGoodsCost*this.Inflation/drugGoodsInPackage)*2):0;output drug_price}[ANSWERIMAGE icons/money2.png|150;400]
-																[mark_pg53127b4z3u7s52b1m8][GOTO buy_drugs]
-															[drug_price_is_3x]{drug_price=((drugDealerGoodsCost*this.Inflation/drugGoodsInPackage)*3):0;output drug_price}[ANSWERIMAGE icons/money3.png|210;400]
-																[mark_p7499g306q6metzi17vb][GOTO buy_drugs]
-															[drug_price_is_4x]{drug_price=((drugDealerGoodsCost*this.Inflation/drugGoodsInPackage)*4):0;output drug_price}[ANSWERIMAGE icons/money4.png|270;400]
-																[mark_ws2m9u1ieof3r098m52e][GOTO buy_drugs]
-															[drug_price_is_5x]{drug_price=((drugDealerGoodsCost*this.Inflation/drugGoodsInPackage)*5):0;output drug_price}[ANSWERIMAGE icons/money5.png|330;400]
-																[mark_6g2a032th99s967rg60w][GOTO buy_drugs]
+																		[buy_drugs]{if (this.nark_money<this.drug_price) {"[GOTO nark_try_reduce_price]"} else {"[GOTO nark_buy_drug]"}}
+																			
+																				[nark_try_reduce_price]Слух, у меня малёха не хватает, уступи чуток?{script show_client_inside_rear.qsp}
+																					Ладно.[ANSWERIMAGE icons/good.png|260;400]
+																						[mark_pwbxe3emjzx50mb9c74h][GOTO how_much_drug_costs]
+																					Нет.[ANSWERIMAGE icons/cancel.png|320;400]
+																						[mark_b2tjijib8tvafdo753t6]{if (this.client_state==2) {"[GOTO nark_fury]"} else {"[GOTO nark_relaxed]"}}
+																							
+																								[nark_fury]Ты чо, не видишь меня ломает???{script show_client_inside_rear.qsp}
+																									...[ANSWERIMAGE icons/three_dots.png|295;400]
+																										[mark_17lq7749t28h5kxmeqm9]Продай за {this.nark_money}! Это все что есть!{this.value_to_show=this.nark_money}{script calc_client_price_picture.qsp}{script show_client_inside_rear.qsp}
+																											Ладно.[ANSWERIMAGE icons/good.png|260;400]
+																												[mark_wk02z5y87w34w98u11m9]{this.drug_price=this.nark_money}[GOTO nark_buy_drug]
+																											Нет.[ANSWERIMAGE icons/cancel.png|320;400]
+																												[mark_iuh16zzogq75flb76s62]{if (this.things[this.thing_gun][1]==1) {"[GOTO show_gun_to_nark]"} else {"[GOTO nark_kill_driver]"}}
+																													
+																														[show_gun_to_nark]{this.driver_show_gun=1;'';}Клиент хотел тебя убить, но ты вовремя выхватил ствол!{script show_client_inside_rear.qsp}
+																															...[ANSWERIMAGE icons/three_dots.png|295;400]
+																																[mark_6ndio08y50s42ntr9c87]{this.driver_show_gun=0;'';}[GOTO business7]
+																														[nark_kill_driver][FINAL Тебя убил наркоман из-за дозы... Игра окончена.][BGNDIMAGE blood.jpg][SOUNDFX brakes_crash.mp3]
+																								[nark_relaxed]Зря ты так братуха...{this.people_negative+=2;'';}{script show_client_inside_rear.qsp}
+																									...[ANSWERIMAGE icons/three_dots.png|295;400]
+																										[mark_jm63s895444j5z51666j][GOTO business7]
+																				[nark_buy_drug]Спасибо, братишь!{this.money+=this.drug_price;this.drugMoney+=this.drug_price;this.drugDealerGoodsDriver--;this.people_negative+=2;'';}{script rounding.qsp}{script show_client_inside_rear.qsp}
+																					...[ANSWERIMAGE icons/good.png|295;400]
+																						[mark_60wyfzs83dnm5itg5sdx][GOTO business7]
+															[drug_price_is_2x][drug_price_is_1x]{this.drug_price=Math.ceil((this.drugDealerGoodsCost*this.Inflation/this.drugGoodsInPackage)*2);this.drug_price}[ANSWERIMAGE icons/money2.png|150;400]
+																[mark_pg53127b4z3u7s52b1m8][GOTO buy_drugs]{this.drug_price=Math.ceil((this.drugDealerGoodsCost*this.Inflation/this.drugGoodsInPackage)*2);'';}
+															[drug_price_is_3x][drug_price_is_1x]{this.drug_price=Math.ceil((this.drugDealerGoodsCost*this.Inflation/this.drugGoodsInPackage)*3);this.drug_price}[ANSWERIMAGE icons/money3.png|210;400]
+																[mark_p7499g306q6metzi17vb][GOTO buy_drugs]{this.drug_price=Math.ceil((this.drugDealerGoodsCost*this.Inflation/this.drugGoodsInPackage)*3);'';}
+															[drug_price_is_4x][drug_price_is_1x]{this.drug_price=Math.ceil((this.drugDealerGoodsCost*this.Inflation/this.drugGoodsInPackage)*4);this.drug_price}[ANSWERIMAGE icons/money4.png|270;400]
+																[mark_ws2m9u1ieof3r098m52e][GOTO buy_drugs]{this.drug_price=Math.ceil((this.drugDealerGoodsCost*this.Inflation/this.drugGoodsInPackage)*4);'';}
+															[drug_price_is_5x][drug_price_is_1x]{this.drug_price=Math.ceil((this.drugDealerGoodsCost*this.Inflation/this.drugGoodsInPackage)*5);this.drug_price}[ANSWERIMAGE icons/money5.png|330;400]
+																[mark_6g2a032th99s967rg60w][GOTO buy_drugs]{this.drug_price=Math.ceil((this.drugDealerGoodsCost*this.Inflation/this.drugGoodsInPackage)*5);'';}
 															Отказать.[ANSWERIMAGE icons/cancel.png|390;400]
 																[mark_2zbpmy311ls16t4zscf5][GOTO buy_drugs]
 															Отдам все бесплатно.[ANSWERIMAGE icons/drug.png|450;400]
-																[mark_blt22m30wmthto020tsl]{drugDealerGoodsDriver=0;client_state=0}Ох ты! Них... да ты, братишь, ваще... братан! Спасибо тебе!{script show_client_inside_rear.qsp}
+																[mark_blt22m30wmthto020tsl]{this.drugDealerGoodsDriver=0;this.client_state=0;'';}Ох ты! Них... да ты, братишь, ваще... братан! Спасибо тебе!{script show_client_inside_rear.qsp}
 																	...[ANSWERIMAGE icons/three_dots.png|295;400]
 																		[mark_6s0dykiow55p9ria5sak][GOTO business7]
 													Промолчу.[ANSWERIMAGE icons/two.png|320;400]
 														[mark_0siqcdshcuunp9u61fl4][GOTO business7]
-										[business7]{if (drugDealer == 0) && (this.client_type==6) && (money>=drugDealerGoodsCost*this.Inflation) {output "[GOTO drug_dealer]"} else {output "[GOTO business8]"} }
+										[business7]{if (this.drugDealer == 0 && this.client_type==6 && this.money>=this.drugDealerGoodsCost*this.Inflation) {"[GOTO drug_dealer]"} else {"[GOTO business8]"} }
 											
 												[drug_dealer]Братишь, разреши тебе один вопрос задать?{script show_client_inside_rear.qsp}
 													Ну задавай.[ANSWERIMAGE icons/next.png|260;400]
@@ -1123,13 +1125,13 @@
 																			Какой товар?[ANSWERIMAGE icons/next.png|260;400]
 																				[mark_m3hmx8b0at377d7a417r]Да не важно какой! Тебе ж не за вопросы будут платить! Обычный товар, лекарственный... для больных людей. Будет у тебя своя аптека на колесах. Ы-ы-ы-ы...{script show_client_inside_rear.qsp}
 																					...[ANSWERIMAGE icons/three_dots.png|295;400]
-																						[mark_2ii0k4b8u0f5pg7j0t0h]Берешь товар по {output drugDealerGoodsCost*this.Inflation}, продаешь намного дороже. Согласен?{script show_client_inside_rear.qsp}
+																						[mark_2ii0k4b8u0f5pg7j0t0h]Берешь товар по {this.drugDealerGoodsCost*this.Inflation}, продаешь намного дороже. Согласен?{script show_client_inside_rear.qsp}
 																							Да.[ANSWERIMAGE icons/good.png|260;400]
-																								[mark_5ac0ho2hhd359x301gf9]{drugDealer=1}Короче, схема такая... едешь в банк... переводишь {output drugDealerGoodsCost*this.Inflation} на номер карты, которую я тебе дам... Потом едешь в Ракетный и забираешь товар в условном месте...{script show_client_inside_rear.qsp}
+																								[mark_5ac0ho2hhd359x301gf9]{this.drugDealer=1;'';}Короче, схема такая... едешь в банк... переводишь {this.drugDealerGoodsCost*this.Inflation} на номер карты, которую я тебе дам... Потом едешь в Ракетный и забираешь товар в условном месте...{script show_client_inside_rear.qsp}
 																									...[ANSWERIMAGE icons/three_dots.png|295;400]
 																										[mark_7ms9iiqhc3094z2is475]Товар продаешь у себя в таксишке... людям, похожим на меня... по цене... эээ... какой захочешь... Не боись! Больные люди брать будут однозначно, по себе знаю...{script show_client_inside_rear.qsp}
 																											...[ANSWERIMAGE icons/three_dots.png|295;400]
-																												[mark_7n7l5h5f02ivk73wz68x]Да, чуть не забыл... в одной упаковке товара - {output drugGoodsInPackage} пакетиков. Надо найти ... эээ... {output drugGoodsInPackage} больных людей. Хороший бизнес... завидую тебе, братишь... быстро разбогатеешь!{script show_client_inside_rear.qsp}
+																												[mark_7n7l5h5f02ivk73wz68x]Да, чуть не забыл... в одной упаковке товара - {this.drugGoodsInPackage} пакетиков. Надо найти ... эээ... {this.drugGoodsInPackage} больных людей. Хороший бизнес... завидую тебе, братишь... быстро разбогатеешь!{script show_client_inside_rear.qsp}
 																													А ты сам почему этим не займешься?[ANSWERIMAGE icons/how_much.png|295;400]
 																														[mark_3r82o431xm1u79k5gck1]Я занимался... тоже таксист был... просто по другому делу долг появился... машину пришлось продать.{script show_client_inside_rear.qsp}
 																															...[ANSWERIMAGE icons/three_dots.png|292;400]
@@ -1138,10 +1140,10 @@
 																								[mark_87p0o3i3g147k2qv6927][GOTO business8]
 															[GOTO no_drugs]
 													[GOTO no_drugs]
-										[business8]{if drugMoney > drugMaxMoneyEarn {output "[GOTO police_catch_drug_dealer]"} else {output "[GOTO business9]"}}
+										[business8]{if (this.drugMoney > this.drugMaxMoneyEarn) {"[GOTO police_catch_drug_dealer]"} else {"[GOTO business9]"}}
 											
 												[police_catch_drug_dealer][FINAL Тебя за наркоту поймала полиция! Игра окончена.][BGNDIMAGE collectors.jpg]
-										[business9]{if (this.client_type==5) && (client_subtype==1) && (barsukPsy>0) && (barsukPsy<3){output "[GOTO ask_barsuk]"} else {output "[GOTO business10]"}} 
+										[business9]{if (this.client_type==5 && this.client_subtype==1 && this.barsukPsy>0 && this.barsukPsy<3) {"[GOTO ask_barsuk]"} else {"[GOTO business10]"}} 
 											
 												[ask_barsuk]Этот человек похож на того кидалу из бара Барсук!{script show_client_inside_rear.qsp}
 													Вот ты и попался, Барсук![ANSWERIMAGE icons/fist.png|260;400]
@@ -1150,19 +1152,19 @@
 																[mark_fr3220o8w534r0716n5n][GOTO business10]
 													Нет, Барсука надо искать в баре...[ANSWERIMAGE icons/three_dots.png|320;400]
 														[mark_4b48o61o528tzyh16qu5][GOTO business10]
-										[business10]{if (stolen_dvd==1) && (this.client_type==4) && (random < 0.7) {output "[GOTO stolen_dvd]"} else {output "[GOTO business11]"}} 
+										[business10]{if (this.stolen_dvd==1 && this.client_type==4 && Math.random() < 0.7) {"[GOTO stolen_dvd]"} else {"[GOTO business11]"}} 
 											
 												[stolen_dvd]Ну-ка, ну-ка... постой, таксист... Да это же моя магнитола! Признавайся, где взял?{script show_client_inside_rear.qsp}
 													Чем докажешь?[ANSWERIMAGE icons/how_much.png|235;400]
 														[mark_4hzvckxtu6s8p1je172l]Сбоку должна быть царапина. Это я её уронил, когда обмывал.{script show_client_inside_rear.qsp}
 															Да, есть царапина...[ANSWERIMAGE icons/three_dots.png|295;400]
 																[give_me_my_dvd]Ну что, сам отдашь магнитолу или силу применить надо?{script show_client_inside_rear.qsp}
-																	{if things[thing_gun,1]==1 {output "Не отдам![ANSWERIMAGE icons/gun.png|235;400]"}}
-																		[mark_6xs87g95p969o2166095]{driver_show_gun=1;client_state=2}Ты думаешь меня, военного человека, этой пукалкой испугать?{script show_client_inside_rear.qsp}
+																	{if (this.things[this.thing_gun][1]==1) {"Не отдам![ANSWERIMAGE icons/gun.png|235;400]"}}
+																		[mark_6xs87g95p969o2166095]{this.driver_show_gun=1;this.client_state=2;'';}Ты думаешь меня, военного человека, этой пукалкой испугать?{script show_client_inside_rear.qsp}
 																			...[ANSWERIMAGE icons/three_dots.png|295;400]
-																				[mark_og411m99f608p483yq85]{driver_show_gun=0}Опа! И нет у тебя пушки.. Давай сюда магнитолу! Живо!{things[thing_gun,1]=0}{script show_client_inside_rear.qsp}
+																				[mark_og411m99f608p483yq85]{this.driver_show_gun=0;'';}Опа! И нет у тебя пушки.. Давай сюда магнитолу! Живо!{this.things[this.thing_gun][1]=0;'';}{script show_client_inside_rear.qsp}
 																					[eh_take_dvd]Эх... забирай![ANSWERIMAGE icons/three_dots.png|295;400]
-																						[mark_5zr4p17miq7oz7k6d82q]Вот и ладненько.{things[thing_dvd][1]=0; this.dvd_playing=0;stolen_dvd=0;client_state=0}{script show_client_inside_rear.qsp}
+																						[mark_5zr4p17miq7oz7k6d82q]Вот и ладненько.{this.things[this.thing_dvd][1]=0; this.dvd_playing=0;this.stolen_dvd=0;this.client_state=0;'';}{script show_client_inside_rear.qsp}
 																							[took_dvd]...[ANSWERIMAGE icons/three_dots.png|295;400]
 																								[mark_085g04u0t2f3r0k49lnw][GOTO business11]
 																	[GOTO eh_take_dvd]
