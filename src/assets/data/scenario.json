@@ -428,7 +428,7 @@
                                                                                                                                                                             }
                                                                                                                                                                           ],
                                                                                                                                                                           "_mark": "mark_868y612mtpj6o3945nd1",
-                                                                                                                                                                          "_content": "[LABEL {if (money<thing_cost) {output \"[GOTO no_money_for_thing]\"} else {money-=thing_cost;things[thing,1]=1;output \"[GOTO bought_thing]\"}}]"
+                                                                                                                                                                          "_content": "[LABEL {if (this.money<this.thing_cost) {\"[GOTO no_money_for_thing]\"} else {this.money-=this.thing_cost;this.things[this.thing][1]=1;\"[GOTO bought_thing]\"}}]"
                                                                                                                                                                         },
                                                                                                                                                                         {
                                                                                                                                                                           "node": [
@@ -466,7 +466,7 @@
                                                                                                                                                                 }
                                                                                                                                                               ],
                                                                                                                                                               "_mark": "present_thing",
-                                                                                                                                                              "_content": "[LABEL {thing_cost=things[thing,2]*this.Inflation; if things[thing,1]==0 {output things[thing,0] + \". Цена: \" + thing_cost + \"[ANSWERIMAGE icons/\"+things[thing,4]+\".png|\"+thing*60+\";400]\"}}]"
+                                                                                                                                                              "_content": "[LABEL {this.thing_cost=this.things[this.thing][2]*this.Inflation; if (this.things[this.thing][1]==0) {this.things[this.thing][0] + \". Цена: \" + this.thing_cost + \"[ANSWERIMAGE icons/\"+this.things[this.thing][4]+\".png|\"+this.thing*60+\";400]\"}}]"
                                                                                                                                                             }
                                                                                                                                                           ],
                                                                                                                                                           "_mark": "mark_6f0140ie71g9jp2wg53f",
@@ -474,35 +474,35 @@
                                                                                                                                                         }
                                                                                                                                                       ],
                                                                                                                                                       "_mark": "",
-                                                                                                                                                      "_content": "[LABEL {thing=thing_gun}][GOTO present_thing]"
+                                                                                                                                                      "_content": "[LABEL {this.thing=this.thing_gun}][GOTO present_thing]"
                                                                                                                                                     },
                                                                                                                                                     {
                                                                                                                                                       "_mark": "",
-                                                                                                                                                      "_content": "[LABEL {thing=thing_repairing_book}][GOTO present_thing]"
+                                                                                                                                                      "_content": "[LABEL {this.thing=this.thing_repairing_book}][GOTO present_thing]"
                                                                                                                                                     },
                                                                                                                                                     {
                                                                                                                                                       "_mark": "",
-                                                                                                                                                      "_content": "[LABEL {thing=thing_repairing_toolkit}][GOTO present_thing]"
+                                                                                                                                                      "_content": "[LABEL {this.thing=this.thing_repairing_toolkit}][GOTO present_thing]"
                                                                                                                                                     },
                                                                                                                                                     {
                                                                                                                                                       "_mark": "",
-                                                                                                                                                      "_content": "[LABEL {thing=thing_psycho_dvd_film}][GOTO present_thing]"
+                                                                                                                                                      "_content": "[LABEL {this.thing=this.thing_psycho_dvd_film}][GOTO present_thing]"
                                                                                                                                                     },
                                                                                                                                                     {
                                                                                                                                                       "_mark": "",
-                                                                                                                                                      "_content": "[LABEL {thing=thing_vip_radio}][GOTO present_thing]"
+                                                                                                                                                      "_content": "[LABEL {this.thing=this.thing_vip_radio}][GOTO present_thing]"
                                                                                                                                                     },
                                                                                                                                                     {
                                                                                                                                                       "_mark": "",
-                                                                                                                                                      "_content": "[LABEL {thing=thing_tuningkit}][GOTO present_thing]"
+                                                                                                                                                      "_content": "[LABEL {this.thing=this.thing_tuningkit}][GOTO present_thing]"
                                                                                                                                                     },
                                                                                                                                                     {
                                                                                                                                                       "_mark": "",
-                                                                                                                                                      "_content": "[LABEL {thing=thing_vinyl_dog}][GOTO present_thing]"
+                                                                                                                                                      "_content": "[LABEL {this.thing=this.thing_vinyl_dog}][GOTO present_thing]"
                                                                                                                                                     },
                                                                                                                                                     {
                                                                                                                                                       "_mark": "",
-                                                                                                                                                      "_content": "[LABEL {thing=thing_dvd}][GOTO present_thing]"
+                                                                                                                                                      "_content": "[LABEL {this.thing=this.thing_dvd}][GOTO present_thing]"
                                                                                                                                                     },
                                                                                                                                                     {
                                                                                                                                                       "node": [
@@ -874,7 +874,7 @@
                                                                                                                                                                                                 }
                                                                                                                                                                                               ],
                                                                                                                                                                                               "_mark": "",
-                                                                                                                                                                                              "_content": "[LABEL {if things[thing_gun,1]==1 {output \"За тобой должок.[ANSWERIMAGE icons/gun.png|235;400]\"}}]"
+                                                                                                                                                                                              "_content": "[LABEL {if this.things[this.thing_gun][1]==1 {output \"За тобой должок.[ANSWERIMAGE icons/gun.png|235;400]\"}}]"
                                                                                                                                                                                             },
                                                                                                                                                                                             {
                                                                                                                                                                                               "node": [
@@ -1464,7 +1464,7 @@
                                                                                                                                                                                         }
                                                                                                                                                                                       ],
                                                                                                                                                                                       "_mark": "",
-                                                                                                                                                                                      "_content": "[LABEL {if money>=100 {output \"Сыграть еще раз[ANSWERIMAGE icons/money5.png|260;400]\"}}]"
+                                                                                                                                                                                      "_content": "[LABEL {if (this.money>=100) {\"Сыграть еще раз[ANSWERIMAGE icons/money5.png|260;400]\"}}]"
                                                                                                                                                                                     },
                                                                                                                                                                                     {
                                                                                                                                                                                       "node": [
@@ -1506,7 +1506,7 @@
                                                                                                                                                                                                                     }
                                                                                                                                                                                                                   ],
                                                                                                                                                                                                                   "_mark": "all_won_money",
-                                                                                                                                                                                                                  "_content": "[LABEL Ты отдал подельнику его половину выигрыша в казино: ({output (casino_win_bet_sum/2)@2}){money-=casino_win_bet_sum/2}{client_state=0}{script show_client_inside_rear.qsp}]"
+                                                                                                                                                                                                                  "_content": "[LABEL Ты отдал подельнику его половину выигрыша в казино: ({Math.floor(this.casino_win_bet_sum/2)}){this.money-=Math.floor(this.casino_win_bet_sum/2);this.client_state=0;'';}{script show_client_inside_rear.qsp}]"
                                                                                                                                                                                                                 },
                                                                                                                                                                                                                 {
                                                                                                                                                                                                                   "node": [
@@ -1522,7 +1522,7 @@
                                                                                                                                                                                                                     }
                                                                                                                                                                                                                   ],
                                                                                                                                                                                                                   "_mark": "not_all_won_money",
-                                                                                                                                                                                                                  "_content": "[LABEL Тут не вся моя доля! Куда ты дел остальные деньги? Кинуть меня хочешь? Ты еще пожалеешь об этом!{money=0;people_negative=50}{script show_client.qsp}]"
+                                                                                                                                                                                                                  "_content": "[LABEL Тут не вся моя доля! Куда ты дел остальные деньги? Кинуть меня хочешь? Ты еще пожалеешь об этом!{this.money=0;this.people_negative=50;'';}{script show_client.qsp}]"
                                                                                                                                                                                                                 }
                                                                                                                                                                                                               ],
                                                                                                                                                                                                               "_mark": "",
@@ -1530,7 +1530,7 @@
                                                                                                                                                                                                             }
                                                                                                                                                                                                           ],
                                                                                                                                                                                                           "_mark": "mark_89xl7564yjvs5afgol7o",
-                                                                                                                                                                                                          "_content": "[LABEL {if money<casino_win_bet_sum/2 {output \"[GOTO not_all_won_money]\"} else {output \"[GOTO all_won_money]\"}}]"
+                                                                                                                                                                                                          "_content": "[LABEL {if (this.money<this.casino_win_bet_sum/2) {\"[GOTO not_all_won_money]\"} else {\"[GOTO all_won_money]\"}}]"
                                                                                                                                                                                                         }
                                                                                                                                                                                                       ],
                                                                                                                                                                                                       "_mark": "give_client_casino_win_sum",
@@ -1552,7 +1552,7 @@
                                                                                                                                                                                                                       "node": [
                                                                                                                                                                                                                         {
                                                                                                                                                                                                                           "_mark": "mark_d5u1777k6768fqqnx371",
-                                                                                                                                                                                                                          "_content": "[LABEL {driver_show_gun=0;car_state=0}][GOTO new_location]"
+                                                                                                                                                                                                                          "_content": "[LABEL {this.driver_show_gun=0;this.car_state=0;'';}][GOTO new_location]"
                                                                                                                                                                                                                         }
                                                                                                                                                                                                                       ],
                                                                                                                                                                                                                       "_mark": "",
@@ -1574,7 +1574,7 @@
                                                                                                                                                                                                                 }
                                                                                                                                                                                                               ],
                                                                                                                                                                                                               "_mark": "show_gun_to_casino_guy",
-                                                                                                                                                                                                              "_content": "[LABEL {if things[thing_gun,1] {output \"Вали отсюда, я тебя не знаю.[ANSWERIMAGE icons/gun.png|380;400]\";driver_show_gun=1;}}]"
+                                                                                                                                                                                                              "_content": "[LABEL {if (this.things[this.thing_gun][1] {this.driver_show_gun=1;\"Вали отсюда, я тебя не знаю.[ANSWERIMAGE icons/gun.png|380;400]\"}}]"
                                                                                                                                                                                                             }
                                                                                                                                                                                                           ],
                                                                                                                                                                                                           "_mark": "mark_7554gh6ek0i2se0f69r6",
@@ -1590,7 +1590,7 @@
                                                                                                                                                                                                     }
                                                                                                                                                                                                   ],
                                                                                                                                                                                                   "_mark": "mark_8vg9ma430c08g5d3kn17",
-                                                                                                                                                                                                  "_content": "[LABEL {casino_bet_return=1}{this.client_type=8;client_subtype=cct;client_state=2}Уже уезжаешь? Как там насчет того, чтобы вернуть мне мою долю?{script show_client.qsp}]"
+                                                                                                                                                                                                  "_content": "[LABEL {this.casino_bet_return=1;'';}{this.client_type=8;this.client_subtype=this.cct;this.client_state=2;'';}Уже уезжаешь? Как там насчет того, чтобы вернуть мне мою долю?{script show_client.qsp}]"
                                                                                                                                                                                                 }
                                                                                                                                                                                               ],
                                                                                                                                                                                               "_mark": "",
@@ -1606,7 +1606,7 @@
                                                                                                                                                                                     }
                                                                                                                                                                                   ],
                                                                                                                                                                                   "_mark": "mark_44874qwy006h8xw93dbh",
-                                                                                                                                                                                  "_content": "[LABEL {money-=bet;rnd_num=(random*37):0}{if ((game_hours/24)@0==casino_win_day) && (things[thing_casino_bet,1]) && (things[thing_casino_bet,3]==0) {rnd_num=29;casino_win_bet_sum=bet*36;things[thing_casino_bet,3]=1}}Выпало число: {output rnd_num}. {if rnd_num == num {output \"Ты выиграл![SOUNDFX applause.mp3]\"; money+=bet*36; casino_win_money+=bet*36} else {output \"Ты проиграл...[SOUNDFX evil_laugh_woman.mp3]\"}}{game_hours+=1/12}{script show_in_casino.qsp}]"
+                                                                                                                                                                                  "_content": "[LABEL {this.money-=this.bet;this.rnd_num=Math.floor(Math.random()*37)}{if (Math.floor(this.game_hours/24)==this.casino_win_day && this.things[this.thing_casino_bet][1] && this.things[this.thing_casino_bet][3]==0) {this.rnd_num=29;this.casino_win_bet_sum=this.bet*36;this.things[this.thing_casino_bet][3]=1;'';}}Выпало число: {this.rnd_num}. {if (this.rnd_num == this.num) {\"Ты выиграл![SOUNDFX applause.mp3]\"; this.money+=this.bet*36; this.casino_win_money+=this.bet*36} else {\"Ты проиграл...[SOUNDFX evil_laugh_woman.mp3]\"}}{this.game_hours+=1/12;'';}{script show_in_casino.qsp}]"
                                                                                                                                                                                 }
                                                                                                                                                                               ],
                                                                                                                                                                               "_mark": "",
@@ -1614,11 +1614,11 @@
                                                                                                                                                                             }
                                                                                                                                                                           ],
                                                                                                                                                                           "_mark": "mark_77se696rfve0c0b748ex",
-                                                                                                                                                                          "_content": "[LABEL {if (num<0)||(num>36) {output \"[GOTO do_bet_on_number]\"}}]"
+                                                                                                                                                                          "_content": "[LABEL {if (this.num<0 || this.num>36) {\"[GOTO do_bet_on_number]\"}}]"
                                                                                                                                                                         }
                                                                                                                                                                       ],
                                                                                                                                                                       "_mark": "",
-                                                                                                                                                                      "_content": "[LABEL ][INPUTN num]"
+                                                                                                                                                                      "_content": "[LABEL ][INPUTN this.num]"
                                                                                                                                                                     }
                                                                                                                                                                   ],
                                                                                                                                                                   "_mark": "do_bet_on_number",
@@ -1630,15 +1630,15 @@
                                                                                                                                                             }
                                                                                                                                                           ],
                                                                                                                                                           "_mark": "mark_l1zfk919sn2k31lqxic8",
-                                                                                                                                                          "_content": "[LABEL {bet=bet@0;if (bet<100)||(bet>max_bet) {output \"[GOTO do_bet]\"}}]"
+                                                                                                                                                          "_content": "[LABEL {this.bet=Math.floor(this.bet);if (this.bet<100 || this.bet>this.max_bet) {\"[GOTO do_bet]\"}}]"
                                                                                                                                                         }
                                                                                                                                                       ],
                                                                                                                                                       "_mark": "",
-                                                                                                                                                      "_content": "[LABEL ][INPUTN bet]"
+                                                                                                                                                      "_content": "[LABEL ][INPUTN this.bet]"
                                                                                                                                                     }
                                                                                                                                                   ],
                                                                                                                                                   "_mark": "do_bet",
-                                                                                                                                                  "_content": "[LABEL {this.dvd_playing=0}{script rounding.qsp}{script calc_casino.qsp}{this.locations[this.location][0]}. Сколько денег ставишь на европейскую рулетку (100 - {output max_bet})?{script show_in_casino.qsp}][MUSIC none][AMBIENT casino.mp3][BGNDMUSIC none]"
+                                                                                                                                                  "_content": "[LABEL {this.dvd_playing=0}{script rounding.qsp}{script calc_casino.qsp}{this.locations[this.location][0]}. Сколько денег ставишь на европейскую рулетку (100 - {this.max_bet})?{script show_in_casino.qsp}][MUSIC none][AMBIENT casino.mp3][BGNDMUSIC none]"
                                                                                                                                                 }
                                                                                                                                               ],
                                                                                                                                               "_mark": "",
@@ -1652,11 +1652,11 @@
                                                                                                                                                       "node": [
                                                                                                                                                         {
                                                                                                                                                           "_mark": "mark_kr482j5dhp90wjg68a45",
-                                                                                                                                                          "_content": "[LABEL {money=(money-car_fuel_needed*this.fuel_cost):2;this.fuel=this.max_fuel}{script rounding.qsp}{script calc_car_fuel.qsp}][GOTO new_location]"
+                                                                                                                                                          "_content": "[LABEL {this.money=(this.money-this.car_fuel_needed*this.fuel_cost).toFixed(2);this.fuel=this.max_fuel}{script rounding.qsp}{script calc_car_fuel.qsp}][GOTO new_location]"
                                                                                                                                                         }
                                                                                                                                                       ],
                                                                                                                                                       "_mark": "",
-                                                                                                                                                      "_content": "[LABEL {if this.fuel_by_money>=car_fuel_needed {output \"Заправить полный бак, требуется литров: \" + car_fuel_needed + \"[ANSWERIMAGE icons/money6.png|200;400]\"}}]"
+                                                                                                                                                      "_content": "[LABEL {if (this.fuel_by_money>=this.car_fuel_needed) {\"Заправить полный бак, требуется литров: \" + this.car_fuel_needed + \"[ANSWERIMAGE icons/money6.png|200;400]\"}}]"
                                                                                                                                                     },
                                                                                                                                                     {
                                                                                                                                                       "node": [
@@ -1666,7 +1666,7 @@
                                                                                                                                                               "node": [
                                                                                                                                                                 {
                                                                                                                                                                   "_mark": "mark_li763547sgcz39426ne1",
-                                                                                                                                                                  "_content": "[LABEL {if (this.fuel_liters>=0) && (this.fuel_liters<=max_car_can_fuel) {this.fuel+=this.fuel_liters;money-=this.fuel_cost*this.fuel_liters;{script rounding.qsp}{script calc_car_fuel.qsp}output \"[GOTO new_location]\"} else {output \"[GOTO how_many_fuel]\"}}]"
+                                                                                                                                                                  "_content": "[LABEL {if (this.fuel_liters>=0 && this.fuel_liters<=this.max_car_can_fuel) {this.fuel+=this.fuel_liters;this.money-=this.fuel_cost*this.fuel_liters;{script rounding.qsp}{script calc_car_fuel.qsp}\"[GOTO new_location]\"} else {\"[GOTO how_many_fuel]\"}}]"
                                                                                                                                                                 }
                                                                                                                                                               ],
                                                                                                                                                               "_mark": "",
@@ -1674,7 +1674,7 @@
                                                                                                                                                             }
                                                                                                                                                           ],
                                                                                                                                                           "_mark": "how_many_fuel",
-                                                                                                                                                          "_content": "[LABEL Сколько литров заправить 0 - {output max_car_can_fuel:1}?{script show_client}]"
+                                                                                                                                                          "_content": "[LABEL Сколько литров заправить 0 - {+this.max_car_can_fuel.toFixed(1)}?{script show_client}]"
                                                                                                                                                         }
                                                                                                                                                       ],
                                                                                                                                                       "_mark": "",
@@ -1684,11 +1684,11 @@
                                                                                                                                                       "node": [
                                                                                                                                                         {
                                                                                                                                                           "_mark": "mark_inu1zf7v531a1e4tr474",
-                                                                                                                                                          "_content": "[LABEL {money=0;this.fuel+=this.fuel_by_money}{script rounding.qsp}{script calc_car_fuel.qsp}][GOTO new_location]"
+                                                                                                                                                          "_content": "[LABEL {this.money=0;this.fuel+=this.fuel_by_money;'';}{script rounding.qsp}{script calc_car_fuel.qsp}][GOTO new_location]"
                                                                                                                                                         }
                                                                                                                                                       ],
                                                                                                                                                       "_mark": "",
-                                                                                                                                                      "_content": "[LABEL {if (money > 0) && (this.fuel_by_money<=car_fuel_needed) {output \"Заправить на все оставшиеся деньги[ANSWERIMAGE icons/money1.png|380;400]\"}}]"
+                                                                                                                                                      "_content": "[LABEL {if (this.money > 0 && this.fuel_by_money<=this.car_fuel_needed) {\"Заправить на все оставшиеся деньги[ANSWERIMAGE icons/money1.png|380;400]\"}}]"
                                                                                                                                                     },
                                                                                                                                                     {
                                                                                                                                                       "node": [
@@ -1698,7 +1698,7 @@
                                                                                                                                                               "node": [
                                                                                                                                                                 {
                                                                                                                                                                   "_mark": "mark_71rd4pgx3e7thf2905eg",
-                                                                                                                                                                  "_content": "[LABEL {if (this.fuel_sum>=0) && (this.fuel_sum<=max_money_for_fuel) {money-=this.fuel_sum;this.fuel+=this.fuel_sum/this.fuel_cost;{script rounding.qsp}{script calc_car_fuel.qsp}output \"[GOTO new_location]\"} else {output \"[GOTO how_many_fuel_sum]\"}}]"
+                                                                                                                                                                  "_content": "[LABEL {if (this.fuel_sum>=0 && this.fuel_sum<=this.max_money_for_fuel) {this.money-=this.fuel_sum;this.fuel+=this.fuel_sum/this.fuel_cost;{script rounding.qsp}{script calc_car_fuel.qsp}\"[GOTO new_location]\"} else {\"[GOTO how_many_fuel_sum]\"}}]"
                                                                                                                                                                 }
                                                                                                                                                               ],
                                                                                                                                                               "_mark": "",
@@ -1706,7 +1706,7 @@
                                                                                                                                                             }
                                                                                                                                                           ],
                                                                                                                                                           "_mark": "how_many_fuel_sum",
-                                                                                                                                                          "_content": "[LABEL На какую сумму заправить 0 - {output max_money_for_fuel}?{script show_client}]"
+                                                                                                                                                          "_content": "[LABEL На какую сумму заправить 0 - {this.max_money_for_fuel}?{script show_client}]"
                                                                                                                                                         }
                                                                                                                                                       ],
                                                                                                                                                       "_mark": "",
@@ -1724,7 +1724,7 @@
                                                                                                                                                     }
                                                                                                                                                   ],
                                                                                                                                                   "_mark": "fuel_station",
-                                                                                                                                                  "_content": "[LABEL {script rounding.qsp}{script show_game_stats.qsp}{output \"\n\"}{this.locations[this.location][0]}. Бензин здесь стоит: {output this.fuel_cost; if things[thing_fuel_discount,1] {output \" (с учетом скидки \" + this.fuel_discount_value + \"%)\"}}{script show_client}]"
+                                                                                                                                                  "_content": "[LABEL {script rounding.qsp}{script show_game_stats.qsp}\n{this.locations[this.location][0]}. Бензин здесь стоит: {this.fuel_cost; if (this.things[this.thing_fuel_discount][1] {\" (с учетом скидки \" + this.fuel_discount_value + \"%)\"}}{script show_client}]"
                                                                                                                                                 }
                                                                                                                                               ],
                                                                                                                                               "_mark": "",
@@ -1750,11 +1750,11 @@
                                                                                                                                                             }
                                                                                                                                                           ],
                                                                                                                                                           "_mark": "mark_u6x2p8mk6p4c7v64rmx8",
-                                                                                                                                                          "_content": "[LABEL {money=(money-car_washing_cost):2;car_cleanness=100}{script rounding.qsp}{script calc_car_washing.qsp}{script spent_time.qsp}Готово!{script show_in_carwashing.qsp}]"
+                                                                                                                                                          "_content": "[LABEL {this.money=+(this.money-this.car_washing_cost).toFixed(2);this.car_cleanness=100}{script rounding.qsp}{script calc_car_washing.qsp}{script spent_time.qsp}Готово!{script show_in_carwashing.qsp}]"
                                                                                                                                                         }
                                                                                                                                                       ],
                                                                                                                                                       "_mark": "",
-                                                                                                                                                      "_content": "[LABEL {if money>=car_washing_cost {output \"Помою здесь за \" + car_washing_cost + \"[ANSWERIMAGE icons/good.png|260;400]\"}}]"
+                                                                                                                                                      "_content": "[LABEL {if (this.money>=this.car_washing_cost) {\"Помою здесь за \" + this.car_washing_cost + \"[ANSWERIMAGE icons/good.png|260;400]\"}}]"
                                                                                                                                                     },
                                                                                                                                                     {
                                                                                                                                                       "_mark": "",
@@ -1762,7 +1762,7 @@
                                                                                                                                                     }
                                                                                                                                                   ],
                                                                                                                                                   "_mark": "car_washing",
-                                                                                                                                                  "_content": "[LABEL {this.dvd_playing=0}{script rounding.qsp}{script show_game_stats.qsp}{output \"\n\"}{this.locations[this.location][0]}. Помыть машину здесь стоит: {output car_washing_cost}{if things[thing_carwashing_discount,1]>0 {output \" (с учетом скидки от Махмуда)\"}}{script show_in_carwashing.qsp}][AMBIENT water.mp3][BGNDMUSIC none]"
+                                                                                                                                                  "_content": "[LABEL {this.dvd_playing=0}{script rounding.qsp}{script show_game_stats.qsp}\n{this.locations[this.location][0]}. Помыть машину здесь стоит: {this.car_washing_cost}{if (this.things[this.thing_carwashing_discount][1]>0) {\" (с учетом скидки от Махмуда)\"}}{script show_in_carwashing.qsp}][AMBIENT water.mp3][BGNDMUSIC none]"
                                                                                                                                                 }
                                                                                                                                               ],
                                                                                                                                               "_mark": "",
@@ -1974,15 +1974,15 @@
                                                                                                                                                               "node": [
                                                                                                                                                                 {
                                                                                                                                                                   "_mark": "mark_ui4q7942104e9p6j62i4",
-                                                                                                                                                                  "_content": "[LABEL {if (payment_sum>=0) && (payment_sum<=credit_max_payment) {credit_rest_sum-=payment_sum;money-=payment_sum; if credit_rest_sum<=0 {output \"[GOTO you_win]\"} else {output \"[GOTO in_bank]\"}} else {output \"[GOTO how_many_for_credit]\"}}]"
+                                                                                                                                                                  "_content": "[LABEL {if (this.payment_sum>=0 && this.payment_sum<=this.credit_max_payment) {this.credit_rest_sum-=this.payment_sum;this.money-=this.payment_sum; if (this.credit_rest_sum<=0) {\"[GOTO you_win]\"} else {\"[GOTO in_bank]\"}} else {\"[GOTO how_many_for_credit]\"}}]"
                                                                                                                                                                 }
                                                                                                                                                               ],
                                                                                                                                                               "_mark": "",
-                                                                                                                                                              "_content": "[LABEL ][INPUTN payment_sum]"
+                                                                                                                                                              "_content": "[LABEL ][INPUTN this.payment_sum]"
                                                                                                                                                             }
                                                                                                                                                           ],
                                                                                                                                                           "_mark": "how_many_for_credit",
-                                                                                                                                                          "_content": "[LABEL {script rounding.qsp}{script show_game_stats.qsp}{output \"\n\"}{this.locations[this.location][0]}.{output \"\n\"}Сколько заплатишь по кредиту: 0 - {output credit_max_payment}? (срочный платеж: {output credit_delay_sum}, остаток по кредиту: {output credit_rest_sum})][BGNDIMAGE in_bank.jpg]"
+                                                                                                                                                          "_content": "[LABEL {script rounding.qsp}{script show_game_stats.qsp}\n{this.locations[this.location][0]}.\nСколько заплатишь по кредиту: 0 - {this.credit_max_payment}? (срочный платеж: {this.credit_delay_sum}, остаток по кредиту: {this.credit_rest_sum})][BGNDIMAGE in_bank.jpg]"
                                                                                                                                                         }
                                                                                                                                                       ],
                                                                                                                                                       "_mark": "",
@@ -2008,7 +2008,7 @@
                                                                                                                                                                     }
                                                                                                                                                                   ],
                                                                                                                                                                   "_mark": "transfer_money_for_drugs",
-                                                                                                                                                                  "_content": "[LABEL {money-=drugDealerGoodsCost*this.Inflation;drugDealerGoodsPlanted++}{script rounding.qsp}Деньги успешно переведены.][BGNDIMAGE in_bank.jpg]"
+                                                                                                                                                                  "_content": "[LABEL {this.money-=this.drugDealerGoodsCost*this.Inflation;this.drugDealerGoodsPlanted++;'';}{script rounding.qsp}Деньги успешно переведены.][BGNDIMAGE in_bank.jpg]"
                                                                                                                                                                 },
                                                                                                                                                                 {
                                                                                                                                                                   "node": [
@@ -2032,11 +2032,11 @@
                                                                                                                                                             }
                                                                                                                                                           ],
                                                                                                                                                           "_mark": "mark_rl035584qcu9ml2sul0c",
-                                                                                                                                                          "_content": "[LABEL {if money<drugDealerGoodsCost*this.Inflation {output \"[GOTO no_money_for_drugs]\"} else {output \"[GOTO transfer_money_for_drugs]\"}}]"
+                                                                                                                                                          "_content": "[LABEL {if (this.money<this.drugDealerGoodsCost*this.Inflation) {\"[GOTO no_money_for_drugs]\"} else {\"[GOTO transfer_money_for_drugs]\"}}]"
                                                                                                                                                         }
                                                                                                                                                       ],
                                                                                                                                                       "_mark": "",
-                                                                                                                                                      "_content": "[LABEL {if (drugDealer == 1) && (drugDealerGoodsPlanted == 0) && (drugDealerGoodsDriver==0) {output \"Переведу на карту денег (\"+drugDealerGoodsCost*this.Inflation+\")[ANSWERIMAGE icons/money2.png|320;400]\"}}]"
+                                                                                                                                                      "_content": "[LABEL {if (this.drugDealer == 1 && this.drugDealerGoodsPlanted == 0 && this.drugDealerGoodsDriver==0) {\"Переведу на карту денег (\"+this.drugDealerGoodsCost*this.Inflation+\")[ANSWERIMAGE icons/money2.png|320;400]\"}}]"
                                                                                                                                                     },
                                                                                                                                                     {
                                                                                                                                                       "node": [
@@ -2050,7 +2050,7 @@
                                                                                                                                                     }
                                                                                                                                                   ],
                                                                                                                                                   "_mark": "in_bank",
-                                                                                                                                                  "_content": "[LABEL {this.dvd_playing=0}{script show_game_stats.qsp}{output \"\n\"}{this.locations[this.location][0]}.][BGNDIMAGE in_bank.jpg][MUSIC none][AMBIENT none][BGNDMUSIC none]"
+                                                                                                                                                  "_content": "[LABEL {this.dvd_playing=0}{script show_game_stats.qsp}\n{this.locations[this.location][0]}.][BGNDIMAGE in_bank.jpg][MUSIC none][AMBIENT none][BGNDMUSIC none]"
                                                                                                                                                 }
                                                                                                                                               ],
                                                                                                                                               "_mark": "",
@@ -5330,7 +5330,7 @@
                                                                                                     }
                                                                                                   ],
                                                                                                   "_mark": "mark_aeid237b4z2f25i099ff",
-                                                                                                  "_content": "[LABEL Договорились. Завтра. Казино. Любое время. Число 29. Это наш шанс разбогатеть, дружище, не упусти его! И помни, ставка сыграет всего только один раз!!!{this.casino_win_day=Math.ceil(this.game_hours/24+1)}{script show_client_inside_rear.qsp}]"
+                                                                                                  "_content": "[LABEL Договорились. Завтра. Казино. Любое время. Число 29. Это наш шанс разбогатеть, дружище, не упусти его! И помни, ставка сыграет всего только один раз!!!{this.casino_win_day=Math.ceil(this.game_hours/24+1);'';}{script show_client_inside_rear.qsp}]"
                                                                                                 }
                                                                                               ],
                                                                                               "_mark": "",
@@ -5426,7 +5426,7 @@
                                                                             }
                                                                           ],
                                                                           "_mark": "mark_l844v9943n93k187s961",
-                                                                          "_content": "[LABEL Вот и отличненько, братан!{this.money-=this.radio_cost;this.things[this.thing_dvd][1]=1;this.stolen_dvd=1;this.people_negative+=5;this.client_state=0;this.show_dvd=0}{script show_client_inside_rear.qsp}]"
+                                                                          "_content": "[LABEL Вот и отличненько, братан!{this.money-=this.radio_cost;this.things[this.thing_dvd][1]=1;this.stolen_dvd=1;this.people_negative+=5;this.client_state=0;this.show_dvd=0;'';}{script show_client_inside_rear.qsp}]"
                                                                         }
                                                                       ],
                                                                       "_mark": "",
@@ -5444,7 +5444,7 @@
                                                                     }
                                                                   ],
                                                                   "_mark": "mark_n1uv9m3403ond1qut221",
-                                                                  "_content": "[LABEL Почти новая. Уступлю за: {radio_cost}{this.value_to_show=this.radio_cost}{script calc_client_price_picture.qsp}{this.show_dvd=1;'';}{script show_client_inside_rear.qsp}]"
+                                                                  "_content": "[LABEL Почти новая. Уступлю за: {this.radio_cost}{this.value_to_show=this.radio_cost}{script calc_client_price_picture.qsp}{this.show_dvd=1;'';}{script show_client_inside_rear.qsp}]"
                                                                 }
                                                               ],
                                                               "_mark": "",
@@ -5488,7 +5488,7 @@
                                                                     }
                                                                   ],
                                                                   "_mark": "mark_5ehs0np9cjrc1i1h97i1",
-                                                                  "_content": "[LABEL Это отличный прибор, работает, как часы! Сам паял. Пользуйтесь на здоровье!{money-=vip_radio_cost;things[thing_vip_radio,1]=1}{show_vip_radio_box=0;client_state=0}{script show_client_inside_rear.qsp}]"
+                                                                  "_content": "[LABEL Это отличный прибор, работает, как часы! Сам паял. Пользуйтесь на здоровье!{this.money-=this.vip_radio_cost;this.things[this.thing_vip_radio][1]=1;this.show_vip_radio_box=0;this.client_state=0;'';}{script show_client_inside_rear.qsp}]"
                                                                 }
                                                               ],
                                                               "_mark": "",
@@ -5498,7 +5498,7 @@
                                                               "node": [
                                                                 {
                                                                   "_mark": "mark_21x4r183x1r9ucssxh1h",
-                                                                  "_content": "[LABEL {show_vip_radio_box=0}][GOTO business4]"
+                                                                  "_content": "[LABEL {this.show_vip_radio_box=0;'';}][GOTO business4]"
                                                                 }
                                                               ],
                                                               "_mark": "",
@@ -5506,7 +5506,7 @@
                                                             }
                                                           ],
                                                           "_mark": "mark_2hjjw9bya6z4x401022p",
-                                                          "_content": "[LABEL {show_vip_radio_box=1}У меня есть подходящий для вас товар, называется {output things[thing_vip_radio,0]}, не хотите ли купить, скажем за {output vip_radio_cost}?{value_to_show=vip_radio_cost}{script calc_client_price_picture.qsp}{script show_client_inside_rear.qsp}]"
+                                                          "_content": "[LABEL {this.show_vip_radio_box=1;'';}У меня есть подходящий для вас товар, называется {this.things[this.thing_vip_radio][0]}, не хотите ли купить, скажем за {this.vip_radio_cost}?{this.value_to_show=this.vip_radio_cost;'';}{script calc_client_price_picture.qsp}{script show_client_inside_rear.qsp}]"
                                                         }
                                                       ],
                                                       "_mark": "",
@@ -5514,7 +5514,7 @@
                                                     }
                                                   ],
                                                   "_mark": "business3",
-                                                  "_content": "[LABEL {{vip_radio_cost=(((things[thing_vip_radio,2]*this.Inflation/(1+random*3))/100):0)*100}; if (things[thing_vip_radio,1]==0) && (this.client_type==1) && (money>=vip_radio_cost) && (random<0.5) {output \"\"} else {output \"[GOTO business4]\"}}]"
+                                                  "_content": "[LABEL {{this.vip_radio_cost=(Math.ceil((this.things[this.thing_vip_radio][2]*this.Inflation/(1+Math.random()*3))/100))*100}; if (this.things[this.thing_vip_radio][1]==0 && this.client_type==1 && this.money>=this.vip_radio_cost && Math.random()<0.5) {\"\"} else {\"[GOTO business4]\"}}]"
                                                 },
                                                 {
                                                   "node": [
@@ -5624,7 +5624,7 @@
                                                                                     }
                                                                                   ],
                                                                                   "_mark": "mark_85w48x3tp557294n558e",
-                                                                                  "_content": "[LABEL {if thing_cost < money {output \"[GOTO tell_garage_secret_place]\"}}]"
+                                                                                  "_content": "[LABEL {if (this.thing_cost < this.money) {\"[GOTO tell_garage_secret_place]\"}}]"
                                                                                 },
                                                                                 {
                                                                                   "node": [
@@ -5640,7 +5640,7 @@
                                                                                     }
                                                                                   ],
                                                                                   "_mark": "tell_garage_secret_place",
-                                                                                  "_content": "[LABEL Значит так, гараж располагается на бывшей военной базе в пригороде. Я тебе отметил на карте, посмотришь потом.{money-=thing_cost;things[thing_known_garage,1]=1}{script show_client_inside_rear.qsp}]"
+                                                                                  "_content": "[LABEL Значит так, гараж располагается на бывшей военной базе в пригороде. Я тебе отметил на карте, посмотришь потом.{this.money-=this.thing_cost;this.things[this.thing_known_garage][1]=1;'';}{script show_client_inside_rear.qsp}]"
                                                                                 }
                                                                               ],
                                                                               "_mark": "",
@@ -5658,7 +5658,7 @@
                                                                             }
                                                                           ],
                                                                           "_mark": "mark_56014mbbskq57882j925",
-                                                                          "_content": "[LABEL Эта информация будет стоит: {output thing_cost}, потому что зарплата у меня маленькая, а жена злая.{value_to_show=thing_cost}{script calc_client_price_picture.qsp}{script show_client_inside_rear.qsp}]"
+                                                                          "_content": "[LABEL Эта информация будет стоит: {this.thing_cost}, потому что зарплата у меня маленькая, а жена злая.{this.value_to_show=this.thing_cost;'';}{script calc_client_price_picture.qsp}{script show_client_inside_rear.qsp}]"
                                                                         }
                                                                       ],
                                                                       "_mark": "",
@@ -5670,7 +5670,7 @@
                                                                     }
                                                                   ],
                                                                   "_mark": "sell_garage_location",
-                                                                  "_content": "[LABEL Могу подсказать один заброшенный гараж, сможешь самостоятельно чинить. Если, конечно, у тебя есть: {output things[thing_repairing_toolkit,0]}, {output things[thing_repairing_book,0]} и руки не из жопы растут.{script show_client_inside_rear.qsp}]"
+                                                                  "_content": "[LABEL Могу подсказать один заброшенный гараж, сможешь самостоятельно чинить. Если, конечно, у тебя есть: {this.things[this.thing_repairing_toolkit][0]}, {this.things[this.thing_repairing_book][0]} и руки не из жопы растут.{script show_client_inside_rear.qsp}]"
                                                                 }
                                                               ],
                                                               "_mark": "",
@@ -5712,7 +5712,7 @@
                                                     }
                                                   ],
                                                   "_mark": "business4",
-                                                  "_content": "[LABEL {thing_cost=500 + (random*5):0*100}{if (random < 0.5) && (things[thing_known_garage,1]==0) && (this.client_type==4) && (money >= thing_cost) {output \"[GOTO garage_proposal]\"} else {output \"[GOTO business5]\"}}]"
+                                                  "_content": "[LABEL {this.thing_cost=500 + Math.ceil(Math.random()*5)*100}{if (Math.random() < 0.5 && this.things[this.thing_known_garage][1]==0 && this.client_type==4 && this.money >= this.thing_cost) {\"[GOTO garage_proposal]\"} else {\"[GOTO business5]\"}}]"
                                                 },
                                                 {
                                                   "node": [
@@ -5778,7 +5778,7 @@
                                                     }
                                                   ],
                                                   "_mark": "business5",
-                                                  "_content": "[LABEL {{thing_cost=(((things[thing_fuel_discount,2]*this.Inflation/(1+random*3))/100):0)*100}; if (things[thing_fuel_discount,1]==0) && (this.client_type==2) && (money>=thing_cost) {output \"\"} else {output \"[GOTO business6]\"}}]"
+                                                  "_content": "[LABEL {{this.thing_cost=(Math.ceil((this.things[this.thing_fuel_discount][2]*this.Inflation/(1+Math.random()*3))/100))*100}; if (this.things[this.thing_fuel_discount][1]==0 && this.client_type==2 && this.money>=this.thing_cost) {\"\"} else {\"[GOTO business6]\"}}]"
                                                 },
                                                 {
                                                   "node": [
@@ -5801,17 +5801,17 @@
                                                                                     {
                                                                                       "node": [
                                                                                         {
-                                                                                          "_mark": "mark_pwbxe3emjzx50mb9c74h",
-                                                                                          "_content": "[LABEL ][GOTO how_much_drug_costs]"
-                                                                                        }
-                                                                                      ],
-                                                                                      "_mark": "",
-                                                                                      "_content": "[LABEL Ладно.][ANSWERIMAGE icons/good.png|260;400]"
-                                                                                    },
-                                                                                    {
-                                                                                      "node": [
-                                                                                        {
                                                                                           "node": [
+                                                                                            {
+                                                                                              "node": [
+                                                                                                {
+                                                                                                  "_mark": "mark_pwbxe3emjzx50mb9c74h",
+                                                                                                  "_content": "[LABEL ][GOTO how_much_drug_costs]"
+                                                                                                }
+                                                                                              ],
+                                                                                              "_mark": "",
+                                                                                              "_content": "[LABEL Ладно.][ANSWERIMAGE icons/good.png|260;400]"
+                                                                                            },
                                                                                             {
                                                                                               "node": [
                                                                                                 {
@@ -5823,17 +5823,17 @@
                                                                                                             {
                                                                                                               "node": [
                                                                                                                 {
-                                                                                                                  "_mark": "mark_wk02z5y87w34w98u11m9",
-                                                                                                                  "_content": "[LABEL {drug_price=nark_money}][GOTO nark_buy_drug]"
-                                                                                                                }
-                                                                                                              ],
-                                                                                                              "_mark": "",
-                                                                                                              "_content": "[LABEL Ладно.][ANSWERIMAGE icons/good.png|260;400]"
-                                                                                                            },
-                                                                                                            {
-                                                                                                              "node": [
-                                                                                                                {
                                                                                                                   "node": [
+                                                                                                                    {
+                                                                                                                      "node": [
+                                                                                                                        {
+                                                                                                                          "_mark": "mark_wk02z5y87w34w98u11m9",
+                                                                                                                          "_content": "[LABEL {this.drug_price=this.nark_money}][GOTO nark_buy_drug]"
+                                                                                                                        }
+                                                                                                                      ],
+                                                                                                                      "_mark": "",
+                                                                                                                      "_content": "[LABEL Ладно.][ANSWERIMAGE icons/good.png|260;400]"
+                                                                                                                    },
                                                                                                                     {
                                                                                                                       "node": [
                                                                                                                         {
@@ -5841,144 +5841,156 @@
                                                                                                                             {
                                                                                                                               "node": [
                                                                                                                                 {
-                                                                                                                                  "_mark": "mark_6ndio08y50s42ntr9c87",
-                                                                                                                                  "_content": "[LABEL {driver_show_gun=0}][GOTO business7]"
+                                                                                                                                  "node": [
+                                                                                                                                    {
+                                                                                                                                      "node": [
+                                                                                                                                        {
+                                                                                                                                          "_mark": "mark_6ndio08y50s42ntr9c87",
+                                                                                                                                          "_content": "[LABEL {this.driver_show_gun=0;'';}][GOTO business7]"
+                                                                                                                                        }
+                                                                                                                                      ],
+                                                                                                                                      "_mark": "",
+                                                                                                                                      "_content": "[LABEL ...][ANSWERIMAGE icons/three_dots.png|295;400]"
+                                                                                                                                    }
+                                                                                                                                  ],
+                                                                                                                                  "_mark": "show_gun_to_nark",
+                                                                                                                                  "_content": "[LABEL {this.driver_show_gun=1;'';}Клиент хотел тебя убить, но ты вовремя выхватил ствол!{script show_client_inside_rear.qsp}]"
+                                                                                                                                },
+                                                                                                                                {
+                                                                                                                                  "_mark": "nark_kill_driver",
+                                                                                                                                  "_content": "[LABEL ][FINAL Тебя убил наркоман из-за дозы... Игра окончена.][BGNDIMAGE blood.jpg][SOUNDFX brakes_crash.mp3]"
                                                                                                                                 }
                                                                                                                               ],
                                                                                                                               "_mark": "",
-                                                                                                                              "_content": "[LABEL ...][ANSWERIMAGE icons/three_dots.png|295;400]"
+                                                                                                                              "_content": "[LABEL ]"
                                                                                                                             }
                                                                                                                           ],
-                                                                                                                          "_mark": "show_gun_to_nark",
-                                                                                                                          "_content": "[LABEL {driver_show_gun=1}Клиент хотел тебя убить, но ты вовремя выхватил ствол!{script show_client_inside_rear.qsp}]"
-                                                                                                                        },
-                                                                                                                        {
-                                                                                                                          "_mark": "nark_kill_driver",
-                                                                                                                          "_content": "[LABEL ][FINAL Тебя убил наркоман из-за дозы... Игра окончена.][BGNDIMAGE blood.jpg][SOUNDFX brakes_crash.mp3]"
+                                                                                                                          "_mark": "mark_iuh16zzogq75flb76s62",
+                                                                                                                          "_content": "[LABEL {if (this.things[this.thing_gun][1]==1) {\"[GOTO show_gun_to_nark]\"} else {\"[GOTO nark_kill_driver]\"}}]"
                                                                                                                         }
                                                                                                                       ],
                                                                                                                       "_mark": "",
-                                                                                                                      "_content": "[LABEL ]"
+                                                                                                                      "_content": "[LABEL Нет.][ANSWERIMAGE icons/cancel.png|320;400]"
                                                                                                                     }
                                                                                                                   ],
-                                                                                                                  "_mark": "mark_iuh16zzogq75flb76s62",
-                                                                                                                  "_content": "[LABEL {if things[thing_gun,1]==1 {output \"[GOTO show_gun_to_nark]\"} else {output \"[GOTO nark_kill_driver]\"}}]"
+                                                                                                                  "_mark": "mark_17lq7749t28h5kxmeqm9",
+                                                                                                                  "_content": "[LABEL Продай за {this.nark_money}! Это все что есть!{this.value_to_show=this.nark_money}{script calc_client_price_picture.qsp}{script show_client_inside_rear.qsp}]"
                                                                                                                 }
                                                                                                               ],
                                                                                                               "_mark": "",
-                                                                                                              "_content": "[LABEL Нет.][ANSWERIMAGE icons/cancel.png|320;400]"
+                                                                                                              "_content": "[LABEL ...][ANSWERIMAGE icons/three_dots.png|295;400]"
                                                                                                             }
                                                                                                           ],
-                                                                                                          "_mark": "mark_17lq7749t28h5kxmeqm9",
-                                                                                                          "_content": "[LABEL Продай за {output nark_money}! Это все что есть!{value_to_show=nark_money}{script calc_client_price_picture.qsp}{script show_client_inside_rear.qsp}]"
-                                                                                                        }
-                                                                                                      ],
-                                                                                                      "_mark": "",
-                                                                                                      "_content": "[LABEL ...][ANSWERIMAGE icons/three_dots.png|295;400]"
-                                                                                                    }
-                                                                                                  ],
-                                                                                                  "_mark": "nark_fury",
-                                                                                                  "_content": "[LABEL Ты чо, не видишь меня ломает???{script show_client_inside_rear.qsp}]"
-                                                                                                },
-                                                                                                {
-                                                                                                  "node": [
-                                                                                                    {
-                                                                                                      "node": [
+                                                                                                          "_mark": "nark_fury",
+                                                                                                          "_content": "[LABEL Ты чо, не видишь меня ломает???{script show_client_inside_rear.qsp}]"
+                                                                                                        },
                                                                                                         {
-                                                                                                          "_mark": "mark_jm63s895444j5z51666j",
-                                                                                                          "_content": "[LABEL ][GOTO business7]"
+                                                                                                          "node": [
+                                                                                                            {
+                                                                                                              "node": [
+                                                                                                                {
+                                                                                                                  "_mark": "mark_jm63s895444j5z51666j",
+                                                                                                                  "_content": "[LABEL ][GOTO business7]"
+                                                                                                                }
+                                                                                                              ],
+                                                                                                              "_mark": "",
+                                                                                                              "_content": "[LABEL ...][ANSWERIMAGE icons/three_dots.png|295;400]"
+                                                                                                            }
+                                                                                                          ],
+                                                                                                          "_mark": "nark_relaxed",
+                                                                                                          "_content": "[LABEL Зря ты так братуха...{this.people_negative+=2;'';}{script show_client_inside_rear.qsp}]"
                                                                                                         }
                                                                                                       ],
                                                                                                       "_mark": "",
-                                                                                                      "_content": "[LABEL ...][ANSWERIMAGE icons/three_dots.png|295;400]"
+                                                                                                      "_content": "[LABEL ]"
                                                                                                     }
                                                                                                   ],
-                                                                                                  "_mark": "nark_relaxed",
-                                                                                                  "_content": "[LABEL Зря ты так братуха...{people_negative+=2}{script show_client_inside_rear.qsp}]"
+                                                                                                  "_mark": "mark_b2tjijib8tvafdo753t6",
+                                                                                                  "_content": "[LABEL {if (this.client_state==2) {\"[GOTO nark_fury]\"} else {\"[GOTO nark_relaxed]\"}}]"
                                                                                                 }
                                                                                               ],
                                                                                               "_mark": "",
-                                                                                              "_content": "[LABEL ]"
+                                                                                              "_content": "[LABEL Нет.][ANSWERIMAGE icons/cancel.png|320;400]"
                                                                                             }
                                                                                           ],
-                                                                                          "_mark": "mark_b2tjijib8tvafdo753t6",
-                                                                                          "_content": "[LABEL {if client_state==2 {output \"[GOTO nark_fury]\"} else {output \"[GOTO nark_relaxed]\"}}]"
-                                                                                        }
-                                                                                      ],
-                                                                                      "_mark": "",
-                                                                                      "_content": "[LABEL Нет.][ANSWERIMAGE icons/cancel.png|320;400]"
-                                                                                    }
-                                                                                  ],
-                                                                                  "_mark": "nark_try_reduce_price",
-                                                                                  "_content": "[LABEL Слух, у меня малёха не хватает, уступи чуток?{script show_client_inside_rear.qsp}]"
-                                                                                },
-                                                                                {
-                                                                                  "node": [
-                                                                                    {
-                                                                                      "node": [
+                                                                                          "_mark": "nark_try_reduce_price",
+                                                                                          "_content": "[LABEL Слух, у меня малёха не хватает, уступи чуток?{script show_client_inside_rear.qsp}]"
+                                                                                        },
                                                                                         {
-                                                                                          "_mark": "mark_60wyfzs83dnm5itg5sdx",
-                                                                                          "_content": "[LABEL ][GOTO business7]"
+                                                                                          "node": [
+                                                                                            {
+                                                                                              "node": [
+                                                                                                {
+                                                                                                  "_mark": "mark_60wyfzs83dnm5itg5sdx",
+                                                                                                  "_content": "[LABEL ][GOTO business7]"
+                                                                                                }
+                                                                                              ],
+                                                                                              "_mark": "",
+                                                                                              "_content": "[LABEL ...][ANSWERIMAGE icons/good.png|295;400]"
+                                                                                            }
+                                                                                          ],
+                                                                                          "_mark": "nark_buy_drug",
+                                                                                          "_content": "[LABEL Спасибо, братишь!{this.money+=this.drug_price;this.drugMoney+=this.drug_price;this.drugDealerGoodsDriver--;this.people_negative+=2;'';}{script rounding.qsp}{script show_client_inside_rear.qsp}]"
                                                                                         }
                                                                                       ],
                                                                                       "_mark": "",
-                                                                                      "_content": "[LABEL ...][ANSWERIMAGE icons/good.png|295;400]"
+                                                                                      "_content": "[LABEL ]"
                                                                                     }
                                                                                   ],
-                                                                                  "_mark": "nark_buy_drug",
-                                                                                  "_content": "[LABEL Спасибо, братишь!{money+=drug_price;drugMoney+=drug_price;drugDealerGoodsDriver--;people_negative+=2}{script rounding.qsp}{script show_client_inside_rear.qsp}]"
+                                                                                  "_mark": "buy_drugs",
+                                                                                  "_content": "[LABEL {if (this.nark_money<this.drug_price) {\"[GOTO nark_try_reduce_price]\"} else {\"[GOTO nark_buy_drug]\"}}]"
                                                                                 }
                                                                               ],
                                                                               "_mark": "",
                                                                               "_content": "[LABEL ]"
                                                                             }
                                                                           ],
-                                                                          "_mark": "buy_drugs",
-                                                                          "_content": "[LABEL {if (nark_money<drug_price) {output \"[GOTO nark_try_reduce_price]\"} else {output \"[GOTO nark_buy_drug]\"}}]"
+                                                                          "_mark": "mark_3a6o048v11trwk1c46o3",
+                                                                          "_content": "[LABEL {this.drug_price=Math.ceil((this.drugDealerGoodsCost*this.Inflation/this.drugGoodsInPackage)*1);'';}][GOTO buy_drugs]"
                                                                         }
                                                                       ],
                                                                       "_mark": "drug_price_is_1x",
-                                                                      "_content": "[LABEL {drug_price=((drugDealerGoodsCost*this.Inflation/drugGoodsInPackage)*1):0;output drug_price}][ANSWERIMAGE icons/money1.png|90;400]"
+                                                                      "_content": "[LABEL {this.drug_price=Math.ceil((this.drugDealerGoodsCost*this.Inflation/this.drugGoodsInPackage)*1);this.drug_price}][ANSWERIMAGE icons/money1.png|90;400]"
                                                                     },
                                                                     {
                                                                       "node": [
                                                                         {
                                                                           "_mark": "mark_pg53127b4z3u7s52b1m8",
-                                                                          "_content": "[LABEL ][GOTO buy_drugs]"
+                                                                          "_content": "[LABEL {this.drug_price=Math.ceil((this.drugDealerGoodsCost*this.Inflation/this.drugGoodsInPackage)*2);'';}][GOTO buy_drugs]"
                                                                         }
                                                                       ],
                                                                       "_mark": "drug_price_is_2x",
-                                                                      "_content": "[LABEL {drug_price=((drugDealerGoodsCost*this.Inflation/drugGoodsInPackage)*2):0;output drug_price}][ANSWERIMAGE icons/money2.png|150;400]"
+                                                                      "_content": "[LABEL {this.drug_price=Math.ceil((this.drugDealerGoodsCost*this.Inflation/this.drugGoodsInPackage)*2);this.drug_price}][ANSWERIMAGE icons/money2.png|150;400]"
                                                                     },
                                                                     {
                                                                       "node": [
                                                                         {
                                                                           "_mark": "mark_p7499g306q6metzi17vb",
-                                                                          "_content": "[LABEL ][GOTO buy_drugs]"
+                                                                          "_content": "[LABEL {this.drug_price=Math.ceil((this.drugDealerGoodsCost*this.Inflation/this.drugGoodsInPackage)*3);'';}][GOTO buy_drugs]"
                                                                         }
                                                                       ],
                                                                       "_mark": "drug_price_is_3x",
-                                                                      "_content": "[LABEL {drug_price=((drugDealerGoodsCost*this.Inflation/drugGoodsInPackage)*3):0;output drug_price}][ANSWERIMAGE icons/money3.png|210;400]"
+                                                                      "_content": "[LABEL {this.drug_price=Math.ceil((this.drugDealerGoodsCost*this.Inflation/this.drugGoodsInPackage)*3);this.drug_price}][ANSWERIMAGE icons/money3.png|210;400]"
                                                                     },
                                                                     {
                                                                       "node": [
                                                                         {
                                                                           "_mark": "mark_ws2m9u1ieof3r098m52e",
-                                                                          "_content": "[LABEL ][GOTO buy_drugs]"
+                                                                          "_content": "[LABEL {this.drug_price=Math.ceil((this.drugDealerGoodsCost*this.Inflation/this.drugGoodsInPackage)*4);'';}][GOTO buy_drugs]"
                                                                         }
                                                                       ],
                                                                       "_mark": "drug_price_is_4x",
-                                                                      "_content": "[LABEL {drug_price=((drugDealerGoodsCost*this.Inflation/drugGoodsInPackage)*4):0;output drug_price}][ANSWERIMAGE icons/money4.png|270;400]"
+                                                                      "_content": "[LABEL {this.drug_price=Math.ceil((this.drugDealerGoodsCost*this.Inflation/this.drugGoodsInPackage)*4);this.drug_price}][ANSWERIMAGE icons/money4.png|270;400]"
                                                                     },
                                                                     {
                                                                       "node": [
                                                                         {
                                                                           "_mark": "mark_6g2a032th99s967rg60w",
-                                                                          "_content": "[LABEL ][GOTO buy_drugs]"
+                                                                          "_content": "[LABEL {this.drug_price=Math.ceil((this.drugDealerGoodsCost*this.Inflation/this.drugGoodsInPackage)*5);'';}][GOTO buy_drugs]"
                                                                         }
                                                                       ],
                                                                       "_mark": "drug_price_is_5x",
-                                                                      "_content": "[LABEL {drug_price=((drugDealerGoodsCost*this.Inflation/drugGoodsInPackage)*5):0;output drug_price}][ANSWERIMAGE icons/money5.png|330;400]"
+                                                                      "_content": "[LABEL {this.drug_price=Math.ceil((this.drugDealerGoodsCost*this.Inflation/this.drugGoodsInPackage)*5);this.drug_price}][ANSWERIMAGE icons/money5.png|330;400]"
                                                                     },
                                                                     {
                                                                       "node": [
@@ -6006,7 +6018,7 @@
                                                                             }
                                                                           ],
                                                                           "_mark": "mark_blt22m30wmthto020tsl",
-                                                                          "_content": "[LABEL {drugDealerGoodsDriver=0;client_state=0}Ох ты! Них... да ты, братишь, ваще... братан! Спасибо тебе!{script show_client_inside_rear.qsp}]"
+                                                                          "_content": "[LABEL {this.drugDealerGoodsDriver=0;this.client_state=0;'';}Ох ты! Них... да ты, братишь, ваще... братан! Спасибо тебе!{script show_client_inside_rear.qsp}]"
                                                                         }
                                                                       ],
                                                                       "_mark": "",
@@ -6014,7 +6026,7 @@
                                                                     }
                                                                   ],
                                                                   "_mark": "how_much_drug_costs",
-                                                                  "_content": "[LABEL Продай не за дорого, братишь?{if random < 0.5 {output \" Давай за \" + nark_money + \"?\";{value_to_show=nark_money}{script calc_client_price_picture.qsp}}}{script show_client_inside_rear.qsp}]"
+                                                                  "_content": "[LABEL Продай не за дорого, братишь?{if (Math.random() < 0.5) {\" Давай за \" + this.nark_money + \"?\";{this.value_to_show=this.nark_money;'';}{script calc_client_price_picture.qsp}}}{script show_client_inside_rear.qsp}]"
                                                                 }
                                                               ],
                                                               "_mark": "",
@@ -6032,7 +6044,7 @@
                                                             }
                                                           ],
                                                           "_mark": "drug_distribution",
-                                                          "_content": "[LABEL Братишь... у тебя ведь есть что-то для меня?{nark_money=((drugDealerGoodsCost*this.Inflation/drugGoodsInPackage)*(1+random*4):0):0}{script show_client_inside_rear.qsp}]"
+                                                          "_content": "[LABEL Братишь... у тебя ведь есть что-то для меня?{this.nark_money=Math.ceil(Math.ceil(this.drugDealerGoodsCost*this.Inflation/this.drugGoodsInPackage)*(1+Math.random()*4))}{script show_client_inside_rear.qsp}]"
                                                         }
                                                       ],
                                                       "_mark": "",
@@ -6040,7 +6052,7 @@
                                                     }
                                                   ],
                                                   "_mark": "business6",
-                                                  "_content": "[LABEL {if (drugDealer == 1) && (this.client_type==6) && (drugDealerGoodsDriver>0) {output \"[GOTO drug_distribution]\"} else {output \"[GOTO business7]\"} }]"
+                                                  "_content": "[LABEL {if (this.drugDealer == 1 && this.client_type==6 && this.drugDealerGoodsDriver>0) {\"[GOTO drug_distribution]\"} else {\"[GOTO business7]\"} }]"
                                                 },
                                                 {
                                                   "node": [
@@ -6104,7 +6116,7 @@
                                                                                                                             }
                                                                                                                           ],
                                                                                                                           "_mark": "mark_7n7l5h5f02ivk73wz68x",
-                                                                                                                          "_content": "[LABEL Да, чуть не забыл... в одной упаковке товара - {output drugGoodsInPackage} пакетиков. Надо найти ... эээ... {output drugGoodsInPackage} больных людей. Хороший бизнес... завидую тебе, братишь... быстро разбогатеешь!{script show_client_inside_rear.qsp}]"
+                                                                                                                          "_content": "[LABEL Да, чуть не забыл... в одной упаковке товара - {this.drugGoodsInPackage} пакетиков. Надо найти ... эээ... {this.drugGoodsInPackage} больных людей. Хороший бизнес... завидую тебе, братишь... быстро разбогатеешь!{script show_client_inside_rear.qsp}]"
                                                                                                                         }
                                                                                                                       ],
                                                                                                                       "_mark": "",
@@ -6120,7 +6132,7 @@
                                                                                                             }
                                                                                                           ],
                                                                                                           "_mark": "mark_5ac0ho2hhd359x301gf9",
-                                                                                                          "_content": "[LABEL {drugDealer=1}Короче, схема такая... едешь в банк... переводишь {output drugDealerGoodsCost*this.Inflation} на номер карты, которую я тебе дам... Потом едешь в Ракетный и забираешь товар в условном месте...{script show_client_inside_rear.qsp}]"
+                                                                                                          "_content": "[LABEL {this.drugDealer=1;'';}Короче, схема такая... едешь в банк... переводишь {this.drugDealerGoodsCost*this.Inflation} на номер карты, которую я тебе дам... Потом едешь в Ракетный и забираешь товар в условном месте...{script show_client_inside_rear.qsp}]"
                                                                                                         }
                                                                                                       ],
                                                                                                       "_mark": "",
@@ -6138,7 +6150,7 @@
                                                                                                     }
                                                                                                   ],
                                                                                                   "_mark": "mark_2ii0k4b8u0f5pg7j0t0h",
-                                                                                                  "_content": "[LABEL Берешь товар по {output drugDealerGoodsCost*this.Inflation}, продаешь намного дороже. Согласен?{script show_client_inside_rear.qsp}]"
+                                                                                                  "_content": "[LABEL Берешь товар по {this.drugDealerGoodsCost*this.Inflation}, продаешь намного дороже. Согласен?{script show_client_inside_rear.qsp}]"
                                                                                                 }
                                                                                               ],
                                                                                               "_mark": "",
@@ -6194,7 +6206,7 @@
                                                     }
                                                   ],
                                                   "_mark": "business7",
-                                                  "_content": "[LABEL {if (drugDealer == 0) && (this.client_type==6) && (money>=drugDealerGoodsCost*this.Inflation) {output \"[GOTO drug_dealer]\"} else {output \"[GOTO business8]\"} }]"
+                                                  "_content": "[LABEL {if (this.drugDealer == 0 && this.client_type==6 && this.money>=this.drugDealerGoodsCost*this.Inflation) {\"[GOTO drug_dealer]\"} else {\"[GOTO business8]\"} }]"
                                                 },
                                                 {
                                                   "node": [
@@ -6210,7 +6222,7 @@
                                                     }
                                                   ],
                                                   "_mark": "business8",
-                                                  "_content": "[LABEL {if drugMoney > drugMaxMoneyEarn {output \"[GOTO police_catch_drug_dealer]\"} else {output \"[GOTO business9]\"}}]"
+                                                  "_content": "[LABEL {if (this.drugMoney > this.drugMaxMoneyEarn) {\"[GOTO police_catch_drug_dealer]\"} else {\"[GOTO business9]\"}}]"
                                                 },
                                                 {
                                                   "node": [
@@ -6260,7 +6272,7 @@
                                                     }
                                                   ],
                                                   "_mark": "business9",
-                                                  "_content": "[LABEL {if (this.client_type==5) && (client_subtype==1) && (barsukPsy>0) && (barsukPsy<3){output \"[GOTO ask_barsuk]\"} else {output \"[GOTO business10]\"}} ]"
+                                                  "_content": "[LABEL {if (this.client_type==5 && this.client_subtype==1 && this.barsukPsy>0 && this.barsukPsy<3) {\"[GOTO ask_barsuk]\"} else {\"[GOTO business10]\"}} ]"
                                                 },
                                                 {
                                                   "node": [
@@ -6300,7 +6312,7 @@
                                                                                                     }
                                                                                                   ],
                                                                                                   "_mark": "mark_5zr4p17miq7oz7k6d82q",
-                                                                                                  "_content": "[LABEL Вот и ладненько.{things[thing_dvd][1]=0; this.dvd_playing=0;stolen_dvd=0;client_state=0}{script show_client_inside_rear.qsp}]"
+                                                                                                  "_content": "[LABEL Вот и ладненько.{this.things[this.thing_dvd][1]=0; this.dvd_playing=0;this.stolen_dvd=0;this.client_state=0;'';}{script show_client_inside_rear.qsp}]"
                                                                                                 }
                                                                                               ],
                                                                                               "_mark": "eh_take_dvd",
@@ -6308,7 +6320,7 @@
                                                                                             }
                                                                                           ],
                                                                                           "_mark": "mark_og411m99f608p483yq85",
-                                                                                          "_content": "[LABEL {driver_show_gun=0}Опа! И нет у тебя пушки.. Давай сюда магнитолу! Живо!{things[thing_gun,1]=0}{script show_client_inside_rear.qsp}]"
+                                                                                          "_content": "[LABEL {this.driver_show_gun=0;'';}Опа! И нет у тебя пушки.. Давай сюда магнитолу! Живо!{this.things[this.thing_gun][1]=0;'';}{script show_client_inside_rear.qsp}]"
                                                                                         }
                                                                                       ],
                                                                                       "_mark": "",
@@ -6316,11 +6328,11 @@
                                                                                     }
                                                                                   ],
                                                                                   "_mark": "mark_6xs87g95p969o2166095",
-                                                                                  "_content": "[LABEL {driver_show_gun=1;client_state=2}Ты думаешь меня, военного человека, этой пукалкой испугать?{script show_client_inside_rear.qsp}]"
+                                                                                  "_content": "[LABEL {this.driver_show_gun=1;this.client_state=2;'';}Ты думаешь меня, военного человека, этой пукалкой испугать?{script show_client_inside_rear.qsp}]"
                                                                                 }
                                                                               ],
                                                                               "_mark": "",
-                                                                              "_content": "[LABEL {if things[thing_gun,1]==1 {output \"Не отдам![ANSWERIMAGE icons/gun.png|235;400]\"}}]"
+                                                                              "_content": "[LABEL {if (this.things[this.thing_gun][1]==1) {\"Не отдам![ANSWERIMAGE icons/gun.png|235;400]\"}}]"
                                                                             },
                                                                             {
                                                                               "_mark": "",
@@ -6362,7 +6374,7 @@
                                                     }
                                                   ],
                                                   "_mark": "business10",
-                                                  "_content": "[LABEL {if (stolen_dvd==1) && (this.client_type==4) && (random < 0.7) {output \"[GOTO stolen_dvd]\"} else {output \"[GOTO business11]\"}} ]"
+                                                  "_content": "[LABEL {if (this.stolen_dvd==1 && this.client_type==4 && Math.random() < 0.7) {\"[GOTO stolen_dvd]\"} else {\"[GOTO business11]\"}} ]"
                                                 },
                                                 {
                                                   "_mark": "business11",

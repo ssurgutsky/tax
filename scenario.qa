@@ -315,25 +315,25 @@
 																																																		[mark_3efqr10y4b6d70g6g41e][GOTO wanna_kick_me]
 																																															[GOTO show_gun_to_casino_guy]
 																																	{if ((this.location == 13 || this.location == 16) && this.fuel<this.max_fuel && this.money>0) {"Заправлю машину" + "[ANSWERIMAGE icons/fuel_station.png|260;400]"}}
-																																		[fuel_station]{script rounding.qsp}{script show_game_stats.qsp}{output "\n"}{this.locations[this.location][0]}. Бензин здесь стоит: {output this.fuel_cost; if things[thing_fuel_discount,1] {output " (с учетом скидки " + this.fuel_discount_value + "%)"}}{script show_client}
-																																			{if this.fuel_by_money>=car_fuel_needed {output "Заправить полный бак, требуется литров: " + car_fuel_needed + "[ANSWERIMAGE icons/money6.png|200;400]"}}
-																																				[mark_kr482j5dhp90wjg68a45]{money=(money-car_fuel_needed*this.fuel_cost):2;this.fuel=this.max_fuel}{script rounding.qsp}{script calc_car_fuel.qsp}[GOTO new_location]
+																																		[fuel_station]{script rounding.qsp}{script show_game_stats.qsp}\n{this.locations[this.location][0]}. Бензин здесь стоит: {this.fuel_cost; if (this.things[this.thing_fuel_discount][1] {" (с учетом скидки " + this.fuel_discount_value + "%)"}}{script show_client}
+																																			{if (this.fuel_by_money>=this.car_fuel_needed) {"Заправить полный бак, требуется литров: " + this.car_fuel_needed + "[ANSWERIMAGE icons/money6.png|200;400]"}}
+																																				[mark_kr482j5dhp90wjg68a45]{this.money=(this.money-this.car_fuel_needed*this.fuel_cost).toFixed(2);this.fuel=this.max_fuel}{script rounding.qsp}{script calc_car_fuel.qsp}[GOTO new_location]
 																																			Ввести кол-во литров вручную[ANSWERIMAGE icons/how_much.png|260;400]
-																																				[how_many_fuel]Сколько литров заправить 0 - {output max_car_can_fuel:1}?{script show_client}
+																																				[how_many_fuel]Сколько литров заправить 0 - {+this.max_car_can_fuel.toFixed(1)}?{script show_client}
 																																					[INPUTN this.fuel_liters]
-																																						[mark_li763547sgcz39426ne1]{if (this.fuel_liters>=0) && (this.fuel_liters<=max_car_can_fuel) {this.fuel+=this.fuel_liters;money-=this.fuel_cost*this.fuel_liters;{script rounding.qsp}{script calc_car_fuel.qsp}output "[GOTO new_location]"} else {output "[GOTO how_many_fuel]"}}
-																																			{if (money > 0) && (this.fuel_by_money<=car_fuel_needed) {output "Заправить на все оставшиеся деньги[ANSWERIMAGE icons/money1.png|380;400]"}}
-																																				[mark_inu1zf7v531a1e4tr474]{money=0;this.fuel+=this.fuel_by_money}{script rounding.qsp}{script calc_car_fuel.qsp}[GOTO new_location]
+																																						[mark_li763547sgcz39426ne1]{if (this.fuel_liters>=0 && this.fuel_liters<=this.max_car_can_fuel) {this.fuel+=this.fuel_liters;this.money-=this.fuel_cost*this.fuel_liters;{script rounding.qsp}{script calc_car_fuel.qsp}"[GOTO new_location]"} else {"[GOTO how_many_fuel]"}}
+																																			{if (this.money > 0 && this.fuel_by_money<=this.car_fuel_needed) {"Заправить на все оставшиеся деньги[ANSWERIMAGE icons/money1.png|380;400]"}}
+																																				[mark_inu1zf7v531a1e4tr474]{this.money=0;this.fuel+=this.fuel_by_money;'';}{script rounding.qsp}{script calc_car_fuel.qsp}[GOTO new_location]
 																																			Ввести сумму заправки вручную[ANSWERIMAGE icons/how_much_money.png|260;400]
-																																				[how_many_fuel_sum]На какую сумму заправить 0 - {output max_money_for_fuel}?{script show_client}
+																																				[how_many_fuel_sum]На какую сумму заправить 0 - {this.max_money_for_fuel}?{script show_client}
 																																					[INPUTN this.fuel_sum]
-																																						[mark_71rd4pgx3e7thf2905eg]{if (this.fuel_sum>=0) && (this.fuel_sum<=max_money_for_fuel) {money-=this.fuel_sum;this.fuel+=this.fuel_sum/this.fuel_cost;{script rounding.qsp}{script calc_car_fuel.qsp}output "[GOTO new_location]"} else {output "[GOTO how_many_fuel_sum]"}}
+																																						[mark_71rd4pgx3e7thf2905eg]{if (this.fuel_sum>=0 && this.fuel_sum<=this.max_money_for_fuel) {this.money-=this.fuel_sum;this.fuel+=this.fuel_sum/this.fuel_cost;{script rounding.qsp}{script calc_car_fuel.qsp}"[GOTO new_location]"} else {"[GOTO how_many_fuel_sum]"}}
 																																			Передумал заправлять машину[ANSWERIMAGE icons/cancel.png|320;400]
 																																				[mark_2947h2v1kf494tad6166][GOTO new_location]
 																																	{if (this.location == 14 || this.location == 17) {"Заеду помыть машину" + "[ANSWERIMAGE icons/enter.png|260;400]"}}
-																																		[car_washing]{this.dvd_playing=0}{script rounding.qsp}{script show_game_stats.qsp}{output "\n"}{this.locations[this.location][0]}. Помыть машину здесь стоит: {output car_washing_cost}{if things[thing_carwashing_discount,1]>0 {output " (с учетом скидки от Махмуда)"}}{script show_in_carwashing.qsp}[AMBIENT water.mp3][BGNDMUSIC none]
-																																			{if money>=car_washing_cost {output "Помою здесь за " + car_washing_cost + "[ANSWERIMAGE icons/good.png|260;400]"}}
-																																				[mark_u6x2p8mk6p4c7v64rmx8]{money=(money-car_washing_cost):2;car_cleanness=100}{script rounding.qsp}{script calc_car_washing.qsp}{script spent_time.qsp}Готово!{script show_in_carwashing.qsp}
+																																		[car_washing]{this.dvd_playing=0}{script rounding.qsp}{script show_game_stats.qsp}\n{this.locations[this.location][0]}. Помыть машину здесь стоит: {this.car_washing_cost}{if (this.things[this.thing_carwashing_discount][1]>0) {" (с учетом скидки от Махмуда)"}}{script show_in_carwashing.qsp}[AMBIENT water.mp3][BGNDMUSIC none]
+																																			{if (this.money>=this.car_washing_cost) {"Помою здесь за " + this.car_washing_cost + "[ANSWERIMAGE icons/good.png|260;400]"}}
+																																				[mark_u6x2p8mk6p4c7v64rmx8]{this.money=+(this.money-this.car_washing_cost).toFixed(2);this.car_cleanness=100}{script rounding.qsp}{script calc_car_washing.qsp}{script spent_time.qsp}Готово!{script show_in_carwashing.qsp}
 																																					[leave_carwashing]Уеду отсюда[AMBIENT none][ANSWERIMAGE icons/enter.png|320;400]
 																																						[mark_run5a7n851rwllh3x8wj][GOTO new_location]
 																																			[GOTO leave_carwashing]
@@ -373,15 +373,15 @@
 																																			...[ANSWERIMAGE icons/three_dots.png|295;400][AMBIENT none]
 																																				[mark_29no4h1h82t89yt4ba73][GOTO new_location]
 																																	{if (this.location==19) {"Зайду в " + this.locations[this.location][0] + "[ANSWERIMAGE icons/enter.png|260;400]"}}
-																																		[in_bank]{this.dvd_playing=0}{script show_game_stats.qsp}{output "\n"}{this.locations[this.location][0]}.[BGNDIMAGE in_bank.jpg][MUSIC none][AMBIENT none][BGNDMUSIC none]
+																																		[in_bank]{this.dvd_playing=0}{script show_game_stats.qsp}\n{this.locations[this.location][0]}.[BGNDIMAGE in_bank.jpg][MUSIC none][AMBIENT none][BGNDMUSIC none]
 																																			Заплачу по кредиту.[ANSWERIMAGE icons/money2.png|260;400]
-																																				[how_many_for_credit]{script rounding.qsp}{script show_game_stats.qsp}{output "\n"}{this.locations[this.location][0]}.{output "\n"}Сколько заплатишь по кредиту: 0 - {output credit_max_payment}? (срочный платеж: {output credit_delay_sum}, остаток по кредиту: {output credit_rest_sum})[BGNDIMAGE in_bank.jpg]
-																																					[INPUTN payment_sum]
-																																						[mark_ui4q7942104e9p6j62i4]{if (payment_sum>=0) && (payment_sum<=credit_max_payment) {credit_rest_sum-=payment_sum;money-=payment_sum; if credit_rest_sum<=0 {output "[GOTO you_win]"} else {output "[GOTO in_bank]"}} else {output "[GOTO how_many_for_credit]"}}
-																																			{if (drugDealer == 1) && (drugDealerGoodsPlanted == 0) && (drugDealerGoodsDriver==0) {output "Переведу на карту денег ("+drugDealerGoodsCost*this.Inflation+")[ANSWERIMAGE icons/money2.png|320;400]"}}
-																																				[mark_rl035584qcu9ml2sul0c]{if money<drugDealerGoodsCost*this.Inflation {output "[GOTO no_money_for_drugs]"} else {output "[GOTO transfer_money_for_drugs]"}}
+																																				[how_many_for_credit]{script rounding.qsp}{script show_game_stats.qsp}\n{this.locations[this.location][0]}.\nСколько заплатишь по кредиту: 0 - {this.credit_max_payment}? (срочный платеж: {this.credit_delay_sum}, остаток по кредиту: {this.credit_rest_sum})[BGNDIMAGE in_bank.jpg]
+																																					[INPUTN this.payment_sum]
+																																						[mark_ui4q7942104e9p6j62i4]{if (this.payment_sum>=0 && this.payment_sum<=this.credit_max_payment) {this.credit_rest_sum-=this.payment_sum;this.money-=this.payment_sum; if (this.credit_rest_sum<=0) {"[GOTO you_win]"} else {"[GOTO in_bank]"}} else {"[GOTO how_many_for_credit]"}}
+																																			{if (this.drugDealer == 1 && this.drugDealerGoodsPlanted == 0 && this.drugDealerGoodsDriver==0) {"Переведу на карту денег ("+this.drugDealerGoodsCost*this.Inflation+")[ANSWERIMAGE icons/money2.png|320;400]"}}
+																																				[mark_rl035584qcu9ml2sul0c]{if (this.money<this.drugDealerGoodsCost*this.Inflation) {"[GOTO no_money_for_drugs]"} else {"[GOTO transfer_money_for_drugs]"}}
 																																					
-																																						[transfer_money_for_drugs]{money-=drugDealerGoodsCost*this.Inflation;drugDealerGoodsPlanted++}{script rounding.qsp}Деньги успешно переведены.[BGNDIMAGE in_bank.jpg]
+																																						[transfer_money_for_drugs]{this.money-=this.drugDealerGoodsCost*this.Inflation;this.drugDealerGoodsPlanted++;'';}{script rounding.qsp}Деньги успешно переведены.[BGNDIMAGE in_bank.jpg]
 																																							...[ANSWERIMAGE icons/exit.png|295;400]
 																																								[mark_myrrfzw23ud76vvl33nq][GOTO in_bank]
 																																						[no_money_for_drugs]Извините, у вас не достаточно средств.
