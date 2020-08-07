@@ -186,7 +186,7 @@
                                                                                                                                                                                     }
                                                                                                                                                                                   ],
                                                                                                                                                                                   "_mark": "explode_railway_station",
-                                                                                                                                                                                  "_content": "[LABEL ][BGNDIMAGE explosion.jpg][SOUNDFX boom.mp3][TIMEEXPIRED railway_station_exploded][ANSWERTIME 1]"
+                                                                                                                                                                                  "_content": "[LABEL .][BGNDIMAGE explosion.jpg][SOUNDFX boom.mp3][TIMEEXPIRED railway_station_exploded][ANSWERTIME 1]"
                                                                                                                                                                                 }
                                                                                                                                                                               ],
                                                                                                                                                                               "_mark": "",
@@ -2346,7 +2346,7 @@
                                                                                                                                                                                               "node": [
                                                                                                                                                                                                 {
                                                                                                                                                                                                   "_mark": "mark_bi21fuxrh2zao9813d10",
-                                                                                                                                                                                                  "_content": "[LABEL {things[thing_repairing_book,3]=1}{script calc_car_repair.qsp}][GOTO new_location]"
+                                                                                                                                                                                                  "_content": "[LABEL {this.things[this.thing_repairing_book][3]=1;'';}{script calc_car_repair.qsp}][GOTO new_location]"
                                                                                                                                                                                                 }
                                                                                                                                                                                               ],
                                                                                                                                                                                               "_mark": "",
@@ -2354,7 +2354,7 @@
                                                                                                                                                                                             }
                                                                                                                                                                                           ],
                                                                                                                                                                                           "_mark": "rb6",
-                                                                                                                                                                                          "_content": "[LABEL Теперь ты знаешь, как устроен твой автомобиль. Ты можешь чинить его сам с помощью: {output things[thing_repairing_toolkit, 0]}][BGNDIMAGE repairing_toolkit.jpg]"
+                                                                                                                                                                                          "_content": "[LABEL Теперь ты знаешь, как устроен твой автомобиль. Ты можешь чинить его сам с помощью: {this.things[this.thing_repairing_toolkit][0]}][BGNDIMAGE repairing_toolkit.jpg]"
                                                                                                                                                                                         }
                                                                                                                                                                                       ],
                                                                                                                                                                                       "_mark": "",
@@ -3938,7 +3938,7 @@
                                                                                                                             }
                                                                                                                           ],
                                                                                                                           "_mark": "new_location",
-                                                                                                                          "_content": "[LABEL {this.location=this.new_location;this.client_type=0;'';}{script rounding.qsp}][IMAGE black_screen.jpg][AUDIO silent_0.1][AMBIENT AmbientStreet]"
+                                                                                                                          "_content": "[LABEL {this.location=this.new_location;this.client_type=0;'';}{script rounding.qsp}.][IMAGE black_screen.jpg][AUDIO silent_0.1][AMBIENT AmbientStreet]"
                                                                                                                         }
                                                                                                                       ],
                                                                                                                       "_mark": "",
@@ -4226,7 +4226,7 @@
                                                                             }
                                                                           ],
                                                                           "_mark": "main_menu",
-                                                                          "_content": "[LABEL {script rounding.qsp}{script show_game_stats.qsp}\nКуда поедешь?{script show_map.qsp}{script calc_weather.qsp}]"
+                                                                          "_content": "[LABEL {script rounding.qsp}{script show_game_stats.qsp}\nКуда поедешь?{script show_map.qsp}{script calc_weather.qsp}][ANSWERSORDER ON]"
                                                                         }
                                                                       ],
                                                                       "_mark": "",
@@ -4610,7 +4610,7 @@
                                                             }
                                                           ],
                                                           "_mark": "mark_49u8ffjt84o9pd2tw9sc",
-                                                          "_content": "[LABEL {if car_state>0 {this.client_type=0;location=this.new_location;output \"[GOTO location_actions]\"}}]"
+                                                          "_content": "[LABEL {if (this.car_state>0) {this.client_type=0;this.location=this.new_location;\"[GOTO location_actions]\"}}]"
                                                         }
                                                       ],
                                                       "_mark": "",
@@ -4618,7 +4618,7 @@
                                                     }
                                                   ],
                                                   "_mark": "crushed",
-                                                  "_content": "[LABEL {vip_call=0;crushes_own++}{script calc_car_crush.qsp}Авария! Повреждение машины: {output car_damage}%. Текущее состояние машины: {output car_state}%.{if car_state>0 {script show_car_crushed.qsp} else {output \"[BGNDIMAGE car_crushed_total.jpg]\"}}][SOUNDFX brakes_crash.mp3]"
+                                                  "_content": "[LABEL {this.vip_call=0;this.crushes_own++}{script calc_car_crush.qsp}Авария! Повреждение машины: {this.car_damage}%. Текущее состояние машины: {this.car_state}%.{if (this.car_state>0) {script show_car_crushed.qsp} else {\"[BGNDIMAGE car_crushed_total.jpg]\"}}][SOUNDFX brakes_crash.mp3]"
                                                 },
                                                 {
                                                   "node": [
@@ -4982,7 +4982,7 @@
                                                                     }
                                                                   ],
                                                                   "_mark": "wrong_pdd_answer",
-                                                                  "_content": "[LABEL {pdd_wrong++}]"
+                                                                  "_content": "[LABEL {this.pdd_wrong++;'';}]"
                                                                 },
                                                                 {
                                                                   "node": [
@@ -4998,7 +4998,7 @@
                                                                     }
                                                                   ],
                                                                   "_mark": "right_pdd_answer",
-                                                                  "_content": "[LABEL {pdd_right++}]"
+                                                                  "_content": "[LABEL {this.pdd_right++;'';}]"
                                                                 }
                                                               ],
                                                               "_mark": "",
@@ -5006,7 +5006,7 @@
                                                             }
                                                           ],
                                                           "_mark": "ask_pdd_question",
-                                                          "_content": "[LABEL {pdd_questions++}][GOTO pdd5_14,pdd5_15,pdd6_11,pdd7_11,pdd7_13,pdd4_14,pdd19_11,pdd32_15,pdd11_13,pdd21_14]"
+                                                          "_content": "[LABEL {this.pdd_questions++;'';}][GOTO pdd5_14,pdd5_15,pdd6_11,pdd7_11,pdd7_13,pdd4_14,pdd19_11,pdd32_15,pdd11_13,pdd21_14]"
                                                         }
                                                       ],
                                                       "_mark": "",
@@ -5740,7 +5740,7 @@
                                                                             }
                                                                           ],
                                                                           "_mark": "mark_ap57yr2v2n769hz97cil",
-                                                                          "_content": "[LABEL Пользуйся, гужбан... помни мою доброту.{money-=thing_cost;things[thing_fuel_discount,1]=1}{client_state=0}{script show_client_inside_rear.qsp}]"
+                                                                          "_content": "[LABEL Пользуйся, гужбан... помни мою доброту.{this.money-=this.thing_cost;this.things[this.thing_fuel_discount][1]=1;this.client_state=0;'';}{script show_client_inside_rear.qsp}]"
                                                                         }
                                                                       ],
                                                                       "_mark": "ok_buy_fuel_discount_card",
@@ -5770,7 +5770,7 @@
                                                             }
                                                           ],
                                                           "_mark": "mark_6od9cu9oo0423ns564zx",
-                                                          "_content": "[LABEL Братэлла, слышь, у меня тут уникальная вещица имеется, карточка: {output things[thing_fuel_discount,0]}. Хочешь, продам тебе за: {output thing_cost}?{value_to_show=thing_cost}{script calc_client_price_picture.qsp}{script show_client_inside_rear.qsp}]"
+                                                          "_content": "[LABEL Братэлла, слышь, у меня тут уникальная вещица имеется, карточка: {this.things[this.thing_fuel_discount][0]}. Хочешь, продам тебе за: {this.thing_cost}?{this.value_to_show=this.thing_cost;'';}{script calc_client_price_picture.qsp}{script show_client_inside_rear.qsp}]"
                                                         }
                                                       ],
                                                       "_mark": "",
