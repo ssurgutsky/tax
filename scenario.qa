@@ -473,7 +473,7 @@
 																																																				[mark_k63l06852359hf0ylx01][GOTO taxing]
 																																																			{if (this.client_bargained==1) {"Постой, поехали за " + this.client_price + "[ANSWERIMAGE icons/good.png|260;400]"}}
 																																																				[mark_26734saq61095049c8v6][GOTO client_agreed]
-																																																		[client_agreed]{script client_agreed.qsp}{script show_client}[ANSWERTIME {this.waiting/10;'';}][TIMEEXPIRED travel_road]
+																																																		[client_agreed]{script client_agreed.qsp}{script show_client}[ANSWERTIME {this.waiting/10}][TIMEEXPIRED travel_road]
 																																																			Едем[ANSWERIMAGE icons/good.png|295;400]
 																																																				[travel_road]...[IMAGE black_screen.jpg][AUDIO silent_0.1][SOUNDFX car_door_closed.mp3][AMBIENT AmbientTraffic]
 																																																					
