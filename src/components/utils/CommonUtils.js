@@ -222,23 +222,72 @@ export default {
   },
 
   evalString (___str___) {
+    // {{a=b}{c=d}{if (a=d) {d=b;{script test.qsp}}}}{script test2.qsp}
+
     let result = ___str___
+
+    let preresult = ___str___
+
+    const SCRIPT_KEYWORD = '{script '
+    const SCRIPT_EXTENSION = '.qsp'
+    const SCRIPT_SUFFIX = '}'
+
+    // Replace all texts like {script name.qsp} to their bodies
+    console.log('preresult BEFORE:', preresult)
+    let hasScript = false
+    let firstRun = true
+    while (hasScript || firstRun) {
+      firstRun = false
+      let pb = preresult.indexOf(SCRIPT_KEYWORD)
+      hasScript = pb >= 0
+      if (hasScript) {
+        let bl = 0
+        let hasScriptEnding = false
+        while (pb + bl < preresult.length) {
+          hasScriptEnding = preresult[pb + bl] === SCRIPT_SUFFIX
+          if (hasScriptEnding) break
+          bl++
+        }
+
+        if (hasScriptEnding) {
+          let scriptStr = preresult.substr(pb, bl + 1)
+          console.log('SCRIPT STR:', scriptStr)
+          let scriptName = scriptStr
+            .replace(SCRIPT_KEYWORD, '')
+            .replace(SCRIPT_EXTENSION, '')
+            .replace(SCRIPT_SUFFIX, '')
+            .trim()
+            .toLowerCase()
+
+          console.log('SCRIPT NAME:', scriptName)
+          let scriptBody = CacheController.getAssetByName(CacheController.CATEGORY_SCRIPTS, scriptName)
+          // console.log('=============', scriptBody)
+          if (!scriptBody) {
+            console.log('Script not found!', scriptName)
+          }
+          scriptBody = '{' + scriptBody + '}'
+          preresult = preresult.replace(scriptStr, scriptBody)
+          console.log('replacing:', scriptStr, scriptBody)
+        }
+      }
+    }
+    console.log('preresult AFTER:', preresult)
 
     let arr = []
     let bracesLeft = 0
     let startPos = 0
     let endPos = 0
-    for (let i = 0; i < ___str___.length; i++) {
-      if (___str___[i] === '{') {
+    for (let i = 0; i < preresult.length; i++) {
+      if (preresult[i] === '{') {
         if (bracesLeft === 0) {
           startPos = i
         }
         bracesLeft++
       }
-      if (___str___[i] === '}') {
+      if (preresult[i] === '}') {
         bracesLeft--
         if (bracesLeft < 0) {
-          console.log('Incorrect string!', ___str___)
+          console.log('Incorrect string!', preresult)
         }
         if (bracesLeft === 0) {
           endPos = i
@@ -246,6 +295,8 @@ export default {
         }
       }
     }
+    console.log('arr', arr)
+
     if (arr.length) {
       result = ''
       let lastEnd = 0
@@ -254,32 +305,9 @@ export default {
         let start = obj.startPos
         let end = obj.endPos
         let length = end - start + 1
-        result = result + ___str___.substr(lastEnd, start - lastEnd)
-        let jsCode = ___str___.substr(start, length)
-
-        let jsCodeLC = jsCode.toLowerCase()
-        const SCRIPT_PREFIX = '{'
-        const SCRIPT_KEYWORD = '{script '
-        const SCRIPT_EXTENSION = '.qsp'
-        const SCRIPT_SUFFIX = '}'
-        let isScript = jsCodeLC.indexOf(SCRIPT_KEYWORD) === 0 || jsCodeLC.indexOf(SCRIPT_EXTENSION) >= 0
-
-        if (isScript) {
-          let scriptName = jsCode
-            .replace(new RegExp(SCRIPT_KEYWORD, 'i'), '')
-            .replace(SCRIPT_PREFIX, '')
-            .replace(new RegExp(SCRIPT_EXTENSION, 'i'), '')
-            .replace(SCRIPT_SUFFIX, '')
-          scriptName = scriptName + '.qsp'
-          console.log('SCRIPT NAME:', scriptName)
-          let text = CacheController.getAssetByName(CacheController.CATEGORY_SCRIPTS, scriptName)
-          // console.log('=============', text)
-          jsCode = text
-          if (!jsCode) {
-            console.log('Script not found!', scriptName)
-          }
-        }
-        // console.log(jsCode)
+        result = result + preresult.substr(lastEnd, start - lastEnd)
+        let jsCode = preresult.substr(start, length)
+        console.log(start, end, jsCode)
 
         let jsCodeResult = eval(jsCode) || ''
 
@@ -288,9 +316,8 @@ export default {
         result = result + jsCodeResult
         lastEnd = end + 1
       }
-      result = result + ___str___.substr(lastEnd, ___str___.length - lastEnd)
+      result = result + preresult.substr(lastEnd, preresult.length - lastEnd)
     }
-    console.log('Script ok!')
     return result
   },
 

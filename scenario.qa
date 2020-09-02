@@ -26,7 +26,7 @@
 																									
 																										[calc_new_location]{this.recalc_costs=1}{script calc_car_repair.qsp}{script calc_car_washing.qsp}{script calc_car_fuel.qsp}{this.recalc_costs=0;'';}{this.return_mark="new_location"}{script check_states.qsp}
 																											
-																												[new_location]{this.location=this.new_location;this.client_type=0;'';}{script rounding.qsp}.[IMAGE black_screen.jpg][AUDIO silent_0.1][AMBIENT AmbientStreet]
+																												[new_location]...{this.location=this.new_location;this.client_type=0;'';}{script rounding.qsp}.[IMAGE black_screen.jpg][AUDIO silent_0.1][AMBIENT AmbientStreet]
 																													
 																														[mark_248af57to678vsev711m]{if (this.vip_call) {if (this.vip_location==this.location) {"[GOTO vip_client_found]"} else {"[GOTO vip_client_not_found]"}}}
 																															
@@ -479,13 +479,13 @@
 																																																					
 																																																						[mark_t2w5t28rjfq2u1k3tc22]{if (this.waiting<=5) {"[GOTO client_saying]"} else {script show_client_travel.qsp}}
 																																																							
-																																																								[mark_3av9y84nac38434pu6xb][IMAGE black_screen.jpg][AUDIO silent_0.1]
+																																																								[mark_3av9y84nac38434pu6xb]...[IMAGE black_screen.jpg][AUDIO silent_0.1]
 																																																									
 																																																										[client_saying]{this.client_empty_saying=(Math.random() < 0.5 && this.client_price > 0); if (this.client_empty_saying) {{script client_says_empty.qsp}{script show_client_inside_rear.qsp}}"[ANSWERTIME 10][TIMEEXPIRED client_business_proposal]"}
 																																																											{if (this.client_empty_saying) {"...[ANSWERIMAGE icons/three_dots.png|295;400]"}}
 																																																												[client_business_proposal][GOTO business1]
 																																																													
-																																																														[client_arriving][IMAGE black_screen.jpg][AUDIO silent_0.1][AMBIENT AmbientStreet.mp3]
+																																																														[client_arriving]...[IMAGE black_screen.jpg][AUDIO silent_0.1][AMBIENT AmbientStreet.mp3]
 																																																															
 																																																																[mark_r50140ja057dkb6x1y45]{this.location=this.new_location;this.people_negative--;'';}{script travel_road.qsp}{script rounding.qsp}{this.return_mark="client_arrived"}{script check_states.qsp}
 																																																																	
