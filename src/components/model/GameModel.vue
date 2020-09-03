@@ -571,6 +571,12 @@ export default {
       result = this.evalString(input)
       commonUtils.checkCondition(input, output, result)
 
+      this.gameData = {a: 1}
+      input = '...[IMAGE logo.png]'
+      output = '...'
+      result = this.evalString(input)
+      commonUtils.checkCondition(input, output, result)
+
       // Clear after tests
       this.gameData = {}
     }
