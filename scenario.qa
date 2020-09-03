@@ -494,7 +494,7 @@
 																																																																				[client_gives_present]{script client_gives_present.qsp}{if (this.was_present) {script show_client.qsp} else {"[GOTO client_goodbye]"}}
 																																																																					Спасибо.[ANSWERIMAGE icons/good.png|295;400]
 																																																																						[mark_m9kad1uk3visn1aa4pf6][GOTO new_location]
-																																																																				[client_goodbye]{script client_goodbye}{script show_client.qsp}[ANSWERTIME 1][TIMEEXPIRED money_for_trip]
+																																																																				[client_goodbye]...{script client_goodbye}{script show_client.qsp}[ANSWERTIME 1][TIMEEXPIRED money_for_trip]
 																																																																					Всего хорошего.[ANSWERIMAGE icons/good.png|295;400]
 																																																																						[money_for_trip]{this.get_back_money_tries=0;'';}[GOTO client_gave_money{if (this.client_price > 0 && (Math.random() * this.people_negative_max < this.people_negative || Math.random()*100 > this.client_payable_rate)) {",client_squeezed_money"}}]
 																																																																							
