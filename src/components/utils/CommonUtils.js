@@ -25,7 +25,9 @@ export default {
   ],
 
   getTagValueLABEL (content) {
-    return this.getTagValue(content, 'LABEL')
+    let result = this.getTagValue(content, 'LABEL')
+    result = this.removeBrackets(result, '[', ']')
+    return result
   },
 
   getTagValueINPUTS (content) {
@@ -233,7 +235,7 @@ export default {
     const SCRIPT_SUFFIX = '}'
 
     // Replace all texts like {script name.qsp} to their bodies
-    console.log('preresult BEFORE:', preresult)
+    // console.log('preresult BEFORE:', preresult)
     let hasScript = false
     let firstRun = true
     while (hasScript || firstRun) {
@@ -259,7 +261,7 @@ export default {
             .trim()
             .toLowerCase()
 
-          console.log('SCRIPT NAME:', scriptName)
+          // console.log('SCRIPT NAME:', scriptName)
           let scriptBody = CacheController.getAssetByName(CacheController.CATEGORY_SCRIPTS, scriptName)
           // console.log('=============', scriptBody)
           if (!scriptBody) {
@@ -267,11 +269,11 @@ export default {
           }
           scriptBody = '{' + scriptBody + '}'
           preresult = preresult.replace(scriptStr, scriptBody)
-          console.log('replacing:', scriptStr, scriptBody)
+          // console.log('replacing:', scriptStr, scriptBody)
         }
       }
     }
-    console.log('preresult AFTER:', preresult)
+    // console.log('preresult AFTER:', preresult)
 
     let arr = []
     let bracesLeft = 0
@@ -295,7 +297,7 @@ export default {
         }
       }
     }
-    console.log('arr', arr)
+    // console.log('arr', arr)
 
     if (arr.length) {
       result = ''
@@ -307,13 +309,54 @@ export default {
         let length = end - start + 1
         result = result + preresult.substr(lastEnd, start - lastEnd)
         let jsCode = preresult.substr(start, length)
-        console.log(start, end, jsCode)
+        // console.log(start, end, jsCode)
 
         let jsCodeResult = eval(jsCode) || ''
 
         // console.log('jsCodeResult', jsCodeResult)
 
         result = result + jsCodeResult
+        lastEnd = end + 1
+      }
+      result = result + preresult.substr(lastEnd, preresult.length - lastEnd)
+    }
+    return result
+  },
+
+  removeBrackets (preresult, bracketLeft, bracketRight) {
+    let result = preresult
+    let arr = []
+    let bracesLeft = 0
+    let startPos = 0
+    let endPos = 0
+    for (let i = 0; i < preresult.length; i++) {
+      if (preresult[i] === bracketLeft) {
+        if (bracesLeft === 0) {
+          startPos = i
+        }
+        bracesLeft++
+      }
+      if (preresult[i] === bracketRight) {
+        bracesLeft--
+        if (bracesLeft < 0) {
+          console.log('Incorrect string!', preresult)
+        }
+        if (bracesLeft === 0) {
+          endPos = i
+          arr.push({startPos: startPos, endPos: endPos})
+        }
+      }
+    }
+    console.log('arr', arr)
+
+    if (arr.length) {
+      result = ''
+      let lastEnd = 0
+      for (let i = 0; i < arr.length; i++) {
+        let obj = arr[i]
+        let start = obj.startPos
+        let end = obj.endPos
+        result = result + preresult.substr(lastEnd, start - lastEnd)
         lastEnd = end + 1
       }
       result = result + preresult.substr(lastEnd, preresult.length - lastEnd)
@@ -352,6 +395,11 @@ export default {
     this.checkCondition(input, output, result)
 
     input = '[LABEL test][VIDEO video]'
+    output = 'test'
+    result = this.getTagValue(input, 'LABEL')
+    this.checkCondition(input, output, result)
+
+    input = '[LABEL test[AUDIO 1]][VIDEO video]'
     output = 'test'
     result = this.getTagValue(input, 'LABEL')
     this.checkCondition(input, output, result)

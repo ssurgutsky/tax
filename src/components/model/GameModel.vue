@@ -277,7 +277,7 @@ export default {
       this.answerTime = commonUtils.getTagValueANSWERTIME(this.currentNode._parsedContent)
       this.timeExpiredMark = commonUtils.getTagValueTIMEEXPIRED(this.currentNode._parsedContent)
 
-      console.log(']]]]]]]]]]]]]]', this.answerTime, this.timeExpiredMark)
+      // console.log(']]]]]]]]]]]]]]', this.answerTime, this.timeExpiredMark)
     },
 
     hasEmptyQuestion () {
@@ -573,7 +573,7 @@ export default {
 
       this.gameData = {a: 1}
       input = '...[IMAGE logo.png]'
-      output = '...'
+      output = '...[IMAGE logo.png]'
       result = this.evalString(input)
       commonUtils.checkCondition(input, output, result)
 

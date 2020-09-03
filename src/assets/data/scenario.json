@@ -3732,7 +3732,7 @@
                                                                                                                                                             }
                                                                                                                                                           ],
                                                                                                                                                           "_mark": "mark_a8p7mb0ua30e7q8pcg93",
-                                                                                                                                                          "_content": "[LABEL Детально по типам клиентов:\n{let i=1; while (i<= this.max_client_types) {clients[i][0] + \": \" + clients[i][1] + \". \";i++}}]"
+                                                                                                                                                          "_content": "[LABEL Детально по типам клиентов:\n{let i=1; let result=''; while (i<= this.max_client_types) {result=result + this.clients[i][0] + \": \" + this.clients[i][1] + \". \";i++};result;}]"
                                                                                                                                                         }
                                                                                                                                                       ],
                                                                                                                                                       "_mark": "",
@@ -3746,7 +3746,7 @@
                                                                                                                                                         }
                                                                                                                                                       ],
                                                                                                                                                       "_mark": "",
-                                                                                                                                                      "_content": "[LABEL Выручка, денег: {this.money_earned}][ANSWERIMAGE icons/stats.png|90;400]"
+                                                                                                                                                      "_content": "[LABEL Выручка, денег: {this.money_earned.toFixed()}][ANSWERIMAGE icons/stats.png|90;400]"
                                                                                                                                                     },
                                                                                                                                                     {
                                                                                                                                                       "node": [
@@ -3756,7 +3756,7 @@
                                                                                                                                                         }
                                                                                                                                                       ],
                                                                                                                                                       "_mark": "",
-                                                                                                                                                      "_content": "[LABEL Потрачено бензина: {this.fuel_wasted}][ANSWERIMAGE icons/stats.png|150;400]"
+                                                                                                                                                      "_content": "[LABEL Потрачено бензина: {this.fuel_wasted.toFixed(2)}][ANSWERIMAGE icons/stats.png|150;400]"
                                                                                                                                                     },
                                                                                                                                                     {
                                                                                                                                                       "node": [
@@ -3778,7 +3778,7 @@
                                                                                                                                                                     }
                                                                                                                                                                   ],
                                                                                                                                                                   "_mark": "mark_c89d6dvtj90db18o10n3",
-                                                                                                                                                                  "_content": "[LABEL Не хватает: {let i=1; while (i<= max_things) {if (this.things[i][1]==0) {this.things[i][0] + \". \"}i++}}]"
+                                                                                                                                                                  "_content": "[LABEL Не хватает: {let i=1; result=''; while (i<= this.max_things) {if (this.things[i][1]==0) {result+=this.things[i][0] + \". \"}i++};result;}]"
                                                                                                                                                                 }
                                                                                                                                                               ],
                                                                                                                                                               "_mark": "",
@@ -3786,7 +3786,7 @@
                                                                                                                                                             }
                                                                                                                                                           ],
                                                                                                                                                           "_mark": "mark_de0h76iu4bvog8eooig2",
-                                                                                                                                                          "_content": "[LABEL В наличии: {let i=1; while (i<=this.max_things) {if (this.things[i][1]==1) {this.things[i][0] + \". \"} i++}}]"
+                                                                                                                                                          "_content": "[LABEL В наличии: {let i=1; let result=''; while (i<=this.max_things) {if (this.things[i][1]==1) {result = result + this.things[i][0] + \". \"} i++};result;}]"
                                                                                                                                                         }
                                                                                                                                                       ],
                                                                                                                                                       "_mark": "",

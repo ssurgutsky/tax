@@ -33,7 +33,7 @@ export default {
       this.timerId = setInterval(() => {
         this.currentMS += this.interval
 
-        console.log('PROCESSTIMERUPDATE:::', this.mark, this.seconds, this.currentMS, this.totalMS)
+        // console.log('PROCESSTIMERUPDATE:::', this.mark, this.seconds, this.currentMS, this.totalMS)
 
         this.updateIndicator()
 

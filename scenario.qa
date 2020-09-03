@@ -697,17 +697,17 @@
 																																	Посмотрю статистику[ANSWERIMAGE icons/stats.png|500;400]
 																																		[show_statistic]Статистика{script show_client.qsp}
 																																			Подвезено клиентов: {let i=1;let cl_count=0; while (i <= this.max_client_types) {cl_count+= this.clients[i][1];i++} cl_count}. Смотреть детально...[ANSWERIMAGE icons/next.png|30;400]
-																																				[mark_a8p7mb0ua30e7q8pcg93]Детально по типам клиентов:\n{let i=1; while (i<= this.max_client_types) {clients[i][0] + ": " + clients[i][1] + ". ";i++}}
+																																				[mark_a8p7mb0ua30e7q8pcg93]Детально по типам клиентов:\n{let i=1; let result=''; while (i<= this.max_client_types) {result=result + this.clients[i][0] + ": " + this.clients[i][1] + ". ";i++};result;}
 																																					Вернуться[ANSWERIMAGE icons/exit.png|295;400]
 																																						[mark_82ot0b5r944zzt97m4d1][GOTO show_statistic]
-																																			Выручка, денег: {this.money_earned}[ANSWERIMAGE icons/stats.png|90;400]
+																																			Выручка, денег: {this.money_earned.toFixed()}[ANSWERIMAGE icons/stats.png|90;400]
 																																				[mark_6d7145jj40zi2x449qq7][GOTO show_statistic]
-																																			Потрачено бензина: {this.fuel_wasted}[ANSWERIMAGE icons/stats.png|150;400]
+																																			Потрачено бензина: {this.fuel_wasted.toFixed(2)}[ANSWERIMAGE icons/stats.png|150;400]
 																																				[mark_3ex8s1m3845wq7oo43ty][GOTO show_statistic]
 																																			Приобретено вещей и бонусов: {let i=1;let things_count=0; while (i<=this.max_things) {things_count+=this.things[i][1];i++} things_count + " из " + this.max_things}. Смотреть детально...[ANSWERIMAGE icons/next.png|210;400]
-																																				[mark_de0h76iu4bvog8eooig2]В наличии: {let i=1; while (i<=this.max_things) {if (this.things[i][1]==1) {this.things[i][0] + ". "} i++}}
+																																				[mark_de0h76iu4bvog8eooig2]В наличии: {let i=1; let result=''; while (i<=this.max_things) {if (this.things[i][1]==1) {result = result + this.things[i][0] + ". "} i++};result;}
 																																					Дальше...[ANSWERIMAGE icons/next.png|295;400]
-																																						[mark_c89d6dvtj90db18o10n3]Не хватает: {let i=1; while (i<= max_things) {if (this.things[i][1]==0) {this.things[i][0] + ". "}i++}}
+																																						[mark_c89d6dvtj90db18o10n3]Не хватает: {let i=1; result=''; while (i<= this.max_things) {if (this.things[i][1]==0) {result+=this.things[i][0] + ". "}i++};result;}
 																																							Вернуться[ANSWERIMAGE icons/exit.png|295;400]
 																																								[mark_7wbcbv7514o3x93e6i1m][GOTO show_statistic]
 																																			Озлобленность народа: {Math.floor(this.people_negative*100/this.people_negative_max)}%[ANSWERIMAGE icons/stats.png|270;400]
