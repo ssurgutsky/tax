@@ -2924,7 +2924,7 @@
                                                                                                                                                                                                                     }
                                                                                                                                                                                                                   ],
                                                                                                                                                                                                                   "_mark": "client_bargain",
-                                                                                                                                                                                                                  "_content": "[LABEL {script client_bargain.qsp}{this.client_state=1;this.value_to_show=this.client_price;'';}{script calc_client_price_picture.qsp}{script show_client.qsp}][TIMEEXPIRED client_go_away][ANSWERTIME 20]"
+                                                                                                                                                                                                                  "_content": "[LABEL {script client_bargain.qsp}{this.client_state=1;this.value_to_show=this.client_price;'';}{script calc_client_price_picture.qsp}{script show_client.qsp}][TIMEEXPIRED client_go_away][ANSWERTIME 20][ANSWERSORDER ON]"
                                                                                                                                                                                                                 }
                                                                                                                                                                                                               ],
                                                                                                                                                                                                               "_mark": "",
@@ -3014,7 +3014,7 @@
                                                                                                                                                                                     }
                                                                                                                                                                                   ],
                                                                                                                                                                                   "_mark": "client_says_price",
-                                                                                                                                                                                  "_content": "[LABEL {script show_game_stats.qsp}\n{if (this.first_client_greeting) {this.first_client_greeting=0;{script client_greeting.qsp}}} {script client_asking}{this.client_bargained=1;'';}{script show_road_stats.qsp}\n{if (this.client_price < 1) {\"Бесплатно?\"} else {this.client_price + \"?\"}}{this.value_to_show=this.client_price;'';}{script calc_client_price_picture.qsp}{script show_client.qsp}][TIMEEXPIRED client_go_away][ANSWERTIME 20]"
+                                                                                                                                                                                  "_content": "[LABEL {script show_game_stats.qsp}\n{if (this.first_client_greeting) {this.first_client_greeting=0;{script client_greeting.qsp}}} {script client_asking}{this.client_bargained=1;'';}{script show_road_stats.qsp}\n{if (this.client_price < 1) {\"Бесплатно?\"} else {this.client_price + \"?\"}}{this.value_to_show=this.client_price;'';}{script calc_client_price_picture.qsp}{script show_client.qsp}][TIMEEXPIRED client_go_away][ANSWERTIME 20][ANSWERSORDER ON]"
                                                                                                                                                                                 },
                                                                                                                                                                                 {
                                                                                                                                                                                   "node": [
@@ -3064,7 +3064,7 @@
                                                                                                                                                                                     }
                                                                                                                                                                                   ],
                                                                                                                                                                                   "_mark": "client_asks_price",
-                                                                                                                                                                                  "_content": "[LABEL {script show_game_stats.qsp}\n{if (this.first_client_greeting) {this.first_client_greeting=0;{script client_greeting.qsp}}} {script client_asking.qsp} {script show_road_stats.qsp}{script show_client.qsp}][TIMEEXPIRED client_go_away][ANSWERTIME 20]"
+                                                                                                                                                                                  "_content": "[LABEL {script show_game_stats.qsp}\n{if (this.first_client_greeting) {this.first_client_greeting=0;{script client_greeting.qsp}}} {script client_asking.qsp} {script show_road_stats.qsp}{script show_client.qsp}][TIMEEXPIRED client_go_away][ANSWERTIME 20][ANSWERSORDER ON]"
                                                                                                                                                                                 }
                                                                                                                                                                               ],
                                                                                                                                                                               "_mark": "",
@@ -3902,7 +3902,7 @@
                                                                                                                                             }
                                                                                                                                           ],
                                                                                                                                           "_mark": "location_actions",
-                                                                                                                                          "_content": "[LABEL {script show_game_stats.qsp}\nМесто: {this.locations[this.location][0]}\nЧто будешь делать?{script show_client}{if (this.location == 3 && this.dvd_playing != 1) {\"[AMBIENT malibu.mp3]\"} else {\"[MUSIC AmbientStreet.mp3]\"}}]"
+                                                                                                                                          "_content": "[LABEL {script show_game_stats.qsp}\nМесто: {this.locations[this.location][0]}\nЧто будешь делать?{script show_client}{if (this.location == 3 && this.dvd_playing != 1) {\"[AMBIENT malibu.mp3]\"} else {\"[MUSIC AmbientStreet.mp3]\"}}][ANSWERSORDER ON]"
                                                                                                                                         },
                                                                                                                                         {
                                                                                                                                           "_mark": "vip_client_found",
@@ -4250,7 +4250,7 @@
                                                     }
                                                   ],
                                                   "_mark": "mark_bou5n2ke06rv2dj554gw",
-                                                  "_content": "[LABEL Теперь тебе нужно таксовать по дорогам родного города, чтобы отработать кредит.][VIDEO client_travel3.flv][AUDIO silent_4]"
+                                                  "_content": "[LABEL Теперь тебе нужно таксовать по дорогам родного города, чтобы отработать кредит.][VIDEO client_travel3.flv][AUDIO silent_4][ANSWERSORDER ON]"
                                                 },
                                                 {
                                                   "node": [
@@ -6412,7 +6412,7 @@
                             }
                           ],
                           "_mark": "mark_8k4b7be187h4p2120a06",
-                          "_content": "[LABEL {this.location=19;this.night_alpha=0;this.weather=0;'';}Благодаря государственной программе поддержки молодых таксистов, тебе повезло взять беспроцентный кредит в размере 300 000 сроком на 1 год.{script show_bank.qsp}]"
+                          "_content": "[LABEL {this.location=19;this.night_alpha=0;this.weather=0;'';}Благодаря государственной программе поддержки молодых таксистов, тебе повезло взять беспроцентный кредит в размере 300 000 сроком на 1 год.{script show_bank.qsp}][ANSWERSORDER ON]"
                         }
                       ],
                       "_mark": "",
@@ -6442,7 +6442,7 @@
                     }
                   ],
                   "_mark": "choose_language",
-                  "_content": "[LABEL Таксоман v1.0.8\nВыберите язык / Choose language][BGNDIMAGE poster.jpg][AMBIENT intro.mp3]"
+                  "_content": "[LABEL Таксоман v1.0.8\nВыберите язык / Choose language][BGNDIMAGE poster.jpg][AMBIENT intro.mp3][ANSWERSORDER ON]"
                 }
               ],
               "_mark": "",
