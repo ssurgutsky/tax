@@ -13,7 +13,7 @@ Vue.config.productionTip = false
 
 // NOTE: process.env.DEBUG is read from config/dev.env.js or config/prod.env.js
 // Use this.$debug in your code further
-Vue.prototype.$debug = false //process.env.DEBUG
+Vue.prototype.$debug = process.env.DEBUG
 
 /* eslint-disable no-new */
 new Vue({

@@ -1,1 +1,2 @@
-'test_nested_script_data';
+result = "[GOTO1]";
+result;

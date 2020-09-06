@@ -263,11 +263,13 @@ export default {
 
           // console.log('SCRIPT NAME:', scriptName)
           let scriptBody = CacheController.getAssetByName(CacheController.CATEGORY_SCRIPTS, scriptName)
-          // console.log('=============', scriptBody)
           if (!scriptBody) {
             console.log('Script not found!', scriptName)
           }
+
           scriptBody = '{' + scriptBody + '}'
+          // console.log('=============', scriptBody)
+
           preresult = preresult.replace(scriptStr, scriptBody)
           // console.log('replacing:', scriptStr, scriptBody)
         }
@@ -311,6 +313,7 @@ export default {
         let jsCode = preresult.substr(start, length)
         // console.log(start, end, jsCode)
 
+        console.log(']]]]]]]]]]]]]]]]]]]]]]]]]]]', jsCode)
         let jsCodeResult = eval(jsCode) || ''
 
         // console.log('jsCodeResult', jsCodeResult)

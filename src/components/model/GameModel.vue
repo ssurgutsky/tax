@@ -566,7 +566,7 @@ export default {
       commonUtils.checkCondition(input, output, result)
 
       this.gameData = {a: 1}
-      input = 'check_nested{this.a=2;let b=3; if (this.a != this.b) {{script test/test_nested.qsp}"[GOTO1]"} else {"GOTO2"};}'
+      input = 'check_nested{this.a=2;let b=3; if (this.a != this.b) {{script test/test_nested.qsp}} else {"GOTO2"};}'
       output = 'check_nested[GOTO1]'
       result = this.evalString(input)
       commonUtils.checkCondition(input, output, result)
