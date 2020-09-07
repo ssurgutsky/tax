@@ -148,7 +148,7 @@
                                                                                                                                                     }
                                                                                                                                                   ],
                                                                                                                                                   "_mark": "mark_al3kb004qv3vdr14857k",
-                                                                                                                                                  "_content": "[LABEL {this.dvd_playing=0}{this.locations[this.location][0]}{script radio3.qsp}][BGNDIMAGE in_bar.jpg][MUSIC none][AMBIENT cafe.mp3]"
+                                                                                                                                                  "_content": "[LABEL {this.dvd_playing=0}{this.locations[this.location][0]}{script radio3.qsp}][BGNDIMAGE in_bar.jpg][MUSIC none][AMBIENT cafe]"
                                                                                                                                                 }
                                                                                                                                               ],
                                                                                                                                               "_mark": "",
@@ -186,7 +186,7 @@
                                                                                                                                                                                     }
                                                                                                                                                                                   ],
                                                                                                                                                                                   "_mark": "explode_railway_station",
-                                                                                                                                                                                  "_content": "[LABEL .][BGNDIMAGE explosion.jpg][SOUNDFX boom.mp3][TIMEEXPIRED railway_station_exploded][ANSWERTIME 1]"
+                                                                                                                                                                                  "_content": "[LABEL .][BGNDIMAGE explosion.jpg][SOUNDFX boom][TIMEEXPIRED railway_station_exploded][ANSWERTIME 1]"
                                                                                                                                                                                 }
                                                                                                                                                                               ],
                                                                                                                                                                               "_mark": "",
@@ -194,7 +194,7 @@
                                                                                                                                                                             }
                                                                                                                                                                           ],
                                                                                                                                                                           "_mark": "mark_b08pk9e1a685tt2opysd",
-                                                                                                                                                                          "_content": "[LABEL Тик-так, тик-так...][BGNDIMAGE in_railway_station.jpg&briefcase_opened.png|200;340][BGNDAUDIO c4_beep.mp3][TIMEEXPIRED explode_railway_station][ANSWERTIME 5]"
+                                                                                                                                                                          "_content": "[LABEL Тик-так, тик-так...][BGNDIMAGE in_railway_station.jpg&briefcase_opened.png|200;340][BGNDAUDIO c4_beep][TIMEEXPIRED explode_railway_station][ANSWERTIME 5]"
                                                                                                                                                                         }
                                                                                                                                                                       ],
                                                                                                                                                                       "_mark": "",
@@ -558,7 +558,7 @@
                                                                                                                                                     }
                                                                                                                                                   ],
                                                                                                                                                   "_mark": "in_store",
-                                                                                                                                                  "_content": "[LABEL {this.dvd_playing=0}{script rounding.qsp}{script show_game_stats.qsp}\n{this.locations[this.location][0]}. Что хочешь посмотреть?][BGNDIMAGE in_shopping_center.jpg][MUSIC none][AMBIENT megapolice.mp3][ANSWERSORDER ON][BGNDMUSIC none]"
+                                                                                                                                                  "_content": "[LABEL {this.dvd_playing=0}{script rounding.qsp}{script show_game_stats.qsp}\n{this.locations[this.location][0]}. Что хочешь посмотреть?][BGNDIMAGE in_shopping_center.jpg][MUSIC none][AMBIENT megapolice][ANSWERSORDER ON][BGNDMUSIC none]"
                                                                                                                                                 }
                                                                                                                                               ],
                                                                                                                                               "_mark": "",
@@ -1644,11 +1644,11 @@
                                                                                                                                                                                         }
                                                                                                                                                                                       ],
                                                                                                                                                                                       "_mark": "",
-                                                                                                                                                                                      "_content": "[LABEL Покинуть казино][MUSIC AmbientStreet.mp3][AMBIENT none][ANSWERIMAGE icons/enter.png|320;400]"
+                                                                                                                                                                                      "_content": "[LABEL Покинуть казино][MUSIC AmbientStreet][AMBIENT none][ANSWERIMAGE icons/enter.png|320;400]"
                                                                                                                                                                                     }
                                                                                                                                                                                   ],
                                                                                                                                                                                   "_mark": "mark_44874qwy006h8xw93dbh",
-                                                                                                                                                                                  "_content": "[LABEL {this.money-=this.bet;this.rnd_num=Math.floor(Math.random()*37)}{if (Math.floor(this.game_hours/24)==this.casino_win_day && this.things[this.thing_casino_bet][1] && this.things[this.thing_casino_bet][3]==0) {this.rnd_num=29;this.casino_win_bet_sum=this.bet*36;this.things[this.thing_casino_bet][3]=1;'';}}Выпало число: {this.rnd_num}. {if (this.rnd_num == this.num) {\"Ты выиграл![SOUNDFX applause.mp3]\"; this.money+=this.bet*36; this.casino_win_money+=this.bet*36} else {\"Ты проиграл...[SOUNDFX evil_laugh_woman.mp3]\"}}{this.game_hours+=1/12;'';}{script show_in_casino.qsp}]"
+                                                                                                                                                                                  "_content": "[LABEL {this.money-=this.bet;this.rnd_num=Math.floor(Math.random()*37);'';}{if (Math.floor(this.game_hours/24)==this.casino_win_day && this.things[this.thing_casino_bet][1] && this.things[this.thing_casino_bet][3]==0) {this.rnd_num=29;this.casino_win_bet_sum=this.bet*36;this.things[this.thing_casino_bet][3]=1;'';}}Выпало число: {this.rnd_num}. {if (this.rnd_num == this.num) {this.money+=this.bet*36;this.casino_win_money+=this.bet*36;\"Ты выиграл \"+ this.bet*36+\"![SOUNDFX applause]\";} else {\"Ты проиграл...[SOUNDFX evil_laugh_woman]\"}}{this.game_hours+=1/12;'';}{script show_in_casino.qsp}]"
                                                                                                                                                                                 }
                                                                                                                                                                               ],
                                                                                                                                                                               "_mark": "",
@@ -1680,7 +1680,7 @@
                                                                                                                                                     }
                                                                                                                                                   ],
                                                                                                                                                   "_mark": "do_bet",
-                                                                                                                                                  "_content": "[LABEL {this.dvd_playing=0}{script rounding.qsp}{script calc_casino.qsp}{this.locations[this.location][0]}. Сколько денег ставишь на европейскую рулетку (100 - {this.max_bet})?{script show_in_casino.qsp}][MUSIC none][AMBIENT casino.mp3][BGNDMUSIC none]"
+                                                                                                                                                  "_content": "[LABEL {this.dvd_playing=0}{script rounding.qsp}{script calc_casino.qsp}{this.locations[this.location][0]}. Сколько денег ставишь на европейскую рулетку (100 - {this.max_bet})?{script show_in_casino.qsp}][MUSIC none][AMBIENT casino][BGNDMUSIC none]"
                                                                                                                                                 }
                                                                                                                                               ],
                                                                                                                                               "_mark": "",
@@ -1804,7 +1804,7 @@
                                                                                                                                                     }
                                                                                                                                                   ],
                                                                                                                                                   "_mark": "car_washing",
-                                                                                                                                                  "_content": "[LABEL {this.dvd_playing=0}{script rounding.qsp}{script show_game_stats.qsp}\n{this.locations[this.location][0]}. Помыть машину здесь стоит: {this.car_washing_cost}{if (this.things[this.thing_carwashing_discount][1]>0) {\" (с учетом скидки от Махмуда)\"}}{script show_in_carwashing.qsp}][AMBIENT water.mp3][BGNDMUSIC none]"
+                                                                                                                                                  "_content": "[LABEL {this.dvd_playing=0}{script rounding.qsp}{script show_game_stats.qsp}\n{this.locations[this.location][0]}. Помыть машину здесь стоит: {this.car_washing_cost}{if (this.things[this.thing_carwashing_discount][1]>0) {\" (с учетом скидки от Махмуда)\"}}{script show_in_carwashing.qsp}][AMBIENT water][BGNDMUSIC none]"
                                                                                                                                                 }
                                                                                                                                               ],
                                                                                                                                               "_mark": "",
@@ -2002,7 +2002,7 @@
                                                                                                                                                 }
                                                                                                                                               ],
                                                                                                                                               "_mark": "",
-                                                                                                                                              "_content": "[LABEL {if ((this.location == 15 || this.location == 18) && this.money>0) {\"Заеду в \" + this.locations[this.location][0] + \"[ANSWERIMAGE icons/enter.png|260;400]\"}}][AMBIENT autoservice.mp3]"
+                                                                                                                                              "_content": "[LABEL {if ((this.location == 15 || this.location == 18) && this.money>0) {\"Заеду в \" + this.locations[this.location][0] + \"[ANSWERIMAGE icons/enter.png|260;400]\"}}][AMBIENT autoservice]"
                                                                                                                                             },
                                                                                                                                             {
                                                                                                                                               "node": [
@@ -2354,7 +2354,7 @@
                                                                                                                                                     }
                                                                                                                                                   ],
                                                                                                                                                   "_mark": "in_abandoned_garage",
-                                                                                                                                                  "_content": "[LABEL {this.dvd_playing=0}{script show_game_stats.qsp}\n{script calc_car_self_repair.qsp}{this.locations[this.location][0]}. {if (this.things[this.thing_repairing_book][1] && this.things[this.thing_repairing_book][3] && this.things[this.thing_repairing_toolkit][1] && this.car_state<=99) {\"Чтобы полностью починить машину (\" + this.full_repair_pct + \"%) тебе потребуется времени: \" + this.full_repair_time + \" ч.\"}}{script show_in_abandoned_garage.qsp}][MUSIC none][AMBIENT garage.mp3][BGNDMUSIC none]"
+                                                                                                                                                  "_content": "[LABEL {this.dvd_playing=0}{script show_game_stats.qsp}\n{script calc_car_self_repair.qsp}{this.locations[this.location][0]}. {if (this.things[this.thing_repairing_book][1] && this.things[this.thing_repairing_book][3] && this.things[this.thing_repairing_toolkit][1] && this.car_state<=99) {\"Чтобы полностью починить машину (\" + this.full_repair_pct + \"%) тебе потребуется времени: \" + this.full_repair_time + \" ч.\"}}{script show_in_abandoned_garage.qsp}][MUSIC none][AMBIENT garage][BGNDMUSIC none]"
                                                                                                                                                 }
                                                                                                                                               ],
                                                                                                                                               "_mark": "",
@@ -2664,7 +2664,7 @@
                                                                                                                                                                                                                                                                                                                                                 }
                                                                                                                                                                                                                                                                                                                                               ],
                                                                                                                                                                                                                                                                                                                                               "_mark": "change_location",
-                                                                                                                                                                                                                                                                                                                                              "_content": "[LABEL Поеду в другое место{if (this.dvd_playing == 0) {\"[AMBIENT AmbientStreet.mp3]\"}}][ANSWERIMAGE icons/change_place.png|380;400]"
+                                                                                                                                                                                                                                                                                                                                              "_content": "[LABEL Поеду в другое место{if (this.dvd_playing == 0) {\"[AMBIENT AmbientStreet]\"}}][ANSWERIMAGE icons/change_place.png|380;400]"
                                                                                                                                                                                                                                                                                                                                             }
                                                                                                                                                                                                                                                                                                                                           ],
                                                                                                                                                                                                                                                                                                                                           "_mark": "client_really_has_no_money",
@@ -2818,7 +2818,7 @@
                                                                                                                                                                                                                                                                             }
                                                                                                                                                                                                                                                                           ],
                                                                                                                                                                                                                                                                           "_mark": "client_arriving",
-                                                                                                                                                                                                                                                                          "_content": "[LABEL ...][IMAGE black_screen.jpg][AUDIO silent_0.1][AMBIENT AmbientStreet.mp3]"
+                                                                                                                                                                                                                                                                          "_content": "[LABEL ...][IMAGE black_screen.jpg][AUDIO silent_0.1][AMBIENT AmbientStreet]"
                                                                                                                                                                                                                                                                         }
                                                                                                                                                                                                                                                                       ],
                                                                                                                                                                                                                                                                       "_mark": "",
@@ -2866,7 +2866,7 @@
                                                                                                                                                                                                                             }
                                                                                                                                                                                                                           ],
                                                                                                                                                                                                                           "_mark": "travel_road",
-                                                                                                                                                                                                                          "_content": "[LABEL ...][IMAGE black_screen.jpg][AUDIO silent_0.1][AMBIENT AmbientTraffic][SOUNDFX car_door_closed.mp3]"
+                                                                                                                                                                                                                          "_content": "[LABEL ...][IMAGE black_screen.jpg][AUDIO silent_0.1][AMBIENT AmbientTraffic][SOUNDFX car_door_closed]"
                                                                                                                                                                                                                         }
                                                                                                                                                                                                                       ],
                                                                                                                                                                                                                       "_mark": "",
@@ -2974,7 +2974,7 @@
                                                                                                                                                                                                                         }
                                                                                                                                                                                                                       ],
                                                                                                                                                                                                                       "_mark": "go_to_other_location",
-                                                                                                                                                                                                                      "_content": "[LABEL Поеду в другое место{if (this.dvd_playing == 0) {\"[AMBIENT AmbientStreet.mp3]\"}}][ANSWERIMAGE icons/change_place.png|570;330]"
+                                                                                                                                                                                                                      "_content": "[LABEL Поеду в другое место{if (this.dvd_playing == 0) {\"[AMBIENT AmbientStreet]\"}}][ANSWERIMAGE icons/change_place.png|570;330]"
                                                                                                                                                                                                                     }
                                                                                                                                                                                                                   ],
                                                                                                                                                                                                                   "_mark": "client_bargain",
@@ -3252,7 +3252,7 @@
                                                                                                                                                                             }
                                                                                                                                                                           ],
                                                                                                                                                                           "_mark": "mark_ww3z3d57798t9z69a8h9",
-                                                                                                                                                                          "_content": "[LABEL Пока ты отдыхал, кто-то врезался в твою машину и нанес ей ущерб: {this.damage_car}% !{this.car_state -= this.damage_car;this.crushes_not_own++;'';}{script rounding.qsp}{script show_client}][SOUNDFX brakes_crash.mp3]"
+                                                                                                                                                                          "_content": "[LABEL Пока ты отдыхал, кто-то врезался в твою машину и нанес ей ущерб: {this.damage_car}% !{this.car_state -= this.damage_car;this.crushes_not_own++;'';}{script rounding.qsp}{script show_client}][SOUNDFX brakes_crash]"
                                                                                                                                                                         }
                                                                                                                                                                       ],
                                                                                                                                                                       "_mark": "",
@@ -3380,7 +3380,7 @@
                                                                                                                                                                     }
                                                                                                                                                                   ],
                                                                                                                                                                   "_mark": "mark_svp3f33oc4126l87cb1i",
-                                                                                                                                                                  "_content": "[LABEL {if (this.radio_freq == this.vip_radio_freq) {\"[GOTO vip_freq_found]\"} else {\"Шум в эфире, похоже неправильная частота.[SOUNDFX radio_noise.mp3]\"}}][BGNDIMAGE vip_radio.jpg][TIMEEXPIRED new_location][ANSWERTIME 20]"
+                                                                                                                                                                  "_content": "[LABEL {if (this.radio_freq == this.vip_radio_freq) {\"[GOTO vip_freq_found]\"} else {\"Шум в эфире, похоже неправильная частота.[SOUNDFX radio_noise]\"}}][BGNDIMAGE vip_radio.jpg][TIMEEXPIRED new_location][ANSWERTIME 20]"
                                                                                                                                                                 },
                                                                                                                                                                 {
                                                                                                                                                                   "node": [
@@ -3562,7 +3562,7 @@
                                                                                                                                                                     }
                                                                                                                                                                   ],
                                                                                                                                                                   "_mark": "see_film",
-                                                                                                                                                                  "_content": "[LABEL Если внимательно вглядеться в лица людей, то можно заметить, что они всегда выражают одно из трех настроений: веселое, нормальное и плохое.][BGNDIMAGE client5_3_0.png|-300;0;1;1;0&client5_3_1.png|-100;0;1;1;0&client5_3_2.png|100;0;1;1;0][AMBIENT track3.mp3]"
+                                                                                                                                                                  "_content": "[LABEL Если внимательно вглядеться в лица людей, то можно заметить, что они всегда выражают одно из трех настроений: веселое, нормальное и плохое.][BGNDIMAGE client5_3_0.png|-300;0;1;1;0&client5_3_1.png|-100;0;1;1;0&client5_3_2.png|100;0;1;1;0][AMBIENT track3]"
                                                                                                                                                                 }
                                                                                                                                                               ],
                                                                                                                                                               "_mark": "",
@@ -3576,7 +3576,7 @@
                                                                                                                                                                 }
                                                                                                                                                               ],
                                                                                                                                                               "_mark": "",
-                                                                                                                                                              "_content": "[LABEL Включу Track1][BGNDMUSIC track1.mp3][ANSWERIMAGE icons/music.png|30;350]"
+                                                                                                                                                              "_content": "[LABEL Включу Track1][BGNDMUSIC track1][ANSWERIMAGE icons/music.png|30;350]"
                                                                                                                                                             },
                                                                                                                                                             {
                                                                                                                                                               "node": [
@@ -3586,7 +3586,7 @@
                                                                                                                                                                 }
                                                                                                                                                               ],
                                                                                                                                                               "_mark": "",
-                                                                                                                                                              "_content": "[LABEL Включу Track2][BGNDMUSIC track2.mp3][ANSWERIMAGE icons/music.png|30;400]"
+                                                                                                                                                              "_content": "[LABEL Включу Track2][BGNDMUSIC track2][ANSWERIMAGE icons/music.png|30;400]"
                                                                                                                                                             },
                                                                                                                                                             {
                                                                                                                                                               "node": [
@@ -3596,7 +3596,7 @@
                                                                                                                                                                 }
                                                                                                                                                               ],
                                                                                                                                                               "_mark": "",
-                                                                                                                                                              "_content": "[LABEL Включу Track3][BGNDMUSIC track3.mp3][ANSWERIMAGE icons/music.png|90;400]"
+                                                                                                                                                              "_content": "[LABEL Включу Track3][BGNDMUSIC track3][ANSWERIMAGE icons/music.png|90;400]"
                                                                                                                                                             },
                                                                                                                                                             {
                                                                                                                                                               "node": [
@@ -3606,7 +3606,7 @@
                                                                                                                                                                 }
                                                                                                                                                               ],
                                                                                                                                                               "_mark": "",
-                                                                                                                                                              "_content": "[LABEL {if (this.things[this.thing_tuningkit][1] == 1) {\"Включу Track4[BGNDMUSIC track4.mp3][ANSWERIMAGE icons/music.png|150;400]\"}}]"
+                                                                                                                                                              "_content": "[LABEL {if (this.things[this.thing_tuningkit][1] == 1) {\"Включу Track4[BGNDMUSIC track4][ANSWERIMAGE icons/music.png|150;400]\"}}]"
                                                                                                                                                             },
                                                                                                                                                             {
                                                                                                                                                               "node": [
@@ -3956,7 +3956,7 @@
                                                                                                                                             }
                                                                                                                                           ],
                                                                                                                                           "_mark": "location_actions",
-                                                                                                                                          "_content": "[LABEL {script show_game_stats.qsp}\nМесто: {this.locations[this.location][0]}\nЧто будешь делать?{script show_client}{if (this.location == 3 && this.dvd_playing != 1) {\"[AMBIENT malibu.mp3]\"} else {\"[MUSIC AmbientStreet.mp3]\"}}][ANSWERSORDER ON]"
+                                                                                                                                          "_content": "[LABEL {script show_game_stats.qsp}\nМесто: {this.locations[this.location][0]}\nЧто будешь делать?{script show_client}{if (this.location == 3 && this.dvd_playing != 1) {\"[AMBIENT malibu]\"} else {\"[MUSIC AmbientStreet]\"}}][ANSWERSORDER ON]"
                                                                                                                                         },
                                                                                                                                         {
                                                                                                                                           "_mark": "vip_client_found",
@@ -4288,7 +4288,7 @@
                                                                     }
                                                                   ],
                                                                   "_mark": "GAME_SAVEPOINT,init_vars",
-                                                                  "_content": "[LABEL Инициализация переменных...{script init_vars.qsp}{this.recalc_costs=1}{script calc_car_repair.qsp}{script calc_car_washing.qsp}{script calc_car_fuel.qsp}{this.recalc_costs=0}][BGNDIMAGE black_screen.jpg][MUSIC AmbientStreet.mp3][AMBIENT none]"
+                                                                  "_content": "[LABEL Инициализация переменных...{script init_vars.qsp}{this.recalc_costs=1}{script calc_car_repair.qsp}{script calc_car_washing.qsp}{script calc_car_fuel.qsp}{this.recalc_costs=0}][BGNDIMAGE black_screen.jpg][MUSIC AmbientStreet][AMBIENT none]"
                                                                 }
                                                               ],
                                                               "_mark": "",
@@ -4376,7 +4376,7 @@
                                                                                     }
                                                                                   ],
                                                                                   "_mark": "finish",
-                                                                                  "_content": "[LABEL {this.show_meteor_explosion=1}{script show_final.qsp}][SOUNDFX boom.mp3][TIMEEXPIRED more_smoke][ANSWERTIME 1][HIDEANSWERS ON]"
+                                                                                  "_content": "[LABEL {this.show_meteor_explosion=1}{script show_final.qsp}][SOUNDFX boom][TIMEEXPIRED more_smoke][ANSWERTIME 1][HIDEANSWERS ON]"
                                                                                 }
                                                                               ],
                                                                               "_mark": "",
@@ -4408,11 +4408,11 @@
                                                     }
                                                   ],
                                                   "_mark": "you_win",
-                                                  "_content": "[LABEL Поздравления! Кредит выплачен полностью! Игра пройдена.{script show_bank.qsp}][MUSIC none][AMBIENT final.mp3]"
+                                                  "_content": "[LABEL Поздравления! Кредит выплачен полностью! Игра пройдена.{script show_bank.qsp}][MUSIC none][AMBIENT final]"
                                                 },
                                                 {
                                                   "_mark": "car_broke",
-                                                  "_content": "[LABEL ][FINAL Из-за плохого технического состояния машины ты погиб в ДТП. Надо было лучше следить за своим автомобилем. Ты проиграл.][BGNDIMAGE car_crushed_total.jpg][SOUNDFX brakes_crash.mp3]"
+                                                  "_content": "[LABEL ][FINAL Из-за плохого технического состояния машины ты погиб в ДТП. Надо было лучше следить за своим автомобилем. Ты проиграл.][BGNDIMAGE car_crushed_total.jpg][SOUNDFX brakes_crash]"
                                                 },
                                                 {
                                                   "node": [
@@ -4672,7 +4672,7 @@
                                                     }
                                                   ],
                                                   "_mark": "crushed",
-                                                  "_content": "[LABEL {this.vip_call=0;this.crushes_own++;'';}{script calc_car_crush.qsp}Авария! Повреждение машины: {this.car_damage}%. Текущее состояние машины: {this.car_state}%.{if (this.car_state>0) {script show_car_crushed.qsp} else {\"[BGNDIMAGE car_crushed_total.jpg]\"}}][SOUNDFX brakes_crash.mp3]"
+                                                  "_content": "[LABEL {this.vip_call=0;this.crushes_own++;'';}{script calc_car_crush.qsp}Авария! Повреждение машины: {this.car_damage}%. Текущее состояние машины: {this.car_state}%.{if (this.car_state>0) {script show_car_crushed.qsp} else {\"[BGNDIMAGE car_crushed_total.jpg]\"}}][SOUNDFX brakes_crash]"
                                                 },
                                                 {
                                                   "node": [
@@ -5332,7 +5332,7 @@
                                                     }
                                                   ],
                                                   "_mark": "test_mode",
-                                                  "_content": "[LABEL {script init_vars.qsp}{car_state=100;this.client_type=1;client_subtype=1;client_state=0;weather=0;is_daytime=1;driver_show_gun=0;view=1;location=1;this.things[this.thing_tuningkit][3]=1;max_waiting=4;waiting=100}][AMBIENT what_is_love.mp3]"
+                                                  "_content": "[LABEL {script init_vars.qsp}{car_state=100;this.client_type=1;client_subtype=1;client_state=0;weather=0;is_daytime=1;driver_show_gun=0;view=1;location=1;this.things[this.thing_tuningkit][3]=1;max_waiting=4;waiting=100}][AMBIENT what_is_love]"
                                                 },
                                                 {
                                                   "node": [
@@ -5912,7 +5912,7 @@
                                                                                                                                 },
                                                                                                                                 {
                                                                                                                                   "_mark": "nark_kill_driver",
-                                                                                                                                  "_content": "[LABEL ][FINAL Тебя убил наркоман из-за дозы... Игра окончена.][BGNDIMAGE blood.jpg][SOUNDFX brakes_crash.mp3]"
+                                                                                                                                  "_content": "[LABEL ][FINAL Тебя убил наркоман из-за дозы... Игра окончена.][BGNDIMAGE blood.jpg][SOUNDFX brakes_crash]"
                                                                                                                                 }
                                                                                                                               ],
                                                                                                                               "_mark": "",
@@ -6496,7 +6496,7 @@
                     }
                   ],
                   "_mark": "choose_language",
-                  "_content": "[LABEL Таксоман v1.0.8\nВыберите язык / Choose language][BGNDIMAGE poster.jpg][AMBIENT intro.mp3][ANSWERSORDER ON]"
+                  "_content": "[LABEL Таксоман v1.0.8\nВыберите язык / Choose language][BGNDIMAGE poster.jpg][AMBIENT intro][ANSWERSORDER ON]"
                 }
               ],
               "_mark": "",
