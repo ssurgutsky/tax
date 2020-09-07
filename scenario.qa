@@ -384,7 +384,7 @@
 																																			Заплачу по кредиту.[ANSWERIMAGE icons/money2.png|260;400]
 																																				[how_many_for_credit]{script rounding.qsp}{script show_game_stats.qsp}\n{this.locations[this.location][0]}.\nСколько заплатишь по кредиту: 0 - {this.credit_max_payment}? (срочный платеж: {this.credit_delay_sum}, остаток по кредиту: {this.credit_rest_sum})[BGNDIMAGE in_bank.jpg]
 																																					[INPUTS this.payment_sum]
-																																						[mark_ui4q7942104e9p6j62i4]{if (this.payment_sum>=0 && this.payment_sum<=this.credit_max_payment) {this.credit_rest_sum-=this.payment_sum;this.money-=this.payment_sum; if (this.credit_rest_sum<=0) {"[GOTO you_win]"} else {"[GOTO in_bank]"}} else {"[GOTO how_many_for_credit]"}}
+																																						[mark_ui4q7942104e9p6j62i4]{let ps=parseInt(this.payment_sum); console.log('ps', ps); if (ps>=0 && ps<=this.credit_max_payment) {this.credit_rest_sum-=ps;this.money-=ps; if (this.credit_rest_sum<=0) {"[GOTO you_win]"} else {"[GOTO in_bank]"}} else {"[GOTO how_many_for_credit]"}}
 																																			{if (this.drugDealer == 1 && this.drugDealerGoodsPlanted == 0 && this.drugDealerGoodsDriver==0) {"Переведу на карту денег ("+this.drugDealerGoodsCost*this.Inflation+")[ANSWERIMAGE icons/money2.png|320;400]"}}
 																																				[mark_rl035584qcu9ml2sul0c]{if (this.money<this.drugDealerGoodsCost*this.Inflation) {"[GOTO no_money_for_drugs]"} else {"[GOTO transfer_money_for_drugs]"}}
 																																					
