@@ -90,11 +90,11 @@
 																																			Вернуться в машину.[ANSWERIMAGE icons/exit.png|295;400]
 																																				[mark_3upe3px7su5je1yy0w16][GOTO new_location]
 																																	{if (this.location==8) {"Зайду в " + this.locations[this.location][0] + "[ANSWERIMAGE icons/enter.png|260;400]"}}
-																																		[in_store]{this.dvd_playing=0}{script rounding.qsp}{script show_game_stats.qsp}\n{this.locations[this.location][0]}. Что хочешь посмотреть?[BGNDIMAGE in_shopping_center.jpg][AMBIENT megapolice.mp3][MUSIC none][BGNDMUSIC none]
-																																			{this.thing=this.thing_gun}[GOTO present_thing]
-																																				[mark_6f0140ie71g9jp2wg53f]
-																																					[present_thing]{this.thing_cost=this.things[this.thing][2]*this.Inflation; if (this.things[this.thing][1]==0) {this.things[this.thing][0] + ". Цена: " + this.thing_cost + "[ANSWERIMAGE icons/"+this.things[this.thing][4]+".png|"+this.thing*60+";400]"}}
-																																						[mark_6h2m5p5cwo391ict47w3]{script show_thing_desc.qsp}
+																																		[in_store]{this.dvd_playing=0}{script rounding.qsp}{script show_game_stats.qsp}\n{this.locations[this.location][0]}. Что хочешь посмотреть?[BGNDIMAGE in_shopping_center.jpg][AMBIENT megapolice.mp3][MUSIC none][BGNDMUSIC none][ANSWERSORDER ON]
+																																			{this.thing=this.thing_gun;'';}{script show_thing.qsp}
+																																				[mark_u6w5z762oxg9hys4b450]{this.thing=this.thing_gun}[GOTO thing_desc]
+																																					
+																																						[thing_desc]{script show_thing_desc.qsp}
 																																							[buy_thing]Купить[ANSWERIMAGE icons/buy.png|260;400]
 																																								[mark_868y612mtpj6o3945nd1]{if (this.money<this.thing_cost) {"[GOTO no_money_for_thing]"} else {this.money-=this.thing_cost;this.things[this.thing][1]=1;"[GOTO bought_thing]"}}
 																																									
@@ -106,13 +106,20 @@
 																																										[mark_30b1b1j619165fz4823d][GOTO in_store]
 																																							[back_to_store_menu]Вернуться в меню[ANSWERIMAGE icons/exit.png|320;400]
 																																								[mark_3vn1i140cmz7xq0qe3to][GOTO in_store]
-																																			{this.thing=this.thing_repairing_book}[GOTO present_thing]
-																																			{this.thing=this.thing_repairing_toolkit}[GOTO present_thing]
-																																			{this.thing=this.thing_psycho_dvd_film}[GOTO present_thing]
-																																			{this.thing=this.thing_vip_radio}[GOTO present_thing]
-																																			{this.thing=this.thing_tuningkit}[GOTO present_thing]
-																																			{this.thing=this.thing_vinyl_dog}[GOTO present_thing]
-																																			{this.thing=this.thing_dvd}[GOTO present_thing]
+																																			{this.thing=this.thing_repairing_book;'';}{script show_thing.qsp}
+																																				[mark_9w223j6pa6p58dr1207c]{this.thing=this.thing_repairing_book}[GOTO thing_desc]
+																																			{this.thing=this.thing_repairing_toolkit;'';}{script show_thing.qsp}
+																																				[mark_w9p4shi81v87471gd419]{this.thing=this.thing_repairing_toolkit}[GOTO thing_desc]
+																																			{this.thing=this.thing_psycho_dvd_film;'';}{script show_thing.qsp}
+																																				[mark_3q0wa7zdj159bskerv6l]{this.thing=this.thing_psycho_dvd_film}[GOTO thing_desc]
+																																			{this.thing=this.thing_vip_radio;'';}{script show_thing.qsp}
+																																				[mark_krkmes0cxrgw255uok38]{this.thing=this.thing_vip_radio}[GOTO thing_desc]
+																																			{this.thing=this.thing_tuningkit;'';}{script show_thing.qsp}
+																																				[mark_28b7iot7l2vr99ddo667]{this.thing=this.thing_tuningkit}[GOTO thing_desc]
+																																			{this.thing=this.thing_vinyl_dog;'';}{script show_thing.qsp}
+																																				[mark_2816410246i497p2a06g]{this.thing=this.thing_vinyl_dog}[GOTO thing_desc]
+																																			{this.thing=this.thing_dvd;'';}{script show_thing.qsp}
+																																				[mark_40o1e03q2t96d0511p93]{this.thing=this.thing_dvd}[GOTO thing_desc]
 																																			Выйду наружу[ANSWERIMAGE icons/enter.png|540;400][AMBIENT none]
 																																				[mark_mko7t4cfq1rhl1z7c9be][GOTO new_location]
 																																	{if (this.location==9) {"Зайду в " + this.locations[this.location][0] + "[ANSWERIMAGE icons/enter.png|260;400]"}}

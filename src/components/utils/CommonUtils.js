@@ -26,7 +26,9 @@ export default {
 
   getTagValueLABEL (content) {
     let result = this.getTagValue(content, 'LABEL')
+    // console.log('getTagValueLABEL1::', result)
     result = this.removeBrackets(result, '[', ']')
+    // console.log('getTagValueLABEL2::', result)
     return result
   },
 
@@ -313,15 +315,18 @@ export default {
         let jsCode = preresult.substr(start, length)
         // console.log(start, end, jsCode)
 
-        console.log(']]]]]]]]]]]]]]]]]]]]]]]]]]]', jsCode)
+        // console.log(']]]]]]]]]]]]]]]]]]]]]]]]]]]', jsCode)
         let jsCodeResult = eval(jsCode) || ''
 
         // console.log('jsCodeResult', jsCodeResult)
 
         result = result + jsCodeResult
         lastEnd = end + 1
+
+        console.log(i, result)
       }
       result = result + preresult.substr(lastEnd, preresult.length - lastEnd)
+      console.log('TOTAL:', result)
     }
     return result
   },
@@ -350,7 +355,7 @@ export default {
         }
       }
     }
-    console.log('arr', arr)
+    // console.log('arr', arr)
 
     if (arr.length) {
       result = ''
@@ -404,8 +409,13 @@ export default {
 
     input = '[LABEL test[AUDIO 1]][VIDEO video]'
     output = 'test'
-    result = this.getTagValue(input, 'LABEL')
+    result = this.getTagValueLABEL(input)
     this.checkCondition(input, output, result)
+
+    // input = '[LABEL [AUDIO 1]test][VIDEO video]'
+    // output = 'test'
+    // result = this.getTagValueLABEL(input)
+    // this.checkCondition(input, output, result)
   },
 
   checkCondition (input, output, result) {

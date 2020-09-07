@@ -461,48 +461,90 @@
                                                                                                                                                                       "_content": "[LABEL Вернуться в меню][ANSWERIMAGE icons/exit.png|320;400]"
                                                                                                                                                                     }
                                                                                                                                                                   ],
-                                                                                                                                                                  "_mark": "mark_6h2m5p5cwo391ict47w3",
+                                                                                                                                                                  "_mark": "thing_desc",
                                                                                                                                                                   "_content": "[LABEL {script show_thing_desc.qsp}]"
                                                                                                                                                                 }
                                                                                                                                                               ],
-                                                                                                                                                              "_mark": "present_thing",
-                                                                                                                                                              "_content": "[LABEL {this.thing_cost=this.things[this.thing][2]*this.Inflation; if (this.things[this.thing][1]==0) {this.things[this.thing][0] + \". Цена: \" + this.thing_cost + \"[ANSWERIMAGE icons/\"+this.things[this.thing][4]+\".png|\"+this.thing*60+\";400]\"}}]"
+                                                                                                                                                              "_mark": "",
+                                                                                                                                                              "_content": "[LABEL ]"
                                                                                                                                                             }
                                                                                                                                                           ],
-                                                                                                                                                          "_mark": "mark_6f0140ie71g9jp2wg53f",
-                                                                                                                                                          "_content": "[LABEL ]"
+                                                                                                                                                          "_mark": "mark_u6w5z762oxg9hys4b450",
+                                                                                                                                                          "_content": "[LABEL {this.thing=this.thing_gun}][GOTO thing_desc]"
                                                                                                                                                         }
                                                                                                                                                       ],
                                                                                                                                                       "_mark": "",
-                                                                                                                                                      "_content": "[LABEL {this.thing=this.thing_gun}][GOTO present_thing]"
+                                                                                                                                                      "_content": "[LABEL {this.thing=this.thing_gun;'';}{script show_thing.qsp}]"
                                                                                                                                                     },
                                                                                                                                                     {
+                                                                                                                                                      "node": [
+                                                                                                                                                        {
+                                                                                                                                                          "_mark": "mark_9w223j6pa6p58dr1207c",
+                                                                                                                                                          "_content": "[LABEL {this.thing=this.thing_repairing_book}][GOTO thing_desc]"
+                                                                                                                                                        }
+                                                                                                                                                      ],
                                                                                                                                                       "_mark": "",
-                                                                                                                                                      "_content": "[LABEL {this.thing=this.thing_repairing_book}][GOTO present_thing]"
+                                                                                                                                                      "_content": "[LABEL {this.thing=this.thing_repairing_book;'';}{script show_thing.qsp}]"
                                                                                                                                                     },
                                                                                                                                                     {
+                                                                                                                                                      "node": [
+                                                                                                                                                        {
+                                                                                                                                                          "_mark": "mark_w9p4shi81v87471gd419",
+                                                                                                                                                          "_content": "[LABEL {this.thing=this.thing_repairing_toolkit}][GOTO thing_desc]"
+                                                                                                                                                        }
+                                                                                                                                                      ],
                                                                                                                                                       "_mark": "",
-                                                                                                                                                      "_content": "[LABEL {this.thing=this.thing_repairing_toolkit}][GOTO present_thing]"
+                                                                                                                                                      "_content": "[LABEL {this.thing=this.thing_repairing_toolkit;'';}{script show_thing.qsp}]"
                                                                                                                                                     },
                                                                                                                                                     {
+                                                                                                                                                      "node": [
+                                                                                                                                                        {
+                                                                                                                                                          "_mark": "mark_3q0wa7zdj159bskerv6l",
+                                                                                                                                                          "_content": "[LABEL {this.thing=this.thing_psycho_dvd_film}][GOTO thing_desc]"
+                                                                                                                                                        }
+                                                                                                                                                      ],
                                                                                                                                                       "_mark": "",
-                                                                                                                                                      "_content": "[LABEL {this.thing=this.thing_psycho_dvd_film}][GOTO present_thing]"
+                                                                                                                                                      "_content": "[LABEL {this.thing=this.thing_psycho_dvd_film;'';}{script show_thing.qsp}]"
                                                                                                                                                     },
                                                                                                                                                     {
+                                                                                                                                                      "node": [
+                                                                                                                                                        {
+                                                                                                                                                          "_mark": "mark_krkmes0cxrgw255uok38",
+                                                                                                                                                          "_content": "[LABEL {this.thing=this.thing_vip_radio}][GOTO thing_desc]"
+                                                                                                                                                        }
+                                                                                                                                                      ],
                                                                                                                                                       "_mark": "",
-                                                                                                                                                      "_content": "[LABEL {this.thing=this.thing_vip_radio}][GOTO present_thing]"
+                                                                                                                                                      "_content": "[LABEL {this.thing=this.thing_vip_radio;'';}{script show_thing.qsp}]"
                                                                                                                                                     },
                                                                                                                                                     {
+                                                                                                                                                      "node": [
+                                                                                                                                                        {
+                                                                                                                                                          "_mark": "mark_28b7iot7l2vr99ddo667",
+                                                                                                                                                          "_content": "[LABEL {this.thing=this.thing_tuningkit}][GOTO thing_desc]"
+                                                                                                                                                        }
+                                                                                                                                                      ],
                                                                                                                                                       "_mark": "",
-                                                                                                                                                      "_content": "[LABEL {this.thing=this.thing_tuningkit}][GOTO present_thing]"
+                                                                                                                                                      "_content": "[LABEL {this.thing=this.thing_tuningkit;'';}{script show_thing.qsp}]"
                                                                                                                                                     },
                                                                                                                                                     {
+                                                                                                                                                      "node": [
+                                                                                                                                                        {
+                                                                                                                                                          "_mark": "mark_2816410246i497p2a06g",
+                                                                                                                                                          "_content": "[LABEL {this.thing=this.thing_vinyl_dog}][GOTO thing_desc]"
+                                                                                                                                                        }
+                                                                                                                                                      ],
                                                                                                                                                       "_mark": "",
-                                                                                                                                                      "_content": "[LABEL {this.thing=this.thing_vinyl_dog}][GOTO present_thing]"
+                                                                                                                                                      "_content": "[LABEL {this.thing=this.thing_vinyl_dog;'';}{script show_thing.qsp}]"
                                                                                                                                                     },
                                                                                                                                                     {
+                                                                                                                                                      "node": [
+                                                                                                                                                        {
+                                                                                                                                                          "_mark": "mark_40o1e03q2t96d0511p93",
+                                                                                                                                                          "_content": "[LABEL {this.thing=this.thing_dvd}][GOTO thing_desc]"
+                                                                                                                                                        }
+                                                                                                                                                      ],
                                                                                                                                                       "_mark": "",
-                                                                                                                                                      "_content": "[LABEL {this.thing=this.thing_dvd}][GOTO present_thing]"
+                                                                                                                                                      "_content": "[LABEL {this.thing=this.thing_dvd;'';}{script show_thing.qsp}]"
                                                                                                                                                     },
                                                                                                                                                     {
                                                                                                                                                       "node": [
@@ -516,7 +558,7 @@
                                                                                                                                                     }
                                                                                                                                                   ],
                                                                                                                                                   "_mark": "in_store",
-                                                                                                                                                  "_content": "[LABEL {this.dvd_playing=0}{script rounding.qsp}{script show_game_stats.qsp}\n{this.locations[this.location][0]}. Что хочешь посмотреть?][BGNDIMAGE in_shopping_center.jpg][MUSIC none][AMBIENT megapolice.mp3][BGNDMUSIC none]"
+                                                                                                                                                  "_content": "[LABEL {this.dvd_playing=0}{script rounding.qsp}{script show_game_stats.qsp}\n{this.locations[this.location][0]}. Что хочешь посмотреть?][BGNDIMAGE in_shopping_center.jpg][MUSIC none][AMBIENT megapolice.mp3][ANSWERSORDER ON][BGNDMUSIC none]"
                                                                                                                                                 }
                                                                                                                                               ],
                                                                                                                                               "_mark": "",
