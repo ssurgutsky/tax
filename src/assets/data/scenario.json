@@ -5246,7 +5246,7 @@
                                                               "node": [
                                                                 {
                                                                   "_mark": "mark_pdxq9br06d3n7s3v5l61",
-                                                                  "_content": "[LABEL {this.client_subtype++}][GOTO test_view]"
+                                                                  "_content": "[LABEL {this.client_subtype++; if (this.client_subtype > 2) {this.client_subtype=1}}][GOTO test_view]"
                                                                 }
                                                               ],
                                                               "_mark": "",

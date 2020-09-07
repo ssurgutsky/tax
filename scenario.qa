@@ -967,7 +967,7 @@
 													Следующий клиент[ANSWERIMAGE icons/two.png|90;400]
 														[mark_hmf2b7b43t25ivrag579]{this.client_type++;this.client_subtype=1;if (this.client_type>9) {this.client_type=1}}[GOTO test_view]
 													Следующий подвид клиента[ANSWERIMAGE icons/three.png|150;400]
-														[mark_pdxq9br06d3n7s3v5l61]{this.client_subtype++}[GOTO test_view]
+														[mark_pdxq9br06d3n7s3v5l61]{this.client_subtype++; if (this.client_subtype > 2) {this.client_subtype=1}}[GOTO test_view]
 													Следующее настроение клиента[ANSWERIMAGE icons/four.png|210;400]
 														[mark_9c7adz39qh6fx2cik151]{this.client_state++; if (this.client_state>2) {this.client_state=0}}[GOTO test_view]
 													Сменить погоду[ANSWERIMAGE icons/five.png|270;400]
