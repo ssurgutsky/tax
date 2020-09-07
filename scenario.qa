@@ -169,9 +169,9 @@
 																																																									Заплачу {this.barsuk_showgirls_cost*this.Inflation}[ANSWERIMAGE icons/money6.png|235;400]
 																																																										[check_money_for_showgirls]{if (this.money<this.barsuk_showgirls_cost*this.Inflation) {"[GOTO no_money_for_showgirls]"} else {this.money-=this.barsuk_showgirls_cost*this.Inflation;"[GOTO enter_showgirls]"}}
 																																																											
-																																																												[enter_showgirls]Смотри, только не трогай меня за грудь![BGNDIMAGE showgirls2.jpg&http://creofilm.ru/TAX/IMG/showgirls2][ANSWERTIME 15][TIMEEXPIRED exit_showgirls]
+																																																												[enter_showgirls]Смотри, только не трогай меня за грудь![BGNDIMAGE showgirls2.jpg][ANSWERTIME 15][TIMEEXPIRED exit_showgirls]
 																																																													Потрогаю[ANSWERIMAGE icons/invisible_thing.png|312;269]
-																																																														[compressed_tits]Я же сказала не трогать! Все! Уходи![BGNDIMAGE showgirls2.jpg&http://creofilm.ru/TAX/IMG/showgirls2]
+																																																														[compressed_tits]Я же сказала не трогать! Все! Уходи![BGNDIMAGE showgirls2.jpg]
 																																																															Извини![ANSWERIMAGE icons/three_dots.png|312;269]
 																																																																[mark_psc4z5a7nrq09k0nwbbq][GOTO enter_barsuk]
 																																																														[exit_showgirls]Твое время закончилось...[BGNDIMAGE barsuk_left5.jpg]
