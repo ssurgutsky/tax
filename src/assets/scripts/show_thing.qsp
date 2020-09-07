@@ -1,1 +1,9 @@
-{this.thing_cost=this.things[this.thing][2]*this.Inflation; if (this.things[this.thing][1]==0) {this.things[this.thing][0] + ". Цена: " + this.thing_cost + "[ANSWERIMAGE icons/"+this.things[this.thing][4]+".png|"+this.thing*60+";400]"}}
+this.thing_cost=this.things[this.thing][2]*this.Inflation;
+if (this.things[this.thing][1]==0) {
+  this.things[this.thing][0] + 
+  ". Цена: " + this.thing_cost + 
+  "[ANSWERIMAGE icons/"+this.things[this.thing][4]+".png|"+this.thing*60+";400]"
+}
+else {
+  "";
+}
