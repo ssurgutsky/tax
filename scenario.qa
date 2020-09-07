@@ -798,7 +798,7 @@
 													
 														[mark_final]{this.show_meteor=0;this.show_meteor_explosion=0;this.show_smoke=0;this.s=0.4;this.a=1}
 															
-																[more_closer]{script show_final.qsp}[HIDEANSWERS ON][ANSWERTIME 0.1]{if (this.s<1) {this.s+=0.1;"[TIMEEXPIRED more_closer]"} else {"[TIMEEXPIRED finish]"}}]
+																[more_closer]{script show_final.qsp}[HIDEANSWERS ON][ANSWERTIME 1]{if (this.s<1) {this.s+=0.1;"[TIMEEXPIRED more_closer]"} else {"[TIMEEXPIRED finish]"}}
 																	>>>
 																		[finish]{this.show_meteor_explosion=1}{script show_final.qsp}[SOUNDFX boom][HIDEANSWERS ON][ANSWERTIME 1][TIMEEXPIRED more_smoke]
 																			>>>

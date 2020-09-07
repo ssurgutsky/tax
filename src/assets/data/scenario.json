@@ -4384,7 +4384,7 @@
                                                                             }
                                                                           ],
                                                                           "_mark": "more_closer",
-                                                                          "_content": "[LABEL {script show_final.qsp}{if (this.s<1) {this.s+=0.1;\"[TIMEEXPIRED more_closer]\"} else {\"[TIMEEXPIRED finish]\"}}]][ANSWERTIME 0.1][HIDEANSWERS ON]"
+                                                                          "_content": "[LABEL {script show_final.qsp}{if (this.s<1) {this.s+=0.1;\"[TIMEEXPIRED more_closer]\"} else {\"[TIMEEXPIRED finish]\"}}][ANSWERTIME 1][HIDEANSWERS ON]"
                                                                         }
                                                                       ],
                                                                       "_mark": "",

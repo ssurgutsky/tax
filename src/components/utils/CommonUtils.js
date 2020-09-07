@@ -323,10 +323,10 @@ export default {
         result = result + jsCodeResult
         lastEnd = end + 1
 
-        console.log(i, result)
+        // console.log(i, result)
       }
       result = result + preresult.substr(lastEnd, preresult.length - lastEnd)
-      console.log('TOTAL:', result)
+      // console.log('TOTAL:', result)
     }
     return result
   },
