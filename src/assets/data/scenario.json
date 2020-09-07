@@ -5216,27 +5216,27 @@
                                                               "node": [
                                                                 {
                                                                   "_mark": "mark_h64ck8c2sfxrfi19q172",
-                                                                  "_content": "[LABEL {view++; if view>4 {view=0}}][GOTO test_view]"
+                                                                  "_content": "[LABEL {this.view++; if (this.view>4) {this.view=0;'';}}][GOTO test_view]"
                                                                 }
                                                               ],
                                                               "_mark": "",
-                                                              "_content": "[LABEL Сменить главный вид: {output view}][ANSWERIMAGE icons/one.png|30;400]"
+                                                              "_content": "[LABEL Сменить главный вид: {this.view}][ANSWERIMAGE icons/one.png|30;400]"
                                                             },
                                                             {
                                                               "node": [
                                                                 {
                                                                   "_mark": "mark_1qh65z7q39pb7kwy5r56",
-                                                                  "_content": "[LABEL {location++; if location>24 {location=0}}][GOTO test_view]"
+                                                                  "_content": "[LABEL {this.location++; if (this.location>24) {this.location=0}}][GOTO test_view]"
                                                                 }
                                                               ],
                                                               "_mark": "",
-                                                              "_content": "[LABEL {if view==0 {output \"Сменить локацию[ANSWERIMAGE icons/change_location.png|30;440]\"}}]"
+                                                              "_content": "[LABEL {if (this.view==0) {\"Сменить локацию[ANSWERIMAGE icons/change_location.png|30;440]\"}}]"
                                                             },
                                                             {
                                                               "node": [
                                                                 {
                                                                   "_mark": "mark_hmf2b7b43t25ivrag579",
-                                                                  "_content": "[LABEL {this.client_type++;client_subtype=1;if this.client_type>9 {this.client_type=1}}][GOTO test_view]"
+                                                                  "_content": "[LABEL {this.client_type++;this.client_subtype=1;if (this.client_type>9) {this.client_type=1}}][GOTO test_view]"
                                                                 }
                                                               ],
                                                               "_mark": "",
@@ -5246,7 +5246,7 @@
                                                               "node": [
                                                                 {
                                                                   "_mark": "mark_pdxq9br06d3n7s3v5l61",
-                                                                  "_content": "[LABEL {client_subtype++}][GOTO test_view]"
+                                                                  "_content": "[LABEL {this.client_subtype++}][GOTO test_view]"
                                                                 }
                                                               ],
                                                               "_mark": "",
@@ -5256,7 +5256,7 @@
                                                               "node": [
                                                                 {
                                                                   "_mark": "mark_9c7adz39qh6fx2cik151",
-                                                                  "_content": "[LABEL {client_state++; if client_state>2 {client_state=0}}][GOTO test_view]"
+                                                                  "_content": "[LABEL {this.client_state++; if (this.client_state>2) {this.client_state=0}}][GOTO test_view]"
                                                                 }
                                                               ],
                                                               "_mark": "",
@@ -5266,7 +5266,7 @@
                                                               "node": [
                                                                 {
                                                                   "_mark": "mark_5t70w2oxuo87l3sy0132",
-                                                                  "_content": "[LABEL {weather++; if weather>2 {weather=0}}][GOTO test_view]"
+                                                                  "_content": "[LABEL {this.weather++; if (this.weather>2) {this.weather=0}}][GOTO test_view]"
                                                                 }
                                                               ],
                                                               "_mark": "",
@@ -5276,7 +5276,7 @@
                                                               "node": [
                                                                 {
                                                                   "_mark": "mark_1h938g56x45ba1kjwt0e",
-                                                                  "_content": "[LABEL {game_hours+=3}][GOTO test_view]"
+                                                                  "_content": "[LABEL {this.game_hours+=3}][GOTO test_view]"
                                                                 }
                                                               ],
                                                               "_mark": "",
@@ -5286,7 +5286,7 @@
                                                               "node": [
                                                                 {
                                                                   "_mark": "mark_zr344yt8l7z847qr3fxi",
-                                                                  "_content": "[LABEL {driver_show_gun++; if driver_show_gun>1 {driver_show_gun=0}}][GOTO test_view]"
+                                                                  "_content": "[LABEL {this.driver_show_gun++; if (this.driver_show_gun>1) {this.driver_show_gun=0}}][GOTO test_view]"
                                                                 }
                                                               ],
                                                               "_mark": "",
@@ -5296,7 +5296,7 @@
                                                               "node": [
                                                                 {
                                                                   "_mark": "mark_508xkh21aa2n654o4o7l",
-                                                                  "_content": "[LABEL {car_state-=30; if car_state<0 {car_state=100}}][GOTO test_view]"
+                                                                  "_content": "[LABEL {this.car_state-=30; if (this.car_state<0) {this.car_state=100}}][GOTO test_view]"
                                                                 }
                                                               ],
                                                               "_mark": "",
@@ -5316,7 +5316,7 @@
                                                               "node": [
                                                                 {
                                                                   "_mark": "mark_yffd4167oc6ur5h471h5",
-                                                                  "_content": "[LABEL {car_cleanness-=30;if car_cleanness<0 {car_cleanness=100}}][GOTO test_view]"
+                                                                  "_content": "[LABEL {this.car_cleanness-=30;if (this.car_cleanness<0) {this.car_cleanness=100}}][GOTO test_view]"
                                                                 }
                                                               ],
                                                               "_mark": "",
@@ -5324,7 +5324,7 @@
                                                             }
                                                           ],
                                                           "_mark": "test_view",
-                                                          "_content": "[LABEL {script rounding.qsp}{script show_game_stats.qsp}{if view == 1 {script show_client_inside_rear.qsp} else {if view == 0 {script show_client.qsp} else {if view == 2 {script show_client_travel} else {if view == 3 {script show_in_abandoned_garage.qsp} else {if view == 4 {script show_traffic_congestion.qsp}}}}}}]"
+                                                          "_content": "[LABEL {script rounding.qsp}{script show_game_stats.qsp}{if (this.view == 1) {{script show_client_inside_rear.qsp}} else {if (this.view == 0) {{script show_client.qsp}} else {if (this.view == 2) {{script show_client_travel}} else {if (this.view == 3) {{script show_in_abandoned_garage.qsp}} else {if (this.view == 4) {{script show_traffic_congestion.qsp}}}}}}}]"
                                                         }
                                                       ],
                                                       "_mark": "",
@@ -5332,7 +5332,7 @@
                                                     }
                                                   ],
                                                   "_mark": "test_mode",
-                                                  "_content": "[LABEL {script init_vars.qsp}{car_state=100;this.client_type=1;client_subtype=1;client_state=0;weather=0;is_daytime=1;driver_show_gun=0;view=1;location=1;this.things[this.thing_tuningkit][3]=1;max_waiting=4;waiting=100}][AMBIENT what_is_love]"
+                                                  "_content": "[LABEL {script init_vars.qsp}{this.car_state=100;this.client_type=1;this.client_subtype=1;this.client_state=0;this.weather=0;this.is_daytime=1;this.driver_show_gun=0;this.view=1;this.location=1;this.things[this.thing_tuningkit][3]=1;this.max_waiting=4;this.waiting=100}][AMBIENT what_is_love]"
                                                 },
                                                 {
                                                   "node": [

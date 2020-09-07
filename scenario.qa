@@ -957,31 +957,31 @@
 												[traffic_congestion]{script spent_time}{script rounding.qsp}Ты попал в пробку и провел в ней времени: {output spent_time} ч.{script show_traffic_congestion.qsp}[ANSWERTIME 10][TIMEEXPIRED dangerous_moment]
 													Дальше...[ANSWERIMAGE icons/next.png|295;400]
 														[mark_ha498312r54629zhsz1k][GOTO dangerous_moment]
-										[test_mode]{script init_vars.qsp}{car_state=100;this.client_type=1;client_subtype=1;client_state=0;weather=0;is_daytime=1;driver_show_gun=0;view=1;location=1;this.things[this.thing_tuningkit][3]=1;max_waiting=4;waiting=100}[AMBIENT what_is_love ]
+										[test_mode]{script init_vars.qsp}{this.car_state=100;this.client_type=1;this.client_subtype=1;this.client_state=0;this.weather=0;this.is_daytime=1;this.driver_show_gun=0;this.view=1;this.location=1;this.things[this.thing_tuningkit][3]=1;this.max_waiting=4;this.waiting=100}[AMBIENT what_is_love ]
 											
-												[test_view]{script rounding.qsp}{script show_game_stats.qsp}{if view == 1 {script show_client_inside_rear.qsp} else {if view == 0 {script show_client.qsp} else {if view == 2 {script show_client_travel} else {if view == 3 {script show_in_abandoned_garage.qsp} else {if view == 4 {script show_traffic_congestion.qsp}}}}}}
-													Сменить главный вид: {output view}[ANSWERIMAGE icons/one.png|30;400]
-														[mark_h64ck8c2sfxrfi19q172]{view++; if view>4 {view=0}}[GOTO test_view]
-													{if view==0 {output "Сменить локацию[ANSWERIMAGE icons/change_location.png|30;440]"}}
-														[mark_1qh65z7q39pb7kwy5r56]{location++; if location>24 {location=0}}[GOTO test_view]
+												[test_view]{script rounding.qsp}{script show_game_stats.qsp}{if (this.view == 1) {{script show_client_inside_rear.qsp}} else {if (this.view == 0) {{script show_client.qsp}} else {if (this.view == 2) {{script show_client_travel}} else {if (this.view == 3) {{script show_in_abandoned_garage.qsp}} else {if (this.view == 4) {{script show_traffic_congestion.qsp}}}}}}}
+													Сменить главный вид: {this.view}[ANSWERIMAGE icons/one.png|30;400]
+														[mark_h64ck8c2sfxrfi19q172]{this.view++; if (this.view>4) {this.view=0;'';}}[GOTO test_view]
+													{if (this.view==0) {"Сменить локацию[ANSWERIMAGE icons/change_location.png|30;440]"}}
+														[mark_1qh65z7q39pb7kwy5r56]{this.location++; if (this.location>24) {this.location=0}}[GOTO test_view]
 													Следующий клиент[ANSWERIMAGE icons/two.png|90;400]
-														[mark_hmf2b7b43t25ivrag579]{this.client_type++;client_subtype=1;if this.client_type>9 {this.client_type=1}}[GOTO test_view]
+														[mark_hmf2b7b43t25ivrag579]{this.client_type++;this.client_subtype=1;if (this.client_type>9) {this.client_type=1}}[GOTO test_view]
 													Следующий подвид клиента[ANSWERIMAGE icons/three.png|150;400]
-														[mark_pdxq9br06d3n7s3v5l61]{client_subtype++}[GOTO test_view]
+														[mark_pdxq9br06d3n7s3v5l61]{this.client_subtype++}[GOTO test_view]
 													Следующее настроение клиента[ANSWERIMAGE icons/four.png|210;400]
-														[mark_9c7adz39qh6fx2cik151]{client_state++; if client_state>2 {client_state=0}}[GOTO test_view]
+														[mark_9c7adz39qh6fx2cik151]{this.client_state++; if (this.client_state>2) {this.client_state=0}}[GOTO test_view]
 													Сменить погоду[ANSWERIMAGE icons/five.png|270;400]
-														[mark_5t70w2oxuo87l3sy0132]{weather++; if weather>2 {weather=0}}[GOTO test_view]
+														[mark_5t70w2oxuo87l3sy0132]{this.weather++; if (this.weather>2) {this.weather=0}}[GOTO test_view]
 													Добавить +3 часа времени[ANSWERIMAGE icons/six.png|330;400]
-														[mark_1h938g56x45ba1kjwt0e]{game_hours+=3}[GOTO test_view]
+														[mark_1h938g56x45ba1kjwt0e]{this.game_hours+=3}[GOTO test_view]
 													Оружие[ANSWERIMAGE icons/gun.png|390;400]
-														[mark_zr344yt8l7z847qr3fxi]{driver_show_gun++; if driver_show_gun>1 {driver_show_gun=0}}[GOTO test_view]
+														[mark_zr344yt8l7z847qr3fxi]{this.driver_show_gun++; if (this.driver_show_gun>1) {this.driver_show_gun=0}}[GOTO test_view]
 													Повреждение машины -30%[ANSWERIMAGE icons/options.png|450;400]
-														[mark_508xkh21aa2n654o4o7l]{car_state-=30; if car_state<0 {car_state=100}}[GOTO test_view]
+														[mark_508xkh21aa2n654o4o7l]{this.car_state-=30; if (this.car_state<0) {this.car_state=100}}[GOTO test_view]
 													Тюнинг машины[ANSWERIMAGE icons/cool.png|510;400]
 														[mark_3g6spc98pn9i5dyb0j50]{this.things[this.thing_tuningkit][3]=1-this.things[this.thing_tuningkit][3]}[GOTO test_view]
 													Чистота машины -30%[ANSWERIMAGE icons/car_wash.png|570;400]
-														[mark_yffd4167oc6ur5h471h5]{car_cleanness-=30;if car_cleanness<0 {car_cleanness=100}}[GOTO test_view]
+														[mark_yffd4167oc6ur5h471h5]{this.car_cleanness-=30;if (this.car_cleanness<0) {this.car_cleanness=100}}[GOTO test_view]
 										[business1,client_proposes_casino_bet]{if (this.things[this.thing_vinyl_dog][3] && this.things[this.thing_casino_bet][1]==0 && this.things[this.thing_casino_bet][3]==0 && this.client_type==8) {this.cct=this.client_subtype;"";} else {"[GOTO business2]"}}
 											
 												[mark_8878446dr9me5q85pwqs]Послушай, дружище, есть у меня к тебе деловое предложение... Интересно?{script show_client_inside_rear.qsp}
