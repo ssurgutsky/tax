@@ -798,13 +798,13 @@
 													
 														[mark_final]{this.show_meteor=0;this.show_meteor_explosion=0;this.show_smoke=0;this.s=0.4;this.a=1}
 															
-																[more_closer]{script show_final.qsp}[HIDEANSWERS ON][ANSWERTIME 0.1]{if (this.s<1) {this.s+=0.1;"[TIMEEXPIRED more_closer]"} else {"[TIMEEXPIRED finish]"}}
+																[more_closer]{script show_final.qsp}[HIDEANSWERS ON][ANSWERTIME 0.2]{if (this.s<1) {this.s+=0.1;"[TIMEEXPIRED more_closer]"} else {"[TIMEEXPIRED finish]"}}
 																	>>>
 																		[finish]{this.show_meteor_explosion=1;this.a=1;'';}{script show_final.qsp}[SOUNDFX boom][HIDEANSWERS ON][ANSWERTIME 1][TIMEEXPIRED more_smoke]
 																			>>>
-																				[more_smoke]{this.a-=0.1; if (this.a < 0) {this.a=0};'';}{this.show_meteor=1;this.show_meteor_explosion=0;this.show_smoke=1;'';}{script show_final.qsp}[HIDEANSWERS ON][ANSWERTIME 0.1]{if (this.a>0) {"[TIMEEXPIRED more_smoke]"} else {"[TIMEEXPIRED the_end]"}}
+																				[more_smoke]{this.a-=0.1; if (this.a < 0) {this.a=0};'';}{this.show_meteor=1;this.show_meteor_explosion=0;this.show_smoke=1;'';}{script show_final.qsp}[HIDEANSWERS ON][ANSWERTIME 0.2]{if (this.a>0) {"[TIMEEXPIRED more_smoke]"} else {"[TIMEEXPIRED the_end]"}}
 																					>>>
-																						[the_end]На твою машину упал метеорит...[ANSWERTIME 30][TIMEEXPIRED poster_final]{script show_final.qsp}
+																						[the_end]На твою машину упал метеорит...{script show_final.qsp}
 																							О, нет![ANSWERIMAGE icons/three_dots.png|295;400]
 																								[poster_final]"Таксоман", 2010-2020 год.[BGNDIMAGE final_poster.jpg]
 																									Перейти в режим воспоминаний[ANSWERIMAGE icons/next.png|295;400]

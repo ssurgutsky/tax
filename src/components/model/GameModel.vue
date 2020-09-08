@@ -37,7 +37,8 @@ export default {
     isNewMusic: false,
     isNewBgndMusic: false,
     navigateUrl: '',
-    episodeNo: 1
+    episodeNo: 1,
+    isHideAnswers: false
   }),
   computed: {
   //   gameScriptsDictionary () {
@@ -276,6 +277,8 @@ export default {
 
       this.answerTime = commonUtils.getTagValueANSWERTIME(this.currentNode._parsedContent)
       this.timeExpiredMark = commonUtils.getTagValueTIMEEXPIRED(this.currentNode._parsedContent)
+
+      this.isHideAnswers = commonUtils.getTagValueHIDEANSWERS(this.currentNode._parsedContent) === 'ON'
 
       // console.log(']]]]]]]]]]]]]]', this.answerTime, this.timeExpiredMark)
     },

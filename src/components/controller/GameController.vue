@@ -164,6 +164,10 @@ export default {
 
       this.mainView.showAnswers(this.gameModel.getCurrentAnswers(), isInputS, inputSVal)
       this.mainView.setTimer(this.gameModel.getAnswerTime(), this.gameModel.timeExpiredMark)
+
+      if (this.gameModel.isHideAnswers) {
+        this.mainView.hideAnswers()
+      }
     },
 
     processAnswer (item) {

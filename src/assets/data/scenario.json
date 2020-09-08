@@ -4360,7 +4360,7 @@
                                                                                                     }
                                                                                                   ],
                                                                                                   "_mark": "the_end",
-                                                                                                  "_content": "[LABEL На твою машину упал метеорит...{script show_final.qsp}][TIMEEXPIRED poster_final][ANSWERTIME 30]"
+                                                                                                  "_content": "[LABEL На твою машину упал метеорит...{script show_final.qsp}]"
                                                                                                 }
                                                                                               ],
                                                                                               "_mark": "",
@@ -4368,7 +4368,7 @@
                                                                                             }
                                                                                           ],
                                                                                           "_mark": "more_smoke",
-                                                                                          "_content": "[LABEL {this.a-=0.1; if (this.a < 0) {this.a=0};'';}{this.show_meteor=1;this.show_meteor_explosion=0;this.show_smoke=1;'';}{script show_final.qsp}{if (this.a>0) {\"[TIMEEXPIRED more_smoke]\"} else {\"[TIMEEXPIRED the_end]\"}}][ANSWERTIME 0.1][HIDEANSWERS ON]"
+                                                                                          "_content": "[LABEL {this.a-=0.1; if (this.a < 0) {this.a=0};'';}{this.show_meteor=1;this.show_meteor_explosion=0;this.show_smoke=1;'';}{script show_final.qsp}{if (this.a>0) {\"[TIMEEXPIRED more_smoke]\"} else {\"[TIMEEXPIRED the_end]\"}}][ANSWERTIME 0.2][HIDEANSWERS ON]"
                                                                                         }
                                                                                       ],
                                                                                       "_mark": "",
@@ -4384,7 +4384,7 @@
                                                                             }
                                                                           ],
                                                                           "_mark": "more_closer",
-                                                                          "_content": "[LABEL {script show_final.qsp}{if (this.s<1) {this.s+=0.1;\"[TIMEEXPIRED more_closer]\"} else {\"[TIMEEXPIRED finish]\"}}][ANSWERTIME 0.1][HIDEANSWERS ON]"
+                                                                          "_content": "[LABEL {script show_final.qsp}{if (this.s<1) {this.s+=0.1;\"[TIMEEXPIRED more_closer]\"} else {\"[TIMEEXPIRED finish]\"}}][ANSWERTIME 0.2][HIDEANSWERS ON]"
                                                                         }
                                                                       ],
                                                                       "_mark": "",

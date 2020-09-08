@@ -105,6 +105,10 @@ export default {
     return this.getTagValueAudioSequence(content, 'BGNDMUSIC')
   },
 
+  getTagValueHIDEANSWERS (content) {
+    return this.getTagValue(content, 'HIDEANSWERS')
+  },
+
   getTagValueVideoSequence (content, tagName) {
     const sequence = this.getTagValueSequence(content, tagName)
     const result = sequence.map(item => item.trim().replace('.mp4', '').replace('.flv', ''))
