@@ -2324,7 +2324,7 @@
                                                                                                                                                         }
                                                                                                                                                       ],
                                                                                                                                                       "_mark": "",
-                                                                                                                                                      "_content": "[LABEL {if (this.things[this.thing_tuningkit][3] == 0 &&  this.things[this.thing_vinyl_dog][1] > 0 && this.things[this.thing_vinyl_dog][3]==0) {\"Самостоятельно установлю \" + this.things[thing_vinyl_dog][0] + \". Потребуется времени: 1 день\"+ \"[ANSWERIMAGE icons/vynil_dog.png|330;400]\"}}]"
+                                                                                                                                                      "_content": "[LABEL {if (this.things[this.thing_tuningkit][3] == 0 &&  this.things[this.thing_vinyl_dog][1] > 0 && this.things[this.thing_vinyl_dog][3]==0) {\"Самостоятельно установлю \" + this.things[this.thing_vinyl_dog][0] + \". Потребуется времени: 1 день\"+ \"[ANSWERIMAGE icons/vynil_dog.png|330;400]\"}}]"
                                                                                                                                                     },
                                                                                                                                                     {
                                                                                                                                                       "node": [
@@ -4276,7 +4276,7 @@
                                                                                 }
                                                                               ],
                                                                               "_mark": "",
-                                                                              "_content": "[LABEL {if (this.things[this.thing_known_garage,1]) {this.new_location=25;this.locations[this.new_location][0] + \"[ANSWERIMAGE map_mark.png|\"+this.locations[this.new_location][1]+\";\"+this.locations[this.new_location][2]+\"]\"}}]"
+                                                                              "_content": "[LABEL {if (this.things[this.thing_known_garage][1]) {this.new_location=25;this.locations[this.new_location][0] + \"[ANSWERIMAGE map_mark.png|\"+this.locations[this.new_location][1]+\";\"+this.locations[this.new_location][2]+\"]\"}}]"
                                                                             }
                                                                           ],
                                                                           "_mark": "main_menu",

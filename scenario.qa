@@ -432,7 +432,7 @@
 																																						[too_dirt_car_in_garage]Трудно что либо делать с такой грязной машиной.{script show_in_abandoned_garage.qsp}
 																																							...[ANSWERIMAGE icons/three_dots.png|295;400]
 																																								[mark_xb821466e835oic837e9][GOTO in_abandoned_garage]
-																																			{if (this.things[this.thing_tuningkit][3] == 0 &&  this.things[this.thing_vinyl_dog][1] > 0 && this.things[this.thing_vinyl_dog][3]==0) {"Самостоятельно установлю " + this.things[thing_vinyl_dog][0] + ". Потребуется времени: 1 день"+ "[ANSWERIMAGE icons/vynil_dog.png|330;400]"}}
+																																			{if (this.things[this.thing_tuningkit][3] == 0 &&  this.things[this.thing_vinyl_dog][1] > 0 && this.things[this.thing_vinyl_dog][3]==0) {"Самостоятельно установлю " + this.things[this.thing_vinyl_dog][0] + ". Потребуется времени: 1 день"+ "[ANSWERIMAGE icons/vynil_dog.png|330;400]"}}
 																																				[mark_u6nl4s650l5fp348n3j7]{if (this.car_cleanness < 70) {"[GOTO too_dirt_car_in_garage]"}}
 																																					
 																																						[mark_5ffvr037j9163k17250k]Прошел 1 день. Неплохо получилось! За такую красоту можно смело повышать цены.{this.things[this.thing_vinyl_dog][3]=1;'';}{script show_in_abandoned_garage.qsp}
@@ -789,7 +789,7 @@
 																		[mark_3n8d3bqm2o43u5r1c2a8]{this.new_location=23;'';}{script stay_or_change_location.qsp}
 																	{this.new_location=24;this.locations[this.new_location][0] + "[ANSWERIMAGE map_mark.png|"+this.locations[this.new_location][1]+";"+this.locations[this.new_location][2]+"]"}
 																		[mark_6kbk1dnh9ran4pd4vj96]{this.new_location=24;'';}{script stay_or_change_location.qsp}
-																	{if (this.things[this.thing_known_garage,1]) {this.new_location=25;this.locations[this.new_location][0] + "[ANSWERIMAGE map_mark.png|"+this.locations[this.new_location][1]+";"+this.locations[this.new_location][2]+"]"}}
+																	{if (this.things[this.thing_known_garage][1]) {this.new_location=25;this.locations[this.new_location][0] + "[ANSWERIMAGE map_mark.png|"+this.locations[this.new_location][1]+";"+this.locations[this.new_location][2]+"]"}}
 																		[mark_j16ux7jbf5bo6n43e0qt]{this.new_location=25;'';}{script stay_or_change_location.qsp}
 										[you_win]Поздравления! Кредит выплачен полностью! Игра пройдена.{script show_bank.qsp}[AMBIENT final][MUSIC none]
 											Класс!!![ANSWERIMAGE icons/cool.png|295;400]
