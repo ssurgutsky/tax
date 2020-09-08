@@ -322,7 +322,7 @@
 																																																		[mark_3efqr10y4b6d70g6g41e][GOTO wanna_kick_me]
 																																															[GOTO show_gun_to_casino_guy]
 																																	{if ((this.location == 13 || this.location == 16) && this.fuel<this.max_fuel && this.money>0) {"Заправлю машину" + "[ANSWERIMAGE icons/fuel_station.png|260;400]"}}
-																																		[fuel_station]{script rounding.qsp}{script show_game_stats.qsp}\n{this.locations[this.location][0]}. Бензин здесь стоит: {this.fuel_cost; if (this.things[this.thing_fuel_discount][1]) {" (с учетом скидки " + this.fuel_discount_value + "%)"}}{script show_client}
+																																		[fuel_station]{script rounding.qsp}{script show_game_stats.qsp}\n{this.locations[this.location][0]}. Бензин здесь стоит: {this.fuel_cost}{if (this.things[this.thing_fuel_discount][1]) {" (с учетом скидки " + this.fuel_discount_value + "%)"}}{script show_client}
 																																			{if (this.fuel_by_money>=this.car_fuel_needed) {"Заправить полный бак, требуется литров: " + this.car_fuel_needed + "[ANSWERIMAGE icons/money6.png|200;400]"}}
 																																				[mark_kr482j5dhp90wjg68a45]{this.money=+(this.money-this.car_fuel_needed*this.fuel_cost).toFixed(2);this.fuel=this.max_fuel}{script rounding.qsp}{script calc_car_fuel.qsp}[GOTO new_location]
 																																			Ввести кол-во литров вручную[ANSWERIMAGE icons/how_much.png|260;400]

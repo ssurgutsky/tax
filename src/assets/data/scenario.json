@@ -1766,7 +1766,7 @@
                                                                                                                                                     }
                                                                                                                                                   ],
                                                                                                                                                   "_mark": "fuel_station",
-                                                                                                                                                  "_content": "[LABEL {script rounding.qsp}{script show_game_stats.qsp}\n{this.locations[this.location][0]}. Бензин здесь стоит: {this.fuel_cost; if (this.things[this.thing_fuel_discount][1]) {\" (с учетом скидки \" + this.fuel_discount_value + \"%)\"}}{script show_client}]"
+                                                                                                                                                  "_content": "[LABEL {script rounding.qsp}{script show_game_stats.qsp}\n{this.locations[this.location][0]}. Бензин здесь стоит: {this.fuel_cost}{if (this.things[this.thing_fuel_discount][1]) {\" (с учетом скидки \" + this.fuel_discount_value + \"%)\"}}{script show_client}]"
                                                                                                                                                 }
                                                                                                                                               ],
                                                                                                                                               "_mark": "",
