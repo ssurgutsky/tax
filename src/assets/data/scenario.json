@@ -4368,7 +4368,7 @@
                                                                                             }
                                                                                           ],
                                                                                           "_mark": "more_smoke",
-                                                                                          "_content": "[LABEL {this.a-=0.1}{this.show_meteor=1;this.show_meteor_explosion=0;this.show_smoke=1}{script show_final.qsp}{if (this.a>0) {\"[TIMEEXPIRED more_smoke]\"} else {\"[TIMEEXPIRED the_end]\"}}][ANSWERTIME 0.1][HIDEANSWERS ON]"
+                                                                                          "_content": "[LABEL {this.a-=0.1; if (this.a < 0) {this.a=0};'';}{this.show_meteor=1;this.show_meteor_explosion=0;this.show_smoke=1;'';}{script show_final.qsp}{if (this.a>0) {\"[TIMEEXPIRED more_smoke]\"} else {\"[TIMEEXPIRED the_end]\"}}][ANSWERTIME 0.1][HIDEANSWERS ON]"
                                                                                         }
                                                                                       ],
                                                                                       "_mark": "",
@@ -4376,7 +4376,7 @@
                                                                                     }
                                                                                   ],
                                                                                   "_mark": "finish",
-                                                                                  "_content": "[LABEL {this.show_meteor_explosion=1}{script show_final.qsp}][SOUNDFX boom][TIMEEXPIRED more_smoke][ANSWERTIME 1][HIDEANSWERS ON]"
+                                                                                  "_content": "[LABEL {this.show_meteor_explosion=1;this.a=1;'';}{script show_final.qsp}][SOUNDFX boom][TIMEEXPIRED more_smoke][ANSWERTIME 1][HIDEANSWERS ON]"
                                                                                 }
                                                                               ],
                                                                               "_mark": "",
@@ -4384,7 +4384,7 @@
                                                                             }
                                                                           ],
                                                                           "_mark": "more_closer",
-                                                                          "_content": "[LABEL {script show_final.qsp}{if (this.s<1) {this.s+=0.1;\"[TIMEEXPIRED more_closer]\"} else {\"[TIMEEXPIRED finish]\"}}][ANSWERTIME 1][HIDEANSWERS ON]"
+                                                                          "_content": "[LABEL {script show_final.qsp}{if (this.s<1) {this.s+=0.1;\"[TIMEEXPIRED more_closer]\"} else {\"[TIMEEXPIRED finish]\"}}][ANSWERTIME 0.1][HIDEANSWERS ON]"
                                                                         }
                                                                       ],
                                                                       "_mark": "",
@@ -5100,7 +5100,7 @@
                                                                                                       "node": [
                                                                                                         {
                                                                                                           "_mark": "mark_54mjziccue80hssr9bn6",
-                                                                                                          "_content": "[LABEL {output \"[GOTO \" + return_mark + \"]\"}]"
+                                                                                                          "_content": "[LABEL {\"[GOTO \" + this.return_mark + \"]\"}]"
                                                                                                         }
                                                                                                       ],
                                                                                                       "_mark": "",
@@ -5108,7 +5108,7 @@
                                                                                                     }
                                                                                                   ],
                                                                                                   "_mark": "mark_58sa4ti81qe7ep6267v0",
-                                                                                                  "_content": "[LABEL {if some_fuel >=1 {this.fuel-=some_fuel;people_negative-=(5+some_fuel);{script spent_time.qsp}output \"Спасибо тебе, дружище!\"} else {output \"Ты что, издеваешься? А ну вали отсюда!\";people_negative+=1}}{script rounding.qsp}{script show_ask_fuel.qsp}][TIMEEXPIRED {output return_mark}][ANSWERTIME 15]"
+                                                                                                  "_content": "[LABEL {if (this.some_fuel >=1) {this.fuel-=this.some_fuel;this.people_negative-=(5+this.some_fuel);{script spent_time.qsp}\"Спасибо тебе, дружище!\"} else {\"Ты что, издеваешься? А ну вали отсюда!\";this.people_negative+=1}}{script rounding.qsp}{script show_ask_fuel.qsp}][TIMEEXPIRED {this.return_mark}][ANSWERTIME 15]"
                                                                                                 }
                                                                                               ],
                                                                                               "_mark": "",
@@ -5116,15 +5116,15 @@
                                                                                             }
                                                                                           ],
                                                                                           "_mark": "mark_r1s5ou4v7h89327ml1h3",
-                                                                                          "_content": "[LABEL {if (some_fuel<0) || (some_fuel>this.fuel) {output \"[GOTO input_fuel_for_help]\"}}]"
+                                                                                          "_content": "[LABEL {if (this.some_fuel<0 || this.some_fuel>this.fuel) {\"[GOTO input_fuel_for_help]\"}}]"
                                                                                         }
                                                                                       ],
                                                                                       "_mark": "",
-                                                                                      "_content": "[LABEL ][INPUTS some_fuel]"
+                                                                                      "_content": "[LABEL ][INPUTS this.some_fuel]"
                                                                                     }
                                                                                   ],
                                                                                   "_mark": "input_fuel_for_help",
-                                                                                  "_content": "[LABEL Введи количество бензина? (0 - {output this.fuel}){script show_ask_fuel.qsp}][TIMEEXPIRED give_no_fuel][ANSWERTIME 60]"
+                                                                                  "_content": "[LABEL Введи количество бензина? (0 - {this.fuel}){script show_ask_fuel.qsp}][TIMEEXPIRED give_no_fuel][ANSWERTIME 60]"
                                                                                 }
                                                                               ],
                                                                               "_mark": "",
@@ -5132,7 +5132,7 @@
                                                                             }
                                                                           ],
                                                                           "_mark": "mark_71n6gwdxol7c8pu5ed40",
-                                                                          "_content": "[LABEL ][GOTO input_fuel_for_help{if random*people_negative_max/2 < people_negative {asked_fuel=1;output \",gop_stop\"}}]"
+                                                                          "_content": "[LABEL ][GOTO input_fuel_for_help{if (Math.random()*this.people_negative_max/2 < this.people_negative) {this.asked_fuel=1;\",gop_stop\"}}]"
                                                                         }
                                                                       ],
                                                                       "_mark": "",
@@ -5142,7 +5142,7 @@
                                                                       "node": [
                                                                         {
                                                                           "_mark": "mark_ixl4697s24ve73r73ts9",
-                                                                          "_content": "[LABEL ][GOTO {output return_mark}]"
+                                                                          "_content": "[LABEL ][GOTO {this.return_mark}]"
                                                                         }
                                                                       ],
                                                                       "_mark": "",
@@ -5150,7 +5150,7 @@
                                                                     }
                                                                   ],
                                                                   "_mark": "mark_ct241s7sv873o0x9p42m",
-                                                                  "_content": "[LABEL {ask_fuel_yes=1}Дружище, поделись бензином, если не трудно?{script show_ask_fuel.qsp}][TIMEEXPIRED give_no_fuel][ANSWERTIME 15]"
+                                                                  "_content": "[LABEL {this.ask_fuel_yes=1;'';}Дружище, поделись бензином, если не трудно?{script show_ask_fuel.qsp}][TIMEEXPIRED give_no_fuel][ANSWERTIME 15]"
                                                                 }
                                                               ],
                                                               "_mark": "",
@@ -5160,7 +5160,7 @@
                                                               "node": [
                                                                 {
                                                                   "_mark": "give_no_fuel",
-                                                                  "_content": "[LABEL ][GOTO {output return_mark}]"
+                                                                  "_content": "[LABEL ][GOTO {this.return_mark}]"
                                                                 }
                                                               ],
                                                               "_mark": "",
@@ -5168,7 +5168,7 @@
                                                             }
                                                           ],
                                                           "_mark": "select_human_help",
-                                                          "_content": "[LABEL Похоже человек просит помощи. Остановишься?{ask_fuel_yes=0}{script show_ask_fuel.qsp}][TIMEEXPIRED give_no_fuel][ANSWERTIME 15]"
+                                                          "_content": "[LABEL Похоже человек просит помощи. Остановишься?{this.ask_fuel_yes=0;'';}{script show_ask_fuel.qsp}][TIMEEXPIRED give_no_fuel][ANSWERTIME 15]"
                                                         }
                                                       ],
                                                       "_mark": "",
@@ -5196,7 +5196,7 @@
                                                             }
                                                           ],
                                                           "_mark": "traffic_congestion",
-                                                          "_content": "[LABEL {script spent_time}{script rounding.qsp}Ты попал в пробку и провел в ней времени: {output spent_time} ч.{script show_traffic_congestion.qsp}][TIMEEXPIRED dangerous_moment][ANSWERTIME 10]"
+                                                          "_content": "[LABEL {script spent_time}{script rounding.qsp}Ты попал в пробку и провел в ней времени: {this.spent_time} ч.{script show_traffic_congestion.qsp}][TIMEEXPIRED dangerous_moment][ANSWERTIME 10]"
                                                         }
                                                       ],
                                                       "_mark": "",
@@ -6496,7 +6496,7 @@
                     }
                   ],
                   "_mark": "choose_language",
-                  "_content": "[LABEL Таксоман v1.0.8\nВыберите язык / Choose language][BGNDIMAGE poster.jpg][AMBIENT intro][ANSWERSORDER ON]"
+                  "_content": "[LABEL Таксоман v1.0.9\nВыберите язык / Choose language][BGNDIMAGE poster.jpg][AMBIENT intro][ANSWERSORDER ON]"
                 }
               ],
               "_mark": "",

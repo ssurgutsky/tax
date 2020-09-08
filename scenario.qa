@@ -1,6 +1,6 @@
 [mark_3z68p6amx549c803662v][IMAGE hints/hint_advices.jpg,hints/hint_bargain.jpg,hints/hint_credit.jpg,hints/hint_crush.jpg,hints/hint_defend.jpg,hints/hint_dvd.jpg,hints/hint_havefun.jpg,hints/hint_locations.jpg,hints/hint_quests.jpg,hints/hint_store.jpg,hints/hint_tuning.jpg,hints/hint_vip.jpg][AUDIO silent_1]{script init_vars.qsp}
 	
-		[choose_language]Таксоман v1.0.8\nВыберите язык / Choose language[BGNDIMAGE poster.jpg][AMBIENT intro][ANSWERSORDER ON]
+		[choose_language]Таксоман v1.0.9\nВыберите язык / Choose language[BGNDIMAGE poster.jpg][AMBIENT intro][ANSWERSORDER ON]
 			Русский / Russian[ANSWERIMAGE icons/ru.png|50;400]
 				[mark_8k4b7be187h4p2120a06]{this.location=19;this.night_alpha=0;this.weather=0;'';}Благодаря государственной программе поддержки молодых таксистов, тебе повезло взять беспроцентный кредит в размере 300 000 сроком на 1 год.{script show_bank.qsp}[ANSWERSORDER ON]
 					Дальше...[ANSWERIMAGE icons/next.png|260;420]
@@ -798,11 +798,11 @@
 													
 														[mark_final]{this.show_meteor=0;this.show_meteor_explosion=0;this.show_smoke=0;this.s=0.4;this.a=1}
 															
-																[more_closer]{script show_final.qsp}[HIDEANSWERS ON][ANSWERTIME 1]{if (this.s<1) {this.s+=0.1;"[TIMEEXPIRED more_closer]"} else {"[TIMEEXPIRED finish]"}}
+																[more_closer]{script show_final.qsp}[HIDEANSWERS ON][ANSWERTIME 0.1]{if (this.s<1) {this.s+=0.1;"[TIMEEXPIRED more_closer]"} else {"[TIMEEXPIRED finish]"}}
 																	>>>
-																		[finish]{this.show_meteor_explosion=1}{script show_final.qsp}[SOUNDFX boom][HIDEANSWERS ON][ANSWERTIME 1][TIMEEXPIRED more_smoke]
+																		[finish]{this.show_meteor_explosion=1;this.a=1;'';}{script show_final.qsp}[SOUNDFX boom][HIDEANSWERS ON][ANSWERTIME 1][TIMEEXPIRED more_smoke]
 																			>>>
-																				[more_smoke]{this.a-=0.1}{this.show_meteor=1;this.show_meteor_explosion=0;this.show_smoke=1}{script show_final.qsp}[HIDEANSWERS ON][ANSWERTIME 0.1]{if (this.a>0) {"[TIMEEXPIRED more_smoke]"} else {"[TIMEEXPIRED the_end]"}}
+																				[more_smoke]{this.a-=0.1; if (this.a < 0) {this.a=0};'';}{this.show_meteor=1;this.show_meteor_explosion=0;this.show_smoke=1;'';}{script show_final.qsp}[HIDEANSWERS ON][ANSWERTIME 0.1]{if (this.a>0) {"[TIMEEXPIRED more_smoke]"} else {"[TIMEEXPIRED the_end]"}}
 																					>>>
 																						[the_end]На твою машину упал метеорит...[ANSWERTIME 30][TIMEEXPIRED poster_final]{script show_final.qsp}
 																							О, нет![ANSWERIMAGE icons/three_dots.png|295;400]
@@ -935,26 +935,26 @@
 																[mark_31tytrs1kz6jkcw02r78][GOTO human_asks_help]
 										[human_asks_help]{if (Math.random()*this.people_negative_max < this.people_negative) {"[GOTO select_human_help]"} else {"[GOTO " + this.return_mark + "]"}}
 											
-												[select_human_help]Похоже человек просит помощи. Остановишься?{ask_fuel_yes=0}{script show_ask_fuel.qsp}[ANSWERTIME 15][TIMEEXPIRED give_no_fuel]
+												[select_human_help]Похоже человек просит помощи. Остановишься?{this.ask_fuel_yes=0;'';}{script show_ask_fuel.qsp}[ANSWERTIME 15][TIMEEXPIRED give_no_fuel]
 													Да, помогу человеку[ANSWERIMAGE icons/good.png|260;400]
-														[mark_ct241s7sv873o0x9p42m]{ask_fuel_yes=1}Дружище, поделись бензином, если не трудно?{script show_ask_fuel.qsp}[ANSWERTIME 15][TIMEEXPIRED give_no_fuel]
+														[mark_ct241s7sv873o0x9p42m]{this.ask_fuel_yes=1;'';}Дружище, поделись бензином, если не трудно?{script show_ask_fuel.qsp}[ANSWERTIME 15][TIMEEXPIRED give_no_fuel]
 															Солью сколько не жалко[ANSWERIMAGE icons/good.png|260;400]
-																[mark_71n6gwdxol7c8pu5ed40][GOTO input_fuel_for_help{if random*people_negative_max/2 < people_negative {asked_fuel=1;output ",gop_stop"}}]
+																[mark_71n6gwdxol7c8pu5ed40][GOTO input_fuel_for_help{if (Math.random()*this.people_negative_max/2 < this.people_negative) {this.asked_fuel=1;",gop_stop"}}]
 																	
-																		[input_fuel_for_help]Введи количество бензина? (0 - {output this.fuel}){script show_ask_fuel.qsp}[ANSWERTIME 60][TIMEEXPIRED give_no_fuel]
-																			[INPUTS some_fuel]
-																				[mark_r1s5ou4v7h89327ml1h3]{if (some_fuel<0) || (some_fuel>this.fuel) {output "[GOTO input_fuel_for_help]"}}
+																		[input_fuel_for_help]Введи количество бензина? (0 - {this.fuel}){script show_ask_fuel.qsp}[ANSWERTIME 60][TIMEEXPIRED give_no_fuel]
+																			[INPUTS this.some_fuel]
+																				[mark_r1s5ou4v7h89327ml1h3]{if (this.some_fuel<0 || this.some_fuel>this.fuel) {"[GOTO input_fuel_for_help]"}}
 																					
-																						[mark_58sa4ti81qe7ep6267v0]{if some_fuel >=1 {this.fuel-=some_fuel;people_negative-=(5+some_fuel);{script spent_time.qsp}output "Спасибо тебе, дружище!"} else {output "Ты что, издеваешься? А ну вали отсюда!";people_negative+=1}}{script rounding.qsp}{script show_ask_fuel.qsp}[ANSWERTIME 15][TIMEEXPIRED {output return_mark}]
+																						[mark_58sa4ti81qe7ep6267v0]{if (this.some_fuel >=1) {this.fuel-=this.some_fuel;this.people_negative-=(5+this.some_fuel);{script spent_time.qsp}"Спасибо тебе, дружище!"} else {"Ты что, издеваешься? А ну вали отсюда!";this.people_negative+=1}}{script rounding.qsp}{script show_ask_fuel.qsp}[ANSWERTIME 15][TIMEEXPIRED {this.return_mark}]
 																							Пойду дальше.[ANSWERIMAGE icons/next.png|295;400]
-																								[mark_54mjziccue80hssr9bn6]{output "[GOTO " + return_mark + "]"}
+																								[mark_54mjziccue80hssr9bn6]{"[GOTO " + this.return_mark + "]"}
 															Не могу, извини[ANSWERIMAGE icons/cancel.png|320;400]
-																[mark_ixl4697s24ve73r73ts9][GOTO {output return_mark}]
+																[mark_ixl4697s24ve73r73ts9][GOTO {this.return_mark}]
 													Нет, проеду мимо[ANSWERIMAGE icons/cancel.png|320;400]
-														[give_no_fuel][GOTO {output return_mark}]
+														[give_no_fuel][GOTO {this.return_mark}]
 										[different_situations]{this.random_people_negative = Math.random() * this.people_negative_max / 2; if (this.is_daytime && this.random_people_negative < this.people_negative) {"[GOTO traffic_congestion]"} else {"[GOTO dangerous_moment]"}}
 											
-												[traffic_congestion]{script spent_time}{script rounding.qsp}Ты попал в пробку и провел в ней времени: {output spent_time} ч.{script show_traffic_congestion.qsp}[ANSWERTIME 10][TIMEEXPIRED dangerous_moment]
+												[traffic_congestion]{script spent_time}{script rounding.qsp}Ты попал в пробку и провел в ней времени: {this.spent_time} ч.{script show_traffic_congestion.qsp}[ANSWERTIME 10][TIMEEXPIRED dangerous_moment]
 													Дальше...[ANSWERIMAGE icons/next.png|295;400]
 														[mark_ha498312r54629zhsz1k][GOTO dangerous_moment]
 										[test_mode]{script init_vars.qsp}{this.car_state=100;this.client_type=1;this.client_subtype=1;this.client_state=0;this.weather=0;this.is_daytime=1;this.driver_show_gun=0;this.view=1;this.location=1;this.things[this.thing_tuningkit][3]=1;this.max_waiting=4;this.waiting=100}[AMBIENT what_is_love ]

@@ -22,6 +22,7 @@ export default {
   methods: {
 
     setTimer (seconds, mark) {
+      console.log('TimerView::setTimer', seconds, mark)
       this.mark = mark
       this.seconds = seconds
       this.clearTimer()
@@ -33,24 +34,25 @@ export default {
       this.timerId = setInterval(() => {
         this.currentMS += this.interval
 
-        // console.log('PROCESSTIMERUPDATE:::', this.mark, this.seconds, this.currentMS, this.totalMS)
+        // console.log('TimerView::PROCESSTIMERUPDATE:::', this.mark, this.seconds, this.currentMS, this.totalMS)
 
         this.updateIndicator()
 
         if (this.currentMS > this.totalMS) {
-          this.onTimeExpired()
           this.clearTimer()
           this.currentMS = this.totalMS
+          this.onTimeExpired()
         }
       }, this.interval)
     },
 
     onTimeExpired () {
-      // console.log('timeExpired')
+      console.log('TimerView::timeExpired')
       this.$emit('timeExpired')
     },
 
     clearTimer () {
+      console.log('TimerView::clearTimer')
       clearInterval(this.timerId)
       this.totalMS = 100
       this.currentMS = 100
