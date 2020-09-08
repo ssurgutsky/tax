@@ -25,11 +25,11 @@ export default {
       },
       // Can buy this cheat to enable button
       isCheatPurchased: this.$debug,
-      isSaveButton: Settings.ENABLE_SAVE_BUTTON,
-      isLoadButton: Settings.ENABLE_LOAD_BUTTON,
-      isBackButton: Settings.ENABLE_BACK_BUTTON,
-      isEpisodesButton: Settings.ENABLE_EPISODES_BUTTON,
-      isSkipButton: Settings.ENABLE_SKIP_BUTTON
+      isSaveButton: Settings.ENABLE_SAVE_BUTTON || this.$debug,
+      isLoadButton: Settings.ENABLE_LOAD_BUTTON || this.$debug,
+      isBackButton: Settings.ENABLE_BACK_BUTTON || this.$debug,
+      isEpisodesButton: Settings.ENABLE_EPISODES_BUTTON || this.$debug,
+      isSkipButton: Settings.ENABLE_SKIP_BUTTON || this.$debug
     }
   },
   methods: {
