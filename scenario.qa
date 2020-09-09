@@ -341,7 +341,7 @@
 																																			Ввести кол-во литров вручную[ANSWERIMAGE icons/how_much.png|260;400]
 																																				[how_many_fuel]Сколько литров заправить 0 - {+this.max_car_can_fuel.toFixed(1)}?{script show_client}
 																																					[INPUTS this.fuel_liters]
-																																						[mark_li763547sgcz39426ne1]{let fl=parseInt(this.fuel_liters);if (fl>=0 && fl<=this.max_car_can_fuel) {this.fuel+=fl;this.money-=this.fuel_cost*fl;{script rounding.qsp}{script calc_car_fuel.qsp}"[GOTO new_location]"} else {"[GOTO how_many_fuel]"}}
+																																						[mark_li763547sgcz39426ne1]{let fl=parseFloat(this.fuel_liters);if (fl>=0 && fl<=this.max_car_can_fuel) {this.fuel+=fl;this.money-=this.fuel_cost*fl;{script rounding.qsp}{script calc_car_fuel.qsp}"[GOTO new_location]"} else {"[GOTO how_many_fuel]"}}
 																																			{if (this.money > 0 && this.fuel_by_money<=this.car_fuel_needed) {"Заправить на все оставшиеся деньги[ANSWERIMAGE icons/money1.png|380;400]"}}
 																																				[mark_inu1zf7v531a1e4tr474]{this.money=0;this.fuel+=this.fuel_by_money;'';}{script rounding.qsp}{script calc_car_fuel.qsp}[GOTO new_location]
 																																			Ввести сумму заправки вручную[ANSWERIMAGE icons/how_much_money.png|260;400]
@@ -470,7 +470,7 @@
 																																												[rb6]Теперь ты знаешь, как устроен твой автомобиль. Ты можешь чинить его сам с помощью: {this.things[this.thing_repairing_toolkit][0]}[BGNDIMAGE repairing_toolkit.jpg]
 																																													Класс![ANSWERIMAGE icons/cool.png|295;400]
 																																														[mark_bi21fuxrh2zao9813d10]{this.things[this.thing_repairing_book][3]=1;'';}{script calc_car_repair.qsp}[GOTO new_location]
-																																	Буду таксовать[ANSWERIMAGE icons/taxi.png|320;400]{this.vip_call=0;'';}
+																																	{if (this.fuel > 0) {this.vip_call=0;"Буду таксовать[ANSWERIMAGE icons/taxi.png|320;400]"}}
 																																		[taxing]{this.driver_show_gun=0;this.vip_call=0;this.client_type=0;'';}{script calc_weather.qsp}{script show_client.qsp}
 																																			
 																																				[vip_taxing]{script calc_client_type.qsp}{if (this.vip_call && this.client_pretense>0) {"[GOTO vip_client_has_pretense]"}}
@@ -541,7 +541,7 @@
 																																																																																[client_really_has_no_money]Похоже у клиента действительно нет денег. Пришлось отпустить...{this.client_type=0;this.driver_show_gun=0;'';}{script show_client}[ANSWERTIME 5][TIMEEXPIRED client_go_away]
 																																																																																	[search_client_again]Продолжу поиски клиентов[ANSWERIMAGE icons/taxi.png|320;400]
 																																																																																		[mark_os2u19tixzcle6dk32ym][GOTO barfed]
-																																																																																	[change_location]Поеду в другое место[ANSWERIMAGE icons/change_place.png|380;400]{if (this.dvd_playing == 0) {"[AMBIENT AmbientStreet]"}}
+																																																																																	[change_location]{if (this.fuel > 0) {"Поеду в другое место[ANSWERIMAGE icons/change_place.png|380;400]"}}{if (this.dvd_playing == 0) {"[AMBIENT AmbientStreet]"}}
 																																																																																		[mark_69mfon6o859rsg778pvt][GOTO main_menu]
 																																																																															{if (this.things[this.thing_gun][1]) {this.client_price += this.Inflation;this.driver_show_gun=1;"Теперь ты мне отдашь " + this.client_price + ". Гони сюда мои деньги!...[ANSWERIMAGE icons/gun.png|380;400]"}}
 																																																																																[mark_8xd194zv05qm9zu7m89p]{if (this.get_back_money_tries < 3) {"[GOTO client_has_no_money,client_returned_money]"} else {"[GOTO client_really_has_no_money]"}}
@@ -829,7 +829,7 @@
 													Попробую еще[ANSWERIMAGE icons/canister.png|260;400]
 														[mark_b7yex9608b9zo3xp11uu][GOTO try_get_fuel, try_get_fuel, try_get_fuel, fuel_found]
 															
-																[fuel_found]{this.some_fuel=Math.floor(1+Math.random()*2);'';}Тебе повезло раздобыть {this.some_fuel} л. бензина!{this.fuel+=this.some_fuel}{script rounding.qsp}{script show_empty_fuel.qsp}
+																[fuel_found]{this.some_fuel=Math.floor(1+Math.random()*2);'';}Тебе повезло раздобыть {this.some_fuel} л. бензина!{this.fuel+=this.some_fuel;'';}{script rounding.qsp}{script show_empty_fuel.qsp}
 																	{if (this.fuel<this.max_fuel) {"Раздобуду еще бензина[ANSWERIMAGE icons/canister.png|260;400]"}}
 																		[mark_4lc5m9nygeg7p2ha7iea][GOTO try_get_fuel]
 																	Мне хватит этого бензина {this.fuel} л., поеду дальше.[ANSWERIMAGE icons/steering_wheel.png|320;400]
@@ -837,19 +837,19 @@
 													[GOTO stop_car_for_rope]
 													{if (this.fuel>0) {"Поеду дальше (бензин: " + this.fuel + " л.)[ANSWERIMAGE icons/steering_wheel.png|380;400]"}}
 														[mark_177p425p2a7bp7w57it6][GOTO main_menu]
-											[stop_car_for_rope]Попрошу кого-нибудь дотянуть меня на веревке до АЗС[ANSWERIMAGE icons/fuel_station.png|320;400]
+											[stop_car_for_rope]Попрошу кого-нибудь дотянуть меня на галстуке до АЗС[ANSWERIMAGE icons/fuel_station.png|320;400]
 												[mark_65a2q36438457vu6a94a][GOTO rope_found, try_find_rope]
 													
-														[try_find_rope]{script spent_time.qsp}Ты безуспешно провел {this.spent_time} ч. времени, пытаясь найти, кто дотянет тебя на веревке.{script show_empty_fuel.qsp}
+														[try_find_rope]{script spent_time.qsp}Ты безуспешно провел {this.spent_time} ч. времени, никто не хочет тянуть тебя до АЗС.{script show_empty_fuel.qsp}
 															Попробую еще[ANSWERIMAGE icons/fuel_station.png|320;400]
 																[mark_c9updo79t291b9ds502v][GOTO rope_found, try_find_rope]
 																	
-																		[rope_found]{script spent_time.qsp}Тебе повезло! Тебя согласились дотянуть на троссе до АЗС.{script rounding.qsp}{this.show_gazel=1;'';}{script show_empty_fuel.qsp}
+																		[rope_found]{script spent_time.qsp}Тебе повезло! Тебя согласились дотянуть до АЗС.{script rounding.qsp}{this.show_gazel=1;'';}{script show_empty_fuel.qsp}
 																			Отлично![ANSWERIMAGE icons/cool.png|295;400]
 																				[mark_rgl9565uc5xoe283lc0e]{this.new_location=13}[GOTO new_location]
 															[GOTO stop_car_for_fuel]
 											{this.evacuation_cost=10*this.Inflation;if (this.money >= this.evacuation_cost) {"Вызову эвакуатор, цена: " + this.evacuation_cost + "[ANSWERIMAGE icons/evacuator.png|380;400]"}}
-												[mark_3j60i5f150qntam94v52]{script spent_time.qsp}{this.money-=this.evacuation_cost}{this.new_location=13;this.location=13;this.client_type=0;this.show_evacuator=1;'';}Эвакуатор довезет тебя до АЗС.{script show_empty_fuel.qsp}
+												[mark_3j60i5f150qntam94v52]{script spent_time.qsp}{this.money-=this.evacuation_cost;this.new_location=13;this.location=13;this.client_type=0;this.show_evacuator=1;'';}Эвакуатор довезет тебя до АЗС.{script show_empty_fuel.qsp}
 													Отлично.[ANSWERIMAGE icons/cool.png|295;400]
 														[mark_6417ohsj763rvv790l18][GOTO new_location]
 										[credit_payday]Тебя разыскали коллекторы. Ты задолжал Банку: {this.credit_delay_sum}.[BGNDIMAGE collectors.jpg][ANSWERTIME 20][TIMEEXPIRED creditback]

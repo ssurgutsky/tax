@@ -1774,7 +1774,7 @@
                                                                                                                                                               "node": [
                                                                                                                                                                 {
                                                                                                                                                                   "_mark": "mark_li763547sgcz39426ne1",
-                                                                                                                                                                  "_content": "[LABEL {let fl=parseInt(this.fuel_liters);if (fl>=0 && fl<=this.max_car_can_fuel) {this.fuel+=fl;this.money-=this.fuel_cost*fl;{script rounding.qsp}{script calc_car_fuel.qsp}\"[GOTO new_location]\"} else {\"[GOTO how_many_fuel]\"}}]"
+                                                                                                                                                                  "_content": "[LABEL {let fl=parseFloat(this.fuel_liters);if (fl>=0 && fl<=this.max_car_can_fuel) {this.fuel+=fl;this.money-=this.fuel_cost*fl;{script rounding.qsp}{script calc_car_fuel.qsp}\"[GOTO new_location]\"} else {\"[GOTO how_many_fuel]\"}}]"
                                                                                                                                                                 }
                                                                                                                                                               ],
                                                                                                                                                               "_mark": "",
@@ -2730,7 +2730,7 @@
                                                                                                                                                                                                                                                                                                                                                 }
                                                                                                                                                                                                                                                                                                                                               ],
                                                                                                                                                                                                                                                                                                                                               "_mark": "change_location",
-                                                                                                                                                                                                                                                                                                                                              "_content": "[LABEL Поеду в другое место{if (this.dvd_playing == 0) {\"[AMBIENT AmbientStreet]\"}}][ANSWERIMAGE icons/change_place.png|380;400]"
+                                                                                                                                                                                                                                                                                                                                              "_content": "[LABEL {if (this.fuel > 0) {\"Поеду в другое место[ANSWERIMAGE icons/change_place.png|380;400]\"}}{if (this.dvd_playing == 0) {\"[AMBIENT AmbientStreet]\"}}]"
                                                                                                                                                                                                                                                                                                                                             }
                                                                                                                                                                                                                                                                                                                                           ],
                                                                                                                                                                                                                                                                                                                                           "_mark": "client_really_has_no_money",
@@ -3272,7 +3272,7 @@
                                                                                                                                                 }
                                                                                                                                               ],
                                                                                                                                               "_mark": "",
-                                                                                                                                              "_content": "[LABEL Буду таксовать{this.vip_call=0;'';}][ANSWERIMAGE icons/taxi.png|320;400]"
+                                                                                                                                              "_content": "[LABEL {if (this.fuel > 0) {this.vip_call=0;\"Буду таксовать[ANSWERIMAGE icons/taxi.png|320;400]\"}}]"
                                                                                                                                             },
                                                                                                                                             {
                                                                                                                                               "_mark": "",
@@ -4516,7 +4516,7 @@
                                                                             }
                                                                           ],
                                                                           "_mark": "fuel_found",
-                                                                          "_content": "[LABEL {this.some_fuel=Math.floor(1+Math.random()*2);'';}Тебе повезло раздобыть {this.some_fuel} л. бензина!{this.fuel+=this.some_fuel}{script rounding.qsp}{script show_empty_fuel.qsp}]"
+                                                                          "_content": "[LABEL {this.some_fuel=Math.floor(1+Math.random()*2);'';}Тебе повезло раздобыть {this.some_fuel} л. бензина!{this.fuel+=this.some_fuel;'';}{script rounding.qsp}{script show_empty_fuel.qsp}]"
                                                                         }
                                                                       ],
                                                                       "_mark": "",
@@ -4580,7 +4580,7 @@
                                                                                     }
                                                                                   ],
                                                                                   "_mark": "rope_found",
-                                                                                  "_content": "[LABEL {script spent_time.qsp}Тебе повезло! Тебя согласились дотянуть на троссе до АЗС.{script rounding.qsp}{this.show_gazel=1;'';}{script show_empty_fuel.qsp}]"
+                                                                                  "_content": "[LABEL {script spent_time.qsp}Тебе повезло! Тебя согласились дотянуть до АЗС.{script rounding.qsp}{this.show_gazel=1;'';}{script show_empty_fuel.qsp}]"
                                                                                 }
                                                                               ],
                                                                               "_mark": "",
@@ -4600,7 +4600,7 @@
                                                                     }
                                                                   ],
                                                                   "_mark": "try_find_rope",
-                                                                  "_content": "[LABEL {script spent_time.qsp}Ты безуспешно провел {this.spent_time} ч. времени, пытаясь найти, кто дотянет тебя на веревке.{script show_empty_fuel.qsp}]"
+                                                                  "_content": "[LABEL {script spent_time.qsp}Ты безуспешно провел {this.spent_time} ч. времени, никто не хочет тянуть тебя до АЗС.{script show_empty_fuel.qsp}]"
                                                                 }
                                                               ],
                                                               "_mark": "",
@@ -4612,7 +4612,7 @@
                                                         }
                                                       ],
                                                       "_mark": "stop_car_for_rope",
-                                                      "_content": "[LABEL Попрошу кого-нибудь дотянуть меня на веревке до АЗС][ANSWERIMAGE icons/fuel_station.png|320;400]"
+                                                      "_content": "[LABEL Попрошу кого-нибудь дотянуть меня на галстуке до АЗС][ANSWERIMAGE icons/fuel_station.png|320;400]"
                                                     },
                                                     {
                                                       "node": [
@@ -4630,7 +4630,7 @@
                                                             }
                                                           ],
                                                           "_mark": "mark_3j60i5f150qntam94v52",
-                                                          "_content": "[LABEL {script spent_time.qsp}{this.money-=this.evacuation_cost}{this.new_location=13;this.location=13;this.client_type=0;this.show_evacuator=1;'';}Эвакуатор довезет тебя до АЗС.{script show_empty_fuel.qsp}]"
+                                                          "_content": "[LABEL {script spent_time.qsp}{this.money-=this.evacuation_cost;this.new_location=13;this.location=13;this.client_type=0;this.show_evacuator=1;'';}Эвакуатор довезет тебя до АЗС.{script show_empty_fuel.qsp}]"
                                                         }
                                                       ],
                                                       "_mark": "",
