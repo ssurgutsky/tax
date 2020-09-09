@@ -355,20 +355,86 @@
                                                                                                                                                             {
                                                                                                                                                               "node": [
                                                                                                                                                                 {
-                                                                                                                                                                  "_mark": "mark_8c9074xt4289b914m67f",
-                                                                                                                                                                  "_content": "[LABEL ][GOTO new_location]"
+                                                                                                                                                                  "node": [
+                                                                                                                                                                    {
+                                                                                                                                                                      "node": [
+                                                                                                                                                                        {
+                                                                                                                                                                          "node": [
+                                                                                                                                                                            {
+                                                                                                                                                                              "node": [
+                                                                                                                                                                                {
+                                                                                                                                                                                  "_mark": "mark_8c9074xt4289b914m67f",
+                                                                                                                                                                                  "_content": "[LABEL ][GOTO new_location]"
+                                                                                                                                                                                }
+                                                                                                                                                                              ],
+                                                                                                                                                                              "_mark": "",
+                                                                                                                                                                              "_content": "[LABEL Вернуться в машину.][ANSWERIMAGE icons/drug.png|295;400]"
+                                                                                                                                                                            }
+                                                                                                                                                                          ],
+                                                                                                                                                                          "_mark": "drug_was_found",
+                                                                                                                                                                          "_content": "[LABEL Товар найден!{this.drugDealerGoodsPlanted=0;this.drugDealerGoodsDriver=this.drugGoodsInPackage;'';}][BGNDIMAGE bush.jpg]"
+                                                                                                                                                                        },
+                                                                                                                                                                        {
+                                                                                                                                                                          "node": [
+                                                                                                                                                                            {
+                                                                                                                                                                              "_mark": "",
+                                                                                                                                                                              "_content": "[LABEL ][GOTO drug_on_the_left]"
+                                                                                                                                                                            },
+                                                                                                                                                                            {
+                                                                                                                                                                              "_mark": "",
+                                                                                                                                                                              "_content": "[LABEL ][GOTO drug_on_the_right]"
+                                                                                                                                                                            },
+                                                                                                                                                                            {
+                                                                                                                                                                              "_mark": "",
+                                                                                                                                                                              "_content": "[LABEL ][GOTO drug_on_the_center]"
+                                                                                                                                                                            },
+                                                                                                                                                                            {
+                                                                                                                                                                              "_mark": "",
+                                                                                                                                                                              "_content": "[LABEL ][GOTO drug_back_to_car]"
+                                                                                                                                                                            }
+                                                                                                                                                                          ],
+                                                                                                                                                                          "_mark": "drug_was_not_found",
+                                                                                                                                                                          "_content": "[LABEL Товар не найден! Осталось попыток: {this.drug_attempts--}][BGNDIMAGE bush.jpg]"
+                                                                                                                                                                        }
+                                                                                                                                                                      ],
+                                                                                                                                                                      "_mark": "",
+                                                                                                                                                                      "_content": "[LABEL >>>]"
+                                                                                                                                                                    }
+                                                                                                                                                                  ],
+                                                                                                                                                                  "_mark": "check_drug_place",
+                                                                                                                                                                  "_content": "[LABEL {if (this.drugPlaceNo == this.drugRndPlace) {\"[GOTO drug_was_found]\"} else {if (this.drug_attempts <=0) {\"[GOTO police_catch_drug_dealer]\"} else {\"[GOTO drug_was_not_found]\"}}}]"
                                                                                                                                                                 }
                                                                                                                                                               ],
                                                                                                                                                               "_mark": "",
-                                                                                                                                                              "_content": "[LABEL Вернуться в машину.][ANSWERIMAGE icons/drug.png|295;400]"
+                                                                                                                                                              "_content": "[LABEL ]"
                                                                                                                                                             }
                                                                                                                                                           ],
-                                                                                                                                                          "_mark": "mark_22h6wz6735xep7vq1w9b",
-                                                                                                                                                          "_content": "[LABEL Товар найден!{this.drugDealerGoodsPlanted=0;this.drugDealerGoodsDriver=this.drugGoodsInPackage;'';}][BGNDIMAGE bush.jpg]"
+                                                                                                                                                          "_mark": "mark_043i47163d4u1xtj3016",
+                                                                                                                                                          "_content": "[LABEL {this.drugPlaceNo=1;'';}][GOTO check_drug_place]"
                                                                                                                                                         }
                                                                                                                                                       ],
-                                                                                                                                                      "_mark": "",
-                                                                                                                                                      "_content": "[LABEL Вот он!{this.itx=Math.floor(Math.random()*640);this.ity=Math.floor(Math.random()*480);\"[ANSWERIMAGE icons/invisible_thing.png|\" + this.itx + \";\" + this.ity + \"]\"}]"
+                                                                                                                                                      "_mark": "drug_on_the_left",
+                                                                                                                                                      "_content": "[LABEL Вот он слева!{this.itx=Math.floor(Math.random()*640);this.ity=Math.floor(Math.random()*480);\"[ANSWERIMAGE icons/invisible_thing.png|\" + this.itx + \";\" + this.ity + \"]\"}]"
+                                                                                                                                                    },
+                                                                                                                                                    {
+                                                                                                                                                      "node": [
+                                                                                                                                                        {
+                                                                                                                                                          "_mark": "mark_w9f7fde24rtg7mq10f22",
+                                                                                                                                                          "_content": "[LABEL {this.drugPlaceNo=2;'';}][GOTO check_drug_place]"
+                                                                                                                                                        }
+                                                                                                                                                      ],
+                                                                                                                                                      "_mark": "drug_on_the_right",
+                                                                                                                                                      "_content": "[LABEL Вот он справа!]"
+                                                                                                                                                    },
+                                                                                                                                                    {
+                                                                                                                                                      "node": [
+                                                                                                                                                        {
+                                                                                                                                                          "_mark": "mark_s36r07949h9ujb1wx5u7",
+                                                                                                                                                          "_content": "[LABEL {this.drugPlaceNo=3;'';}][GOTO check_drug_place]"
+                                                                                                                                                        }
+                                                                                                                                                      ],
+                                                                                                                                                      "_mark": "drug_on_the_center",
+                                                                                                                                                      "_content": "[LABEL Вот он в центре!]"
                                                                                                                                                     },
                                                                                                                                                     {
                                                                                                                                                       "node": [
@@ -377,12 +443,12 @@
                                                                                                                                                           "_content": "[LABEL ][GOTO new_location]"
                                                                                                                                                         }
                                                                                                                                                       ],
-                                                                                                                                                      "_mark": "",
+                                                                                                                                                      "_mark": "drug_back_to_car",
                                                                                                                                                       "_content": "[LABEL Вернуться в машину.][ANSWERIMAGE icons/exit.png|295;400]"
                                                                                                                                                     }
                                                                                                                                                   ],
                                                                                                                                                   "_mark": "mark_a0kns71tg9344ry6s99x",
-                                                                                                                                                  "_content": "[LABEL Товар лежит где-то тут. Ищи!][BGNDIMAGE bush.jpg][TIMEEXPIRED police_catch_drug_dealer][ANSWERTIME 30][HIDEANSWERS ON]"
+                                                                                                                                                  "_content": "[LABEL Товар лежит где-то тут. Ищи!{this.drugRndPlace=Math.floor((Math.random()*3)+1);this.drug_attempts=2;'';}][BGNDIMAGE bush.jpg][TIMEEXPIRED police_catch_drug_dealer][ANSWERTIME 10]"
                                                                                                                                                 }
                                                                                                                                               ],
                                                                                                                                               "_mark": "",
@@ -6268,7 +6334,7 @@
                                                       "node": [
                                                         {
                                                           "_mark": "police_catch_drug_dealer",
-                                                          "_content": "[LABEL ][FINAL Тебя за наркоту поймала полиция! Игра окончена.][IMAGE collectors.jpg]"
+                                                          "_content": "[LABEL ][FINAL Тебя поймала полиция за наркоту. Игра окончена.][IMAGE collectors.jpg]"
                                                         }
                                                       ],
                                                       "_mark": "",

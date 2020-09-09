@@ -82,12 +82,25 @@
 																																					[GOTO exit_pharmacy]
 																																			[GOTO exit_pharmacy]
 																																	{if (this.location==7 && this.drugDealerGoodsPlanted==1) {"Найду товар.[ANSWERIMAGE icons/drug.png|260;400]"}}
-																																		[mark_a0kns71tg9344ry6s99x]Товар лежит где-то тут. Ищи![BGNDIMAGE bush.jpg][HIDEANSWERS ON][ANSWERTIME 30][TIMEEXPIRED police_catch_drug_dealer]
-																																			Вот он!{this.itx=Math.floor(Math.random()*640);this.ity=Math.floor(Math.random()*480);"[ANSWERIMAGE icons/invisible_thing.png|" + this.itx + ";" + this.ity + "]"}
-																																				[mark_22h6wz6735xep7vq1w9b]Товар найден![BGNDIMAGE bush.jpg]{this.drugDealerGoodsPlanted=0;this.drugDealerGoodsDriver=this.drugGoodsInPackage;'';}
-																																					Вернуться в машину.[ANSWERIMAGE icons/drug.png|295;400]
-																																						[mark_8c9074xt4289b914m67f][GOTO new_location]
-																																			Вернуться в машину.[ANSWERIMAGE icons/exit.png|295;400]
+																																		[mark_a0kns71tg9344ry6s99x]Товар лежит где-то тут. Ищи!{this.drugRndPlace=Math.floor((Math.random()*3)+1);this.drug_attempts=2;'';}[BGNDIMAGE bush.jpg][ANSWERTIME 10][TIMEEXPIRED police_catch_drug_dealer]
+																																			[drug_on_the_left]Вот он слева!{this.itx=Math.floor(Math.random()*640);this.ity=Math.floor(Math.random()*480);"[ANSWERIMAGE icons/invisible_thing.png|" + this.itx + ";" + this.ity + "]"}
+																																				[mark_043i47163d4u1xtj3016]{this.drugPlaceNo=1;'';}[GOTO check_drug_place]
+																																					
+																																						[check_drug_place]{if (this.drugPlaceNo == this.drugRndPlace) {"[GOTO drug_was_found]"} else {if (this.drug_attempts <=0) {"[GOTO police_catch_drug_dealer]"} else {"[GOTO drug_was_not_found]"}}}
+																																							>>>
+																																								[drug_was_found]Товар найден![BGNDIMAGE bush.jpg]{this.drugDealerGoodsPlanted=0;this.drugDealerGoodsDriver=this.drugGoodsInPackage;'';}
+																																									Вернуться в машину.[ANSWERIMAGE icons/drug.png|295;400]
+																																										[mark_8c9074xt4289b914m67f][GOTO new_location]
+																																								[drug_was_not_found]Товар не найден! Осталось попыток: {this.drug_attempts--}[BGNDIMAGE bush.jpg]
+																																									[GOTO drug_on_the_left]
+																																									[GOTO drug_on_the_right]
+																																									[GOTO drug_on_the_center]
+																																									[GOTO drug_back_to_car]
+																																			[drug_on_the_right]Вот он справа!
+																																				[mark_w9f7fde24rtg7mq10f22]{this.drugPlaceNo=2;'';}[GOTO check_drug_place]
+																																			[drug_on_the_center]Вот он в центре!
+																																				[mark_s36r07949h9ujb1wx5u7]{this.drugPlaceNo=3;'';}[GOTO check_drug_place]
+																																			[drug_back_to_car]Вернуться в машину.[ANSWERIMAGE icons/exit.png|295;400]
 																																				[mark_3upe3px7su5je1yy0w16][GOTO new_location]
 																																	{if (this.location==8) {"Зайду в " + this.locations[this.location][0] + "[ANSWERIMAGE icons/enter.png|260;400]"}}
 																																		[in_store]{this.dvd_playing=0}{script rounding.qsp}{script show_game_stats.qsp}\n{this.locations[this.location][0]}. Что хочешь посмотреть?[BGNDIMAGE in_shopping_center.jpg][AMBIENT megapolice][MUSIC none][BGNDMUSIC none][ANSWERSORDER ON]
