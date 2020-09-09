@@ -514,7 +514,7 @@
                                                                                                                                                                         }
                                                                                                                                                                       ],
                                                                                                                                                                       "_mark": "buy_thing",
-                                                                                                                                                                      "_content": "[LABEL Купить][ANSWERIMAGE icons/buy.png|260;400]"
+                                                                                                                                                                      "_content": "[LABEL Купить за {this.thing_cost}][ANSWERIMAGE icons/buy.png|260;400]"
                                                                                                                                                                     },
                                                                                                                                                                     {
                                                                                                                                                                       "node": [
@@ -528,7 +528,7 @@
                                                                                                                                                                     }
                                                                                                                                                                   ],
                                                                                                                                                                   "_mark": "thing_desc",
-                                                                                                                                                                  "_content": "[LABEL {script show_thing_desc.qsp}]"
+                                                                                                                                                                  "_content": "[LABEL {script show_thing}{script show_thing_desc.qsp}]"
                                                                                                                                                                 }
                                                                                                                                                               ],
                                                                                                                                                               "_mark": "",
@@ -3446,7 +3446,7 @@
                                                                                                                                                                     }
                                                                                                                                                                   ],
                                                                                                                                                                   "_mark": "mark_svp3f33oc4126l87cb1i",
-                                                                                                                                                                  "_content": "[LABEL {if (this.radio_freq == this.vip_radio_freq) {\"[GOTO vip_freq_found]\"} else {\"Шум в эфире, похоже неправильная частота.[SOUNDFX radio_noise]\"}}][BGNDIMAGE vip_radio.jpg][TIMEEXPIRED new_location][ANSWERTIME 20]"
+                                                                                                                                                                  "_content": "[LABEL {let freq=parseInt(this.radio_freq); if (freq == this.vip_radio_freq) {\"[GOTO vip_freq_found]\"} else {\"Шум в эфире, похоже неправильная частота.[SOUNDFX radio_noise]\"}}][BGNDIMAGE vip_radio.jpg][TIMEEXPIRED new_location][ANSWERTIME 20]"
                                                                                                                                                                 },
                                                                                                                                                                 {
                                                                                                                                                                   "node": [
@@ -3470,7 +3470,7 @@
                                                                                                                                                             }
                                                                                                                                                           ],
                                                                                                                                                           "_mark": "mark_w43083s54ddmirt48y1i",
-                                                                                                                                                          "_content": "[LABEL {if (this.radio_freq < 0 || this.radio_freq > 1000000) {\"[GOTO input_radio_freq]\"}}]"
+                                                                                                                                                          "_content": "[LABEL {let freq=parseInt(this.radio_freq);if (freq < 0 || freq > 1000000) {\"[GOTO input_radio_freq]\"}}]"
                                                                                                                                                         }
                                                                                                                                                       ],
                                                                                                                                                       "_mark": "",

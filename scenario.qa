@@ -107,8 +107,8 @@
 																																			{this.thing=this.thing_gun;'';}{script show_thing.qsp}
 																																				[mark_u6w5z762oxg9hys4b450]{this.thing=this.thing_gun}[GOTO thing_desc]
 																																					
-																																						[thing_desc]{script show_thing_desc.qsp}
-																																							[buy_thing]Купить[ANSWERIMAGE icons/buy.png|260;400]
+																																						[thing_desc]{script show_thing}{script show_thing_desc.qsp}
+																																							[buy_thing]Купить за {this.thing_cost}[ANSWERIMAGE icons/buy.png|260;400]
 																																								[mark_868y612mtpj6o3945nd1]{if (this.money<this.thing_cost) {"[GOTO no_money_for_thing]"} else {this.money-=this.thing_cost;this.things[this.thing][1]=1;"[GOTO bought_thing]"}}
 																																									
 																																										[bought_thing]Спасибо за покупку!{script rounding.qsp}[BGNDIMAGE shop_assistant.jpg][ANSWERTIME 10][TIMEEXPIRED in_store]
@@ -644,9 +644,9 @@
 																																	{if (this.things[this.thing_vip_radio][1] && this.things[this.thing_vip_radio][3]==0) {"Настрою частоту рации для приема заявок от VIP-клиентов." + "[ANSWERIMAGE icons/call.png|140;400]"}}
 																																		[input_radio_freq]Введи номер частоты (0 - 1000000)? (0 = выход)[BGNDIMAGE vip_radio.jpg][ANSWERTIME 30][TIMEEXPIRED new_location]
 																																			[INPUTS this.radio_freq]
-																																				[mark_w43083s54ddmirt48y1i]{if (this.radio_freq < 0 || this.radio_freq > 1000000) {"[GOTO input_radio_freq]"}}
+																																				[mark_w43083s54ddmirt48y1i]{let freq=parseInt(this.radio_freq);if (freq < 0 || freq > 1000000) {"[GOTO input_radio_freq]"}}
 																																					
-																																						[mark_svp3f33oc4126l87cb1i]{if (this.radio_freq == this.vip_radio_freq) {"[GOTO vip_freq_found]"} else {"Шум в эфире, похоже неправильная частота.[SOUNDFX radio_noise]"}}[BGNDIMAGE vip_radio.jpg][ANSWERTIME 20][TIMEEXPIRED new_location]
+																																						[mark_svp3f33oc4126l87cb1i]{let freq=parseInt(this.radio_freq); if (freq == this.vip_radio_freq) {"[GOTO vip_freq_found]"} else {"Шум в эфире, похоже неправильная частота.[SOUNDFX radio_noise]"}}[BGNDIMAGE vip_radio.jpg][ANSWERTIME 20][TIMEEXPIRED new_location]
 																																							Попробую еще[ANSWERIMAGE icons/call.png|260;400]
 																																								[mark_n4mf60whj3k340r2lq7s][GOTO input_radio_freq]
 																																							Хватит, надоело[ANSWERIMAGE icons/cancel.png|320;400]
