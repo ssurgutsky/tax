@@ -516,7 +516,7 @@
 																																																																						[client_gives_present]{script client_gives_present.qsp}{if (this.was_present) {script show_client.qsp} else {"[GOTO client_goodbye]"}}
 																																																																							Спасибо.[ANSWERIMAGE icons/good.png|295;400]
 																																																																								[mark_m9kad1uk3visn1aa4pf6][GOTO new_location]
-																																																																						[client_goodbye]...{script client_goodbye}{script show_client.qsp}[ANSWERTIME 1][TIMEEXPIRED money_for_trip]
+																																																																						[client_goodbye]...{this.vip_call=0;'';}{script client_goodbye}{script show_client.qsp}[ANSWERTIME 1][TIMEEXPIRED money_for_trip]
 																																																																							Всего хорошего.[ANSWERIMAGE icons/good.png|295;400]
 																																																																								[money_for_trip]{this.get_back_money_tries=0;'';}[GOTO client_gave_money{if (this.client_price > 0 && (Math.random() * this.people_negative_max < this.people_negative || Math.random()*100 > this.client_payable_rate)) {",client_squeezed_money"}}]
 																																																																									
@@ -635,7 +635,7 @@
 																																						[mark_g1hdc28k0nvwz6na0x21]{if (this.rest_hours>=0 && this.rest_hours <= this.rest_hours_needed) {this.driver_rest_hours+= this.rest_hours; this.game_hours += this.rest_hours; this.total_driver_rest_hours+= this.rest_hours;"[GOTO check_damage_car_probability]"} else {"[GOTO how_long_have_rest]"}}
 																																			Передумал отдыхать[ANSWERIMAGE icons/cancel.png|320;400]
 																																				[mark_w86a960id4rl6m537uev][GOTO new_location]
-																																	{if (this.things[this.thing_vip_radio][1] && this.things[this.thing_vip_radio][3] && Math.random()>0.1 && this.vip_call==0) {"Поступил вызов от VIP-клиента по рации. Отвечу." + "[ANSWERIMAGE icons/vip_call.png|140;400]"}}
+																																	{if (this.things[this.thing_vip_radio][1] && this.things[this.thing_vip_radio][3] && Math.random()>0.4 && this.vip_call==0) {"Поступил вызов от VIP-клиента по рации. Отвечу." + "[ANSWERIMAGE icons/vip_call.png|140;400]"}}
 																																		[mark_p85fr4ued62bvftg3ayi]{script calc_vip_client.qsp}{script show_client.qsp}
 																																			Поеду за VIP-клиентом[ANSWERIMAGE icons/change_place.png|260;400]
 																																				[mark_qpo8r9306ku747603y6c]{if (this.location == this.vip_location) {"[GOTO new_location]"} else {"[GOTO main_menu]"}}
@@ -726,10 +726,10 @@
 																																				[mark_6d7145jj40zi2x449qq7][GOTO show_statistic]
 																																			Потрачено бензина: {this.fuel_wasted.toFixed(2)}[ANSWERIMAGE icons/stats.png|150;400]
 																																				[mark_3ex8s1m3845wq7oo43ty][GOTO show_statistic]
-																																			Приобретено вещей и бонусов: {let i=1;let things_count=0; while (i<=this.max_things) {things_count+=this.things[i][1];i++} things_count + " из " + this.max_things}. Смотреть детально...[ANSWERIMAGE icons/next.png|210;400]
+																																			Приобретено вещей и бонусов: {let i=1;let things_count=0; while (i<=this.max_things) {things_count+=(this.things[i][1] || 0);i++} things_count + " из " + this.max_things}. Смотреть детально...[ANSWERIMAGE icons/next.png|210;400]
 																																				[mark_de0h76iu4bvog8eooig2]В наличии: {let i=1; let result=''; while (i<=this.max_things) {if (this.things[i][1]==1) {result = result + this.things[i][0] + ". "} i++};result;}
 																																					Дальше...[ANSWERIMAGE icons/next.png|295;400]
-																																						[mark_c89d6dvtj90db18o10n3]Не хватает: {let i=1; result=''; while (i<= this.max_things) {if (this.things[i][1]==0) {result+=this.things[i][0] + ". "}i++};result;}
+																																						[mark_c89d6dvtj90db18o10n3]Не хватает: {let i=1; let result=''; while (i<=this.max_things) {if (this.things[i][1]==0) {result = result + this.things[i][0] + ". "} i++};result;}
 																																							Вернуться[ANSWERIMAGE icons/exit.png|295;400]
 																																								[mark_7wbcbv7514o3x93e6i1m][GOTO show_statistic]
 																																			Озлобленность народа: {Math.floor(this.people_negative*100/this.people_negative_max)}%[ANSWERIMAGE icons/stats.png|270;400]
@@ -753,7 +753,7 @@
 																																			Вернуться в меню[ANSWERIMAGE icons/exit.png|570;390]
 																																				[mark_s59w1oe4m8v021k5xipu][GOTO location_actions]
 																																[vip_client_found][GOTO vip_taxing]
-																																[vip_client_not_found]VIP-клиента не видно. Похоже ты приехал не туда...{this.vip_call=0;'';}{script show_client}
+																																[vip_client_not_found]{if (this.vip_call > 0) {this.vip_call=0;"VIP-клиента не видно. Похоже ты приехал не туда..."}}{script show_client}
 																																	...[ANSWERIMAGE icons/three_dots.png|295;400]
 																																		[mark_g2i19yi04x93fz46k32x][GOTO location_actions]
 																	{this.new_location=2;this.locations[this.new_location][0] + "[ANSWERIMAGE map_mark.png|"+this.locations[this.new_location][1]+";"+this.locations[this.new_location][2]+"]"}
