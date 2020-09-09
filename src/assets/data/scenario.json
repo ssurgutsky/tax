@@ -3224,7 +3224,7 @@
                                                                                                                                                                             }
                                                                                                                                                                           ],
                                                                                                                                                                           "_mark": "gop_stop",
-                                                                                                                                                                          "_content": "[LABEL ОМГ! Да это же бандит! {if (this.things[this.thing_gun][1]) {\"Ты направил на него ствол и он трусливо убежал прочь.\"} else {this.robbed_sum=Math.floor(this.money/2) + Math.floor(this.money/2*Math.random());if (this.robbed_sum <= this.money/3) {\"Он попытался ограбить тебя, но у него не получилось.\"} else {\"Он ограбил тебя на: \" + this.robbed_sum;this.money -= this.robbed_sum;this.robbed_money+= this.robbed_sum}}}{script rounding.qsp}{script show_gop_stop}][TIMEEXPIRED {output return_mark}][ANSWERTIME 10]"
+                                                                                                                                                                          "_content": "[LABEL ОМГ! Да это же бандит! {if (this.things[this.thing_gun][1]) {\"Ты направил на него ствол и он трусливо убежал прочь.\"} else {this.robbed_sum=Math.floor(this.money/2) + Math.floor(this.money/2*Math.random());if (this.robbed_sum <= this.money/3) {\"Он попытался ограбить тебя, но у него не получилось.\"} else {\"Он ограбил тебя на: \" + this.robbed_sum;this.money -= this.robbed_sum;this.robbed_money+= this.robbed_sum}}}{script rounding.qsp}{script show_gop_stop}][TIMEEXPIRED {this.return_mark}][ANSWERTIME 10]"
                                                                                                                                                                         },
                                                                                                                                                                         {
                                                                                                                                                                           "_mark": "client_go_away",
@@ -4502,7 +4502,7 @@
                                                                                 }
                                                                               ],
                                                                               "_mark": "",
-                                                                              "_content": "[LABEL {if this.fuel<this.max_fuel {output \"Раздобуду еще бензина[ANSWERIMAGE icons/canister.png|260;400]\"}}]"
+                                                                              "_content": "[LABEL {if (this.fuel<this.max_fuel) {\"Раздобуду еще бензина[ANSWERIMAGE icons/canister.png|260;400]\"}}]"
                                                                             },
                                                                             {
                                                                               "node": [
@@ -4512,11 +4512,11 @@
                                                                                 }
                                                                               ],
                                                                               "_mark": "",
-                                                                              "_content": "[LABEL Мне хватит этого бензина {output this.fuel} л., поеду дальше.][ANSWERIMAGE icons/steering_wheel.png|320;400]"
+                                                                              "_content": "[LABEL Мне хватит этого бензина {this.fuel} л., поеду дальше.][ANSWERIMAGE icons/steering_wheel.png|320;400]"
                                                                             }
                                                                           ],
                                                                           "_mark": "fuel_found",
-                                                                          "_content": "[LABEL {some_fuel=(1+random*2):1}Тебе повезло раздобыть {output some_fuel} л. бензина!{this.fuel+=some_fuel}{script rounding.qsp}{script show_empty_fuel.qsp}]"
+                                                                          "_content": "[LABEL {this.some_fuel=Math.floor(1+Math.random()*2);'';}Тебе повезло раздобыть {this.some_fuel} л. бензина!{this.fuel+=this.some_fuel}{script rounding.qsp}{script show_empty_fuel.qsp}]"
                                                                         }
                                                                       ],
                                                                       "_mark": "",
@@ -4542,11 +4542,11 @@
                                                                 }
                                                               ],
                                                               "_mark": "",
-                                                              "_content": "[LABEL {if this.fuel>0 {output \"Поеду дальше (бензин: \" + this.fuel + \" л.)[ANSWERIMAGE icons/steering_wheel.png|380;400]\"}}]"
+                                                              "_content": "[LABEL {if (this.fuel>0) {\"Поеду дальше (бензин: \" + this.fuel + \" л.)[ANSWERIMAGE icons/steering_wheel.png|380;400]\"}}]"
                                                             }
                                                           ],
                                                           "_mark": "try_get_fuel",
-                                                          "_content": "[LABEL {script spent_time.qsp}Ты безуспешно провел {output spent_time} ч. времени, пытаясь раздобыть бензин.{script show_empty_fuel.qsp}]"
+                                                          "_content": "[LABEL {script spent_time.qsp}Ты безуспешно провел {this.spent_time} ч. времени, пытаясь раздобыть бензин.{script show_empty_fuel.qsp}]"
                                                         }
                                                       ],
                                                       "_mark": "stop_car_for_fuel",
@@ -4580,7 +4580,7 @@
                                                                                     }
                                                                                   ],
                                                                                   "_mark": "rope_found",
-                                                                                  "_content": "[LABEL {script spent_time.qsp}Тебе повезло! Тебя согласились дотянуть на троссе до АЗС{script rounding.qsp}{show_gazel=1}{script show_empty_fuel.qsp}]"
+                                                                                  "_content": "[LABEL {script spent_time.qsp}Тебе повезло! Тебя согласились дотянуть на троссе до АЗС.{script rounding.qsp}{this.show_gazel=1;'';}{script show_empty_fuel.qsp}]"
                                                                                 }
                                                                               ],
                                                                               "_mark": "",
@@ -4600,7 +4600,7 @@
                                                                     }
                                                                   ],
                                                                   "_mark": "try_find_rope",
-                                                                  "_content": "[LABEL {script spent_time.qsp}Ты безуспешно провел {output spent_time} ч. времени, пытаясь найти, кто дотянет тебя на веревке.{script show_empty_fuel.qsp}]"
+                                                                  "_content": "[LABEL {script spent_time.qsp}Ты безуспешно провел {this.spent_time} ч. времени, пытаясь найти, кто дотянет тебя на веревке.{script show_empty_fuel.qsp}]"
                                                                 }
                                                               ],
                                                               "_mark": "",
@@ -4630,11 +4630,11 @@
                                                             }
                                                           ],
                                                           "_mark": "mark_3j60i5f150qntam94v52",
-                                                          "_content": "[LABEL {script spent_time.qsp}{money-=evacuation_cost}{this.new_location=13;location=13;this.client_type=0;show_evacuator=1}Эвакуатор довезет тебя до АЗС.{script show_empty_fuel.qsp}]"
+                                                          "_content": "[LABEL {script spent_time.qsp}{this.money-=this.evacuation_cost}{this.new_location=13;this.location=13;this.client_type=0;this.show_evacuator=1;'';}Эвакуатор довезет тебя до АЗС.{script show_empty_fuel.qsp}]"
                                                         }
                                                       ],
                                                       "_mark": "",
-                                                      "_content": "[LABEL {evacuation_cost=10*this.Inflation;if money >= evacuation_cost {output \"Вызову эвакуатор, цена: \" + evacuation_cost + \"[ANSWERIMAGE icons/evacuator.png|380;400]\"}}]"
+                                                      "_content": "[LABEL {this.evacuation_cost=10*this.Inflation;if (this.money >= this.evacuation_cost) {\"Вызову эвакуатор, цена: \" + this.evacuation_cost + \"[ANSWERIMAGE icons/evacuator.png|380;400]\"}}]"
                                                     }
                                                   ],
                                                   "_mark": "fuel_empty",
@@ -4650,7 +4650,7 @@
                                                               "node": [
                                                                 {
                                                                   "_mark": "mark_4dgdm1tn52q49lm5st58",
-                                                                  "_content": "[LABEL ][GOTO {output return_mark}]"
+                                                                  "_content": "[LABEL ][GOTO {this.return_mark}]"
                                                                 }
                                                               ],
                                                               "_mark": "",
@@ -4658,7 +4658,7 @@
                                                             }
                                                           ],
                                                           "_mark": "creditback",
-                                                          "_content": "[LABEL {credit_delay_fine=50*this.Inflation;if money>=credit_delay_sum + credit_delay_fine {money-=credit_delay_sum-credit_delay_fine;credit_rest_sum-=credit_delay_sum;output \"Тебе повезло, что у тебя было с собой достаточно денег, чтобы погасить просроченный платеж и штраф \" + credit_delay_fine + \" . Тебя отпустили.\"} else {output \"[FINAL Твоя машина была продана, чтобы погасить кредит. Отрицательный финал.][BGNDIMAGE collectors.jpg]\"}}]"
+                                                          "_content": "[LABEL {this.credit_delay_fine=50*this.Inflation;if (this.money>=this.credit_delay_sum + this.credit_delay_fine) {this.money-=this.credit_delay_sum-this.credit_delay_fine;this.credit_rest_sum-=this.credit_delay_sum;\"Тебе повезло, что у тебя было с собой достаточно денег, чтобы погасить просроченный платеж и штраф \" + this.credit_delay_fine + \" . Тебя отпустили.\"} else {\"[FINAL Твоя машина была продана, чтобы погасить кредит. Отрицательный финал.][IMAGE collectors.jpg]\"}}]"
                                                         }
                                                       ],
                                                       "_mark": "",
@@ -4666,7 +4666,7 @@
                                                     }
                                                   ],
                                                   "_mark": "credit_payday",
-                                                  "_content": "[LABEL Тебя разыскали коллекторы. Ты задолжал Банку: {output credit_delay_sum}.][BGNDIMAGE collectors.jpg][TIMEEXPIRED creditback][ANSWERTIME 20]"
+                                                  "_content": "[LABEL Тебя разыскали коллекторы. Ты задолжал Банку: {this.credit_delay_sum}.][BGNDIMAGE collectors.jpg][TIMEEXPIRED creditback][ANSWERTIME 20]"
                                                 },
                                                 {
                                                   "node": [
@@ -4678,7 +4678,7 @@
                                                               "node": [
                                                                 {
                                                                   "_mark": "mark_76j99dt9abw22rwn0v50",
-                                                                  "_content": "[LABEL ][GOTO {output return_mark}]"
+                                                                  "_content": "[LABEL ][GOTO {this.return_mark}]"
                                                                 }
                                                               ],
                                                               "_mark": "",
@@ -4686,7 +4686,7 @@
                                                             }
                                                           ],
                                                           "_mark": "barsuk_credit_back",
-                                                          "_content": "[LABEL {if money>=barsuk_credit {money-=barsuk_credit;barsukPsy=2;output \"Тебе повезло, что у тебя было с собой достаточно денег. Тебя отпустили.[BGNDIMAGE collectors.jpg]\"} else {output \"[GOTO barsuk_bill]\"}}]"
+                                                          "_content": "[LABEL {if (this.money>=this.barsuk_credit) {this.money-=this.barsuk_credit;this.barsukPsy=2;\"Тебе повезло, что у тебя было с собой достаточно денег. Тебя отпустили.[BGNDIMAGE collectors.jpg]\"} else {\"[GOTO barsuk_bill]\"}}]"
                                                         }
                                                       ],
                                                       "_mark": "",
@@ -4694,7 +4694,7 @@
                                                     }
                                                   ],
                                                   "_mark": "barsuk_reckon",
-                                                  "_content": "[LABEL Тебя разыскали коллекторы. Ты должен бару Барсук: {output barsuk_credit}, плюс: {output barsuk_collectors_cost*this.Inflation} за уклонение от оплаты.{barsuk_credit+=barsuk_collectors_cost*this.Inflation}][BGNDIMAGE collectors.jpg][TIMEEXPIRED barsuk_credit_back][ANSWERTIME 20]"
+                                                  "_content": "[LABEL Тебя разыскали коллекторы. Ты должен бару Барсук: {this.barsuk_credit}, плюс: {this.barsuk_collectors_cost*this.Inflation} за уклонение от оплаты.{this.barsuk_credit+=this.barsuk_collectors_cost*this.Inflation;'';}][BGNDIMAGE collectors.jpg][TIMEEXPIRED this.barsuk_credit_back][ANSWERTIME 20]"
                                                 },
                                                 {
                                                   "node": [
