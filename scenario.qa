@@ -632,7 +632,7 @@
 																																			Ввести кол-во часов отдыха вручную[ANSWERIMAGE icons/how_much.png|260;400]
 																																				[how_long_have_rest]Сколько часов отдыхать (0 - {this.rest_hours_needed})?{script show_client}
 																																					[INPUTS this.rest_hours]
-																																						[mark_g1hdc28k0nvwz6na0x21]{if (this.rest_hours>=0 && this.rest_hours <= this.rest_hours_needed) {this.driver_rest_hours+= this.rest_hours; this.game_hours += this.rest_hours; this.total_driver_rest_hours+= this.rest_hours;"[GOTO check_damage_car_probability]"} else {"[GOTO how_long_have_rest]"}}
+																																						[mark_g1hdc28k0nvwz6na0x21]{let rh=parseFloat(this.rest_hours); if (rh>=0 && rh <= this.rest_hours_needed) {this.driver_rest_hours+= rh; this.game_hours += rh; this.total_driver_rest_hours+= rh;"[GOTO check_damage_car_probability]"} else {"[GOTO how_long_have_rest]"}}
 																																			Передумал отдыхать[ANSWERIMAGE icons/cancel.png|320;400]
 																																				[mark_w86a960id4rl6m537uev][GOTO new_location]
 																																	{if (this.things[this.thing_vip_radio][1] && this.things[this.thing_vip_radio][3] && Math.random()>0.4 && this.vip_call==0) {"Поступил вызов от VIP-клиента по рации. Отвечу." + "[ANSWERIMAGE icons/vip_call.png|140;400]"}}
