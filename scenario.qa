@@ -304,7 +304,7 @@
 																																					
 																																						[do_bet_on_number]На какое число ставишь (0-36)?{script show_in_casino.qsp}
 																																							[INPUTS this.num]
-																																								[mark_77se696rfve0c0b748ex]{if (this.num<0 || this.num>36) {"[GOTO do_bet_on_number]"}}
+																																								[mark_77se696rfve0c0b748ex]{this.num=parseInt(this.num);if (this.num<0 || this.num>36) {"[GOTO do_bet_on_number]"}}
 																																									
 																																										[mark_44874qwy006h8xw93dbh]{this.money-=this.bet;this.rnd_num=Math.floor(Math.random()*37);'';}{if (Math.floor(this.game_hours/24)==this.casino_win_day && this.things[this.thing_casino_bet][1] && this.things[this.thing_casino_bet][3]==0) {this.rnd_num=29;this.casino_win_bet_sum=this.bet*36;this.things[this.thing_casino_bet][3]=1;'';}}Выпало число: {this.rnd_num}. {if (this.rnd_num == this.num) {this.money+=this.bet*36;this.casino_win_money+=this.bet*36;"Ты выиграл "+ this.bet*36+"![SOUNDFX applause]";} else {"Ты проиграл...[SOUNDFX evil_laugh_woman]"}}{this.game_hours+=1/12;'';}{script show_in_casino.qsp}
 																																											{if (this.money>=100) {"Сыграть еще раз[ANSWERIMAGE icons/money5.png|260;400]"}}
@@ -341,13 +341,13 @@
 																																			Ввести кол-во литров вручную[ANSWERIMAGE icons/how_much.png|260;400]
 																																				[how_many_fuel]Сколько литров заправить 0 - {+this.max_car_can_fuel.toFixed(1)}?{script show_client}
 																																					[INPUTS this.fuel_liters]
-																																						[mark_li763547sgcz39426ne1]{let fl=parseFloat(this.fuel_liters);if (fl>=0 && fl<=this.max_car_can_fuel) {this.fuel+=fl;this.money-=this.fuel_cost*fl;{script rounding.qsp}{script calc_car_fuel.qsp}"[GOTO new_location]"} else {"[GOTO how_many_fuel]"}}
+																																						[mark_li763547sgcz39426ne1]{let fl=parseFloat(this.fuel_liters);this.fuel_liters=fl;if (fl>=0 && fl<=this.max_car_can_fuel) {this.fuel+=fl;this.money-=this.fuel_cost*fl;{script rounding.qsp}{script calc_car_fuel.qsp}"[GOTO new_location]"} else {"[GOTO how_many_fuel]"}}
 																																			{if (this.money > 0 && this.fuel_by_money<=this.car_fuel_needed) {"Заправить на все оставшиеся деньги[ANSWERIMAGE icons/money1.png|380;400]"}}
 																																				[mark_inu1zf7v531a1e4tr474]{this.money=0;this.fuel+=this.fuel_by_money;'';}{script rounding.qsp}{script calc_car_fuel.qsp}[GOTO new_location]
 																																			Ввести сумму заправки вручную[ANSWERIMAGE icons/how_much_money.png|260;400]
 																																				[how_many_fuel_sum]На какую сумму заправить 0 - {this.max_money_for_fuel}?{script show_client}
 																																					[INPUTS this.fuel_sum]
-																																						[mark_71rd4pgx3e7thf2905eg]{let fs=parseInt(this.fuel_sum); if (fs>=0 && fs<=this.max_money_for_fuel) {this.money-=fs;this.fuel+=fs/this.fuel_cost;{script rounding.qsp}{script calc_car_fuel.qsp}"[GOTO new_location]"} else {"[GOTO how_many_fuel_sum]"}}
+																																						[mark_71rd4pgx3e7thf2905eg]{let fs=parseInt(this.fuel_sum);this.fuel_sum=fs; if (fs>=0 && fs<=this.max_money_for_fuel) {this.money-=fs;this.fuel+=fs/this.fuel_cost;{script rounding.qsp}{script calc_car_fuel.qsp}"[GOTO new_location]"} else {"[GOTO how_many_fuel_sum]"}}
 																																			Передумал заправлять машину[ANSWERIMAGE icons/cancel.png|320;400]
 																																				[mark_2947h2v1kf494tad6166][GOTO new_location]
 																																	{if (this.location == 14 || this.location == 17) {"Заеду помыть машину" + "[ANSWERIMAGE icons/enter.png|260;400]"}}
@@ -366,11 +366,11 @@
 																																							Ввести сумму ремонта вручную (0 - {this.max_can_repair})[ANSWERIMAGE icons/how_much_money.png|200;400]
 																																								[how_many_repair]{script show_game_stats.qsp}\nВведите сумму ремонта: 0 - {this.max_can_repair}{script show_in_autoservice.qsp}
 																																									[INPUTS this.repair_cost]
-																																										[mark_g4wq3790v1a9aimnvpx8]{let rc=parseInt(this.repair_cost); if (rc>=0 && rc<=this.max_can_repair) {this.money-=rc;this.car_state+=(101-this.car_state)*rc/this.car_repair_cost;this.game_hours+=+(rc/this.car_repair_cost*this.car_repair_time).toFixed(1);{script rounding.qsp}{script calc_car_repair.qsp}"[GOTO autoservice]"} else {"[GOTO how_many_repair]"}}
+																																										[mark_g4wq3790v1a9aimnvpx8]{let rc=parseInt(this.repair_cost);this.repair_cost=rc; if (rc>=0 && rc<=this.max_can_repair) {this.money-=rc;this.car_state+=(101-this.car_state)*rc/this.car_repair_cost;this.game_hours+=+(rc/this.car_repair_cost*this.car_repair_time).toFixed(1);{script rounding.qsp}{script calc_car_repair.qsp}"[GOTO autoservice]"} else {"[GOTO how_many_repair]"}}
 																																							Ввести процент ремонта вручную (0 - {this.max_pct_can_repair}%)[ANSWERIMAGE icons/how_much.png|260;400]
 																																								[how_many_repair]{script show_game_stats.qsp}\nВведите процент ремонта: 0 - {this.max_pct_can_repair}%{script show_in_autoservice.qsp}
 																																									[INPUTS this.repair_pct]
-																																										[mark_6f04v2zp0u8gofh81d00]{let rp=parseInt(this.repair_pct); if (rp>=0 && rp<=this.max_pct_can_repair) {this.money-=rp*this.one_percent_cost;this.game_hours+=+(rp/(101-this.car_state)*this.car_repair_time).toFixed(1);this.car_state+=rp;{script rounding.qsp}{script calc_car_repair.qsp}"[GOTO autoservice]"} else {"[GOTO how_many_repair]"}}
+																																										[mark_6f04v2zp0u8gofh81d00]{let rp=parseInt(this.repair_pct);this.repair_pct=rp; if (rp>=0 && rp<=this.max_pct_can_repair) {this.money-=rp*this.one_percent_cost;this.game_hours+=+(rp/(101-this.car_state)*this.car_repair_time).toFixed(1);this.car_state+=rp;{script rounding.qsp}{script calc_car_repair.qsp}"[GOTO autoservice]"} else {"[GOTO how_many_repair]"}}
 																																							[wouldnot_repair_car]Уеду отсюда[AMBIENT none][ANSWERIMAGE icons/enter.png|320;400]
 																																								[mark_the2516rxg9776v88xox][GOTO new_location]
 																																					[GOTO wouldnot_repair_car]
@@ -397,7 +397,7 @@
 																																			Заплачу по кредиту.[ANSWERIMAGE icons/money2.png|260;400]
 																																				[how_many_for_credit]{script rounding.qsp}{script show_game_stats.qsp}\n{this.locations[this.location][0]}.\nСколько заплатишь по кредиту: 0 - {this.credit_max_payment}? (срочный платеж: {this.credit_delay_sum}, остаток по кредиту: {this.credit_rest_sum})[BGNDIMAGE in_bank.jpg]
 																																					[INPUTS this.payment_sum]
-																																						[mark_ui4q7942104e9p6j62i4]{let ps=parseInt(this.payment_sum); console.log('ps', ps); if (ps>=0 && ps<=this.credit_max_payment) {this.credit_rest_sum-=ps;this.money-=ps; if (this.credit_rest_sum<=0) {"[GOTO you_win]"} else {"[GOTO in_bank]"}} else {"[GOTO how_many_for_credit]"}}
+																																						[mark_ui4q7942104e9p6j62i4]{let ps=parseInt(this.payment_sum);this.payment_sum=ps; if (ps>=0 && ps<=this.credit_max_payment) {this.credit_rest_sum-=ps;this.money-=ps; if (this.credit_rest_sum<=0) {"[GOTO you_win]"} else {"[GOTO in_bank]"}} else {"[GOTO how_many_for_credit]"}}
 																																			{if (this.drugDealer == 1 && this.drugDealerGoodsPlanted == 0 && this.drugDealerGoodsDriver==0) {"Переведу на карту денег ("+this.drugDealerGoodsCost*this.Inflation+")[ANSWERIMAGE icons/money2.png|320;400]"}}
 																																				[mark_rl035584qcu9ml2sul0c]{if (this.money<this.drugDealerGoodsCost*this.Inflation) {"[GOTO no_money_for_drugs]"} else {"[GOTO transfer_money_for_drugs]"}}
 																																					
@@ -414,7 +414,7 @@
 																																			{if (this.things[this.thing_repairing_book][1] && this.things[this.thing_repairing_book][3] && this.things[this.thing_repairing_toolkit][1] && this.car_state<=99) {"Ввести сколько времени будешь чинить (0 - " + this.full_repair_time + " ч.)" + "[ANSWERIMAGE icons/options.png|30;400]"}}
 																																				[how_many_time_to_repair]{if (this.car_cleanness < 70) {"[GOTO too_dirt_car_in_garage]"}}{script show_game_stats.qsp}\nСколько времени будешь чинить? (0 - {this.full_repair_time} ч.){script show_in_abandoned_garage.qsp}
 																																					[INPUTS this.repair_time]
-																																						[mark_78bv5yzr5afwhz0kgkob]{if (this.repair_time>=0 && this.repair_time<=this.full_repair_time) {this.game_hours+=this.repair_time;this.car_state+=this.repair_time*100/this.full_repair_time;{script rounding.qsp}} else {"[GOTO how_many_time_to_repair]"}}
+																																						[mark_78bv5yzr5afwhz0kgkob]{let rt=parseFloat(this.repair_time);this.repair_time=rt; if (rt>=0 && rt<=this.full_repair_time) {this.game_hours+=rt;this.car_state+=rt*100/this.full_repair_time;{script rounding.qsp}} else {"[GOTO how_many_time_to_repair]"}}
 																																							
 																																								[reparing_done]{script show_game_stats.qsp}\nГотово!{script show_in_abandoned_garage.qsp}
 																																									Отлично.[ANSWERIMAGE icons/cool.png|295;400]
@@ -422,7 +422,7 @@
 																																			{if (this.things[this.thing_repairing_book][1] && this.things[this.thing_repairing_book][3] && this.things[this.thing_repairing_toolkit][1] && this.car_state<=99) {"Ввести сколько процентов будешь чинить (0 - " + this.full_repair_pct + "%)"+ "[ANSWERIMAGE icons/options.png|90;400]"}}
 																																				[how_many_pct_to_repair]{if (this.car_cleanness < 70) {"[GOTO too_dirt_car_in_garage]"}}{script show_game_stats.qsp}\nСколько процентов будешь чинить? (0 - {this.full_repair_pct} %){script show_in_abandoned_garage.qsp}
 																																					[INPUTS this.repair_pct]
-																																						[mark_738jde04rysav6554r60]{if (this.repair_pct>=0 && this.repair_pct<=this.full_repair_pct) {thisgame_hours+=this.repair_pct*this.car_max_self_repair_time/100;this.car_state+=this.repair_pct;{script rounding.qsp}} else {"[GOTO how_many_pct_to_repair]"}}
+																																						[mark_738jde04rysav6554r60]{let rp=parseFloat(this.repair_pct);this.repair_pct=rp; if (rp>=0 && rp<=this.full_repair_pct) {this.game_hours+=rp*this.car_max_self_repair_time/100;this.car_state+=rp;{script rounding.qsp}} else {"[GOTO how_many_pct_to_repair]"}}
 																																							
 																																								[mark_g220w24zs91htvs6g848][GOTO reparing_done]
 																																			{if (this.things[this.thing_repairing_book][1] && this.things[this.thing_repairing_book][3] && this.things[this.thing_repairing_toolkit][1] && this.car_state<=99) {"Починю полностью (" + this.full_repair_pct + " % за " + this.full_repair_time + " ч.)"+ "[ANSWERIMAGE icons/options.png|150;400]"}}
@@ -484,7 +484,7 @@
 																																											[say_your_price]Назвать свою цену поездки[ANSWERIMAGE icons/how_much_money.png|510;400]
 																																												[what_is_your_cost]Цена поездки ? (0 - {100*this.Inflation}){script show_client.qsp}[ANSWERTIME 30][TIMEEXPIRED client_go_away]
 																																													[INPUTS this.driver_price]
-																																														[driver_said_price]{if (this.driver_price < 0 || this.driver_price > 100*this.Inflation) {"[GOTO what_is_your_cost]"} else {"[GOTO client_should_think]"}}
+																																														[driver_said_price]{this.driver_price=parseInt(this.driver_price); if (this.driver_price < 0 || this.driver_price > 100*this.Inflation) {"[GOTO what_is_your_cost]"} else {"[GOTO client_should_think]"}}
 																																															
 																																																[client_should_think]{script client_thinking.qsp}{"[GOTO " + this.client_solution + "]"}
 																																																	
@@ -632,7 +632,7 @@
 																																			Ввести кол-во часов отдыха вручную[ANSWERIMAGE icons/how_much.png|260;400]
 																																				[how_long_have_rest]Сколько часов отдыхать (0 - {this.rest_hours_needed})?{script show_client}
 																																					[INPUTS this.rest_hours]
-																																						[mark_g1hdc28k0nvwz6na0x21]{let rh=parseFloat(this.rest_hours); if (rh>=0 && rh <= this.rest_hours_needed) {this.driver_rest_hours+= rh; this.game_hours += rh; this.total_driver_rest_hours+= rh;"[GOTO check_damage_car_probability]"} else {"[GOTO how_long_have_rest]"}}
+																																						[mark_g1hdc28k0nvwz6na0x21]{let rh=parseFloat(this.rest_hours);this.rest_hours=rh; if (rh>=0 && rh <= this.rest_hours_needed) {this.driver_rest_hours+= rh; this.game_hours += rh; this.total_driver_rest_hours+= rh;"[GOTO check_damage_car_probability]"} else {"[GOTO how_long_have_rest]"}}
 																																			Передумал отдыхать[ANSWERIMAGE icons/cancel.png|320;400]
 																																				[mark_w86a960id4rl6m537uev][GOTO new_location]
 																																	{if (this.things[this.thing_vip_radio][1] && this.things[this.thing_vip_radio][3] && Math.random()>0.4 && this.vip_call==0) {"Поступил вызов от VIP-клиента по рации. Отвечу." + "[ANSWERIMAGE icons/vip_call.png|140;400]"}}
@@ -644,7 +644,7 @@
 																																	{if (this.things[this.thing_vip_radio][1] && this.things[this.thing_vip_radio][3]==0) {"Настрою частоту рации для приема заявок от VIP-клиентов." + "[ANSWERIMAGE icons/call.png|140;400]"}}
 																																		[input_radio_freq]Введи номер частоты (0 - 1000000)? (0 = выход)[BGNDIMAGE vip_radio.jpg][ANSWERTIME 30][TIMEEXPIRED new_location]
 																																			[INPUTS this.radio_freq]
-																																				[mark_w43083s54ddmirt48y1i]{let freq=parseInt(this.radio_freq);if (freq < 0 || freq > 1000000) {"[GOTO input_radio_freq]"}}
+																																				[mark_w43083s54ddmirt48y1i]{let freq=parseInt(this.radio_freq);this.radio_freq=freq; if (freq < 0 || freq > 1000000) {"[GOTO input_radio_freq]"}}
 																																					
 																																						[mark_svp3f33oc4126l87cb1i]{let freq=parseInt(this.radio_freq); if (freq == this.vip_radio_freq) {"[GOTO vip_freq_found]"} else {"Шум в эфире, похоже неправильная частота.[SOUNDFX radio_noise]"}}[BGNDIMAGE vip_radio.jpg][ANSWERTIME 20][TIMEEXPIRED new_location]
 																																							Попробую еще[ANSWERIMAGE icons/call.png|260;400]
@@ -956,7 +956,7 @@
 																	
 																		[input_fuel_for_help]Введи количество бензина? (0 - {this.fuel}){script show_ask_fuel.qsp}[ANSWERTIME 60][TIMEEXPIRED give_no_fuel]
 																			[INPUTS this.some_fuel]
-																				[mark_r1s5ou4v7h89327ml1h3]{if (this.some_fuel<0 || this.some_fuel>this.fuel) {"[GOTO input_fuel_for_help]"}}
+																				[mark_r1s5ou4v7h89327ml1h3]{let sf=parseFloat(this.some_fuel);this.some_fuel=sf; if (sf<0 || sf>this.fuel) {"[GOTO input_fuel_for_help]"}}
 																					
 																						[mark_58sa4ti81qe7ep6267v0]{if (this.some_fuel >=1) {this.fuel-=this.some_fuel;this.people_negative-=(5+this.some_fuel);{script spent_time.qsp}"Спасибо тебе, дружище!"} else {"Ты что, издеваешься? А ну вали отсюда!";this.people_negative+=1}}{script rounding.qsp}{script show_ask_fuel.qsp}[ANSWERTIME 15][TIMEEXPIRED {this.return_mark}]
 																							Пойду дальше.[ANSWERIMAGE icons/next.png|295;400]
