@@ -2470,7 +2470,7 @@
                                                                                                                                                                                     }
                                                                                                                                                                                   ],
                                                                                                                                                                                   "_mark": "rb5",
-                                                                                                                                                                                  "_content": "[LABEL ][BGNDIMAGE repairing_book4.jpg][TIMEEXPIRED rb6][ANSWERTIME 2]"
+                                                                                                                                                                                  "_content": "[LABEL .][BGNDIMAGE repairing_book4.jpg][TIMEEXPIRED rb6][ANSWERTIME 2]"
                                                                                                                                                                                 }
                                                                                                                                                                               ],
                                                                                                                                                                               "_mark": "",
@@ -2478,7 +2478,7 @@
                                                                                                                                                                             }
                                                                                                                                                                           ],
                                                                                                                                                                           "_mark": "rb4",
-                                                                                                                                                                          "_content": "[LABEL ][BGNDIMAGE repairing_book3.jpg][TIMEEXPIRED rb5][ANSWERTIME 2]"
+                                                                                                                                                                          "_content": "[LABEL .][BGNDIMAGE repairing_book3.jpg][TIMEEXPIRED rb5][ANSWERTIME 2]"
                                                                                                                                                                         }
                                                                                                                                                                       ],
                                                                                                                                                                       "_mark": "",
@@ -2486,7 +2486,7 @@
                                                                                                                                                                     }
                                                                                                                                                                   ],
                                                                                                                                                                   "_mark": "rb3",
-                                                                                                                                                                  "_content": "[LABEL ][BGNDIMAGE repairing_book2.jpg][TIMEEXPIRED rb4][ANSWERTIME 2]"
+                                                                                                                                                                  "_content": "[LABEL .][BGNDIMAGE repairing_book2.jpg][TIMEEXPIRED rb4][ANSWERTIME 2]"
                                                                                                                                                                 }
                                                                                                                                                               ],
                                                                                                                                                               "_mark": "",
@@ -2494,7 +2494,7 @@
                                                                                                                                                             }
                                                                                                                                                           ],
                                                                                                                                                           "_mark": "rb2",
-                                                                                                                                                          "_content": "[LABEL ][BGNDIMAGE repairing_book1.jpg][TIMEEXPIRED rb3][ANSWERTIME 2]"
+                                                                                                                                                          "_content": "[LABEL .][BGNDIMAGE repairing_book1.jpg][TIMEEXPIRED rb3][ANSWERTIME 2]"
                                                                                                                                                         }
                                                                                                                                                       ],
                                                                                                                                                       "_mark": "",
@@ -2502,7 +2502,7 @@
                                                                                                                                                     }
                                                                                                                                                   ],
                                                                                                                                                   "_mark": "mark_h5kb767cjli4muxc39wx",
-                                                                                                                                                  "_content": "[LABEL ][BGNDIMAGE repairing_book.jpg][TIMEEXPIRED rb2][ANSWERTIME 2]"
+                                                                                                                                                  "_content": "[LABEL .][BGNDIMAGE repairing_book.jpg][TIMEEXPIRED rb2][ANSWERTIME 2]"
                                                                                                                                                 }
                                                                                                                                               ],
                                                                                                                                               "_mark": "read_repairing_book",
@@ -4634,7 +4634,7 @@
                                                         }
                                                       ],
                                                       "_mark": "",
-                                                      "_content": "[LABEL {this.evacuation_cost=10*this.Inflation;if (this.money >= this.evacuation_cost) {\"Вызову эвакуатор, цена: \" + this.evacuation_cost + \"[ANSWERIMAGE icons/evacuator.png|380;400]\"}}]"
+                                                      "_content": "[LABEL {this.evacuation_cost=10*this.Inflation;'';if (this.money >= this.evacuation_cost) {\"Вызову эвакуатор, цена: \" + this.evacuation_cost + \"[ANSWERIMAGE icons/evacuator.png|380;400]\"}}]"
                                                     }
                                                   ],
                                                   "_mark": "fuel_empty",
@@ -6164,7 +6164,7 @@
                                                             }
                                                           ],
                                                           "_mark": "drug_distribution",
-                                                          "_content": "[LABEL Братишь... у тебя ведь есть что-то для меня?{this.nark_money=Math.ceil(Math.ceil(this.drugDealerGoodsCost*this.Inflation/this.drugGoodsInPackage)*(1+Math.random()*4))}{script show_client_inside_rear.qsp}]"
+                                                          "_content": "[LABEL Братишь... у тебя ведь есть что-то для меня?{this.nark_money=Math.ceil(Math.ceil(this.drugDealerGoodsCost*this.Inflation/this.drugGoodsInPackage)*(1+Math.random()*4));'';}{script show_client_inside_rear.qsp}]"
                                                         }
                                                       ],
                                                       "_mark": "",
