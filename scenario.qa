@@ -410,7 +410,11 @@
 																																			Выйду наружу[ANSWERIMAGE icons/enter.png|380;400]
 																																				[mark_6q0zgd14zy76p2vgo69g][GOTO new_location]
 																																	{if (this.location==25) {"Заеду в " + this.locations[this.location][0] + "[ANSWERIMAGE icons/enter.png|260;400]"}}
-																																		[in_abandoned_garage]{this.dvd_playing=0}{script show_game_stats.qsp}\n{script calc_car_self_repair.qsp}{this.locations[this.location][0]}. {if (this.things[this.thing_repairing_book][1] && this.things[this.thing_repairing_book][3] && this.things[this.thing_repairing_toolkit][1] && this.car_state<=99) {"Чтобы полностью починить машину (" + this.full_repair_pct + "%) тебе потребуется времени: " + this.full_repair_time + " ч."}}{script show_in_abandoned_garage.qsp}[AMBIENT garage][MUSIC none][BGNDMUSIC none]
+																																		[in_abandoned_garage]{this.dvd_playing=0}{script show_game_stats.qsp}\n{script calc_car_self_repair.qsp}{this.locations[this.location][0]}. {if (this.things[this.thing_repairing_book][1] && this.things[this.thing_repairing_book][3] && this.things[this.thing_repairing_toolkit][1] && this.car_state<=99) {"Чтобы полностью починить машину (" + this.full_repair_pct + "%) тебе потребуется времени: " + this.full_repair_time + " ч."}}{script show_in_abandoned_garage.qsp}[AMBIENT garage][MUSIC none][BGNDMUSIC none][ANSWERSORDER ON]
+																																			Информация о гараже.
+																																				[mark_34nd949s300fwj23897b]Для работы здесь тебе нужны: {this.things[this.thing_repairing_toolkit][0]}, {this.things[this.thing_repairing_book][0]}.\nЕще здесь  можно установить: {this.things[this.thing_vinyl_dog][0]}, {this.things[this.thing_tuningkit][0]}.{script show_in_abandoned_garage.qsp}
+																																					Ясно.
+																																						[mark_fno743s9126vv41u6c1q][GOTO in_abandoned_garage]
 																																			{if (this.things[this.thing_repairing_book][1] && this.things[this.thing_repairing_book][3] && this.things[this.thing_repairing_toolkit][1] && this.car_state<=99) {"Ввести сколько времени будешь чинить (0 - " + this.full_repair_time + " ч.)" + "[ANSWERIMAGE icons/options.png|30;400]"}}
 																																				[how_many_time_to_repair]{if (this.car_cleanness < 70) {"[GOTO too_dirt_car_in_garage]"}}{script show_game_stats.qsp}\nСколько времени будешь чинить? (0 - {this.full_repair_time} ч.){script show_in_abandoned_garage.qsp}
 																																					[INPUTS this.repair_time]
@@ -452,7 +456,7 @@
 																																							Класс![ANSWERIMAGE icons/cool.png|295;400]
 																																								[mark_278se340t0aek4srht3i][GOTO in_abandoned_garage]
 																																			{if (this.car_cleanness<100) {"Помою машину"+ "[ANSWERIMAGE icons/car_wash.png|390;400]"}}
-																																				[mark_49t5kn2d46kkh0ls2yk8]{this.car_cleanness=100;'';}Мойка машины заняла 1 час.{this.game_hours++}{script show_in_abandoned_garage.qsp}
+																																				[mark_49t5kn2d46kkh0ls2yk8]{this.car_cleanness=100;'';}Мойка машины заняла 1 час.{this.game_hours++;'';}{script show_in_abandoned_garage.qsp}
 																																					Дальше...[ANSWERIMAGE icons/next.png|295;400]
 																																						[mark_44a3rjwzif69521f2o7u][GOTO in_abandoned_garage]
 																																			[GOTO read_repairing_book]
@@ -857,7 +861,7 @@
 												[creditback]{this.credit_delay_fine=50*this.Inflation;if (this.money>=this.credit_delay_sum + this.credit_delay_fine) {this.money-=this.credit_delay_sum-this.credit_delay_fine;this.credit_rest_sum-=this.credit_delay_sum;"Тебе повезло, что у тебя было с собой достаточно денег, чтобы погасить просроченный платеж и штраф " + this.credit_delay_fine + " . Тебя отпустили."} else {"[FINAL Твоя машина была продана, чтобы погасить кредит. Отрицательный финал.][IMAGE collectors.jpg]"}}
 													...[ANSWERIMAGE icons/three_dots.png|295;400]
 														[mark_4dgdm1tn52q49lm5st58][GOTO {this.return_mark}]
-										[barsuk_reckon]Тебя разыскали коллекторы. Ты должен бару Барсук: {this.barsuk_credit}, плюс: {this.barsuk_collectors_cost*this.Inflation} за уклонение от оплаты.{this.barsuk_credit+=this.barsuk_collectors_cost*this.Inflation;'';}[BGNDIMAGE collectors.jpg][ANSWERTIME 20][TIMEEXPIRED this.barsuk_credit_back]
+										[barsuk_reckon]Тебя разыскали коллекторы. Ты должен бару Барсук: {this.barsuk_credit}, плюс: {this.barsuk_collectors_cost*this.Inflation} за уклонение от оплаты.{this.barsuk_credit+=this.barsuk_collectors_cost*this.Inflation;'';}[BGNDIMAGE collectors.jpg][ANSWERTIME 20][TIMEEXPIRED barsuk_credit_back]
 											...[ANSWERIMAGE icons/three_dots.png|295;400]
 												[barsuk_credit_back]{if (this.money>=this.barsuk_credit) {this.money-=this.barsuk_credit;this.barsukPsy=2;"Тебе повезло, что у тебя было с собой достаточно денег. Тебя отпустили.[BGNDIMAGE collectors.jpg]"} else {"[GOTO barsuk_bill]"}}
 													...[ANSWERIMAGE icons/three_dots.png|295;400]

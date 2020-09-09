@@ -2175,6 +2175,28 @@
                                                                                                                                                             {
                                                                                                                                                               "node": [
                                                                                                                                                                 {
+                                                                                                                                                                  "_mark": "mark_fno743s9126vv41u6c1q",
+                                                                                                                                                                  "_content": "[LABEL ][GOTO in_abandoned_garage]"
+                                                                                                                                                                }
+                                                                                                                                                              ],
+                                                                                                                                                              "_mark": "",
+                                                                                                                                                              "_content": "[LABEL Ясно.]"
+                                                                                                                                                            }
+                                                                                                                                                          ],
+                                                                                                                                                          "_mark": "mark_34nd949s300fwj23897b",
+                                                                                                                                                          "_content": "[LABEL Для работы здесь тебе нужны: {this.things[this.thing_repairing_toolkit][0]}, {this.things[this.thing_repairing_book][0]}.\nЕще здесь  можно установить: {this.things[this.thing_vinyl_dog][0]}, {this.things[this.thing_tuningkit][0]}.{script show_in_abandoned_garage.qsp}]"
+                                                                                                                                                        }
+                                                                                                                                                      ],
+                                                                                                                                                      "_mark": "",
+                                                                                                                                                      "_content": "[LABEL Информация о гараже.]"
+                                                                                                                                                    },
+                                                                                                                                                    {
+                                                                                                                                                      "node": [
+                                                                                                                                                        {
+                                                                                                                                                          "node": [
+                                                                                                                                                            {
+                                                                                                                                                              "node": [
+                                                                                                                                                                {
                                                                                                                                                                   "node": [
                                                                                                                                                                     {
                                                                                                                                                                       "node": [
@@ -2408,7 +2430,7 @@
                                                                                                                                                             }
                                                                                                                                                           ],
                                                                                                                                                           "_mark": "mark_49t5kn2d46kkh0ls2yk8",
-                                                                                                                                                          "_content": "[LABEL {this.car_cleanness=100;'';}Мойка машины заняла 1 час.{this.game_hours++}{script show_in_abandoned_garage.qsp}]"
+                                                                                                                                                          "_content": "[LABEL {this.car_cleanness=100;'';}Мойка машины заняла 1 час.{this.game_hours++;'';}{script show_in_abandoned_garage.qsp}]"
                                                                                                                                                         }
                                                                                                                                                       ],
                                                                                                                                                       "_mark": "",
@@ -2420,7 +2442,7 @@
                                                                                                                                                     }
                                                                                                                                                   ],
                                                                                                                                                   "_mark": "in_abandoned_garage",
-                                                                                                                                                  "_content": "[LABEL {this.dvd_playing=0}{script show_game_stats.qsp}\n{script calc_car_self_repair.qsp}{this.locations[this.location][0]}. {if (this.things[this.thing_repairing_book][1] && this.things[this.thing_repairing_book][3] && this.things[this.thing_repairing_toolkit][1] && this.car_state<=99) {\"Чтобы полностью починить машину (\" + this.full_repair_pct + \"%) тебе потребуется времени: \" + this.full_repair_time + \" ч.\"}}{script show_in_abandoned_garage.qsp}][MUSIC none][AMBIENT garage][BGNDMUSIC none]"
+                                                                                                                                                  "_content": "[LABEL {this.dvd_playing=0}{script show_game_stats.qsp}\n{script calc_car_self_repair.qsp}{this.locations[this.location][0]}. {if (this.things[this.thing_repairing_book][1] && this.things[this.thing_repairing_book][3] && this.things[this.thing_repairing_toolkit][1] && this.car_state<=99) {\"Чтобы полностью починить машину (\" + this.full_repair_pct + \"%) тебе потребуется времени: \" + this.full_repair_time + \" ч.\"}}{script show_in_abandoned_garage.qsp}][MUSIC none][AMBIENT garage][ANSWERSORDER ON][BGNDMUSIC none]"
                                                                                                                                                 }
                                                                                                                                               ],
                                                                                                                                               "_mark": "",
