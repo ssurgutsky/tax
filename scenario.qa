@@ -58,7 +58,7 @@
 																																									Что тикает???[ANSWERIMAGE icons/how_much.png|295;400]
 																																										[explode_railway_station].[BGNDIMAGE explosion.jpg][ANSWERTIME 1][TIMEEXPIRED railway_station_exploded][SOUNDFX boom]
 																																											...
-																																												[railway_station_exploded][FINAL В портфеле была бомба, потому на вокзале никого и не было... Игра окончена.][BGNDIMAGE railway_station_exploded.jpg]
+																																												[railway_station_exploded][FINAL В портфеле была бомба, потому на вокзале никого и не было... Игра окончена.][IMAGE railway_station_exploded.jpg]
 																																					[exit_railway_station]Выйду наружу.[ANSWERIMAGE icons/exit.png|320;400]
 																																						[mark_qx92vsf85aaqa8232b5o][GOTO new_location]
 																																			[GOTO exit_railway_station]
@@ -170,7 +170,7 @@
 																																																					Покажите мне чего-нибудь?[ANSWERIMAGE icons/how_much.png|295;400]
 																																																						[mark_7s6ugma2k33403p9p4np]Это зависит от того, сколько ты нам заплатишь...[BGNDIMAGE barsuk_left5.jpg]
 																																																							А давайте бесплатно?[ANSWERIMAGE icons/zero.png|200;400]
-																																																								[mark_dk674u0t075kkys25n2y]Бесплатно, молодой человек, мы можем показать только на выход.[BGNDIMAGE barsuk_left5.jpg&client7_2_0.png|100;0]
+																																																								[mark_dk674u0t075kkys25n2y]Бесплатно, молодой человек, можем показать только на выход.[BGNDIMAGE barsuk_left5.jpg&client7_2_0.png|100;0]
 																																																									Спасибо, не стоит! Вернусь обратно.[ANSWERIMAGE icons/cancel.png|295;400]
 																																																										[mark_3w67q23mvyibw80y5138][GOTO enter_barsuk]
 																																																							Ну... {10*this.Inflation} могу...[ANSWERIMAGE icons/money3.png|260;400]
@@ -316,7 +316,7 @@
 																																															[give_client_casino_win_sum]Забирай долю[ANSWERIMAGE icons/money6.png|260;400]
 																																																[mark_89xl7564yjvs5afgol7o]{if (this.money<this.casino_win_bet_sum/2) {"[GOTO not_all_won_money]"} else {"[GOTO all_won_money]"}}
 																																																	
-																																																		[all_won_money]Ты отдал подельнику его половину выигрыша в казино: ({Math.floor(this.casino_win_bet_sum/2)}){this.money-=Math.floor(this.casino_win_bet_sum/2);this.client_state=0;'';}{script show_client_inside_rear.qsp}
+																																																		[all_won_money]Ты отдал подельнику его половину выигрыша в казино: ({Math.floor(this.casino_win_bet_sum/2)}){this.money-=Math.floor(this.casino_win_bet_sum/2);this.driver_show_gun=0;this.client_state=0;'';}{script show_client_inside_rear.qsp}
 																																																			Дальше...[ANSWERIMAGE icons/next.png|295;400]
 																																																				[mark_673ev6z67230sr81c418]Спасибо друг! Я знал, что ты честный. Прощай.{script show_client.qsp}
 																																																					Дальше...[ANSWERIMAGE icons/next.png|295;400]
@@ -324,14 +324,14 @@
 																																																		[not_all_won_money]Тут не вся моя доля! Куда ты дел остальные деньги? Кинуть меня хочешь? Ты еще пожалеешь об этом!{this.money=0;this.people_negative=50;'';}{script show_client.qsp}
 																																																			...[ANSWERIMAGE icons/three_dots.png|295;400]
 																																																				[mark_zx6l0u40h9z6pw35m27w][GOTO new_location]
-																																															Что за доля?[ANSWERIMAGE icons/how_much.png|320;400]"
+																																															Что за доля?[ANSWERIMAGE icons/how_much.png|320;400]
 																																																[mark_7554gh6ek0i2se0f69r6]Твой самый честный выигрыш в казино. Забыл что ли?{script show_client.qsp}
 																																																	[GOTO give_client_casino_win_sum]
-																																																	О чем ты? Я в казино вообще не играю, ты что-то попутал...[ANSWERIMAGE icons/how_much.png|320;400]"
+																																																	О чем ты? Я в казино вообще не играю, ты что-то попутал...[ANSWERIMAGE icons/how_much.png|320;400]
 																																																		[wanna_kick_me]Кинуть меня хочешь? Я предвидел такую ситуацию и подготовился к ней. Уезжай. Теперь ты труп.{script show_client.qsp}
-																																																			...[ANSWERIMAGE icons/three_dots.png|295;400]{driver_show_gun=0}
+																																																			...[ANSWERIMAGE icons/three_dots.png|295;400]
 																																																				[mark_d5u1777k6768fqqnx371]{this.driver_show_gun=0;this.car_state=0;'';}[GOTO new_location]
-																																																	[show_gun_to_casino_guy]{if (this.things[this.thing_gun][1] {this.driver_show_gun=1;"Вали отсюда, я тебя не знаю.[ANSWERIMAGE icons/gun.png|380;400]"}}
+																																																	[show_gun_to_casino_guy]{if (this.things[this.thing_gun][1]) {this.driver_show_gun=1;"Вали отсюда, я тебя не знаю.[ANSWERIMAGE icons/gun.png|380;400]"}}
 																																																		[mark_3efqr10y4b6d70g6g41e][GOTO wanna_kick_me]
 																																															[GOTO show_gun_to_casino_guy]
 																																	{if ((this.location == 13 || this.location == 16) && this.fuel<this.max_fuel && this.money>0) {"Заправлю машину" + "[ANSWERIMAGE icons/fuel_station.png|260;400]"}}
@@ -826,7 +826,7 @@
 																								[poster_final]"Таксоман", 2010-2020 год.[BGNDIMAGE final_poster.jpg]
 																									Перейти в режим воспоминаний[ANSWERIMAGE icons/next.png|295;400]
 																										[mark_ve3u0eirvom03v59791o][GOTO test_mode]
-										[car_broke][FINAL Из-за плохого технического состояния машины ты погиб в ДТП. Надо было лучше следить за своим автомобилем. Ты проиграл.][BGNDIMAGE car_crushed_total.jpg][SOUNDFX brakes_crash]
+										[car_broke][FINAL Из-за плохого технического состояния машины ты погиб в ДТП. Надо было лучше следить за своим автомобилем. Ты проиграл.][IMAGE car_crushed_total.jpg][SOUNDFX brakes_crash]
 										[fuel_empty]У тебя кончился бензин...{this.show_evacuator=0;this.show_gazel=0;'';}{script show_empty_fuel.qsp}
 											[stop_car_for_fuel]Остановлю кого-нибудь и попрошу бензин[ANSWERIMAGE icons/canister.png|260;400]
 												[try_get_fuel]{script spent_time.qsp}Ты безуспешно провел {this.spent_time} ч. времени, пытаясь раздобыть бензин.{script show_empty_fuel.qsp}
@@ -873,7 +873,7 @@
 											...[ANSWERIMAGE icons/three_dots.png|295;400]
 												[mark_49u8ffjt84o9pd2tw9sc]{if (this.car_state>0) {this.client_type=0;this.location=this.new_location;"[GOTO location_actions]"}}
 													
-														[car_total_crush][FINAL Машина восстановлению не подлежит... Отрицательный финал.][BGNDIMAGE car_crushed_total.jpg]
+														[car_total_crush][FINAL Машина восстановлению не подлежит... Отрицательный финал.][IMAGE car_crushed_total.jpg]
 										[dangerous_moment]{if (this.pdd_questions < Math.floor((this.game_hours+12)/24)) {"ВНИМАНИЕ! ОПАСНЫЙ МОМЕНТ![BGNDIMAGE attention.jpg][ANSWERTIME 10][TIMEEXPIRED ask_pdd_question]"} else {"[GOTO human_asks_help]"}}
 											Дальше...[ANSWERIMAGE icons/next.png|295;400]
 												[ask_pdd_question]{this.pdd_questions++;'';}[GOTO pdd5_14,pdd5_15,pdd6_11,pdd7_11,pdd7_13,pdd4_14,pdd19_11,pdd32_15,pdd11_13,pdd21_14]
@@ -1011,11 +1011,13 @@
 																			А твой интерес?[ANSWERIMAGE icons/next.png|295;400]
 																				[mark_8r197kwydgz1t54ju8o5]Позже ты отдашь мне половину выигрыша. Ну что, согласен?{script show_client_inside_rear.qsp}
 																					Пожалуй да[ANSWERIMAGE icons/good.png|260;400]
-																						[mark_aeid237b4z2f25i099ff]Договорились. Завтра. Казино Фортуна. Любое время. Число 29. Это наш шанс разбогатеть, дружище, не упусти его! И помни, ставка сыграет всего только один раз!!!{this.casino_win_day=Math.ceil(this.game_hours/24+1);'';}{script show_client_inside_rear.qsp}
+																						[mark_aeid237b4z2f25i099ff]Договорились. Казино Фортуна. День {this.casino_win_day=Math.ceil(this.game_hours/24+1)}. Любое время. Число "29". Это наш шанс разбогатеть, дружище, не упусти его! Ставка сыграет только один раз!!!{script show_client_inside_rear.qsp}
 																							Хорошо, я буду там.[ANSWERIMAGE icons/next.png|295;400]
-																								[mark_1axem71626jjc47h8csl]... и вот еще что, не вздумай потратить весь выигрыш на себя! А то у твоей машины могут отказать тормоза.{script show_client_inside_rear.qsp}
+																								[mark_1axem71626jjc47h8csl]... и даже не вздумай потратить весь выигрыш на себя! Иначе у твоей машины могут отказать тормоза.{script show_client_inside_rear.qsp}
 																									Да, я понял.[ANSWERIMAGE icons/next.png|295;400]
-																										[mark_0d29kc6a5w9984371a74]{this.things[this.thing_casino_bet][1]=1;'';}[GOTO business2]
+																										[mark_pl79vt9hc32kth6m06ok]Давай, езжай, таксуй, подкопи как можно больше бабла для ставки. Либо, если ты уже при деньгах, то едь в кабак, выпей, поболтай с людьми, чтобы скоротать время.{script show_client_inside_rear.qsp}
+																											Хорошо.[ANSWERIMAGE icons/next.png|295;400]
+																												[mark_0d29kc6a5w9984371a74]{this.things[this.thing_casino_bet][1]=1;'';}[GOTO business2]
 																					Нет, это противозаконно[ANSWERIMAGE icons/cancel.png|320;400]
 																						[mark_li1p5ig27if9lcbi6u1t][GOTO business2]
 													Нет.[ANSWERIMAGE icons/cancel.png|320;400]
@@ -1116,7 +1118,7 @@
 																														[show_gun_to_nark]{this.driver_show_gun=1;'';}Клиент хотел тебя убить, но ты вовремя выхватил ствол!{script show_client_inside_rear.qsp}
 																															...[ANSWERIMAGE icons/three_dots.png|295;400]
 																																[mark_6ndio08y50s42ntr9c87]{this.driver_show_gun=0;'';}[GOTO business7]
-																														[nark_kill_driver][FINAL Тебя убил наркоман из-за дозы... Игра окончена.][BGNDIMAGE blood.jpg][SOUNDFX brakes_crash]
+																														[nark_kill_driver][FINAL Тебя убил наркоман из-за дозы... Игра окончена.][IMAGE blood.jpg][SOUNDFX brakes_crash]
 																								[nark_relaxed]Зря ты так братуха...{this.people_negative+=2;'';}{script show_client_inside_rear.qsp}
 																									...[ANSWERIMAGE icons/three_dots.png|295;400]
 																										[mark_jm63s895444j5z51666j][GOTO business7]

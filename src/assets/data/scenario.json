@@ -178,7 +178,7 @@
                                                                                                                                                                                       "node": [
                                                                                                                                                                                         {
                                                                                                                                                                                           "_mark": "railway_station_exploded",
-                                                                                                                                                                                          "_content": "[LABEL ][FINAL В портфеле была бомба, потому на вокзале никого и не было... Игра окончена.][BGNDIMAGE railway_station_exploded.jpg]"
+                                                                                                                                                                                          "_content": "[LABEL ][FINAL В портфеле была бомба, потому на вокзале никого и не было... Игра окончена.][IMAGE railway_station_exploded.jpg]"
                                                                                                                                                                                         }
                                                                                                                                                                                       ],
                                                                                                                                                                                       "_mark": "",
@@ -756,7 +756,7 @@
                                                                                                                                                                                                                                             }
                                                                                                                                                                                                                                           ],
                                                                                                                                                                                                                                           "_mark": "mark_dk674u0t075kkys25n2y",
-                                                                                                                                                                                                                                          "_content": "[LABEL Бесплатно, молодой человек, мы можем показать только на выход.][BGNDIMAGE barsuk_left5.jpg&client7_2_0.png|100;0]"
+                                                                                                                                                                                                                                          "_content": "[LABEL Бесплатно, молодой человек, можем показать только на выход.][BGNDIMAGE barsuk_left5.jpg&client7_2_0.png|100;0]"
                                                                                                                                                                                                                                         }
                                                                                                                                                                                                                                       ],
                                                                                                                                                                                                                                       "_mark": "",
@@ -1614,7 +1614,7 @@
                                                                                                                                                                                                                     }
                                                                                                                                                                                                                   ],
                                                                                                                                                                                                                   "_mark": "all_won_money",
-                                                                                                                                                                                                                  "_content": "[LABEL Ты отдал подельнику его половину выигрыша в казино: ({Math.floor(this.casino_win_bet_sum/2)}){this.money-=Math.floor(this.casino_win_bet_sum/2);this.client_state=0;'';}{script show_client_inside_rear.qsp}]"
+                                                                                                                                                                                                                  "_content": "[LABEL Ты отдал подельнику его половину выигрыша в казино: ({Math.floor(this.casino_win_bet_sum/2)}){this.money-=Math.floor(this.casino_win_bet_sum/2);this.driver_show_gun=0;this.client_state=0;'';}{script show_client_inside_rear.qsp}]"
                                                                                                                                                                                                                 },
                                                                                                                                                                                                                 {
                                                                                                                                                                                                                   "node": [
@@ -1664,7 +1664,7 @@
                                                                                                                                                                                                                         }
                                                                                                                                                                                                                       ],
                                                                                                                                                                                                                       "_mark": "",
-                                                                                                                                                                                                                      "_content": "[LABEL ...{driver_show_gun=0}][ANSWERIMAGE icons/three_dots.png|295;400]"
+                                                                                                                                                                                                                      "_content": "[LABEL ...][ANSWERIMAGE icons/three_dots.png|295;400]"
                                                                                                                                                                                                                     }
                                                                                                                                                                                                                   ],
                                                                                                                                                                                                                   "_mark": "wanna_kick_me",
@@ -1672,7 +1672,7 @@
                                                                                                                                                                                                                 }
                                                                                                                                                                                                               ],
                                                                                                                                                                                                               "_mark": "",
-                                                                                                                                                                                                              "_content": "[LABEL О чем ты? Я в казино вообще не играю, ты что-то попутал...\"][ANSWERIMAGE icons/how_much.png|320;400]"
+                                                                                                                                                                                                              "_content": "[LABEL О чем ты? Я в казино вообще не играю, ты что-то попутал...][ANSWERIMAGE icons/how_much.png|320;400]"
                                                                                                                                                                                                             },
                                                                                                                                                                                                             {
                                                                                                                                                                                                               "node": [
@@ -1682,7 +1682,7 @@
                                                                                                                                                                                                                 }
                                                                                                                                                                                                               ],
                                                                                                                                                                                                               "_mark": "show_gun_to_casino_guy",
-                                                                                                                                                                                                              "_content": "[LABEL {if (this.things[this.thing_gun][1] {this.driver_show_gun=1;\"Вали отсюда, я тебя не знаю.[ANSWERIMAGE icons/gun.png|380;400]\"}}]"
+                                                                                                                                                                                                              "_content": "[LABEL {if (this.things[this.thing_gun][1]) {this.driver_show_gun=1;\"Вали отсюда, я тебя не знаю.[ANSWERIMAGE icons/gun.png|380;400]\"}}]"
                                                                                                                                                                                                             }
                                                                                                                                                                                                           ],
                                                                                                                                                                                                           "_mark": "mark_7554gh6ek0i2se0f69r6",
@@ -1690,7 +1690,7 @@
                                                                                                                                                                                                         }
                                                                                                                                                                                                       ],
                                                                                                                                                                                                       "_mark": "",
-                                                                                                                                                                                                      "_content": "[LABEL Что за доля?\"][ANSWERIMAGE icons/how_much.png|320;400]"
+                                                                                                                                                                                                      "_content": "[LABEL Что за доля?][ANSWERIMAGE icons/how_much.png|320;400]"
                                                                                                                                                                                                     },
                                                                                                                                                                                                     {
                                                                                                                                                                                                       "_mark": "",
@@ -4500,7 +4500,7 @@
                                                 },
                                                 {
                                                   "_mark": "car_broke",
-                                                  "_content": "[LABEL ][FINAL Из-за плохого технического состояния машины ты погиб в ДТП. Надо было лучше следить за своим автомобилем. Ты проиграл.][BGNDIMAGE car_crushed_total.jpg][SOUNDFX brakes_crash]"
+                                                  "_content": "[LABEL ][FINAL Из-за плохого технического состояния машины ты погиб в ДТП. Надо было лучше следить за своим автомобилем. Ты проиграл.][IMAGE car_crushed_total.jpg][SOUNDFX brakes_crash]"
                                                 },
                                                 {
                                                   "node": [
@@ -4744,7 +4744,7 @@
                                                               "node": [
                                                                 {
                                                                   "_mark": "car_total_crush",
-                                                                  "_content": "[LABEL ][FINAL Машина восстановлению не подлежит... Отрицательный финал.][BGNDIMAGE car_crushed_total.jpg]"
+                                                                  "_content": "[LABEL ][FINAL Машина восстановлению не подлежит... Отрицательный финал.][IMAGE car_crushed_total.jpg]"
                                                                 }
                                                               ],
                                                               "_mark": "",
@@ -5455,8 +5455,20 @@
                                                                                                             {
                                                                                                               "node": [
                                                                                                                 {
-                                                                                                                  "_mark": "mark_0d29kc6a5w9984371a74",
-                                                                                                                  "_content": "[LABEL {this.things[this.thing_casino_bet][1]=1;'';}][GOTO business2]"
+                                                                                                                  "node": [
+                                                                                                                    {
+                                                                                                                      "node": [
+                                                                                                                        {
+                                                                                                                          "_mark": "mark_0d29kc6a5w9984371a74",
+                                                                                                                          "_content": "[LABEL {this.things[this.thing_casino_bet][1]=1;'';}][GOTO business2]"
+                                                                                                                        }
+                                                                                                                      ],
+                                                                                                                      "_mark": "",
+                                                                                                                      "_content": "[LABEL Хорошо.][ANSWERIMAGE icons/next.png|295;400]"
+                                                                                                                    }
+                                                                                                                  ],
+                                                                                                                  "_mark": "mark_pl79vt9hc32kth6m06ok",
+                                                                                                                  "_content": "[LABEL Давай, езжай, таксуй, подкопи как можно больше бабла для ставки. Либо, если ты уже при деньгах, то едь в кабак, выпей, поболтай с людьми, чтобы скоротать время.{script show_client_inside_rear.qsp}]"
                                                                                                                 }
                                                                                                               ],
                                                                                                               "_mark": "",
@@ -5464,7 +5476,7 @@
                                                                                                             }
                                                                                                           ],
                                                                                                           "_mark": "mark_1axem71626jjc47h8csl",
-                                                                                                          "_content": "[LABEL ... и вот еще что, не вздумай потратить весь выигрыш на себя! А то у твоей машины могут отказать тормоза.{script show_client_inside_rear.qsp}]"
+                                                                                                          "_content": "[LABEL ... и даже не вздумай потратить весь выигрыш на себя! Иначе у твоей машины могут отказать тормоза.{script show_client_inside_rear.qsp}]"
                                                                                                         }
                                                                                                       ],
                                                                                                       "_mark": "",
@@ -5472,7 +5484,7 @@
                                                                                                     }
                                                                                                   ],
                                                                                                   "_mark": "mark_aeid237b4z2f25i099ff",
-                                                                                                  "_content": "[LABEL Договорились. Завтра. Казино Фортуна. Любое время. Число 29. Это наш шанс разбогатеть, дружище, не упусти его! И помни, ставка сыграет всего только один раз!!!{this.casino_win_day=Math.ceil(this.game_hours/24+1);'';}{script show_client_inside_rear.qsp}]"
+                                                                                                  "_content": "[LABEL Договорились. Казино Фортуна. День {this.casino_win_day=Math.ceil(this.game_hours/24+1)}. Любое время. Число \"29\". Это наш шанс разбогатеть, дружище, не упусти его! Ставка сыграет только один раз!!!{script show_client_inside_rear.qsp}]"
                                                                                                 }
                                                                                               ],
                                                                                               "_mark": "",
@@ -6000,7 +6012,7 @@
                                                                                                                                 },
                                                                                                                                 {
                                                                                                                                   "_mark": "nark_kill_driver",
-                                                                                                                                  "_content": "[LABEL ][FINAL Тебя убил наркоман из-за дозы... Игра окончена.][BGNDIMAGE blood.jpg][SOUNDFX brakes_crash]"
+                                                                                                                                  "_content": "[LABEL ][FINAL Тебя убил наркоман из-за дозы... Игра окончена.][IMAGE blood.jpg][SOUNDFX brakes_crash]"
                                                                                                                                 }
                                                                                                                               ],
                                                                                                                               "_mark": "",
