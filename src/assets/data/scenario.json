@@ -2752,7 +2752,7 @@
                                                                                                                                                                                                                                                                                                                                                 }
                                                                                                                                                                                                                                                                                                                                               ],
                                                                                                                                                                                                                                                                                                                                               "_mark": "change_location",
-                                                                                                                                                                                                                                                                                                                                              "_content": "[LABEL {if (this.fuel > 0) {\"Поеду в другое место[ANSWERIMAGE icons/change_place.png|380;400]\"}}{if (this.dvd_playing == 0) {\"[AMBIENT AmbientStreet]\"}}]"
+                                                                                                                                                                                                                                                                                                                                              "_content": "[LABEL {if (this.fuel > 0) {\"Поеду в другое место (карта города)[ANSWERIMAGE icons/change_place.png|380;400]\"}}{if (this.dvd_playing == 0) {\"[AMBIENT AmbientStreet]\"}}]"
                                                                                                                                                                                                                                                                                                                                             }
                                                                                                                                                                                                                                                                                                                                           ],
                                                                                                                                                                                                                                                                                                                                           "_mark": "client_really_has_no_money",
@@ -4036,7 +4036,7 @@
                                                                                                                                                     }
                                                                                                                                                   ],
                                                                                                                                                   "_mark": "show_statistic",
-                                                                                                                                                  "_content": "[LABEL Статистика{script show_client.qsp}]"
+                                                                                                                                                  "_content": "[LABEL Статистика{script show_client.qsp}][ANSWERSORDER ON]"
                                                                                                                                                 }
                                                                                                                                               ],
                                                                                                                                               "_mark": "",
@@ -4234,7 +4234,7 @@
                                                                                 }
                                                                               ],
                                                                               "_mark": "",
-                                                                              "_content": "[LABEL {this.new_location=12;this.locations[this.new_location][0] + \"[ANSWERIMAGE map_mark.png|\"+this.locations[this.new_location][1]+\";\"+this.locations[this.new_location][2]+\"]\"}]"
+                                                                              "_content": "[LABEL {this.new_location=12;this.locations[this.new_location][0]}{if (this.casino_win_day > 0) {\" (Ставка:29, День:\"+this.casino_win_day+\"!)\"}}{\"[ANSWERIMAGE map_mark.png|\"+this.locations[this.new_location][1]+\";\"+this.locations[this.new_location][2]+\"]\"}]"
                                                                             },
                                                                             {
                                                                               "node": [
@@ -4716,7 +4716,7 @@
                                                     }
                                                   ],
                                                   "_mark": "barsuk_reckon",
-                                                  "_content": "[LABEL Тебя разыскали коллекторы. Ты должен бару Барсук: {this.barsuk_credit}, плюс: {this.barsuk_collectors_cost*this.Inflation} за уклонение от оплаты.{this.barsuk_credit+=this.barsuk_collectors_cost*this.Inflation;'';}][BGNDIMAGE collectors.jpg][TIMEEXPIRED this.barsuk_credit_back][ANSWERTIME 20]"
+                                                  "_content": "[LABEL Тебя разыскали коллекторы. Ты должен бару Барсук: {this.barsuk_credit}, плюс: {this.barsuk_collectors_cost*this.Inflation} за уклонение от оплаты.{this.barsuk_credit+=this.barsuk_collectors_cost*this.Inflation;'';}][BGNDIMAGE collectors.jpg][TIMEEXPIRED barsuk_credit_back][ANSWERTIME 20]"
                                                 },
                                                 {
                                                   "node": [
@@ -5472,7 +5472,7 @@
                                                                                                     }
                                                                                                   ],
                                                                                                   "_mark": "mark_aeid237b4z2f25i099ff",
-                                                                                                  "_content": "[LABEL Договорились. Завтра. Казино. Любое время. Число 29. Это наш шанс разбогатеть, дружище, не упусти его! И помни, ставка сыграет всего только один раз!!!{this.casino_win_day=Math.ceil(this.game_hours/24+1);'';}{script show_client_inside_rear.qsp}]"
+                                                                                                  "_content": "[LABEL Договорились. Завтра. Казино Фортуна. Любое время. Число 29. Это наш шанс разбогатеть, дружище, не упусти его! И помни, ставка сыграет всего только один раз!!!{this.casino_win_day=Math.ceil(this.game_hours/24+1);'';}{script show_client_inside_rear.qsp}]"
                                                                                                 }
                                                                                               ],
                                                                                               "_mark": "",

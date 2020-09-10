@@ -545,7 +545,7 @@
 																																																																																[client_really_has_no_money]Похоже у клиента действительно нет денег. Пришлось отпустить...{this.client_type=0;this.driver_show_gun=0;'';}{script show_client}[ANSWERTIME 5][TIMEEXPIRED client_go_away]
 																																																																																	[search_client_again]Продолжу поиски клиентов[ANSWERIMAGE icons/taxi.png|320;400]
 																																																																																		[mark_os2u19tixzcle6dk32ym][GOTO barfed]
-																																																																																	[change_location]{if (this.fuel > 0) {"Поеду в другое место[ANSWERIMAGE icons/change_place.png|380;400]"}}{if (this.dvd_playing == 0) {"[AMBIENT AmbientStreet]"}}
+																																																																																	[change_location]{if (this.fuel > 0) {"Поеду в другое место (карта города)[ANSWERIMAGE icons/change_place.png|380;400]"}}{if (this.dvd_playing == 0) {"[AMBIENT AmbientStreet]"}}
 																																																																																		[mark_69mfon6o859rsg778pvt][GOTO main_menu]
 																																																																															{if (this.things[this.thing_gun][1]) {this.client_price += this.Inflation;this.driver_show_gun=1;"Теперь ты мне отдашь " + this.client_price + ". Гони сюда мои деньги!...[ANSWERIMAGE icons/gun.png|380;400]"}}
 																																																																																[mark_8xd194zv05qm9zu7m89p]{if (this.get_back_money_tries < 3) {"[GOTO client_has_no_money,client_returned_money]"} else {"[GOTO client_really_has_no_money]"}}
@@ -721,7 +721,7 @@
 																																					Вернуться в меню[ANSWERIMAGE icons/exit.png|570;390]
 																																						[mark_ud59ie6443qc6bxkw42p][GOTO {this.return_mark}]
 																																	Посмотрю статистику[ANSWERIMAGE icons/stats.png|500;400]
-																																		[show_statistic]Статистика{script show_client.qsp}
+																																		[show_statistic]Статистика{script show_client.qsp}[ANSWERSORDER ON]
 																																			Подвезено клиентов: {let i=1;let cl_count=0; while (i <= this.max_client_types) {cl_count+= this.clients[i][1];i++} cl_count}. Смотреть детально...[ANSWERIMAGE icons/next.png|30;400]
 																																				[mark_a8p7mb0ua30e7q8pcg93]Детально по типам клиентов:\n{let i=1; let result=''; while (i<= this.max_client_types) {result=result + this.clients[i][0] + ": " + this.clients[i][1] + ". ";i++};result;}
 																																					Вернуться[ANSWERIMAGE icons/exit.png|295;400]
@@ -780,7 +780,7 @@
 																		[mark_p50b608ww95ku0mw1cn1]{this.new_location=10;'';}{script stay_or_change_location.qsp}
 																	{this.new_location=11;this.locations[this.new_location][0] + "[ANSWERIMAGE map_mark.png|"+this.locations[this.new_location][1]+";"+this.locations[this.new_location][2]+"]"}
 																		[mark_22r76ti068nesp9eixx1]{this.new_location=11;'';}{script stay_or_change_location.qsp}
-																	{this.new_location=12;this.locations[this.new_location][0] + "[ANSWERIMAGE map_mark.png|"+this.locations[this.new_location][1]+";"+this.locations[this.new_location][2]+"]"}
+																	{this.new_location=12;this.locations[this.new_location][0]}{if (this.casino_win_day > 0) {" (Ставка:29, День:"+this.casino_win_day+"!)"}}{"[ANSWERIMAGE map_mark.png|"+this.locations[this.new_location][1]+";"+this.locations[this.new_location][2]+"]"}
 																		[mark_927ya4m2do9648eq177a]{this.new_location=12;'';}{script stay_or_change_location.qsp}
 																	{this.new_location=13;this.locations[this.new_location][0] + "[ANSWERIMAGE map_mark.png|"+this.locations[this.new_location][1]+";"+this.locations[this.new_location][2]+"]"}
 																		[mark_c9ank732w472lbkcvr4d]{this.new_location=13;'';}{script stay_or_change_location.qsp}
@@ -1011,7 +1011,7 @@
 																			А твой интерес?[ANSWERIMAGE icons/next.png|295;400]
 																				[mark_8r197kwydgz1t54ju8o5]Позже ты отдашь мне половину выигрыша. Ну что, согласен?{script show_client_inside_rear.qsp}
 																					Пожалуй да[ANSWERIMAGE icons/good.png|260;400]
-																						[mark_aeid237b4z2f25i099ff]Договорились. Завтра. Казино. Любое время. Число 29. Это наш шанс разбогатеть, дружище, не упусти его! И помни, ставка сыграет всего только один раз!!!{this.casino_win_day=Math.ceil(this.game_hours/24+1);'';}{script show_client_inside_rear.qsp}
+																						[mark_aeid237b4z2f25i099ff]Договорились. Завтра. Казино Фортуна. Любое время. Число 29. Это наш шанс разбогатеть, дружище, не упусти его! И помни, ставка сыграет всего только один раз!!!{this.casino_win_day=Math.ceil(this.game_hours/24+1);'';}{script show_client_inside_rear.qsp}
 																							Хорошо, я буду там.[ANSWERIMAGE icons/next.png|295;400]
 																								[mark_1axem71626jjc47h8csl]... и вот еще что, не вздумай потратить весь выигрыш на себя! А то у твоей машины могут отказать тормоза.{script show_client_inside_rear.qsp}
 																									Да, я понял.[ANSWERIMAGE icons/next.png|295;400]
