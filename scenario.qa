@@ -530,7 +530,7 @@
 																																																																													{if (this.tip_sum > 0) {"Спасибо[ANSWERIMAGE icons/good.png|295;400]"}}
 																																																																														[mark_618953m1ziz7339bxl62][GOTO barfed]
 																																																																												[client_doesnt_give_tip][GOTO barfed]
-																																																																										[client_squeezed_money]Клиент не отдал тебе денег за поездку!{script show_client}[ANSWERTIME 10][TIMEEXPIRED client_go_away]
+																																																																										[client_squeezed_money]Клиент не отдал тебе денег за поездку!{script show_client}[ANSWERTIME 10][TIMEEXPIRED client_go_away][ANSWERSORDER ON]
 																																																																											Спрошу его: "А заплатить?"[ANSWERIMAGE icons/how_much_money.png|200;400]
 																																																																												[mark_65532vsy3kq934v8l2g0][GOTO client_returned_money, client_has_no_money]
 																																																																											{if (this.things[this.thing_gun][1]) {"Пригрожу пистолетом...[ANSWERIMAGE icons/gun.png|260;400]"}}
@@ -661,7 +661,7 @@
 																																	{this.return_mark="location_actions"}[GOTO dvd_on]
 																																		[mark_20289716qd7g1e11p87a]
 																																			[dvd_on]{if (this.things[this.thing_dvd][1]) {this.things[this.thing_dvd][0] + "[ANSWERIMAGE icons/dvd.png|30;350]"}}
-																																				[dvd_actions]Что хочешь сделать?[BGNDIMAGE black_screen.jpg&dvd.png|-300;-500;2;2;0;1]
+																																				[dvd_actions]Что хочешь сделать?[BGNDIMAGE black_screen.jpg&dvd.png|-300;-500;2;2;0;1][ANSWERSORDER ON]
 																																					{if (this.things[this.thing_psycho_dvd_film][1]) {"Посмотрю: " + this.things[this.thing_psycho_dvd_film][0] + "[ANSWERIMAGE icons/dvd_film.png|295;350]"}}
 																																						[see_film]Если внимательно вглядеться в лица людей, то можно заметить, что они всегда выражают одно из трех настроений: веселое, нормальное и плохое.[BGNDIMAGE client5_3_0.png|-300;0;1;1;0&client5_3_1.png|-100;0;1;1;0&client5_3_2.png|100;0;1;1;0][AMBIENT track3]
 																																							Дальше...[ANSWERIMAGE icons/next.png|295;400]
@@ -695,25 +695,15 @@
 																																					{if (this.things[this.thing_tuningkit][1] == 1) {"Включу Track4[BGNDMUSIC track4][ANSWERIMAGE icons/music.png|150;400]"}}
 																																						[mark_yv5irk7iv39iyving5pz]{this.dvd_playing=1;'';}[GOTO dvd_actions]
 																																					Радио1[ANSWERIMAGE icons/radio.png|210;400]
-																																						[mark_y48fc4s0ohtwkh4goq85]{script radio1.qsp}
-																																							
-																																								[mark_v645h0r1rm815643g3j9]{this.dvd_playing=1}[GOTO dvd_actions]
+																																						[mark_y48fc4s0ohtwkh4goq85].{this.dvd_playing=1;'';}[BGNDIMAGE black_screen.jpg&dvd.png|-300;-500;2;2;0;1]{script radio1.qsp}[ANSWERTIME 3][TIMEEXPIRED dvd_actions]
 																																					Радио2[ANSWERIMAGE icons/radio.png|270;400]
-																																						[mark_x3717tpm7wc9x0lkx0m3]{script radio2.qsp}
-																																							
-																																								[mark_58shbgn0qi9179s44xd3]{this.dvd_playing=1}[GOTO dvd_actions]
+																																						[mark_x3717tpm7wc9x0lkx0m3].{this.dvd_playing=1;'';}[BGNDIMAGE black_screen.jpg&dvd.png|-300;-500;2;2;0;1]{script radio2.qsp}[ANSWERTIME 3][TIMEEXPIRED dvd_actions]
 																																					Радио3[ANSWERIMAGE icons/radio.png|330;400]
-																																						[mark_ypg06agb63869aa3733n]{script radio3.qsp}
-																																							
-																																								[mark_o2qh6e16bql1urj7d3o7]{this.dvd_playing=1}[GOTO dvd_actions]
+																																						[mark_ypg06agb63869aa3733n].{this.dvd_playing=1;'';}[BGNDIMAGE black_screen.jpg&dvd.png|-300;-500;2;2;0;1]{script radio3.qsp}[ANSWERTIME 3][TIMEEXPIRED dvd_actions]
 																																					Радио4[ANSWERIMAGE icons/radio.png|390;400]
-																																						[mark_pido03r40l52565kg20c]{script radio4.qsp}
-																																							
-																																								[mark_n00v3dpdl820d0u1368w]{this.dvd_playing=1}[GOTO dvd_actions]
+																																						[mark_pido03r40l52565kg20c].{this.dvd_playing=1;'';}[BGNDIMAGE black_screen.jpg&dvd.png|-300;-500;2;2;0;1]{script radio4.qsp}[ANSWERTIME 3][TIMEEXPIRED dvd_actions]
 																																					Радио5[ANSWERIMAGE icons/radio.png|450;400]
-																																						[mark_ndy9owiopo6ky5te0hn6]{script radio5.qsp}
-																																							
-																																								[mark_b85svlrqs01geju75x71]{this.dvd_playing=1}[GOTO dvd_actions]
+																																						[mark_ndy9owiopo6ky5te0hn6].{this.dvd_playing=1;'';}[BGNDIMAGE black_screen.jpg&dvd.png|-300;-500;2;2;0;1]{script radio5.qsp}[ANSWERTIME 3][TIMEEXPIRED dvd_actions]
 																																					Выключу[ANSWERIMAGE icons/cancel.png|510;400]
 																																						[mark_8yj36u7mfs897rutpa8k][BGNDMUSIC none]
 																																							

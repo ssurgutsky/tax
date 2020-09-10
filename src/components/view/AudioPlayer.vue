@@ -90,10 +90,11 @@ export default {
     },
 
     getAudioPathByName (name) {
-      if (name.indexOf('http') >= 0) {
-        return name + '.mp3'
+      let result = name
+      if (result.indexOf('.mp3') < 0) {
+        result = result + '.mp3'
       }
-      return require('@/assets/audio/' + name + '.mp3')
+      return require('@/assets/audio/' + result)
     },
 
     stopAudio () {

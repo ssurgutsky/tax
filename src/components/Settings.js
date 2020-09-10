@@ -8,7 +8,7 @@ export default {
   GP_PRODUCT2_NAME: 'com.skystairgames.taxoman.episodes',
   ENABLE_SAVE_BUTTON: true,
   ENABLE_LOAD_BUTTON: true,
-  ENABLE_SKIP_BUTTON: false,
+  ENABLE_SKIP_BUTTON: true,
   ENABLE_EPISODES_BUTTON: false,
   ENABLE_BACK_BUTTON: false
 }

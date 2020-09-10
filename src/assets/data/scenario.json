@@ -452,7 +452,7 @@
                                                                                                                                                 }
                                                                                                                                               ],
                                                                                                                                               "_mark": "",
-                                                                                                                                              "_content": "[LABEL {if (this.location==7 && this.drugDealerGoodsPlanted==1) {\"Найду товар.[ANSWERIMAGE icons/drug.png|260;400]\"}}]"
+                                                                                                                                              "_content": "[LABEL {if (this.location==7 && this.drugDealerGoodsPlanted==1) {\"Найду целебный товар.[ANSWERIMAGE icons/drug.png|260;400]\"}}]"
                                                                                                                                             },
                                                                                                                                             {
                                                                                                                                               "node": [
@@ -2592,7 +2592,7 @@
                                                                                                                                                                                                                     }
                                                                                                                                                                                                                   ],
                                                                                                                                                                                                                   "_mark": "client_refused",
-                                                                                                                                                                                                                  "_content": "[LABEL {this.people_negative++}{script client_refused.qsp}{script show_client.qsp}][TIMEEXPIRED client_go_away][ANSWERTIME 20]"
+                                                                                                                                                                                                                  "_content": "[LABEL {this.people_negative++;'';}{script client_refused.qsp}{script show_client.qsp}][TIMEEXPIRED client_go_away][ANSWERTIME 20]"
                                                                                                                                                                                                                 },
                                                                                                                                                                                                                 {
                                                                                                                                                                                                                   "node": [
@@ -2866,7 +2866,7 @@
                                                                                                                                                                                                                                                                                                                     }
                                                                                                                                                                                                                                                                                                                   ],
                                                                                                                                                                                                                                                                                                                   "_mark": "client_squeezed_money",
-                                                                                                                                                                                                                                                                                                                  "_content": "[LABEL Клиент не отдал тебе денег за поездку!{script show_client}][TIMEEXPIRED client_go_away][ANSWERTIME 10]"
+                                                                                                                                                                                                                                                                                                                  "_content": "[LABEL Клиент не отдал тебе денег за поездку!{script show_client}][TIMEEXPIRED client_go_away][ANSWERTIME 10][ANSWERSORDER ON]"
                                                                                                                                                                                                                                                                                                                 }
                                                                                                                                                                                                                                                                                                               ],
                                                                                                                                                                                                                                                                                                               "_mark": "",
@@ -3699,20 +3699,8 @@
                                                                                                                                                             {
                                                                                                                                                               "node": [
                                                                                                                                                                 {
-                                                                                                                                                                  "node": [
-                                                                                                                                                                    {
-                                                                                                                                                                      "node": [
-                                                                                                                                                                        {
-                                                                                                                                                                          "_mark": "mark_v645h0r1rm815643g3j9",
-                                                                                                                                                                          "_content": "[LABEL {this.dvd_playing=1}][GOTO dvd_actions]"
-                                                                                                                                                                        }
-                                                                                                                                                                      ],
-                                                                                                                                                                      "_mark": "",
-                                                                                                                                                                      "_content": "[LABEL ]"
-                                                                                                                                                                    }
-                                                                                                                                                                  ],
                                                                                                                                                                   "_mark": "mark_y48fc4s0ohtwkh4goq85",
-                                                                                                                                                                  "_content": "[LABEL {script radio1.qsp}]"
+                                                                                                                                                                  "_content": "[LABEL .{this.dvd_playing=1;'';}{script radio1.qsp}][BGNDIMAGE black_screen.jpg&dvd.png|-300;-500;2;2;0;1][TIMEEXPIRED dvd_actions][ANSWERTIME 3]"
                                                                                                                                                                 }
                                                                                                                                                               ],
                                                                                                                                                               "_mark": "",
@@ -3721,20 +3709,8 @@
                                                                                                                                                             {
                                                                                                                                                               "node": [
                                                                                                                                                                 {
-                                                                                                                                                                  "node": [
-                                                                                                                                                                    {
-                                                                                                                                                                      "node": [
-                                                                                                                                                                        {
-                                                                                                                                                                          "_mark": "mark_58shbgn0qi9179s44xd3",
-                                                                                                                                                                          "_content": "[LABEL {this.dvd_playing=1}][GOTO dvd_actions]"
-                                                                                                                                                                        }
-                                                                                                                                                                      ],
-                                                                                                                                                                      "_mark": "",
-                                                                                                                                                                      "_content": "[LABEL ]"
-                                                                                                                                                                    }
-                                                                                                                                                                  ],
                                                                                                                                                                   "_mark": "mark_x3717tpm7wc9x0lkx0m3",
-                                                                                                                                                                  "_content": "[LABEL {script radio2.qsp}]"
+                                                                                                                                                                  "_content": "[LABEL .{this.dvd_playing=1;'';}{script radio2.qsp}][BGNDIMAGE black_screen.jpg&dvd.png|-300;-500;2;2;0;1][TIMEEXPIRED dvd_actions][ANSWERTIME 3]"
                                                                                                                                                                 }
                                                                                                                                                               ],
                                                                                                                                                               "_mark": "",
@@ -3743,20 +3719,8 @@
                                                                                                                                                             {
                                                                                                                                                               "node": [
                                                                                                                                                                 {
-                                                                                                                                                                  "node": [
-                                                                                                                                                                    {
-                                                                                                                                                                      "node": [
-                                                                                                                                                                        {
-                                                                                                                                                                          "_mark": "mark_o2qh6e16bql1urj7d3o7",
-                                                                                                                                                                          "_content": "[LABEL {this.dvd_playing=1}][GOTO dvd_actions]"
-                                                                                                                                                                        }
-                                                                                                                                                                      ],
-                                                                                                                                                                      "_mark": "",
-                                                                                                                                                                      "_content": "[LABEL ]"
-                                                                                                                                                                    }
-                                                                                                                                                                  ],
                                                                                                                                                                   "_mark": "mark_ypg06agb63869aa3733n",
-                                                                                                                                                                  "_content": "[LABEL {script radio3.qsp}]"
+                                                                                                                                                                  "_content": "[LABEL .{this.dvd_playing=1;'';}{script radio3.qsp}][BGNDIMAGE black_screen.jpg&dvd.png|-300;-500;2;2;0;1][TIMEEXPIRED dvd_actions][ANSWERTIME 3]"
                                                                                                                                                                 }
                                                                                                                                                               ],
                                                                                                                                                               "_mark": "",
@@ -3765,20 +3729,8 @@
                                                                                                                                                             {
                                                                                                                                                               "node": [
                                                                                                                                                                 {
-                                                                                                                                                                  "node": [
-                                                                                                                                                                    {
-                                                                                                                                                                      "node": [
-                                                                                                                                                                        {
-                                                                                                                                                                          "_mark": "mark_n00v3dpdl820d0u1368w",
-                                                                                                                                                                          "_content": "[LABEL {this.dvd_playing=1}][GOTO dvd_actions]"
-                                                                                                                                                                        }
-                                                                                                                                                                      ],
-                                                                                                                                                                      "_mark": "",
-                                                                                                                                                                      "_content": "[LABEL ]"
-                                                                                                                                                                    }
-                                                                                                                                                                  ],
                                                                                                                                                                   "_mark": "mark_pido03r40l52565kg20c",
-                                                                                                                                                                  "_content": "[LABEL {script radio4.qsp}]"
+                                                                                                                                                                  "_content": "[LABEL .{this.dvd_playing=1;'';}{script radio4.qsp}][BGNDIMAGE black_screen.jpg&dvd.png|-300;-500;2;2;0;1][TIMEEXPIRED dvd_actions][ANSWERTIME 3]"
                                                                                                                                                                 }
                                                                                                                                                               ],
                                                                                                                                                               "_mark": "",
@@ -3787,20 +3739,8 @@
                                                                                                                                                             {
                                                                                                                                                               "node": [
                                                                                                                                                                 {
-                                                                                                                                                                  "node": [
-                                                                                                                                                                    {
-                                                                                                                                                                      "node": [
-                                                                                                                                                                        {
-                                                                                                                                                                          "_mark": "mark_b85svlrqs01geju75x71",
-                                                                                                                                                                          "_content": "[LABEL {this.dvd_playing=1}][GOTO dvd_actions]"
-                                                                                                                                                                        }
-                                                                                                                                                                      ],
-                                                                                                                                                                      "_mark": "",
-                                                                                                                                                                      "_content": "[LABEL ]"
-                                                                                                                                                                    }
-                                                                                                                                                                  ],
                                                                                                                                                                   "_mark": "mark_ndy9owiopo6ky5te0hn6",
-                                                                                                                                                                  "_content": "[LABEL {script radio5.qsp}]"
+                                                                                                                                                                  "_content": "[LABEL .{this.dvd_playing=1;'';}{script radio5.qsp}][BGNDIMAGE black_screen.jpg&dvd.png|-300;-500;2;2;0;1][TIMEEXPIRED dvd_actions][ANSWERTIME 3]"
                                                                                                                                                                 }
                                                                                                                                                               ],
                                                                                                                                                               "_mark": "",
@@ -3840,7 +3780,7 @@
                                                                                                                                                             }
                                                                                                                                                           ],
                                                                                                                                                           "_mark": "dvd_actions",
-                                                                                                                                                          "_content": "[LABEL Что хочешь сделать?][BGNDIMAGE black_screen.jpg&dvd.png|-300;-500;2;2;0;1]"
+                                                                                                                                                          "_content": "[LABEL Что хочешь сделать?][BGNDIMAGE black_screen.jpg&dvd.png|-300;-500;2;2;0;1][ANSWERSORDER ON]"
                                                                                                                                                         }
                                                                                                                                                       ],
                                                                                                                                                       "_mark": "dvd_on",
