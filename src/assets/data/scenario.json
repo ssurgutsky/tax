@@ -2090,7 +2090,7 @@
                                                                                                                                                             }
                                                                                                                                                           ],
                                                                                                                                                           "_mark": "how_many_for_credit",
-                                                                                                                                                          "_content": "[LABEL {script rounding.qsp}{script show_game_stats.qsp}\n{this.locations[this.location][0]}.\nСколько заплатишь по кредиту: 0 - {this.credit_max_payment}? (срочный платеж: {this.credit_delay_sum}, остаток по кредиту: {this.credit_rest_sum})][BGNDIMAGE in_bank.jpg]"
+                                                                                                                                                          "_content": "[LABEL {script rounding.qsp}{script show_game_stats.qsp}\n{this.locations[this.location][0]}.\nСколько заплатишь по кредиту: 0 - {this.credit_max_payment}? (срочный платеж: {''+this.credit_delay_sum}, остаток по кредиту: {this.credit_rest_sum})][BGNDIMAGE in_bank.jpg]"
                                                                                                                                                         }
                                                                                                                                                       ],
                                                                                                                                                       "_mark": "",
@@ -2158,7 +2158,7 @@
                                                                                                                                                     }
                                                                                                                                                   ],
                                                                                                                                                   "_mark": "in_bank",
-                                                                                                                                                  "_content": "[LABEL {this.dvd_playing=0}{script show_game_stats.qsp}\n{this.locations[this.location][0]}.][BGNDIMAGE in_bank.jpg][MUSIC none][AMBIENT none][BGNDMUSIC none]"
+                                                                                                                                                  "_content": "[LABEL {this.dvd_playing=0}{script show_game_stats.qsp}\n{this.locations[this.location][0]}.\n(срочный платеж: {''+this.credit_delay_sum}, остаток по кредиту: {this.credit_rest_sum})][BGNDIMAGE in_bank.jpg][MUSIC none][AMBIENT none][ANSWERSORDER ON][BGNDMUSIC none]"
                                                                                                                                                 }
                                                                                                                                               ],
                                                                                                                                               "_mark": "",
@@ -3396,7 +3396,7 @@
                                                                                                                                                     }
                                                                                                                                                   ],
                                                                                                                                                   "_mark": "mark_l61072db56z42ypusc55",
-                                                                                                                                                  "_content": "[LABEL {this.new_location = this.location;'';}{script show_game_stats.qsp}\nСколько будешь отдыхать?{script calc_damage_car_probability.qsp}{script show_client}]"
+                                                                                                                                                  "_content": "[LABEL {this.new_location = this.location;'';}{script show_game_stats.qsp}\nСколько будешь отдыхать?{script calc_damage_car_probability.qsp}{script show_client}][ANSWERSORDER ON]"
                                                                                                                                                 }
                                                                                                                                               ],
                                                                                                                                               "_mark": "have_a_rest",
@@ -3468,7 +3468,7 @@
                                                                                                                                                                     }
                                                                                                                                                                   ],
                                                                                                                                                                   "_mark": "mark_svp3f33oc4126l87cb1i",
-                                                                                                                                                                  "_content": "[LABEL {let freq=parseInt(this.radio_freq); if (freq == this.vip_radio_freq) {\"[GOTO vip_freq_found]\"} else {\"Шум в эфире, похоже неправильная частота.[SOUNDFX radio_noise]\"}}][BGNDIMAGE vip_radio.jpg][TIMEEXPIRED new_location][ANSWERTIME 20]"
+                                                                                                                                                                  "_content": "[LABEL {let freq=parseInt(this.radio_freq); if (freq == this.vip_radio_freq) {\"[GOTO vip_freq_found]\"} else {\"Шум в эфире, похоже неправильная частота.[SOUNDFX radio_noise]\"}}][BGNDIMAGE vip_radio.jpg][TIMEEXPIRED new_location][ANSWERTIME 20][ANSWERSORDER ON]"
                                                                                                                                                                 },
                                                                                                                                                                 {
                                                                                                                                                                   "node": [

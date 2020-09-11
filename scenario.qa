@@ -50,7 +50,7 @@
 																																	{if (this.location==4) {"Зайду в " + this.locations[this.location][0] + "[ANSWERIMAGE icons/enter.png|260;400]"}}
 																																		[mark_1miki32n971qt5fp2893]{this.dvd_playing=0}{this.locations[this.location][0]}[BGNDIMAGE in_railway_station.jpg&briefcase.png|528;356][AMBIENT none][MUSIC none][BGNDMUSIC none]
 																																			Осмотрюсь...[ANSWERIMAGE icons/next.png|260;400]
-																																				[mark_59759sit7azjicv43ejr]Странно... тишина и никого нет. На сиденье чей-то портфель.[BGNDIMAGE in_railway_station.jpg]
+																																				[mark_59759sit7azjicv43ejr]Странно... тишина и никого нет. На сиденье чей-то портфель.[BGNDIMAGE in_railway_station.jpg][ANSWERSORDER ON]
 																																					Посмотрю, что в портфеле.[ANSWERIMAGE briefcase.png|528;356]
 																																						[mark_f7o3ww01dsux278731t4]Вот ты них... ах... да я... просто слов нет!!![BGNDIMAGE in_railway_station.jpg&briefcase_opened.png|200;340]
 																																							Я богат!!![ANSWERIMAGE icons/cool.png|295;400]
@@ -148,11 +148,11 @@
 																																			Выйду наружу[ANSWERIMAGE icons/enter.png|320;400]
 																																				[mark_r6wrw1q84005ul528h7h][GOTO new_location]
 																																	{if (this.location==10) {"Зайду в " + this.locations[this.location][0] + "[ANSWERIMAGE icons/enter.png|260;400]"}}
-																																		[mark_y924pw9n2h049vv8ksl7]{this.dvd_playing=0}{this.locations[this.location][0]}. Вход в бар стоит: {this.barsuk_entry_cost*this.Inflation}[BGNDIMAGE barsuk_main.jpg][MUSIC none][AMBIENT none][BGNDMUSIC none]
+																																		[mark_y924pw9n2h049vv8ksl7]{this.dvd_playing=0}{this.locations[this.location][0]}. Вход в бар стоит: {this.barsuk_entry_cost*this.Inflation}[BGNDIMAGE barsuk_main.jpg][MUSIC none][AMBIENT none][BGNDMUSIC none][ANSWERSORDER ON]
 																																			Заплачу за вход {this.barsuk_entry_cost*this.Inflation}[ANSWERIMAGE icons/money3.png|260;400]
 																																				[mark_d85nla52hholox80t4z4]{if (this.money<this.barsuk_entry_cost*this.Inflation) {"[GOTO no_money_for_barsuk]"} else {this.money-=this.barsuk_entry_cost*this.Inflation;this.barsukFoundInToilet=(Math.random()<0.5);"[GOTO enter_barsuk]"}}
 																																					
-																																						[enter_barsuk]Что будешь делать?[BGNDIMAGE barsuk_main.jpg]
+																																						[enter_barsuk]Что будешь делать?[BGNDIMAGE barsuk_main.jpg][ANSWERSORDER ON]
 																																							Пойду налево.[ANSWERIMAGE icons/left.png|140;400]
 																																								[mark_810olvlh6tpc5161t03p][BGNDIMAGE barsuk_left1.jpg]
 																																									Вперед[ANSWERIMAGE icons/forward.png|295;400]
@@ -168,7 +168,7 @@
 																																																			О! Девчонки![ANSWERIMAGE icons/cool.png|295;400]
 																																																				[mark_2jh24b0lgk93uy9dh983][BGNDIMAGE barsuk_left5.jpg]
 																																																					Покажите мне чего-нибудь?[ANSWERIMAGE icons/how_much.png|295;400]
-																																																						[mark_7s6ugma2k33403p9p4np]Это зависит от того, сколько ты нам заплатишь...[BGNDIMAGE barsuk_left5.jpg]
+																																																						[mark_7s6ugma2k33403p9p4np]Это зависит от того, сколько ты нам заплатишь...[BGNDIMAGE barsuk_left5.jpg][ANSWERSORDER ON]
 																																																							А давайте бесплатно?[ANSWERIMAGE icons/zero.png|200;400]
 																																																								[mark_dk674u0t075kkys25n2y]Бесплатно, молодой человек, можем показать только на выход.[BGNDIMAGE barsuk_left5.jpg&client7_2_0.png|100;0]
 																																																									Спасибо, не стоит! Вернусь обратно.[ANSWERIMAGE icons/cancel.png|295;400]
@@ -178,7 +178,7 @@
 																																																									[back_to_main_barsuk]Вернусь обратно.[ANSWERIMAGE icons/exit.png|295;400]
 																																																										[mark_7gb4xk63mc7my47u4fja][GOTO enter_barsuk]
 																																																							Предположим {this.barsuk_showgirls_cost*this.Inflation}[ANSWERIMAGE icons/money6.png|320;400]
-																																																								[mark_y4y4k6479839n1536q54]Одна из нас может дать погладить себя...[BGNDIMAGE barsuk_left5.jpg]
+																																																								[mark_y4y4k6479839n1536q54]Одна из нас может дать посмотреть себя...[BGNDIMAGE barsuk_left5.jpg][ANSWERSORDER ON]
 																																																									Заплачу {this.barsuk_showgirls_cost*this.Inflation}[ANSWERIMAGE icons/money6.png|235;400]
 																																																										[check_money_for_showgirls]{if (this.money<this.barsuk_showgirls_cost*this.Inflation) {"[GOTO no_money_for_showgirls]"} else {this.money-=this.barsuk_showgirls_cost*this.Inflation;"[GOTO enter_showgirls]"}}
 																																																											
@@ -200,7 +200,7 @@
 																																									
 																																										[found_barsuk][BGNDIMAGE barsuk_toilet.jpg&client5_1_0.png]
 																																											Ну, здраствуй, Барсук![ANSWERIMAGE icons/fist.png|235;400]
-																																												[mark_547mz02k3991u3axme81]Вы кто такой? Вы меня с кем-то путаете![BGNDIMAGE barsuk_toilet.jpg&client5_1_1.png]
+																																												[mark_547mz02k3991u3axme81]Вы кто такой? Вы меня с кем-то путаете![BGNDIMAGE barsuk_toilet.jpg&client5_1_1.png][ANSWERSORDER ON]
 																																													{if (this.things[this.thing_gun][1]==1) {"За тобой должок.[ANSWERIMAGE icons/gun.png|235;400]"}}
 																																														[mark_1906805gd6i349vg6m52]Эй, эй, я все тебе отдам! Не убивай!!![BGNDIMAGE barsuk_toilet.jpg&client5_1_2.png&driver_gun.png|100;0]
 																																															Давай сюда деньги![ANSWERIMAGE icons/how_much_money.png|235;400]
@@ -393,9 +393,9 @@
 																																			...[ANSWERIMAGE icons/three_dots.png|295;400][AMBIENT none]
 																																				[mark_29no4h1h82t89yt4ba73][GOTO new_location]
 																																	{if (this.location==19) {"Зайду в " + this.locations[this.location][0] + "[ANSWERIMAGE icons/enter.png|260;400]"}}
-																																		[in_bank]{this.dvd_playing=0}{script show_game_stats.qsp}\n{this.locations[this.location][0]}.[BGNDIMAGE in_bank.jpg][MUSIC none][AMBIENT none][BGNDMUSIC none]
+																																		[in_bank]{this.dvd_playing=0}{script show_game_stats.qsp}\n{this.locations[this.location][0]}.\n(срочный платеж: {''+this.credit_delay_sum}, остаток по кредиту: {this.credit_rest_sum})[BGNDIMAGE in_bank.jpg][MUSIC none][AMBIENT none][BGNDMUSIC none][ANSWERSORDER ON]
 																																			Заплачу по кредиту.[ANSWERIMAGE icons/money2.png|260;400]
-																																				[how_many_for_credit]{script rounding.qsp}{script show_game_stats.qsp}\n{this.locations[this.location][0]}.\nСколько заплатишь по кредиту: 0 - {this.credit_max_payment}? (срочный платеж: {this.credit_delay_sum}, остаток по кредиту: {this.credit_rest_sum})[BGNDIMAGE in_bank.jpg]
+																																				[how_many_for_credit]{script rounding.qsp}{script show_game_stats.qsp}\n{this.locations[this.location][0]}.\nСколько заплатишь по кредиту: 0 - {this.credit_max_payment}? (срочный платеж: {''+this.credit_delay_sum}, остаток по кредиту: {this.credit_rest_sum})[BGNDIMAGE in_bank.jpg]
 																																					[INPUTS this.payment_sum]
 																																						[mark_ui4q7942104e9p6j62i4]{let ps=parseInt(this.payment_sum);this.payment_sum=ps; if (ps>=0 && ps<=this.credit_max_payment) {this.credit_rest_sum-=ps;this.money-=ps; if (this.credit_rest_sum<=0) {"[GOTO you_win]"} else {"[GOTO in_bank]"}} else {"[GOTO how_many_for_credit]"}}
 																																			{if (this.drugDealer == 1 && this.drugDealerGoodsPlanted == 0 && this.drugDealerGoodsDriver==0) {"Переведу на карту денег ("+this.drugDealerGoodsCost*this.Inflation+")[ANSWERIMAGE icons/money2.png|320;400]"}}
@@ -622,7 +622,7 @@
 																																								[mark_21bu90i96695hyxno153][GOTO new_location]
 																																	[GOTO change_location]
 																																	[have_a_rest]{this.rest_hours_needed=+(this.rest_norm-this.driver_rest_hours).toFixed(1);if (this.rest_hours_needed>0) {this.client_type=0;"Отдохну[ANSWERIMAGE icons/sleep.png|440;400]"}}
-																																		[mark_l61072db56z42ypusc55]{this.new_location = this.location;'';}{script show_game_stats.qsp}\nСколько будешь отдыхать?{script calc_damage_car_probability.qsp}{script show_client}
+																																		[mark_l61072db56z42ypusc55]{this.new_location = this.location;'';}{script show_game_stats.qsp}\nСколько будешь отдыхать?{script calc_damage_car_probability.qsp}{script show_client}[ANSWERSORDER ON]
 																																			Отдохнуть полностью (требуется часов отдыха: {this.rest_hours_needed})[ANSWERIMAGE icons/sleep.png|200;400]
 																																				[mark_b1ysc7nky6ijg6740258]{this.game_hours+=this.rest_hours_needed;this.rest_hours=this.rest_hours_needed;this.driver_rest_hours=this.rest_norm;this.total_driver_rest_hours+=this.rest_hours;'';}
 																																					
@@ -650,7 +650,7 @@
 																																			[INPUTS this.radio_freq]
 																																				[mark_w43083s54ddmirt48y1i]{let freq=parseInt(this.radio_freq);this.radio_freq=freq; if (freq < 0 || freq > 1000000) {"[GOTO input_radio_freq]"}}
 																																					
-																																						[mark_svp3f33oc4126l87cb1i]{let freq=parseInt(this.radio_freq); if (freq == this.vip_radio_freq) {"[GOTO vip_freq_found]"} else {"Шум в эфире, похоже неправильная частота.[SOUNDFX radio_noise]"}}[BGNDIMAGE vip_radio.jpg][ANSWERTIME 20][TIMEEXPIRED new_location]
+																																						[mark_svp3f33oc4126l87cb1i]{let freq=parseInt(this.radio_freq); if (freq == this.vip_radio_freq) {"[GOTO vip_freq_found]"} else {"Шум в эфире, похоже неправильная частота.[SOUNDFX radio_noise]"}}[BGNDIMAGE vip_radio.jpg][ANSWERTIME 20][TIMEEXPIRED new_location][ANSWERSORDER ON]
 																																							Попробую еще[ANSWERIMAGE icons/call.png|260;400]
 																																								[mark_n4mf60whj3k340r2lq7s][GOTO input_radio_freq]
 																																							Хватит, надоело[ANSWERIMAGE icons/cancel.png|320;400]
