@@ -306,7 +306,7 @@
 																																							[INPUTS this.num]
 																																								[mark_77se696rfve0c0b748ex]{this.num=parseInt(this.num);if (this.num<0 || this.num>36) {"[GOTO do_bet_on_number]"}}
 																																									
-																																										[mark_44874qwy006h8xw93dbh]{this.money-=this.bet;this.rnd_num=Math.floor(Math.random()*37);'';}{if (Math.floor(this.game_hours/24)==this.casino_win_day && this.things[this.thing_casino_bet][1] && this.things[this.thing_casino_bet][3]==0) {this.rnd_num=29;this.casino_win_bet_sum=this.bet*36;this.things[this.thing_casino_bet][3]=1;'';}}Выпало число: {''+this.rnd_num}. {if (this.rnd_num == this.num) {this.money+=this.bet*36;this.casino_win_money+=this.bet*36;"Ты выиграл "+ this.bet*36+"![SOUNDFX applause]";} else {"Ты проиграл...[SOUNDFX evil_laugh_woman]"}}{this.game_hours+=1/12;'';}{script show_in_casino.qsp}
+																																										[mark_44874qwy006h8xw93dbh]{script calc_casino_bet}{script show_in_casino.qsp}
 																																											{if (this.money>=100) {"Сыграть еще раз[ANSWERIMAGE icons/money5.png|260;400]"}}
 																																												[mark_m1c55c2c59gf3o358f67][GOTO do_bet]
 																																											Покинуть казино[AMBIENT none][MUSIC AmbientStreet][ANSWERIMAGE icons/enter.png|320;400]
