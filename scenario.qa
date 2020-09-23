@@ -520,8 +520,8 @@
 																																																																						[client_gives_present]{script client_gives_present.qsp}{if (this.was_present) {script show_client.qsp} else {"[GOTO client_goodbye]"}}
 																																																																							Спасибо.[ANSWERIMAGE icons/good.png|295;400]
 																																																																								[mark_m9kad1uk3visn1aa4pf6][GOTO new_location]
-																																																																						[client_goodbye]...{this.vip_call=0;'';}{script client_goodbye}{script show_client.qsp}[ANSWERTIME 1][TIMEEXPIRED money_for_trip]
-																																																																							Всего хорошего.[ANSWERIMAGE icons/good.png|295;400]
+																																																																						[client_goodbye]{this.vip_call=0;'';}{script client_goodbye}{script show_client.qsp}[ANSWERTIME 5][TIMEEXPIRED money_for_trip]
+																																																																							До свидания.[ANSWERIMAGE icons/good.png|295;400]
 																																																																								[money_for_trip]{this.get_back_money_tries=0;'';}[GOTO client_gave_money{if (this.client_price > 0 && (Math.random() * this.people_negative_max < this.people_negative || Math.random()*100 > this.client_payable_rate)) {",client_squeezed_money"}}]
 																																																																									
 																																																																										[client_gave_money]{this.driver_show_gun=0;'';}{this.money+=this.client_price;this.money_earned+=this.client_price;this.tip_sum=0;''}{if (Math.random() < 0.5 - this.people_negative / this.people_negative_max && this.get_back_money_tries == 0) {"[GOTO client_gives_tip]"} else {"[GOTO client_doesnt_give_tip]"}}
@@ -1195,3 +1195,7 @@
 				[mark_3xkp6ond143dfj8rjbyt]Перевод отсутствует. Если есть желание перевести, пишите: sociofilm@mail.ru
 					Дальше...[ANSWERIMAGE icons/next.png|295;400]
 						[mark_6yx11f131mn0hw3864qa][GOTO choose_language]
+			[donate]Достать лопатник.
+				[mark_v2r3fay37ksl69b2u4a0][NAVIGATEURL https://money.yandex.ru/embed/shop.xml?account=41001220674141&quickpay=shop&payment-type-choice=on&writer=seller&targets=На развитие проекта&targets-hint=&default-sum=50&button-text=01&mail=on" width="450" height="199"]
+					
+						[mark_2czjpaenu1x9s27dovb5][GOTO START]

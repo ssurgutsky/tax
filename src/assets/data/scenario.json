@@ -2878,11 +2878,11 @@
                                                                                                                                                                                                                                                                                                         }
                                                                                                                                                                                                                                                                                                       ],
                                                                                                                                                                                                                                                                                                       "_mark": "",
-                                                                                                                                                                                                                                                                                                      "_content": "[LABEL Всего хорошего.][ANSWERIMAGE icons/good.png|295;400]"
+                                                                                                                                                                                                                                                                                                      "_content": "[LABEL До свидания.][ANSWERIMAGE icons/good.png|295;400]"
                                                                                                                                                                                                                                                                                                     }
                                                                                                                                                                                                                                                                                                   ],
                                                                                                                                                                                                                                                                                                   "_mark": "client_goodbye",
-                                                                                                                                                                                                                                                                                                  "_content": "[LABEL ...{this.vip_call=0;'';}{script client_goodbye}{script show_client.qsp}][TIMEEXPIRED money_for_trip][ANSWERTIME 1]"
+                                                                                                                                                                                                                                                                                                  "_content": "[LABEL {this.vip_call=0;'';}{script client_goodbye}{script show_client.qsp}][TIMEEXPIRED money_for_trip][ANSWERTIME 5]"
                                                                                                                                                                                                                                                                                                 }
                                                                                                                                                                                                                                                                                               ],
                                                                                                                                                                                                                                                                                               "_mark": "",
@@ -6533,6 +6533,28 @@
                       ],
                       "_mark": "",
                       "_content": "[LABEL English / Английский][ANSWERIMAGE icons/en.png|360;400]"
+                    },
+                    {
+                      "node": [
+                        {
+                          "node": [
+                            {
+                              "node": [
+                                {
+                                  "_mark": "mark_2czjpaenu1x9s27dovb5",
+                                  "_content": "[LABEL ][GOTO START]"
+                                }
+                              ],
+                              "_mark": "",
+                              "_content": "[LABEL ]"
+                            }
+                          ],
+                          "_mark": "mark_v2r3fay37ksl69b2u4a0",
+                          "_content": "[LABEL ][NAVIGATEURL https://money.yandex.ru/embed/shop.xml?account=41001220674141&quickpay=shop&payment-type-choice=on&writer=seller&targets=На развитие проекта&targets-hint=&default-sum=50&button-text=01&mail=on\" width=\"450\" height=\"199\"]"
+                        }
+                      ],
+                      "_mark": "donate",
+                      "_content": "[LABEL Достать лопатник.]"
                     }
                   ],
                   "_mark": "choose_language",

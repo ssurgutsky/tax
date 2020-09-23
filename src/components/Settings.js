@@ -3,7 +3,7 @@
 export default {
   INDEXEDDB_VERSION: 6,
   INDEXEDDB_STORE_NAME: 'store_taxoman',
-  CACHE_ENABLED: true,
+  CACHE_ENABLED: false,
   GP_PRODUCT1_NAME: 'com.skystairgames.taxoman.coin1',
   GP_PRODUCT2_NAME: 'com.skystairgames.taxoman.episodes',
   ENABLE_SAVE_BUTTON: true,
