@@ -1,7 +1,7 @@
 /* eslint no-eval: 0 */
 
 export default {
-  INDEXEDDB_VERSION: 6,
+  INDEXEDDB_VERSION: 7,
   INDEXEDDB_STORE_NAME: 'store_taxoman',
   CACHE_ENABLED: false,
   GP_PRODUCT1_NAME: 'com.skystairgames.taxoman.coin1',
