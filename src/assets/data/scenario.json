@@ -5968,7 +5968,7 @@
                                                                                                                     }
                                                                                                                   ],
                                                                                                                   "_mark": "mark_17lq7749t28h5kxmeqm9",
-                                                                                                                  "_content": "[LABEL Продай за {this.nark_money}! Это все что есть!{this.value_to_show=this.nark_money}{script calc_client_price_picture.qsp}{script show_client_inside_rear.qsp}]"
+                                                                                                                  "_content": "[LABEL Продай за {this.nark_money}! Это все что есть!{this.value_to_show=this.nark_money;'';}{script calc_client_price_picture.qsp}{script show_client_inside_rear.qsp}]"
                                                                                                                 }
                                                                                                               ],
                                                                                                               "_mark": "",
@@ -6000,7 +6000,7 @@
                                                                                                     }
                                                                                                   ],
                                                                                                   "_mark": "mark_b2tjijib8tvafdo753t6",
-                                                                                                  "_content": "[LABEL {if (this.client_state==2) {\"[GOTO nark_fury]\"} else {\"[GOTO nark_relaxed]\"}}]"
+                                                                                                  "_content": "[LABEL {if (Math.random()<0.5) {\"[GOTO nark_fury]\"} else {\"[GOTO nark_relaxed]\"}}]"
                                                                                                 }
                                                                                               ],
                                                                                               "_mark": "",
@@ -6120,7 +6120,7 @@
                                                                     }
                                                                   ],
                                                                   "_mark": "how_much_drug_costs",
-                                                                  "_content": "[LABEL Продай не за дорого, братишь?{if (Math.random() < 0.5) {\" Давай за \" + this.nark_money + \"?\";{this.value_to_show=this.nark_money;'';}{script calc_client_price_picture.qsp}}}{script show_client_inside_rear.qsp}]"
+                                                                  "_content": "[LABEL Продай не за дорого, братишь?{if (Math.random() < 0.5) {this.value_to_show=this.nark_money;\" Давай за \" + this.nark_money + \"?\"} else {this.value_to_show=-1;'';}}{script calc_client_price_picture.qsp}{script show_client_inside_rear.qsp}]"
                                                                 }
                                                               ],
                                                               "_mark": "",

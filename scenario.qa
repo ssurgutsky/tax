@@ -1085,7 +1085,7 @@
 											
 												[drug_distribution]Братишь... у тебя ведь есть что-то для меня?{this.nark_money=Math.ceil(Math.ceil(this.drugDealerGoodsCost*this.Inflation/this.drugGoodsInPackage)*(1+Math.random()*4));'';}{script show_client_inside_rear.qsp}
 													Возможно.[ANSWERIMAGE icons/one.png|260;400]
-														[how_much_drug_costs]Продай не за дорого, братишь?{if (Math.random() < 0.5) {" Давай за " + this.nark_money + "?";{this.value_to_show=this.nark_money;'';}{script calc_client_price_picture.qsp}}}{script show_client_inside_rear.qsp}
+														[how_much_drug_costs]Продай не за дорого, братишь?{if (Math.random() < 0.5) {this.value_to_show=this.nark_money;" Давай за " + this.nark_money + "?"} else {this.value_to_show=-1;'';}}{script calc_client_price_picture.qsp}{script show_client_inside_rear.qsp}
 															[drug_price_is_1x]{this.drug_price=Math.ceil((this.drugDealerGoodsCost*this.Inflation/this.drugGoodsInPackage)*1);this.drug_price}[ANSWERIMAGE icons/money1.png|90;400]
 																[mark_3a6o048v11trwk1c46o3][GOTO buy_drugs]{this.drug_price=Math.ceil((this.drugDealerGoodsCost*this.Inflation/this.drugGoodsInPackage)*1);'';}
 																	
@@ -1095,11 +1095,11 @@
 																					Ладно.[ANSWERIMAGE icons/good.png|260;400]
 																						[mark_pwbxe3emjzx50mb9c74h][GOTO how_much_drug_costs]
 																					Нет.[ANSWERIMAGE icons/cancel.png|320;400]
-																						[mark_b2tjijib8tvafdo753t6]{if (this.client_state==2) {"[GOTO nark_fury]"} else {"[GOTO nark_relaxed]"}}
+																						[mark_b2tjijib8tvafdo753t6]{if (Math.random()<0.5) {"[GOTO nark_fury]"} else {"[GOTO nark_relaxed]"}}
 																							
 																								[nark_fury]Ты чо, не видишь меня ломает???{script show_client_inside_rear.qsp}
 																									...[ANSWERIMAGE icons/three_dots.png|295;400]
-																										[mark_17lq7749t28h5kxmeqm9]Продай за {this.nark_money}! Это все что есть!{this.value_to_show=this.nark_money}{script calc_client_price_picture.qsp}{script show_client_inside_rear.qsp}
+																										[mark_17lq7749t28h5kxmeqm9]Продай за {this.nark_money}! Это все что есть!{this.value_to_show=this.nark_money;'';}{script calc_client_price_picture.qsp}{script show_client_inside_rear.qsp}
 																											Ладно.[ANSWERIMAGE icons/good.png|260;400]
 																												[mark_wk02z5y87w34w98u11m9]{this.drug_price=this.nark_money}[GOTO nark_buy_drug]
 																											Нет.[ANSWERIMAGE icons/cancel.png|320;400]
