@@ -6559,6 +6559,22 @@
                   ],
                   "_mark": "choose_language",
                   "_content": "[LABEL Таксоман v1.0.9\nВыберите язык / Choose language][BGNDIMAGE poster.jpg][AMBIENT intro][ANSWERSORDER ON]"
+                },
+                {
+                  "node": [
+                    {
+                      "node": [
+                        {
+                          "_mark": "mark_4tx0ilu5994y600686mx",
+                          "_content": "[LABEL ][GOTO main_menu]"
+                        }
+                      ],
+                      "_mark": "",
+                      "_content": "[LABEL Ну, ладно...]"
+                    }
+                  ],
+                  "_mark": "GAME_UPGRADEPOINT",
+                  "_content": "[LABEL Короче, был апгрейд игры, кое что поменялось, поэтому перенесем тебя в главное меню сейчас...]"
                 }
               ],
               "_mark": "",

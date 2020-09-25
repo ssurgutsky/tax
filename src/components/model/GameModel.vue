@@ -141,6 +141,13 @@ export default {
         this.gameData.store = storeLink
 
         console.log('gameData:', this.gameData)
+
+        // Check current version and game data cache version, upgrade if need
+        if (this.getGameDataVarValue(Settings.GAME_VERSION_VAR_NAME) !== Settings.GAME_VERSION) {
+          markName = Settings.GAME_UPGRADE_POINT
+        }
+        this.setGameDataVarValue(Settings.GAME_VERSION_VAR_NAME, Settings.GAME_VERSION)
+
         this.gotoMark(markName)
         return true
       }
@@ -160,7 +167,7 @@ export default {
     restartGame () {
       this.currentNode = this.scenario.node[0].node[0]
       if (this.sessions > 0) {
-        let startNode = this.findNodeWithMark(this.scenario, 'GAME_SAVEPOINT')
+        let startNode = this.findNodeWithMark(this.scenario, Settings.GAME_SAVE_POINT)
         if (startNode) {
           this.currentNode = startNode
         }
@@ -522,7 +529,14 @@ export default {
       if (gotoNode) {
         this.currentNode = gotoNode
       } else {
-        console.log('Cant find mark name', markName)
+        console.log('%c Cant find mark name: ' + markName + ', will use default mark:' + Settings.DEFAULT_LOAD_MARK_NAME, 'background: #FF0000; color: #FFFFFF')
+        markName = Settings.DEFAULT_LOAD_MARK_NAME
+        const gotoNode = this.findNodeWithMark(this.scenario, markName)
+        if (gotoNode) {
+          this.currentNode = gotoNode
+        } else {
+          console.log('%c Cant find even default mark name: ' + markName, 'background: #FF0000; color: #FFFFFF')
+        }
       }
     },
 
