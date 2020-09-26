@@ -165,6 +165,10 @@ export default {
     },
 
     restartGame () {
+      // Set current version to this var
+      // To show it in game title (e.g. Taxoman {this.game_version})
+      this.setGameDataVarValue(Settings.GAME_VERSION_VAR_NAME, Settings.GAME_VERSION)
+
       this.currentNode = this.scenario.node[0].node[0]
       if (this.sessions > 0) {
         let startNode = this.findNodeWithMark(this.scenario, Settings.GAME_SAVE_POINT)

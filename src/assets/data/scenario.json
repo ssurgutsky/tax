@@ -6558,7 +6558,7 @@
                     }
                   ],
                   "_mark": "choose_language",
-                  "_content": "[LABEL Таксоман v1.0.9\nВыберите язык / Choose language][BGNDIMAGE poster.jpg][AMBIENT intro][ANSWERSORDER ON]"
+                  "_content": "[LABEL Таксоман (версия: 1.{this.game_version})\nВыберите язык / Choose language][BGNDIMAGE poster.jpg][AMBIENT intro][ANSWERSORDER ON]"
                 },
                 {
                   "node": [
@@ -6574,7 +6574,7 @@
                     }
                   ],
                   "_mark": "GAME_UPGRADEPOINT",
-                  "_content": "[LABEL Короче, был апгрейд игры, кое что поменялось, поэтому перенесем тебя в главное меню сейчас...]"
+                  "_content": "[LABEL Короче, был апгрейд игры, кое что поменялось. Не волнуйся, ничего не пропало. Перейдем сейчас на карту.]"
                 }
               ],
               "_mark": "",
