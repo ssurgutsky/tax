@@ -3,6 +3,9 @@
 export default {
   // Increase this on every update to reload assets for new on startup
   GAME_VERSION: 9,
+  // Release = true
+  CACHE_ENABLED: this.$debug,
+
   GAME_VERSION_VAR_NAME: 'game_version',
   INDEXEDDB_VERSION: this.GAME_VERSION,
   GAME_UPGRADE_POINT: 'GAME_UPGRADEPOINT',
@@ -11,8 +14,6 @@ export default {
   DEFAULT_LOAD_MARK_NAME: 'main_menu',
   // Just a name of Index DB for this game
   INDEXEDDB_STORE_NAME: 'store_taxoman',
-  // Release = true
-  CACHE_ENABLED: false,
   // Google Play IAP
   GP_PRODUCT1_NAME: 'com.skystairgames.taxoman.coin1',
   GP_PRODUCT2_NAME: 'com.skystairgames.taxoman.episodes',
