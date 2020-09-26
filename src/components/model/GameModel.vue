@@ -143,7 +143,7 @@ export default {
         console.log('gameData:', this.gameData)
 
         // Check current version and game data cache version, upgrade if need
-        if (this.getGameDataVarValue(Settings.GAME_VERSION_VAR_NAME) !== Settings.GAME_VERSION) {
+        if (this.getGameDataVarValue(Settings.GAME_VERSION_VAR_NAME) < Settings.GAME_VERSION) {
           markName = Settings.GAME_UPGRADE_POINT
         }
         this.setGameDataVarValue(Settings.GAME_VERSION_VAR_NAME, Settings.GAME_VERSION)
