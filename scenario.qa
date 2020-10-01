@@ -297,6 +297,27 @@
 																																			[GOTO exit_barsuk]
 																																			{if (this.barsuk_credit > 0) {"Верну долг[ANSWERIMAGE icons/money6.png|380;400]"}}
 																																				[mark_375h535dew1mhyz6z1bu][GOTO barsuk_bill]
+																																	{if (this.location==11) {"Зайду в " + this.locations[this.location][0] + "[ANSWERIMAGE icons/enter.png|260;400]"}}
+																																		[mark_2a16tos87pg6uob11v32][IMAGE bbc_main]Что будешь делать?
+																																			Возьму чем-нибудь отравиться.
+																																				[bbc_ask]Вах, дарагой! Шито будетешь кюшат?{script bbc_inside1}
+																																					Шашлык, цена: {this.bbc_bbc_cost}
+																																						[mark_x0p493959qr5z0joh377]{this.money-=this.bbc_bbc_cost;'';}
+																																							<Enter text here>
+																																					Нарезка, цена: {this.bbc_veg_cost}
+																																						[mark_sd34m3dqtfr73dgf69ak]Ты траванулся
+																																						[mark_du8c3q5cb67279crgi85]Ты поел
+																																					Чай, цена: {this.bbc_tea_cost}
+																																						[mark_bn7h30r2cgc97shj08db]<Enter text here>
+																																					А повернись ко мне {if (this.bbc_back) {"лицом"} else {"затылком"}}?
+																																						[mark_4e3t8s5530ao2401r3d3]Вах, дарагой!{this.bbc_back=1-this.bbc_back;'';}{script bbc_inside1}
+																																							Ок, молодец.
+																																								[mark_i413e81431zu18bj6k63][GOTO bbc_ask]
+																																			Отдам выручку, возьму новые песни.
+																																				[mark_pbdwqy8b5e91045b98xq]<Enter text here>
+																																					<Enter text here>
+																																			Выйду отсюда.
+																																				[mark_q0lh9ylf51aef0ubpy0q][GOTO new_location]
 																																	{if (this.location == 12 && this.money>=100) {"Зайду в " + this.locations[this.location][0] + "[ANSWERIMAGE icons/enter.png|260;400]"}}
 																																		[do_bet]{this.dvd_playing=0}{script rounding.qsp}{script calc_casino.qsp}{this.locations[this.location][0]}. Сколько денег ставишь на европейскую рулетку (100 - {this.max_bet})?{script show_in_casino.qsp}[AMBIENT casino][MUSIC none][BGNDMUSIC none]
 																																			[INPUTS this.bet]
@@ -1199,6 +1220,6 @@
 				[mark_v2r3fay37ksl69b2u4a0][NAVIGATEURL https://money.yandex.ru/embed/shop.xml?account=41001220674141&quickpay=shop&payment-type-choice=on&writer=seller&targets=На развитие проекта&targets-hint=&default-sum=50&button-text=01&mail=on" width="450" height="199"]
 					
 						[mark_2czjpaenu1x9s27dovb5][GOTO START]
-		[GAME_UPGRADEPOINT]Короче, был апгрейд игры, кое что поменялось. Не волнуйся, ничего не пропало. Перейдем сейчас на карту.
+		[GAME_UPGRADEPOINT]Короче, был апгрейд игры, кое что поменялось. Не волнуйся, ничего не пропало. Перейдем сейчас на карту.[IMAGE in_autoservice15,in_autoservice18,in_carwashing14,abandoned_garage]
 			Ну, ладно...
 				[mark_4tx0ilu5994y600686mx][GOTO main_menu]

@@ -1557,6 +1557,118 @@
                                                                                                                                                                 {
                                                                                                                                                                   "node": [
                                                                                                                                                                     {
+                                                                                                                                                                      "_mark": "",
+                                                                                                                                                                      "_content": "[LABEL <Enter text here>]"
+                                                                                                                                                                    }
+                                                                                                                                                                  ],
+                                                                                                                                                                  "_mark": "mark_x0p493959qr5z0joh377",
+                                                                                                                                                                  "_content": "[LABEL {this.money-=this.bbc_bbc_cost;'';}]"
+                                                                                                                                                                }
+                                                                                                                                                              ],
+                                                                                                                                                              "_mark": "",
+                                                                                                                                                              "_content": "[LABEL Шашлык, цена: {this.bbc_bbc_cost}]"
+                                                                                                                                                            },
+                                                                                                                                                            {
+                                                                                                                                                              "node": [
+                                                                                                                                                                {
+                                                                                                                                                                  "_mark": "mark_sd34m3dqtfr73dgf69ak",
+                                                                                                                                                                  "_content": "[LABEL Ты траванулся]"
+                                                                                                                                                                },
+                                                                                                                                                                {
+                                                                                                                                                                  "_mark": "mark_du8c3q5cb67279crgi85",
+                                                                                                                                                                  "_content": "[LABEL Ты поел]"
+                                                                                                                                                                }
+                                                                                                                                                              ],
+                                                                                                                                                              "_mark": "",
+                                                                                                                                                              "_content": "[LABEL Нарезка, цена: {this.bbc_veg_cost}]"
+                                                                                                                                                            },
+                                                                                                                                                            {
+                                                                                                                                                              "node": [
+                                                                                                                                                                {
+                                                                                                                                                                  "_mark": "mark_bn7h30r2cgc97shj08db",
+                                                                                                                                                                  "_content": "[LABEL <Enter text here>]"
+                                                                                                                                                                }
+                                                                                                                                                              ],
+                                                                                                                                                              "_mark": "",
+                                                                                                                                                              "_content": "[LABEL Чай, цена: {this.bbc_tea_cost}]"
+                                                                                                                                                            },
+                                                                                                                                                            {
+                                                                                                                                                              "node": [
+                                                                                                                                                                {
+                                                                                                                                                                  "node": [
+                                                                                                                                                                    {
+                                                                                                                                                                      "node": [
+                                                                                                                                                                        {
+                                                                                                                                                                          "_mark": "mark_i413e81431zu18bj6k63",
+                                                                                                                                                                          "_content": "[LABEL ][GOTO bbc_ask]"
+                                                                                                                                                                        }
+                                                                                                                                                                      ],
+                                                                                                                                                                      "_mark": "",
+                                                                                                                                                                      "_content": "[LABEL Ок, молодец.]"
+                                                                                                                                                                    }
+                                                                                                                                                                  ],
+                                                                                                                                                                  "_mark": "mark_4e3t8s5530ao2401r3d3",
+                                                                                                                                                                  "_content": "[LABEL Вах, дарагой!{this.bbc_back=1-this.bbc_back;'';}{script bbc_inside1}]"
+                                                                                                                                                                }
+                                                                                                                                                              ],
+                                                                                                                                                              "_mark": "",
+                                                                                                                                                              "_content": "[LABEL А повернись ко мне {if (this.bbc_back) {\"лицом\"} else {\"затылком\"}}?]"
+                                                                                                                                                            }
+                                                                                                                                                          ],
+                                                                                                                                                          "_mark": "bbc_ask",
+                                                                                                                                                          "_content": "[LABEL Вах, дарагой! Шито будетешь кюшат?{script bbc_inside1}]"
+                                                                                                                                                        }
+                                                                                                                                                      ],
+                                                                                                                                                      "_mark": "",
+                                                                                                                                                      "_content": "[LABEL Возьму чем-нибудь отравиться.]"
+                                                                                                                                                    },
+                                                                                                                                                    {
+                                                                                                                                                      "node": [
+                                                                                                                                                        {
+                                                                                                                                                          "node": [
+                                                                                                                                                            {
+                                                                                                                                                              "_mark": "",
+                                                                                                                                                              "_content": "[LABEL <Enter text here>]"
+                                                                                                                                                            }
+                                                                                                                                                          ],
+                                                                                                                                                          "_mark": "mark_pbdwqy8b5e91045b98xq",
+                                                                                                                                                          "_content": "[LABEL <Enter text here>]"
+                                                                                                                                                        }
+                                                                                                                                                      ],
+                                                                                                                                                      "_mark": "",
+                                                                                                                                                      "_content": "[LABEL Отдам выручку, возьму новые песни.]"
+                                                                                                                                                    },
+                                                                                                                                                    {
+                                                                                                                                                      "node": [
+                                                                                                                                                        {
+                                                                                                                                                          "_mark": "mark_q0lh9ylf51aef0ubpy0q",
+                                                                                                                                                          "_content": "[LABEL ][GOTO new_location]"
+                                                                                                                                                        }
+                                                                                                                                                      ],
+                                                                                                                                                      "_mark": "",
+                                                                                                                                                      "_content": "[LABEL Выйду отсюда.]"
+                                                                                                                                                    }
+                                                                                                                                                  ],
+                                                                                                                                                  "_mark": "mark_2a16tos87pg6uob11v32",
+                                                                                                                                                  "_content": "[LABEL Что будешь делать?][IMAGE bbc_main]"
+                                                                                                                                                }
+                                                                                                                                              ],
+                                                                                                                                              "_mark": "",
+                                                                                                                                              "_content": "[LABEL {if (this.location==11) {\"Зайду в \" + this.locations[this.location][0] + \"[ANSWERIMAGE icons/enter.png|260;400]\"}}]"
+                                                                                                                                            },
+                                                                                                                                            {
+                                                                                                                                              "node": [
+                                                                                                                                                {
+                                                                                                                                                  "node": [
+                                                                                                                                                    {
+                                                                                                                                                      "node": [
+                                                                                                                                                        {
+                                                                                                                                                          "node": [
+                                                                                                                                                            {
+                                                                                                                                                              "node": [
+                                                                                                                                                                {
+                                                                                                                                                                  "node": [
+                                                                                                                                                                    {
                                                                                                                                                                       "node": [
                                                                                                                                                                         {
                                                                                                                                                                           "node": [
@@ -6574,7 +6686,7 @@
                     }
                   ],
                   "_mark": "GAME_UPGRADEPOINT",
-                  "_content": "[LABEL Короче, был апгрейд игры, кое что поменялось. Не волнуйся, ничего не пропало. Перейдем сейчас на карту.]"
+                  "_content": "[LABEL Короче, был апгрейд игры, кое что поменялось. Не волнуйся, ничего не пропало. Перейдем сейчас на карту.][IMAGE in_autoservice15,in_autoservice18,in_carwashing14,abandoned_garage]"
                 }
               ],
               "_mark": "",
