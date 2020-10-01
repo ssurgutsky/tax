@@ -1604,15 +1604,15 @@
                                                                                                                                                                         }
                                                                                                                                                                       ],
                                                                                                                                                                       "_mark": "",
-                                                                                                                                                                      "_content": "[LABEL Ок, молодец.]"
+                                                                                                                                                                      "_content": "[LABEL Вот так лучше!]"
                                                                                                                                                                     }
                                                                                                                                                                   ],
                                                                                                                                                                   "_mark": "mark_4e3t8s5530ao2401r3d3",
-                                                                                                                                                                  "_content": "[LABEL Вах, дарагой!{this.bbc_back=1-this.bbc_back;'';}{script bbc_inside1}]"
+                                                                                                                                                                  "_content": "[LABEL Вах, дарагой!{this.bbc_guy_f=1-this.bbc_guy_f;'';}{script bbc_inside1}]"
                                                                                                                                                                 }
                                                                                                                                                               ],
                                                                                                                                                               "_mark": "",
-                                                                                                                                                              "_content": "[LABEL А повернись ко мне {if (this.bbc_back) {\"лицом\"} else {\"затылком\"}}?]"
+                                                                                                                                                              "_content": "[LABEL А повернись ко мне {if (this.bbc_guy_f) {\"спиной\"} else {\"лицом\"}}?]"
                                                                                                                                                             }
                                                                                                                                                           ],
                                                                                                                                                           "_mark": "bbc_ask",

@@ -309,9 +309,9 @@
 																																						[mark_du8c3q5cb67279crgi85]Ты поел
 																																					Чай, цена: {this.bbc_tea_cost}
 																																						[mark_bn7h30r2cgc97shj08db]<Enter text here>
-																																					А повернись ко мне {if (this.bbc_back) {"лицом"} else {"затылком"}}?
-																																						[mark_4e3t8s5530ao2401r3d3]Вах, дарагой!{this.bbc_back=1-this.bbc_back;'';}{script bbc_inside1}
-																																							Ок, молодец.
+																																					А повернись ко мне {if (this.bbc_guy_f) {"спиной"} else {"лицом"}}?
+																																						[mark_4e3t8s5530ao2401r3d3]Вах, дарагой!{this.bbc_guy_f=1-this.bbc_guy_f;'';}{script bbc_inside1}
+																																							Вот так лучше!
 																																								[mark_i413e81431zu18bj6k63][GOTO bbc_ask]
 																																			Отдам выручку, возьму новые песни.
 																																				[mark_pbdwqy8b5e91045b98xq]<Enter text here>
