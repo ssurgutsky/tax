@@ -298,13 +298,13 @@
 																																			{if (this.barsuk_credit > 0) {"Верну долг[ANSWERIMAGE icons/money6.png|380;400]"}}
 																																				[mark_375h535dew1mhyz6z1bu][GOTO barsuk_bill]
 																																	{if (this.location==11) {"Зайду в " + this.locations[this.location][0] + "[ANSWERIMAGE icons/enter.png|260;400]"}}
-																																		[mark_2a16tos87pg6uob11v32][IMAGE bbc_main]Что будешь делать?
-																																			Возьму чем-нибудь отравиться.
-																																				[bbc_ask]Вах, дарагой! Шито будетешь?{script bbc_inside1}
+																																		[bbc_main][IMAGE bbc_main]Что будешь делать?
+																																			Возьму что-нибудь отравиться... эээ... то есть поесть.
+																																				[bbc_ask]Вах, дарагой! Шито будетешь кушат?{script show_bbc_inside1}
 																																					{this.bbc_foods[1][1]}, цена: {this.bbc_foods[1][2]}
 																																						[mark_da44aaiw7582f1566i62]{this.bbc_food=1;'';}
 																																							
-																																								[bbc_check_money]{if (this.money>=this.bbc_foods[this.bbc_food][2]) {this.money-=this.bbc_foods[this.bbc_food][2];"Чичас пенису, дарагой. Садысь, нэкуда нэ ухады!";} else {"У табе нэ хватаэт дэнэг, дарагой..."}}{script bbc_inside1}
+																																								[bbc_check_money]{if (this.money>=this.bbc_foods[this.bbc_food][2]) {this.money-=this.bbc_foods[this.bbc_food][2];"Чичас пенису, дарагой. Садысь, нэкуда нэ ухады!";} else {"У табе нэ хватаэт дэнэг, дарагой..."}}{script show_bbc_inside1}
 																																									{if (this.money>=this.bbc_foods[this.bbc_food][2]) {"Пройду в зал."}}
 																																										[mark_kr96y4rhogx1sv931r41]Обычная тошниловка. Что будешь делать?[IMAGE bbc_sit.jpg]
 																																											Выберу стол.
@@ -314,14 +314,23 @@
 																																															Подожду.
 																																																[mark_b6yw38b98676eje63vq6]Усе гатов, дарагой. Сваимы рукамэ гатовыл, прыатнава аппэтита![IMAGE bbc_sit2.jpg&bbc_guy_f.png|300;100;0.8;0.8]
 																																																	Ну и где оно?
-																																																		[mark_36yn54fdi0khe47ew00i]А вот ано! Пробуэ, дарагой, очин укусно!{"[IMAGE " + this.bbc_foods[this.bbc_food][3] +"]"}
+																																																		[mark_36yn54fdi0khe47ew00i]А вот ано! Пробуэ, дарагой, очин укусно!{this.bbc_foods[this.bbc_food][4]=1;'';}{"[IMAGE " + this.bbc_foods[this.bbc_food][3] +"]"}
 																																																			Попробую.
-																																																				[mark_642b99x492qk4b48ks84]{if (Math.random() < 0.9) {"[GOTO bbc_food_ok]"} else {"[GOTO bbc_food_fail]"}}
+																																																				[mark_642b99x492qk4b48ks84]{if (Math.random() < 0.6) {"[GOTO bbc_food_ok]";} else {"[GOTO bbc_food_fail]"}}
 																																																					
 																																																						[bbc_food_ok]Вроде все нормально. Местами даже вкусно было.[IMAGE bbc_sit2.jpg]
-																																																							<Enter text here>
-																																																								[mark_0hst43z63x78lp9qy17y]<Enter text here>
-																																																						[bbc_food_fail]Ты траванулся и провел на горшке 3 часа. А потом еще 2 часа.{this.game_hours+=5;'';}
+																																																							...
+																																																								[mark_0hst43z63x78lp9qy17y]{if (this.bbc_foods[1][4] && this.bbc_foods[2][4] && this.bbc_foods[3][4]) {"[GOTO bbc_boss_deal]"} else {"[GOTO bbc_food_finish]"}}
+																																																									
+																																																										[bbc_boss_deal]Прывэтствуэ тиба, я дыректар этава рэстарана!{script show_bbc_boss}
+																																																											Приятно познакомиться.
+																																																												[mark_uw157m64smy86z5udv82]Я выдэл ты у нас ужэ все перепробывал! Нравитца?{script show_bbc_boss}
+																																																													Ну... как вам сказать...
+																																																														[mark_q88y9z15nwaqjw38hs81]Гавари как эсть!{script show_bbc_boss}
+																																																															<Enter text here>
+																																																										[bbc_food_finish]Тибе жэ панравылась, дарагой? Прыхады к нам исчо!{script show_bbc_inside1}
+																																																											[GOTO goout_bbc]
+																																																						[bbc_food_fail]Ты траванулся и провел в хожатхоне 2 часа. А потом еще 3.{this.game_hours+=5;if (this.money>=this.bbc_toilet_cost*2) {this.money-=this.bbc_toilet_cost*2;'';} else {this.money=0;'';}}[IMAGE bbc_toilet.jpg]
 																																																							[GOTO goout_bbc]
 																																																			[GOTO goout_bbc]
 																																											[GOTO goout_bbc]
@@ -331,11 +340,18 @@
 																																					{this.bbc_foods[3][1]}, цена: {this.bbc_foods[3][2]}
 																																						[mark_r0ymqxivfw0yt47rx11k]{this.bbc_food=3;}[GOTO bbc_check_money]
 																																					{if (this.bbc_guy_f) {"Слушай, лучше отвернись!"} else {"Может повернешься ко мне лицом?"}}
-																																						[mark_4e3t8s5530ao2401r3d3]Вах, дарагой!{this.bbc_guy_f=1-this.bbc_guy_f;'';}{script bbc_inside1}
+																																						[mark_4e3t8s5530ao2401r3d3]Вах, дарагой!{this.bbc_guy_f=1-this.bbc_guy_f;'';}{script show_bbc_inside1}
 																																							{if (this.bbc_guy_f) {"А-а-а-а! Мои глаза!"} else {"Вот так то лучше!"}}
 																																								[mark_i413e81431zu18bj6k63][GOTO bbc_ask]
 																																							{if (this.bbc_guy_f) {"Лучше отвернись обратно!"} else {""}}
 																																								[mark_63811fm59blg8p9464cp]{this.bbc_guy_f=0;'';}[GOTO bbc_ask]
+																																			Пойду в хожатхона.
+																																				[mark_s4x43w7r5y518b583iho]Вход в хожатхону стоит: {this.bbc_toilet_cost}. Зайдешь?[IMAGE bbc_toilet.jpg]
+																																					Зайду, посмотрю.
+																																						[mark_1wrc7ygvd3cd0moz88si]{if (this.money>=this.bbc_toilet_cost) {this.money-=this.bbc_toilet_cost;"Ну как, интересно?[IMAGE bbc_toilet_inside.jpg]"} else {"У табе нэ хватаэт дэнэг, дарагой...[IMAGE bbc_toilet.jpg]"}}
+																																							[bbc_toilet_back]Вернусь обратно.
+																																								[mark_gs3jinuu1egkf304yjp9][GOTO bbc_main]
+																																					[GOTO bbc_toilet_back]
 																																			Отдам выручку, возьму новые песни.
 																																				[mark_pbdwqy8b5e91045b98xq]<Enter text here>
 																																					<Enter text here>
