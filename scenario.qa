@@ -308,61 +308,67 @@
 																																									{if (this.money>=this.bbc_foods[this.bbc_food][2]) {"Пройду в зал."}}
 																																										[mark_kr96y4rhogx1sv931r41]Обычная тошниловка. Что будешь делать?[IMAGE bbc_sit.jpg]
 																																											Выберу стол.
-																																												[mark_jxhv29u24lv513nmjre0]Вроде нормально. Нигде не наблевано.[IMAGE bbc_table.jpg]
-																																													Присяду за стол.
-																																														[mark_e7q2hgq8sj1y0dv11roi]...[IMAGE bbc_sit2.jpg]
-																																															Подожду.
-																																																[mark_b6yw38b98676eje63vq6]Усе гатов, дарагой. Сваимы рукамэ гатовыл, прыатнава аппэтита![IMAGE bbc_sit2.jpg&bbc_guy_f.png|300;100;0.8;0.8]
-																																																	Ну и где оно?
-																																																		[mark_36yn54fdi0khe47ew00i]А вот ано! Пробуэ, дарагой, очин укусно!{this.bbc_foods[this.bbc_food][4]=1;'';}{"[IMAGE " + this.bbc_foods[this.bbc_food][3] +"]"}
-																																																			Попробую.
-																																																				[mark_642b99x492qk4b48ks84]{if (Math.random() < 0.6) {"[GOTO bbc_food_ok]";} else {"[GOTO bbc_food_fail]"}}
-																																																					
-																																																						[bbc_food_ok]Вроде все нормально. Местами даже вкусно было.[IMAGE bbc_sit2.jpg]
-																																																							...
-																																																								[mark_0hst43z63x78lp9qy17y]{this.bbc_active=this.bbc_foods[1][4] && this.bbc_foods[2][4] && this.bbc_foods[3][4]; if (this.bbc_active) {"[GOTO bbc_boss_deal]"} else {"[GOTO bbc_food_finish]"}}
-																																																									
-																																																										[bbc_boss_deal]Пиветствуя тибя!{script show_bbc_boss}
-																																																											А вы кто?
-																																																												[mark_27c213tyh1acny86s1vy]Я - дирехтар этат ристарана!{script show_bbc_boss}
-																																																													[bbc_hi_boss]Здравствуйте.
-																																																														[mark_uw157m64smy86z5udv82]Я видеть ты перепробывать все нащи блуда! Нравица наш кухнь?{script show_bbc_boss}
-																																																															Ну... как вам сказать...
-																																																																[mark_q88y9z15nwaqjw38hs81]Ты сказать как есть!{script show_bbc_boss}
-																																																																	Часто бегаю в хожатхон.
-																																																																		[mark_0how7nc3r57ybc544909]Наш кухнь - восточный кухнь, такой непредсказуеми, как женщина.{script show_bbc_boss}
-																																																																			[bbc_that_is_right]Это точно...
-																																																																				[mark_398m8urp0lbu9wrv9g75]Слюшай, дрюг, я знать ты таксиста. У миня есть дела к тибе. Хочишь я рассказать?{script show_bbc_boss}
-																																																																					Давай.
-																																																																						[mark_103qs786n8b560095ex9]Ты знать, я очинь лубить музыка. Я записать многа кароших песен сваих. Я очинь хотеть дарить их лудям. Ты памочь дарить их лудям в такси?{script show_bbc_boss}
-																																																																							А мне что с этого?
-																																																																								[mark_3e3k920n538dec6j4ehx]Ты дарить их лудям в такси за деньга. Я разрешать тибе хадить ходжатон усегда бисплатна. Сагласин?{this.bbc_toilet_cost=0;'';}{script show_bbc_boss}
-																																																																									Как-то не впечатляет...
-																																																																										[mark_z98h6e269cs42897q016]Карашо, я исчо оставлать тибе половина деньга-выручка! Согласин?{this.bbc_songs_rate=50;'';}{script show_bbc_boss}
-																																																																											А можно послушать какую-нибудь песню?
-																																																																												[mark_0372803j3981237y48b3]"Хаджи Мурат, Хаджи Мурат, Хаджи Мурат, Хаджи Мурат, Хаджи Мурат - мине как брат!"{script show_bbc_boss}
-																																																																													[bbc_songs_ok]Ладно, согласен.
-																																																																														[mark_yjit32aiu58unc936i1z]Я очинь рад, дрюг! Ми уместе разбагатеть скора! Иди узять песни у Гурген.{this.bbc_active=1;'';}{script show_bbc_boss}
-																																																																															Пойду к Гургену.
-																																																																																[mark_ujk3ku2qhqoe6q57qdh2][GOTO bbc_main]
-																																																																													[bbc_no_songs]Нет, извини.
-																																																																														[mark_4vf094w0w3vc5aa771j6]Очинь жалка, дрюг, пиезжай к нам исчо!{this.bbc_toilet_cost=this.bbc_toilet_orig_cost;'';}{script show_bbc_boss}
-																																																																															[GOTO goout_bbc]
+																																												[mark_0yh2bu9lqh51av1wovv0]{this.bbc_toilet_force=0;if (Math.random()<0.7) {"[GOTO bbc_table_ok]"} else {"[GOTO bbc_table_dirty]"}}
+																																													
+																																														[bbc_table_ok]Вроде нормально. Нигде не наблевано.[IMAGE bbc_table.jpg]
+																																															Присяду за стол.
+																																																[bbc_sitting]...[IMAGE bbc_sit2.jpg]
+																																																	Подожду.
+																																																		[mark_b6yw38b98676eje63vq6]Усе гатов, дарагой. Сваимы рукамэ гатовыл, прыатнава аппэтита![IMAGE bbc_sit2.jpg&bbc_guy_f.png|300;100;0.8;0.8]
+																																																			Ну и где оно?
+																																																				[mark_36yn54fdi0khe47ew00i]А вот ано! Пробуэ, дарагой, очин укусно!{this.bbc_foods[this.bbc_food][4]=1;'';}{"[IMAGE " + this.bbc_foods[this.bbc_food][3] +"]"}
+																																																					Попробую.
+																																																						[mark_642b99x492qk4b48ks84]{if (Math.random() < 0.6 && !this.bbc_toilet_force) {"[GOTO bbc_food_ok]";} else {"[GOTO bbc_food_fail]"}}
+																																																							
+																																																								[bbc_food_ok]Вроде все нормально. Местами даже вкусно было.[IMAGE bbc_sit2.jpg]
+																																																									...
+																																																										[mark_0hst43z63x78lp9qy17y]{this.bbc_active=this.bbc_foods[1][4] && this.bbc_foods[2][4] && this.bbc_foods[3][4]; if (this.bbc_active) {"[GOTO bbc_boss_deal]"} else {"[GOTO bbc_food_finish]"}}
+																																																											
+																																																												[bbc_boss_deal]Пиветствуя тибя!{script show_bbc_boss}
+																																																													А вы кто?
+																																																														[mark_27c213tyh1acny86s1vy]Я - дирехтар этат ристарана!{script show_bbc_boss}
+																																																															[bbc_hi_boss]Здравствуйте.
+																																																																[mark_uw157m64smy86z5udv82]Я видеть ты перепробывать все нащи блуда! Нравица наш кухнь?{script show_bbc_boss}
+																																																																	Ну... как вам сказать...
+																																																																		[mark_q88y9z15nwaqjw38hs81]Ты сказать как есть!{script show_bbc_boss}
+																																																																			Часто бегаю в хожатхон.
+																																																																				[mark_0how7nc3r57ybc544909]Наш кухнь - восточный кухнь, такой непредсказуеми, как женщина.{script show_bbc_boss}
+																																																																					[bbc_that_is_right]Это точно...
+																																																																						[mark_398m8urp0lbu9wrv9g75]Слюшай, дрюг, я знать ты таксиста. У миня есть дела к тибе. Хочишь я рассказать?{script show_bbc_boss}
+																																																																							Давай.
+																																																																								[mark_103qs786n8b560095ex9]Ты знать, я очинь лубить музыка. Я записать многа кароших песен сваих. Я очинь хотеть дарить их лудям. Ты памочь дарить их лудям в такси?{script show_bbc_boss}
+																																																																									А мне что с этого?
+																																																																										[mark_3e3k920n538dec6j4ehx]Ты дарить их лудям в такси за деньга. Я разрешать тибе хадить ходжатон усегда бисплатна. Сагласин?{this.bbc_toilet_cost=0;'';}{script show_bbc_boss}
+																																																																											Как-то не впечатляет...
+																																																																												[mark_z98h6e269cs42897q016]Карашо, я исчо оставлать тибе половина деньга-выручка! Согласин?{this.bbc_songs_rate=50;'';}{script show_bbc_boss}
+																																																																													А можно послушать какую-нибудь песню?
+																																																																														[mark_0372803j3981237y48b3]"Хаджи Мурат, Хаджи Мурат, Хаджи Мурат, Хаджи Мурат, Хаджи Мурат - мине как брат!"{script show_bbc_boss}
+																																																																															[bbc_songs_ok]Ладно, согласен.
+																																																																																[mark_yjit32aiu58unc936i1z]Я очинь рад, дрюг! Ми уместе разбагатеть скора! Иди узять песни у Гурген.{this.bbc_active=1;'';}{script show_bbc_boss}
+																																																																																	Пойду к Гургену.
+																																																																																		[mark_ujk3ku2qhqoe6q57qdh2][GOTO bbc_main]
+																																																																															[bbc_no_songs]Нет, извини.
+																																																																																[mark_4vf094w0w3vc5aa771j6]Очинь жалка, дрюг, пиезжай к нам исчо!{this.bbc_toilet_cost=this.bbc_toilet_orig_cost;'';}{script show_bbc_boss}
+																																																																																	[GOTO goout_bbc]
+																																																																													[GOTO bbc_songs_ok]
+																																																																													[GOTO bbc_no_songs]
 																																																																											[GOTO bbc_songs_ok]
 																																																																											[GOTO bbc_no_songs]
-																																																																									[GOTO bbc_songs_ok]
-																																																																									[GOTO bbc_no_songs]
-																																																																							[GOTO bbc_listen_song]
-																																																																					[GOTO bbc_no_songs]
-																																																																	Вкус на любителя...
-																																																																		[mark_o59t78pzw16z2pi62ve4]Ты если нравица наш кухнь - карашо, а иначи ты ходить хожатхон и никакой проблема!{script show_bbc_boss}
-																																																																			[GOTO bbc_that_is_right]
-																																																											[GOTO bbc_hi_boss]
-																																																										[bbc_food_finish]Тибе жэ панравылась, дарагой? Прыхады к нам исчо!{script show_bbc_inside1}
-																																																											[GOTO goout_bbc]
-																																																						[bbc_food_fail]Ты траванулся и провел в хожатхоне 2 часа.{this.game_hours+=2;if (this.money>=this.bbc_toilet_cost) {this.money-=this.bbc_toilet_cost;'';} else {this.money=0;'';}}[IMAGE bbc_toilet.jpg]
-																																																							[GOTO goout_bbc]
-																																																			[GOTO goout_bbc]
+																																																																									[GOTO bbc_listen_song]
+																																																																							[GOTO bbc_no_songs]
+																																																																			Вкус на любителя...
+																																																																				[mark_o59t78pzw16z2pi62ve4]Ты если нравица наш кухнь - карашо, а иначи ты ходить хожатхон и никакой проблема!{script show_bbc_boss}
+																																																																					[GOTO bbc_that_is_right]
+																																																													[GOTO bbc_hi_boss]
+																																																												[bbc_food_finish]Тибе жэ панравылась, дарагой? Прыхады к нам исчо!{script show_bbc_inside1}
+																																																													[GOTO goout_bbc]
+																																																								[bbc_food_fail]Ты траванулся и провел в хожатхоне 2 часа.{this.game_hours+=2;if (this.money>=this.bbc_toilet_cost) {this.money-=this.bbc_toilet_cost;'';} else {this.money=0;'';}}[IMAGE bbc_toilet.jpg]
+																																																									[GOTO goout_bbc]
+																																																					[GOTO goout_bbc]
+																																														[bbc_table_dirty]Да тут все просто заблевано![IMAGE bbc_table_dirty.jpg]
+																																															Все равно присяду за стол.
+																																																[mark_352g018j19e8r3u16j8x]{this.bbc_toilet_force=1;'';}[GOTO bbc_sitting]
+																																															[GOTO goout_bbc]
 																																											[GOTO goout_bbc]
 																																									[GOTO goout_bbc]
 																																					{this.bbc_foods[2][1]}, цена: {this.bbc_foods[2][2]}
@@ -376,9 +382,9 @@
 																																							{if (this.bbc_guy_f) {"Лучше отвернись обратно!"} else {""}}
 																																								[mark_63811fm59blg8p9464cp]{this.bbc_guy_f=0;'';}[GOTO bbc_ask]
 																																			Пойду в хожатхона.
-																																				[mark_s4x43w7r5y518b583iho]Вход в хожатхону стоит: {this.bbc_toilet_cost}. Зайдешь?[IMAGE bbc_toilet.jpg]
-																																					Зайду, посмотрю.
-																																						[mark_1wrc7ygvd3cd0moz88si]{if (this.money>=this.bbc_toilet_cost) {this.money-=this.bbc_toilet_cost;"Ну как, интересно?[IMAGE bbc_toilet_inside.jpg]"} else {"У табе нэ хватаэт дэнэг, дарагой...[IMAGE bbc_toilet.jpg]"}}
+																																				[mark_s4x43w7r5y518b583iho]Вход в хожатхону {if (this.bbc_toilet_cost > 0) {"стоит: " + this.bbc_toilet_cost+'.'} else {"бесплатно!"}} Зайдешь?[IMAGE bbc_toilet.jpg]
+																																					Да, зайду.
+																																						[mark_1wrc7ygvd3cd0moz88si]{if (this.money>=this.bbc_toilet_cost) {this.money-=this.bbc_toilet_cost;"Ну как, интересно? Делай свои дела.[IMAGE bbc_toilet_inside.jpg]"} else {"У табе нэ хватаэт дэнэг, дарагой...[IMAGE bbc_toilet.jpg]"}}
 																																							[bbc_toilet_back]Вернусь обратно.
 																																								[mark_gs3jinuu1egkf304yjp9][GOTO bbc_main]
 																																					[GOTO bbc_toilet_back]
