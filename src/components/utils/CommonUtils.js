@@ -319,7 +319,7 @@ export default {
         let jsCode = preresult.substr(start, length)
         // console.log(start, end, jsCode)
 
-        // console.log(']]]]]]]]]]]]]]]]]]]]]]]]]]]', jsCode)
+        console.log(']]]]]]]]]]]]]]]]]]]]]]]]]]]', jsCode)
         let jsCodeResult = eval(jsCode) || ''
 
         // console.log('jsCodeResult', jsCodeResult)
