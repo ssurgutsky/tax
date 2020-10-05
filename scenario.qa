@@ -308,7 +308,7 @@
 																																									{if (this.money>=this.bbc_foods[this.bbc_food][2]) {"Пройду в зал."}}
 																																										[mark_kr96y4rhogx1sv931r41]Обычная тошниловка. Что будешь делать?[IMAGE bbc_sit.jpg]
 																																											Выберу стол.
-																																												[mark_0yh2bu9lqh51av1wovv0]{this.bbc_toilet_force=0;if (Math.random()<0.7) {"[GOTO bbc_table_ok]"} else {"[GOTO bbc_table_dirty]"}}
+																																												[mark_0yh2bu9lqh51av1wovv0]{this.bbc_toilet_force=0;if (Math.random()<0.8) {"[GOTO bbc_table_ok]"} else {"[GOTO bbc_table_dirty]"}}
 																																													
 																																														[bbc_table_ok]Вроде нормально. Нигде не наблевано.[IMAGE bbc_table.jpg]
 																																															Присяду за стол.
@@ -318,7 +318,7 @@
 																																																			Ну и где оно?
 																																																				[mark_36yn54fdi0khe47ew00i]А вот ано! Пробуэ, дарагой, очин укусно!{this.bbc_foods[this.bbc_food][4]=1;'';}{"[IMAGE " + this.bbc_foods[this.bbc_food][3] +"]"}
 																																																					Попробую.
-																																																						[mark_642b99x492qk4b48ks84]{if (Math.random() < 0.6 && !this.bbc_toilet_force) {"[GOTO bbc_food_ok]";} else {"[GOTO bbc_food_fail]"}}
+																																																						[mark_642b99x492qk4b48ks84]{if (Math.random() < 0.7 && !this.bbc_toilet_force) {"[GOTO bbc_food_ok]";} else {"[GOTO bbc_food_fail]"}}
 																																																							
 																																																								[bbc_food_ok]Вроде все нормально. Местами даже вкусно было.[IMAGE bbc_sit2.jpg]
 																																																									...
@@ -344,7 +344,7 @@
 																																																																													А можно послушать какую-нибудь песню?
 																																																																														[mark_0372803j3981237y48b3]"Хаджи Мурат, Хаджи Мурат, Хаджи Мурат, Хаджи Мурат, Хаджи Мурат - мине как брат!"{script show_bbc_boss}
 																																																																															[bbc_songs_ok]Ладно, согласен.
-																																																																																[mark_yjit32aiu58unc936i1z]Я очинь рад, дрюг! Ми уместе разбагатеть скора! Иди узять песни у Гурген.{this.bbc_active=1;'';}{script show_bbc_boss}
+																																																																																[mark_yjit32aiu58unc936i1z]Я очинь рад, дрюг! Я разбагатеть скора... то ись ми с табой дарить песни лудям в этам мира! Иди узьми песни у Гурген.{this.bbc_active=1;'';}{script show_bbc_boss}
 																																																																																	Пойду к Гургену.
 																																																																																		[mark_ujk3ku2qhqoe6q57qdh2][GOTO bbc_main]
 																																																																															[bbc_no_songs]Нет, извини.
@@ -1285,7 +1285,15 @@
 																	[GOTO eh_take_dvd]
 													С рук купил.[ANSWERIMAGE icons/three_dots.png|295;400]
 														[mark_4741edx5ftui1649o9hs][GOTO give_me_my_dvd]
-										[business11][GOTO client_arriving]
+										[business11]{if (this.bbc_active && this.client_type==3) {"Этот клиент очень похож на того, кто купил бы у тебя песни из " + this.locations[11][0]. Попробуешь продать ему?} else {""}}
+											Эй, приятель, небось скучаешь по Родине?
+												[mark_3zn1218nnzx0284imgce]Да, я очинь скушать по Родина...{script show_client_inside_rear.qsp}
+													Поставлю ему песню.
+														[mark_kzgvzck7bu4jdw16oloo]Какой карощий песнь! Я хатеть кюпить у тибя этат песнь!{script show_client_inside_rear.qsp}
+															<Enter text here>
+											В другой раз продам.
+												[mark_v488m89q7n12mil4782m][GOTO business12]
+										[business12][GOTO client_arriving]
 					Пропустить заставку[ANSWERIMAGE icons/steering_wheel.png|320;420]
 						[mark_xe72jh70wng5iteh660h][GOTO init_vars]
 			English / Английский[ANSWERIMAGE icons/en.png|360;400]
