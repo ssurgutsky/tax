@@ -1285,19 +1285,51 @@
 																	[GOTO eh_take_dvd]
 													С рук купил.[ANSWERIMAGE icons/three_dots.png|295;400]
 														[mark_4741edx5ftui1649o9hs][GOTO give_me_my_dvd]
-										[business11]{if (this.bbc_active && this.client_type==3) {"Этот клиент очень похож на того, кто купил бы у тебя песни из " + this.locations[11][0]. Попробуешь продать ему?} else {""}}
-											Эй, приятель, небось скучаешь по Родине?
-												[mark_3zn1218nnzx0284imgce]Да, я очинь скушать по Родина...{script show_client_inside_rear.qsp}
-													Поставлю ему песню.
-														[mark_kzgvzck7bu4jdw16oloo]Какой карощий песнь! Я хатеть кюпить у тибя этат песнь!{script show_client_inside_rear.qsp}
-															<Enter text here>
-											В другой раз продам.
+										[business11]{if (this.bbc_active && this.bbc_songs > 0 && this.client_type==3) {"Этот клиент очень похож на того, кто купил бы у тебя песни из " + this.locations[11][0] +". Что будешь делать?} else {"[GOTO business12]"}}
+											Поставлю ему песню.
+												[mark_ng399541422ui8a224j2]{if (this.things[this.thing_dvd][1]) {"[GOTO bbc_has_dvd]"} else {"[GOTO bbc_has_no_dvd]"}
+													
+														[bbc_has_dvd][MUSIC bbc_song1][AUDIO silent_2]{script show_client_inside_rear.qsp}
+															
+																[bbc_ask_buy_song]{if (Math.random() <0.5) {"Какой кароший и красивий песнь, дрюг!"} else {"Васхититильны песнь, дрюжиша!"}} Я хатеть кюпить тибя етот песнь!{this.bbc_song_offer=Math.floor(Math.random()*25)*this.Inflation;'';}{script show_client_inside_rear.qsp}
+																	Продам за {this.bbc_song_price=5*this.Inflation}
+																		[mark_kzgvzck7bu4jdw16oloo]{this.bbc_song_price=5*this.Inflation;'';}[GOTO bbc_buy_song]
+																			
+																				[bbc_buy_song][MUSIC NONE]{if (this.bbc_song_offer >= this.bbc_song_price) {"[GOTO bbc_song_buy_ok]"} else {"[GOTO bbc_song_buy_fail]"}}
+																					
+																						[bbc_song_buy_ok]Я согласнама, дрюг!{this.money+=this.bbc_song_price;this.bbc_songs--;this.bbc_songs_sold++;''}{script show_client_inside_rear.qsp}
+																							Слушай на здоровье!
+																								[mark_8582u5510s0njt5010zs]{if (this.bbc_songs <=0) {"Все песни проданы, едь обратно в " + this.locations[11][0] + "отдать выручку."} else {"[GOTO business12]"}}
+																									Ясно.
+																										[mark_3q1xy7lc26em0n0371kc][GOTO business12]
+																						[bbc_song_buy_fail]Чирисчюр дорага дла миня! Давай подишвше, дрюг?{script show_client_inside_rear.qsp}
+																							[GOTO bbc_say_another_price]
+																							Нет, извини.
+																								[mark_d0p742evh9o4319934fv]Пажалустанама, дрюг! Юступи мине?{script show_client_inside_rear.qsp}
+																									[bbc_say_another_price]Назвать другую цену.
+																										[mark_48q507159s544oanlq14][GOTO bbc_ask_buy_song]
+																									Нет, извини, не могу.
+																										[mark_fq0o8775tyw34ew9z905][GOTO business12]
+																	Продам за {this.bbc_song_price=10*this.Inflation}
+																		[mark_40codk7g8xt0xyn711s9]{this.bbc_song_price=10*this.Inflation;'';}[GOTO bbc_buy_song]
+																	Продам за {this.bbc_song_price=15*this.Inflation}
+																		[mark_e4xane83qa86yulfb748]{this.bbc_song_price=15*this.Inflation;'';}[GOTO bbc_buy_song]
+																	Продам за {this.bbc_song_price=20*this.Inflation}
+																		[mark_16rv83asby92j6p4015i]{this.bbc_song_price=20*this.Inflation;'';}[GOTO bbc_buy_song]
+																	Ввести свою цену
+																		[bbc_enter_song_price]Какая будет твоя цена?
+																			[INPUTS this.bbc_song_price]
+																				[mark_612pl1sx3f8722301q81]{this.bbc_song_price=Math.floor(this.bbc_song_price);if (this.bbc_song_price<0 || this.bbc_song_price>1000000) {"[GOTO bbc_enter_song_price]"} else {"[GOTO bbc_buy_song]"}}
+														[bbc_has_no_dvd]У тебя нет {this.things[this.thing_dvd][0]} чтобы поставить песню.{script show_client_inside_rear.qsp}
+															Ааа... точно...
+																[mark_1c679674h7350qu3i10u][GOTO business12]
+											Ничего.
 												[mark_v488m89q7n12mil4782m][GOTO business12]
 										[business12][GOTO client_arriving]
 					Пропустить заставку[ANSWERIMAGE icons/steering_wheel.png|320;420]
 						[mark_xe72jh70wng5iteh660h][GOTO init_vars]
 			English / Английский[ANSWERIMAGE icons/en.png|360;400]
-				[mark_3xkp6ond143dfj8rjbyt]Перевод отсутствует. Если есть желание перевести, пишите: sociofilm@mail.ru
+				[mark_3xkp6ond143dfj8rjbyt]А нету перевода...
 					Дальше...[ANSWERIMAGE icons/next.png|295;400]
 						[mark_6yx11f131mn0hw3864qa][GOTO choose_language]
 			[donate]Достать лопатник.
