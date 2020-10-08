@@ -7,3 +7,5 @@ NOTE: "10" can be 0-13!!!
 Exmaple: disable drivers gun
 
 this.__VUE_HOT_MAP__[Object.keys(this.__VUE_HOT_MAP__)[10]].instances[0].gameData.things[1][1]=0
+
+this.__VUE_HOT_MAP__[Object.keys(this.__VUE_HOT_MAP__)[10]].instances[0].gameData.things[8][1]=1

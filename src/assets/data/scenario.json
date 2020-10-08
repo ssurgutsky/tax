@@ -2056,7 +2056,7 @@
                                                                                                                                                         }
                                                                                                                                                       ],
                                                                                                                                                       "_mark": "",
-                                                                                                                                                      "_content": "[LABEL {if (this.bbc_active && this.bbc_songs == 0 && this.bbc_songs_money_back == 0) {\"Возьму песни у Гургена.\"} else {\"\";}}]"
+                                                                                                                                                      "_content": "[LABEL {if (this.bbc_active && this.bbc_songs == 0 && this.bbc_songs_money_debt == 0) {\"Возьму песни у Гургена.\"} else {\"\";}}]"
                                                                                                                                                     },
                                                                                                                                                     {
                                                                                                                                                       "node": [
@@ -2072,11 +2072,11 @@
                                                                                                                                                                     }
                                                                                                                                                                   ],
                                                                                                                                                                   "_mark": "mark_3rtn69o5a08h2m53v7ub",
-                                                                                                                                                                  "_content": "[LABEL Спасиба тибя, дарагой! Моя хазяина перидать...{this.bbc_songs_money_back=0;'';}{script show_bbc_inside1}]"
+                                                                                                                                                                  "_content": "[LABEL Спасиба тибя, дарагой! Моя хазяина перидать...{this.bbc_songs_money_debt=0;'';}{script show_bbc_inside1}]"
                                                                                                                                                                 }
                                                                                                                                                               ],
                                                                                                                                                               "_mark": "",
-                                                                                                                                                              "_content": "[LABEL {if (this.money >= this.bbc_songs_money_back) {\"Конечно!\"}}]"
+                                                                                                                                                              "_content": "[LABEL {if (this.money >= this.bbc_songs_money_debt) {\"Конечно!\"}}]"
                                                                                                                                                             },
                                                                                                                                                             {
                                                                                                                                                               "node": [
@@ -2094,19 +2094,19 @@
                                                                                                                                                                     }
                                                                                                                                                                   ],
                                                                                                                                                                   "_mark": "mark_f7k0r36y305h0yo8l7dw",
-                                                                                                                                                                  "_content": "[LABEL Тагда идти найти деньга дла хазяина... {this.bbc_songs_money_back} деньга.{script show_bbc_inside1}]"
+                                                                                                                                                                  "_content": "[LABEL Тагда идти найти деньга дла хазяина... {this.bbc_songs_money_debt} деньга.{script show_bbc_inside1}]"
                                                                                                                                                                 }
                                                                                                                                                               ],
                                                                                                                                                               "_mark": "",
-                                                                                                                                                              "_content": "[LABEL {if (this.money < this.bbc_songs_money_back) {\"Нет, нету...\"}}]"
+                                                                                                                                                              "_content": "[LABEL {if (this.money < this.bbc_songs_money_debt) {\"Нет, нету...\"}}]"
                                                                                                                                                             }
                                                                                                                                                           ],
                                                                                                                                                           "_mark": "mark_c874za2z9xgzj3q96ho8",
-                                                                                                                                                          "_content": "[LABEL Ти должин хазяина {this.bbc_songs_money_back} денег... У тибя ест столка?{script show_bbc_inside1}]"
+                                                                                                                                                          "_content": "[LABEL Ти должин хазяина {this.bbc_songs_money_debt} денег... У тибя ест столка?{script show_bbc_inside1}]"
                                                                                                                                                         }
                                                                                                                                                       ],
                                                                                                                                                       "_mark": "",
-                                                                                                                                                      "_content": "[LABEL {if (this.bbc_active && this.bbc_songs ==0 && this.bbc_songs_money_back>0) {\"Отдам выручку за песни.\"}}]"
+                                                                                                                                                      "_content": "[LABEL {if (this.bbc_active && this.bbc_songs == 0 && this.bbc_songs_money_debt > 0) {\"Отдам выручку за песни.\"}}]"
                                                                                                                                                     },
                                                                                                                                                     {
                                                                                                                                                       "node": [
@@ -7094,7 +7094,7 @@
                                                                                                             }
                                                                                                           ],
                                                                                                           "_mark": "mark_8582u5510s0njt5010zs",
-                                                                                                          "_content": "[LABEL {if (this.bbc_songs ==0) {this.bbc_songs=-1;\"Все песни проданы, едь обратно в \" + this.locations[11][0] + \" чтобы отдать выручку и взять новые.\"} else {\"[GOTO business12]\"}}]"
+                                                                                                          "_content": "[LABEL {if (this.bbc_songs ==0) {\"Все песни проданы, едь обратно в \" + this.locations[11][0] + \" чтобы отдать выручку и взять новые.\"} else {\"[GOTO business12]\"}}]"
                                                                                                         }
                                                                                                       ],
                                                                                                       "_mark": "",
@@ -7102,7 +7102,7 @@
                                                                                                     }
                                                                                                   ],
                                                                                                   "_mark": "bbc_song_buy_ok",
-                                                                                                  "_content": "[LABEL Я согласнама, дрюг!{this.money+=this.bbc_song_price;this.bbc_songs--;this.bbc_songs_sold++;this.bbc_songs_money_back+=this.bbc_song_base_price;''}{script show_client_inside_rear.qsp}]"
+                                                                                                  "_content": "[LABEL Я согласнама, дрюг!{this.money+=this.bbc_song_price;this.bbc_songs--;this.bbc_songs_sold++;this.bbc_songs_money_debt+=this.bbc_song_base_price;''}{script show_client_inside_rear.qsp}]"
                                                                                                 },
                                                                                                 {
                                                                                                   "node": [
@@ -7244,7 +7244,7 @@
                                                                     }
                                                                   ],
                                                                   "_mark": "bbc_has_no_dvd",
-                                                                  "_content": "[LABEL У тебя нет {this.things[this.thing_dvd][0]} чтобы поставить песню.{script show_client_inside_rear.qsp}]"
+                                                                  "_content": "[LABEL У тебя отсутствует {this.things[this.thing_dvd][0]}, чтобы поставить песню.{script show_client_inside_rear.qsp}]"
                                                                 }
                                                               ],
                                                               "_mark": "",
@@ -7252,7 +7252,7 @@
                                                             }
                                                           ],
                                                           "_mark": "mark_ng399541422ui8a224j2",
-                                                          "_content": "[LABEL {if (this.things[this.thing_dvd][1]) {\"[GOTO bbc_has_dvd]\"} else {\"[GOTO bbc_has_no_dvd]\"}]"
+                                                          "_content": "[LABEL {if (this.things[this.thing_dvd][1]) {\"[GOTO bbc_has_dvd]\"} else {\"[GOTO bbc_has_no_dvd]\"}}]"
                                                         }
                                                       ],
                                                       "_mark": "",
