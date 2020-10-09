@@ -2103,16 +2103,36 @@
                                                                                                                                                             {
                                                                                                                                                               "node": [
                                                                                                                                                                 {
-                                                                                                                                                                  "_mark": "mark_k829sn7rael6099bf0b1",
-                                                                                                                                                                  "_content": "[LABEL ][GOTO new_location]"
+                                                                                                                                                                  "node": [
+                                                                                                                                                                    {
+                                                                                                                                                                      "node": [
+                                                                                                                                                                        {
+                                                                                                                                                                          "_mark": "mark_k829sn7rael6099bf0b1",
+                                                                                                                                                                          "_content": "[LABEL {this.bbc_song_base_price+=this.bbc_song_inc;'';}][GOTO new_location]"
+                                                                                                                                                                        }
+                                                                                                                                                                      ],
+                                                                                                                                                                      "_mark": "bbc_ok_take_songs",
+                                                                                                                                                                      "_content": "[LABEL Ладно.]"
+                                                                                                                                                                    },
+                                                                                                                                                                    {
+                                                                                                                                                                      "_mark": "",
+                                                                                                                                                                      "_content": "[LABEL ][GOTO goout_bbc]"
+                                                                                                                                                                    }
+                                                                                                                                                                  ],
+                                                                                                                                                                  "_mark": "mark_8saw7okys64o0iulqhqr",
+                                                                                                                                                                  "_content": "[LABEL Хазяина гаварит, цена расти на усе, энфлацияма, не хочиш - не бэри...{script show_bbc_inside1}][ANSWERSORDER ON]"
                                                                                                                                                                 }
                                                                                                                                                               ],
                                                                                                                                                               "_mark": "",
-                                                                                                                                                              "_content": "[LABEL Спасибо, Гурген.]"
+                                                                                                                                                              "_content": "[LABEL {if (this.bbc_song_base_price > this.bbc_song_base_original_price) {\"Эээ, погоди, почему больше?\"} else {\"\"}}]"
+                                                                                                                                                            },
+                                                                                                                                                            {
+                                                                                                                                                              "_mark": "",
+                                                                                                                                                              "_content": "[LABEL ][GOTO bbc_ok_take_songs]"
                                                                                                                                                             }
                                                                                                                                                           ],
                                                                                                                                                           "_mark": "mark_pbdwqy8b5e91045b98xq",
-                                                                                                                                                          "_content": "[LABEL Вай-вай-вай! Дэржи, дарагой {this.bbc_songs=this.bbc_songs_pack;} песин!{script show_bbc_inside1}]"
+                                                                                                                                                          "_content": "[LABEL Вай-вай-вай! Дэржи, дарагой {this.bbc_songs=this.bbc_songs_pack;} песин! Хазяин гаварыт вернут ему {this.bbc_song_base_price} умножыт на {this.bbc_songs_pack} палучаица {this.bbc_songs*this.bbc_song_base_price} деньга.{script show_bbc_inside1}][ANSWERSORDER ON]"
                                                                                                                                                         }
                                                                                                                                                       ],
                                                                                                                                                       "_mark": "",
@@ -4624,7 +4644,7 @@
                                                                                                                                                         }
                                                                                                                                                       ],
                                                                                                                                                       "_mark": "",
-                                                                                                                                                      "_content": "[LABEL Продано песен: {this.bbc_songs_sold}]"
+                                                                                                                                                      "_content": "[LABEL Продано песен: {this.bbc_songs_sold}, в наличии: {this.bbc_songs} из {this.bbc_songs_pack}]"
                                                                                                                                                     },
                                                                                                                                                     {
                                                                                                                                                       "node": [

@@ -400,9 +400,13 @@
 																																								[mark_gs3jinuu1egkf304yjp9][GOTO bbc_main]
 																																					[GOTO bbc_toilet_back]
 																																			{if (this.bbc_active && this.bbc_songs == 0 && this.bbc_songs_money_debt == 0) {"Возьму песни у Гургена."} else {"";}}
-																																				[mark_pbdwqy8b5e91045b98xq]Вай-вай-вай! Дэржи, дарагой {this.bbc_songs=this.bbc_songs_pack;} песин!{script show_bbc_inside1}
-																																					Спасибо, Гурген.
-																																						[mark_k829sn7rael6099bf0b1][GOTO new_location]
+																																				[mark_pbdwqy8b5e91045b98xq]Вай-вай-вай! Дэржи, дарагой {this.bbc_songs=this.bbc_songs_pack;} песин! Хазяин гаварыт вернут ему {this.bbc_song_base_price} умножыт на {this.bbc_songs_pack} палучаица {this.bbc_songs*this.bbc_song_base_price} деньга.{script show_bbc_inside1}[ANSWERSORDER ON]
+																																					{if (this.bbc_song_base_price > this.bbc_song_base_original_price) {"Эээ, погоди, почему больше?"} else {""}}
+																																						[mark_8saw7okys64o0iulqhqr]Хазяина гаварит, цена расти на усе, энфлацияма, не хочиш - не бэри...{script show_bbc_inside1}[ANSWERSORDER ON]
+																																							[bbc_ok_take_songs]Ладно.
+																																								[mark_k829sn7rael6099bf0b1]{this.bbc_song_base_price+=this.bbc_song_inc;'';}[GOTO new_location]
+																																							[GOTO goout_bbc]
+																																					[GOTO bbc_ok_take_songs]
 																																			{if (this.bbc_active && this.bbc_songs == 0 && this.bbc_songs_money_debt > 0) {"Отдам деньги за песни."}}[ANSWERSORDER ON]
 																																				[mark_c874za2z9xgzj3q96ho8]Хазяина гаварит, ти должин хазяина {this.bbc_songs_money_debt} денег... У тибя ест столка?{script show_bbc_inside1}
 																																					{if (this.money >= this.bbc_songs_money_debt) {"Да, есть."}}
@@ -863,7 +867,7 @@
 																																				[mark_a06fr4z9y3uqoeo9l509][GOTO location_actions]
 																																			Доход от наркобизнеса: {this.drugMoney}[ANSWERIMAGE icons/stats.png|450;350]
 																																				[mark_8bd2q9oi4v2p605k656f][GOTO location_actions]
-																																			Продано песен: {this.bbc_songs_sold}
+																																			Продано песен: {this.bbc_songs_sold}, в наличии: {this.bbc_songs} из {this.bbc_songs_pack}
 																																				[mark_p6b6lo29pz992xmz7e1p][GOTO location_actions]
 																																			Вернуться в меню[ANSWERIMAGE icons/exit.png|570;390]
 																																				[mark_s59w1oe4m8v021k5xipu][GOTO location_actions]
