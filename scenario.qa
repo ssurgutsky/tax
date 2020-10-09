@@ -298,15 +298,15 @@
 																																			{if (this.barsuk_credit > 0) {"Верну долг[ANSWERIMAGE icons/money6.png|380;400]"}}
 																																				[mark_375h535dew1mhyz6z1bu][GOTO barsuk_bill]
 																																	{if (this.location==11) {"Зайду в " + this.locations[this.location][0] + "[ANSWERIMAGE icons/enter.png|260;400]"}}
-																																		[bbc_main]Что будешь делать?{this.bbc_hello=0;'';}[IMAGE bbc_main]
+																																		[bbc_main]Что будешь делать?{this.bbc_hello=0;'';}[IMAGE bbc_main][ANSWERSORDER ON]
 																																			Возьму себе что-нибудь отравиться... эээ... то есть поесть.
-																																				[bbc_ask]{if (!this.bbc_hello) {this.bbc_hello=1;"Задараствуй, дарагой! "}}Шито будетешь кушат?{script show_bbc_inside1}
+																																				[bbc_ask]{if (!this.bbc_hello) {this.bbc_hello=1;"Задараствуй, дарагой! "}}Шито будетешь кушат?{script show_bbc_inside1}[ANSWERSORDER ON]
 																																					{this.bbc_foods[1][1]}, цена: {this.bbc_foods[1][2]}
 																																						[mark_da44aaiw7582f1566i62]{this.bbc_food=1;'';}
 																																							
-																																								[bbc_check_money]{if (this.money>=this.bbc_foods[this.bbc_food][2]) {this.money-=this.bbc_foods[this.bbc_food][2];"Чичас пенису, дарагой. Садысь, нэкуда нэ ухады!";} else {"У табе нэ хватаэт дэнэг, дарагой..."}}{script show_bbc_inside1}
+																																								[bbc_check_money]{if (this.money>=this.bbc_foods[this.bbc_food][2]) {this.money-=this.bbc_foods[this.bbc_food][2];"Чичас пенису, дарагой. Садысь, нэкуда нэ ухады!";} else {"У табе нэ хватаэт дэнэг, дарагой..."}}{script show_bbc_inside1}[ANSWERSORDER ON]
 																																									{if (this.money>=this.bbc_foods[this.bbc_food][2]) {"Пройду в зал."}}
-																																										[mark_kr96y4rhogx1sv931r41]Обычная тошниловка. Что будешь делать?[IMAGE bbc_sit.jpg]
+																																										[mark_kr96y4rhogx1sv931r41]Обычная тошниловка. Что будешь делать?[IMAGE bbc_sit.jpg][ANSWERSORDER ON]
 																																											Выберу стол.
 																																												[mark_0yh2bu9lqh51av1wovv0]{this.bbc_toilet_force=0;if (Math.random()<0.8) {"[GOTO bbc_table_ok]"} else {"[GOTO bbc_table_dirty]"}}
 																																													
@@ -314,9 +314,9 @@
 																																															Присяду за стол.
 																																																[bbc_sitting]...[IMAGE bbc_sit2.jpg]
 																																																	Подожду.
-																																																		[bbc_food_ready]Усе гатов, дарагой. Сваимы рукамэ гатовыл, прыатнава аппэтита!{script show_bbc_inside2}
+																																																		[bbc_food_ready]Усе гатов, дарагой. Сваимы рукамэ гатовыл, прыатнава аппэтита!{script show_bbc_inside2}[ANSWERSORDER ON]
 																																																			Ну и где оно?
-																																																				[mark_36yn54fdi0khe47ew00i]А вот ано! Пробуэ, дарагой, очин укусно!{this.bbc_foods[this.bbc_food][4]=1;'';}{"[IMAGE " + this.bbc_foods[this.bbc_food][3] +"]"}
+																																																				[mark_36yn54fdi0khe47ew00i]А вот ано! Пробуэ, дарагой, очин укусно!{this.bbc_foods[this.bbc_food][4]=1;'';}{"[IMAGE " + this.bbc_foods[this.bbc_food][3] +"]"}[ANSWERSORDER ON]
 																																																					Попробую.
 																																																						[mark_642b99x492qk4b48ks84]{if (Math.random() < 0.7 && !this.bbc_toilet_force) {"[GOTO bbc_food_ok]";} else {"[GOTO bbc_food_fail]"}}
 																																																							
@@ -324,7 +324,7 @@
 																																																									...
 																																																										[mark_0hst43z63x78lp9qy17y]{let bbc_active=this.bbc_foods[1][4] && this.bbc_foods[2][4] && this.bbc_foods[3][4]; if (!this.bbc_active && bbc_active) {"[GOTO bbc_boss_deal]"} else {"[GOTO bbc_food_finish]"}}
 																																																											
-																																																												[bbc_boss_deal]Пиветствуя тибя!{script show_bbc_boss}
+																																																												[bbc_boss_deal]Пиветствуя тибя!{script show_bbc_boss}[ANSWERSORDER ON]
 																																																													А вы кто?
 																																																														[mark_27c213tyh1acny86s1vy]Я - Хазяина этава ристарана!{script show_bbc_boss}
 																																																															[bbc_hi_boss]Здравствуйте.
@@ -334,17 +334,17 @@
 																																																																			Часто бегаю в хожатхон.
 																																																																				[mark_0how7nc3r57ybc544909]Наш кухнь - восточный кухнь, такой непредсказуеми, как женщина.{script show_bbc_boss}
 																																																																					[bbc_that_is_right]Это точно...
-																																																																						[mark_398m8urp0lbu9wrv9g75]Слюшай, дрюг, я знать ты таксиста. У миня есть дела к тибе. Хочишь я рассказать?{script show_bbc_boss}
+																																																																						[mark_398m8urp0lbu9wrv9g75]Слюшай, дрюг, я знать ты таксиста. У миня есть дела к тибе. Хочишь я рассказать?{script show_bbc_boss}[ANSWERSORDER ON]
 																																																																							Давай.
-																																																																								[mark_103qs786n8b560095ex9]Ты знать, я очинь лубить музыка. Я записать многа кароших песен сваих. Я очинь хотеть дарить их лудям. Ты памочь дарить их лудям в такси?{script show_bbc_boss}
+																																																																								[mark_103qs786n8b560095ex9]Ты знать, я очинь лубить музыка. Я записать многа кароших песен сваих. Я очинь хотеть дарить их лудям, пахожым на миня. Ты памочь дарить их лудям в такси?{script show_bbc_boss}
 																																																																									А мне что с этого?
-																																																																										[mark_3e3k920n538dec6j4ehx]Ты дарить их лудям в такси за деньга. Я разрешать тибе хадить ходжатон усегда бисплатна. Сагласин?{this.bbc_toilet_cost=0;'';}{script show_bbc_boss}
+																																																																										[mark_3e3k920n538dec6j4ehx]Ты дарить их лудям в такси за деньга. Я разрешать тибе хадить ходжатон усегда бисплатна. Сагласин?{this.bbc_toilet_cost=0;'';}{script show_bbc_boss}[ANSWERSORDER ON]
 																																																																											Как-то не впечатляет...
-																																																																												[mark_z98h6e269cs42897q016]Карашо, я исчо оставлать тибе половина деньга-выручка! Согласин?{this.bbc_songs_rate=50;'';}{script show_bbc_boss}
+																																																																												[mark_z98h6e269cs42897q016]Карашо, ти мине платит с каждай песни {this.bbc_song_base_price} деньга, а сибэ оставлат осталной деньга-выручка! Согласин?{script show_bbc_boss}[ANSWERSORDER ON]
 																																																																													А можно послушать какую-нибудь песню?
-																																																																														[mark_0372803j3981237y48b3]"Хаджи Мурат, Хаджи Мурат, Хаджи Мурат, Хаджи Мурат, Хаджи Мурат - мине как брат!"{script show_bbc_boss}
+																																																																														[mark_0372803j3981237y48b3]"Хаджи Мурат, Хаджи Мурат, Хаджи Мурат, Хаджи Мурат, Хаджи Мурат - мине как брат!"{script show_bbc_boss}[ANSWERSORDER ON]
 																																																																															[bbc_songs_ok]Ладно, согласен.
-																																																																																[mark_yjit32aiu58unc936i1z]Я очинь рад, дрюг! Я разбагатеть скора... то ись ми с табой дарить песни лудям в этам мира! Иди узьми песни у Гурген.{this.bbc_active=1;'';}{script show_bbc_boss}
+																																																																																[mark_yjit32aiu58unc936i1z]Я очинь рад, дрюг! Мая разбагатеть скора... то ись ми с табой дарить песни лудям этава мира! Иди озьми песни у Гурген.{this.bbc_active=1;'';}{script show_bbc_boss}
 																																																																																	Пойду к Гургену.
 																																																																																		[mark_ujk3ku2qhqoe6q57qdh2][GOTO bbc_main]
 																																																																															[bbc_no_songs]Нет, извини.
@@ -357,7 +357,7 @@
 																																																																									[GOTO bbc_listen_song]
 																																																																							[GOTO bbc_no_songs]
 																																																																			Вкус на любителя...
-																																																																				[mark_o59t78pzw16z2pi62ve4]Ты если нравица наш кухнь - карашо, а иначи ты ходить хожатхон и никакой проблема!{script show_bbc_boss}
+																																																																				[mark_o59t78pzw16z2pi62ve4]Ты если нравица наш кухнь - карашо, а если не нравица - ты проста хадить хожатхон, и никакой проблема!{script show_bbc_boss}
 																																																																					[GOTO bbc_that_is_right]
 																																																													[GOTO bbc_hi_boss]
 																																																												[bbc_food_finish]Тибе жэ панравылась, дарагой? Прыхады к нам исчо!{script show_bbc_inside1}
@@ -366,7 +366,7 @@
 																																																									[GOTO goout_bbc]
 																																																					[GOTO goout_bbc]
 																																																			{if (this.bbc_guy_f) {"Слушай, лучше отвернись!"} else {"Может повернешься ко мне лицом?"}}
-																																																				[mark_f1g392160nkd817is4y1]Карашо, дарагой!{this.bbc_guy_f=1-this.bbc_guy_f;'';}{script show_bbc_inside2}
+																																																				[mark_f1g392160nkd817is4y1]Карашо, дарагой!{this.bbc_guy_f=1-this.bbc_guy_f;'';}{script show_bbc_inside2}[ANSWERSORDER ON]
 																																																					{if (this.bbc_guy_f) {"О боже мой!"} else {"Вот так то лучше!"}}
 																																																						[mark_2067ws6rinm16fj95961]{if (this.bbc_guy_f) {"Мая знат - я слышкам красыв дла этава мира."} else {"Хазяина мине ругат када я паварачиваца клиэнтам."}}{script show_bbc_inside2}
 																																																							Мда...
@@ -384,7 +384,7 @@
 																																					{this.bbc_foods[3][1]}, цена: {this.bbc_foods[3][2]}
 																																						[mark_r0ymqxivfw0yt47rx11k]{this.bbc_food=3;}[GOTO bbc_check_money]
 																																					{if (this.bbc_guy_f) {"Слушай, лучше отвернись!"} else {"Может повернешься ко мне лицом?"}}
-																																						[mark_4e3t8s5530ao2401r3d3]Как скажыш, дарагой.{this.bbc_guy_f=1-this.bbc_guy_f;'';}{script show_bbc_inside1}
+																																						[mark_4e3t8s5530ao2401r3d3]Как скажыш, дарагой.{this.bbc_guy_f=1-this.bbc_guy_f;'';}{script show_bbc_inside1}[ANSWERSORDER ON]
 																																							{if (this.bbc_guy_f) {"Матерь божья!"} else {"Вот так то лучше!"}}
 																																								[mark_go1rg52kjkw58frwr348]{if (this.bbc_guy_f) {"Мой мама гаварит я слышкам красыв дла этава мира."} else {"Хазяина гаварит мине лудше задам хадыть."}}{script show_bbc_inside1}
 																																									Да уж...
@@ -393,7 +393,7 @@
 																																								[mark_63811fm59blg8p9464cp]{this.bbc_guy_f=0;'';}[GOTO bbc_ask]
 																																					[GOTO goout_bbc]
 																																			Пойду в хожатхона.
-																																				[mark_s4x43w7r5y518b583iho]Вход в хожатхону {if (this.bbc_toilet_cost > 0) {"стоит: " + this.bbc_toilet_cost+'.'} else {"бесплатно!"}} Зайдешь?[IMAGE bbc_toilet.jpg]
+																																				[mark_s4x43w7r5y518b583iho]Вход в хожатхону {if (this.bbc_toilet_cost > 0) {"стоит: " + this.bbc_toilet_cost+'.'} else {"бесплатно!"}} Зайдешь?[IMAGE bbc_toilet.jpg][ANSWERSORDER ON]
 																																					Да, зайду.
 																																						[mark_1wrc7ygvd3cd0moz88si]{if (this.money>=this.bbc_toilet_cost) {this.money-=this.bbc_toilet_cost;"Ну как, интересно? Делай свои дела.[IMAGE bbc_toilet_inside.jpg]"} else {"У табе нэ хватаэт дэнэг, дарагой...[IMAGE bbc_toilet.jpg]"}}
 																																							[bbc_toilet_back]Вернусь обратно.
@@ -403,16 +403,17 @@
 																																				[mark_pbdwqy8b5e91045b98xq]Вай-вай-вай! Дэржи, дарагой {this.bbc_songs=this.bbc_songs_pack;} песин!{script show_bbc_inside1}
 																																					Спасибо, Гурген.
 																																						[mark_k829sn7rael6099bf0b1][GOTO new_location]
-																																			{if (this.bbc_active && this.bbc_songs == 0 && this.bbc_songs_money_debt > 0) {"Отдам деньги за песни."}}
+																																			{if (this.bbc_active && this.bbc_songs == 0 && this.bbc_songs_money_debt > 0) {"Отдам деньги за песни."}}[ANSWERSORDER ON]
 																																				[mark_c874za2z9xgzj3q96ho8]Хазяина гаварит, ти должин хазяина {this.bbc_songs_money_debt} денег... У тибя ест столка?{script show_bbc_inside1}
 																																					{if (this.money >= this.bbc_songs_money_debt) {"Да, есть."}}
-																																						[mark_3rtn69o5a08h2m53v7ub]Спасиба тибя, дарагой! Моя пиридать деньга хазяина...{this.bbc_songs_money_debt=0;'';}{script show_bbc_inside1}
+																																						[mark_3rtn69o5a08h2m53v7ub]Спасиба тибя, дарагой! Моя пиридать деньга хазяина...{this.money-=this.bbc_songs_money_debt;this.bbc_songs_money_debt=0;'';}{script show_bbc_inside1}
 																																							Пожалуйста.
 																																								[mark_223fdf55mf384fdz4r3d][GOTO bbc_main]
 																																					{if (this.money < this.bbc_songs_money_debt) {"Нет, нету..."}}
 																																						[mark_f7k0r36y305h0yo8l7dw]Тагда ти идти найти деньга дла хазяина... {this.bbc_songs_money_debt} деньга.{script show_bbc_inside1}
 																																							Ладно, ладно...
 																																								[mark_n43td192do22un1se8u8][GOTO bbc_main]
+																																					[GOTO goout_bbc]
 																																			[goout_bbc]Уйду отсюда.
 																																				[mark_q0lh9ylf51aef0ubpy0q][GOTO new_location]
 																																	{if (this.location == 12 && this.money>=100) {"Зайду в " + this.locations[this.location][0] + "[ANSWERIMAGE icons/enter.png|260;400]"}}
@@ -862,6 +863,8 @@
 																																				[mark_a06fr4z9y3uqoeo9l509][GOTO location_actions]
 																																			Доход от наркобизнеса: {this.drugMoney}[ANSWERIMAGE icons/stats.png|450;350]
 																																				[mark_8bd2q9oi4v2p605k656f][GOTO location_actions]
+																																			Продано песен: {this.bbc_songs_sold}
+																																				[mark_p6b6lo29pz992xmz7e1p][GOTO location_actions]
 																																			Вернуться в меню[ANSWERIMAGE icons/exit.png|570;390]
 																																				[mark_s59w1oe4m8v021k5xipu][GOTO location_actions]
 																																[vip_client_found][GOTO vip_taxing]
@@ -1306,13 +1309,13 @@
 																	[GOTO eh_take_dvd]
 													С рук купил.[ANSWERIMAGE icons/three_dots.png|295;400]
 														[mark_4741edx5ftui1649o9hs][GOTO give_me_my_dvd]
-										[business11]{if (this.bbc_active && this.bbc_songs > 0 && this.client_type==3) {"Этот клиент очень похож на того, кто купил бы у тебя песни из " + this.locations[11][0] +". Что будешь делать?"} else {"[GOTO business12]"}}{script show_client_inside_rear.qsp}
+										[business11]{if (this.bbc_active && this.bbc_songs > 0 && this.client_type==3) {"Этот клиент очень похож на того, кто купил бы у тебя песни из " + this.locations[11][0] +". Что будешь делать?"} else {"[GOTO business12]"}}{script show_client_inside_rear.qsp}[ANSWERSORDER ON]
 											Поставлю ему песню.
 												[mark_ng399541422ui8a224j2]{if (this.things[this.thing_dvd][1]) {"[GOTO bbc_has_dvd]"} else {"[GOTO bbc_has_no_dvd]"}}
 													
 														[bbc_has_dvd]...[MUSIC bbc_song1]{this.dvd_playing=0;'';}{script show_client_inside_rear.qsp}
 															Нравится песня?
-																[bbc_ask_buy_song]{if (Math.random() <0.5) {"Какой кароший и красивий песнь, дрюг!"} else {"Васхититильны песнь, дрюжиша!"}} Я хатеть кюпить тибя етот песнь!{this.bbc_song_offer=Math.floor(Math.random()*25)*this.Inflation;'';}{script show_client_inside_rear.qsp}
+																[bbc_ask_buy_song]{if (Math.random() <0.5) {"Какой кароший и красивий песнь, дрюг!"} else {"Васхититильны песнь, дрюжиша!"}} Я хатеть кюпить тибя етот песнь!{this.bbc_song_offer=Math.floor(Math.random()*25)*this.Inflation;this.client_state=0;'';}{script show_client_inside_rear.qsp}[ANSWERSORDER ON]
 																	Продам за {this.bbc_song_price=5*this.Inflation}
 																		[mark_kzgvzck7bu4jdw16oloo]{this.bbc_song_price=5*this.Inflation;'';}[GOTO bbc_buy_song]
 																			
@@ -1323,14 +1326,24 @@
 																								[mark_8582u5510s0njt5010zs]{if (this.bbc_songs ==0) {"Все песни проданы, едь обратно в " + this.locations[11][0] + " чтобы отдать выручку и взять новые."} else {"[GOTO business12]"}}{script show_client_inside_rear.qsp}
 																									Ясно.
 																										[mark_3q1xy7lc26em0n0371kc][GOTO business12]
-																						[bbc_song_buy_fail]Чирисчюр дорага дла миня! Давай подишвше, дрюг?{this.client_state=1;'';}{script show_client_inside_rear.qsp}
+																						[bbc_song_buy_fail]Чирисчюр дорага дла миня! Давай подишвше, дрюг?{this.client_state=1;'';}{script show_client_inside_rear.qsp}[ANSWERSORDER ON]
 																							[GOTO bbc_say_another_price]
 																							Нет, извини.
-																								[mark_d0p742evh9o4319934fv]Пажалустанама, дрюг! Юступи мине?{this.client_state=2;'';}{script show_client_inside_rear.qsp}
-																									[bbc_say_another_price]Назвать другую цену.
-																										[mark_48q507159s544oanlq14][GOTO bbc_ask_buy_song]
-																									Нет, извини, не могу.
-																										[mark_fq0o8775tyw34ew9z905][GOTO business12]
+																								[mark_d0p742evh9o4319934fv]Пажалустанама, дрюг! Юступи мине? Давай я паказат тибе фото мой семья!{this.client_state=2;'';}{script show_client_inside_rear.qsp}[ANSWERSORDER ON]
+																									[GOTO bbc_say_another_price]
+																									Ну, давай, покажи.
+																										[mark_dqeqolifzvk20km7v0ky]Вот сматреть дрюг, мая семия! Я очин скучат по ним, а твой песнь очинь радават миня здес! Как будта я с семией шичас!{this.bbc_show_photo=1;this.client_state=0;'';}{script show_client_inside_rear.qsp}[ANSWERSORDER ON]
+																											[GOTO bbc_say_another_price]
+																											Покажи ближе, не видно...
+																												[mark_8ghr977abllbb02u54z8]Вот сматреть дрюг, я там центра!{this.bbc_show_photo=0;this.client_state=0;'';}[IMAGE bbc_photo.jpg][ANSWERSORDER ON]
+																													[bbc_say_another_price]Назвать другую цену.
+																														[mark_48q507159s544oanlq14][GOTO bbc_ask_buy_song]
+																													[bbc_no_sorry]Нет, извини, не могу.
+																														[mark_4l5ol9qsod2tzxgbmdg0]Ладна, я капить многа денег и купит у тибя патом!{script show_client_inside_rear.qsp}
+																															Да, правильно.
+																																[mark_fq0o8775tyw34ew9z905][GOTO business12]
+																											[GOTO bbc_no_sorry]
+																									[GOTO bbc_no_sorry]
 																	Продам за {this.bbc_song_price=10*this.Inflation}
 																		[mark_40codk7g8xt0xyn711s9]{this.bbc_song_price=10*this.Inflation;'';}[GOTO bbc_buy_song]
 																	Продам за {this.bbc_song_price=15*this.Inflation}
