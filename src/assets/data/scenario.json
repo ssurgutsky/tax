@@ -7520,7 +7520,7 @@
                       "node": [
                         {
                           "_mark": "mark_4tx0ilu5994y600686mx",
-                          "_content": "[LABEL ][GOTO main_menu]"
+                          "_content": "[LABEL {script init_vars}][GOTO main_menu]"
                         }
                       ],
                       "_mark": "",

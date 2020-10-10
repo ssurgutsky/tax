@@ -1376,4 +1376,4 @@
 						[mark_2czjpaenu1x9s27dovb5][GOTO START]
 		[GAME_UPGRADEPOINT]Короче, был апгрейд игры, кое что поменялось. Не волнуйся, ничего не пропало. Перейдем сейчас на карту.[IMAGE in_autoservice15,in_autoservice18,in_carwashing14,abandoned_garage]
 			Ну, ладно...
-				[mark_4tx0ilu5994y600686mx][GOTO main_menu]
+				[mark_4tx0ilu5994y600686mx]{script init_vars}[GOTO main_menu]
