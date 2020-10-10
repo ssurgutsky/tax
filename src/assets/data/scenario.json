@@ -1676,7 +1676,7 @@
                                                                                                                                                                                                                                                                                                                                     }
                                                                                                                                                                                                                                                                                                                                   ],
                                                                                                                                                                                                                                                                                                                                   "_mark": "mark_0372803j3981237y48b3",
-                                                                                                                                                                                                                                                                                                                                  "_content": "[LABEL \"Хаджи Мурат, Хаджи Мурат, Хаджи Мурат, Хаджи Мурат, Хаджи Мурат - мине как брат!\"{script show_bbc_boss}][ANSWERSORDER ON]"
+                                                                                                                                                                                                                                                                                                                                  "_content": "[LABEL Пожалустанама! Этат песн называца \"Лолалар\" шито упереводи значид \"Тулпаны\". Я написат ее вмести с Улугбеком Рахматуллаев. Ну как увместе - он писат, петь, а я дарит-прадавать лудям.{script show_bbc_boss}][BGNDAUDIO bbc_song1][ANSWERSORDER ON]"
                                                                                                                                                                                                                                                                                                                                 }
                                                                                                                                                                                                                                                                                                                               ],
                                                                                                                                                                                                                                                                                                                               "_mark": "",
@@ -1828,7 +1828,7 @@
                                                                                                                                                                                                                                             }
                                                                                                                                                                                                                                           ],
                                                                                                                                                                                                                                           "_mark": "bbc_food_fail",
-                                                                                                                                                                                                                                          "_content": "[LABEL Ты траванулся и провел в хожатхоне 2 часа.{this.game_hours+=2;if (this.money>=this.bbc_toilet_cost) {this.money-=this.bbc_toilet_cost;'';} else {this.money=0;'';}}][IMAGE bbc_toilet.jpg]"
+                                                                                                                                                                                                                                          "_content": "[LABEL Ты траванулся и провел в хожатхоне 2 часа.{this.game_hours+=2;if (this.money>=this.bbc_toilet_cost) {this.money-=this.bbc_toilet_cost;'';} else {this.money=0;'';}}][IMAGE bbc_toilet.jpg][MUSIC NONE]"
                                                                                                                                                                                                                                         }
                                                                                                                                                                                                                                       ],
                                                                                                                                                                                                                                       "_mark": "",
@@ -2090,7 +2090,7 @@
                                                                                                                                                             }
                                                                                                                                                           ],
                                                                                                                                                           "_mark": "mark_s4x43w7r5y518b583iho",
-                                                                                                                                                          "_content": "[LABEL Вход в хожатхону {if (this.bbc_toilet_cost > 0) {\"стоит: \" + this.bbc_toilet_cost+'.'} else {\"бесплатно!\"}} Зайдешь?][IMAGE bbc_toilet.jpg][ANSWERSORDER ON]"
+                                                                                                                                                          "_content": "[LABEL Вход в хожатхону {if (this.bbc_toilet_cost > 0) {\"стоит: \" + this.bbc_toilet_cost+'.'} else {\"бесплатно!\"}} Зайдешь?][IMAGE bbc_toilet.jpg][MUSIC NONE][ANSWERSORDER ON]"
                                                                                                                                                         }
                                                                                                                                                       ],
                                                                                                                                                       "_mark": "",
@@ -2108,7 +2108,7 @@
                                                                                                                                                                       "node": [
                                                                                                                                                                         {
                                                                                                                                                                           "_mark": "mark_k829sn7rael6099bf0b1",
-                                                                                                                                                                          "_content": "[LABEL {this.bbc_song_base_price+=this.bbc_song_inc;'';}][GOTO new_location]"
+                                                                                                                                                                          "_content": "[LABEL ][GOTO new_location]"
                                                                                                                                                                         }
                                                                                                                                                                       ],
                                                                                                                                                                       "_mark": "bbc_ok_take_songs",
@@ -2147,18 +2147,12 @@
                                                                                                                                                                 {
                                                                                                                                                                   "node": [
                                                                                                                                                                     {
-                                                                                                                                                                      "node": [
-                                                                                                                                                                        {
-                                                                                                                                                                          "_mark": "mark_223fdf55mf384fdz4r3d",
-                                                                                                                                                                          "_content": "[LABEL ][GOTO bbc_main]"
-                                                                                                                                                                        }
-                                                                                                                                                                      ],
                                                                                                                                                                       "_mark": "",
-                                                                                                                                                                      "_content": "[LABEL Пожалуйста.]"
+                                                                                                                                                                      "_content": "[LABEL ][GOTO goout_bbc]"
                                                                                                                                                                     }
                                                                                                                                                                   ],
                                                                                                                                                                   "_mark": "mark_3rtn69o5a08h2m53v7ub",
-                                                                                                                                                                  "_content": "[LABEL Спасиба тибя, дарагой! Моя пиридать деньга хазяина...{this.money-=this.bbc_songs_money_debt;this.bbc_songs_money_debt=0;'';}{script show_bbc_inside1}]"
+                                                                                                                                                                  "_content": "[LABEL Спасиба тибя, дарагой! Моя пиридать деньга хазяина...{this.money-=this.bbc_songs_money_debt;this.bbc_songs_money_debt=0;this.bbc_song_base_price+=this.bbc_song_inc;'';}}{script show_bbc_inside1}]"
                                                                                                                                                                 }
                                                                                                                                                               ],
                                                                                                                                                               "_mark": "",
@@ -2202,7 +2196,7 @@
                                                                                                                                                       "node": [
                                                                                                                                                         {
                                                                                                                                                           "_mark": "mark_q0lh9ylf51aef0ubpy0q",
-                                                                                                                                                          "_content": "[LABEL ][GOTO new_location]"
+                                                                                                                                                          "_content": "[LABEL ][GOTO new_location][MUSIC NONE]"
                                                                                                                                                         }
                                                                                                                                                       ],
                                                                                                                                                       "_mark": "goout_bbc",
@@ -2210,7 +2204,7 @@
                                                                                                                                                     }
                                                                                                                                                   ],
                                                                                                                                                   "_mark": "bbc_main",
-                                                                                                                                                  "_content": "[LABEL Что будешь делать?{this.bbc_hello=0;'';}][IMAGE bbc_main][ANSWERSORDER ON]"
+                                                                                                                                                  "_content": "[LABEL Что будешь делать?{this.bbc_hello=0;'';}][IMAGE bbc_main][MUSIC bbc_song_bg][AMBIENT NONE][ANSWERSORDER ON]"
                                                                                                                                                 }
                                                                                                                                               ],
                                                                                                                                               "_mark": "",
@@ -7223,8 +7217,14 @@
                                                                                                                 {
                                                                                                                   "node": [
                                                                                                                     {
-                                                                                                                      "_mark": "",
-                                                                                                                      "_content": "[LABEL ][GOTO bbc_say_another_price]"
+                                                                                                                      "node": [
+                                                                                                                        {
+                                                                                                                          "_mark": "mark_48q507159s544oanlq14",
+                                                                                                                          "_content": "[LABEL ][GOTO bbc_ask_buy_song]"
+                                                                                                                        }
+                                                                                                                      ],
+                                                                                                                      "_mark": "bbc_say_another_price",
+                                                                                                                      "_content": "[LABEL Назвать другую цену.]"
                                                                                                                     },
                                                                                                                     {
                                                                                                                       "node": [
@@ -7233,46 +7233,42 @@
                                                                                                                             {
                                                                                                                               "node": [
                                                                                                                                 {
-                                                                                                                                  "_mark": "mark_48q507159s544oanlq14",
-                                                                                                                                  "_content": "[LABEL ][GOTO bbc_ask_buy_song]"
+                                                                                                                                  "_mark": "mark_17do003t1mbb42589ekc",
+                                                                                                                                  "_content": "[LABEL {this.bbc_song_price=0*this.Inflation;'';}][GOTO bbc_buy_song]"
                                                                                                                                 }
                                                                                                                               ],
-                                                                                                                              "_mark": "bbc_say_another_price",
-                                                                                                                              "_content": "[LABEL Назвать другую цену.]"
-                                                                                                                            },
-                                                                                                                            {
-                                                                                                                              "node": [
-                                                                                                                                {
-                                                                                                                                  "node": [
-                                                                                                                                    {
-                                                                                                                                      "node": [
-                                                                                                                                        {
-                                                                                                                                          "_mark": "mark_fq0o8775tyw34ew9z905",
-                                                                                                                                          "_content": "[LABEL ][GOTO business12]"
-                                                                                                                                        }
-                                                                                                                                      ],
-                                                                                                                                      "_mark": "",
-                                                                                                                                      "_content": "[LABEL Да, правильно.]"
-                                                                                                                                    }
-                                                                                                                                  ],
-                                                                                                                                  "_mark": "mark_4l5ol9qsod2tzxgbmdg0",
-                                                                                                                                  "_content": "[LABEL Ладна, я капить многа денег и купит у тибя патом!{script show_client_inside_rear.qsp}]"
-                                                                                                                                }
-                                                                                                                              ],
-                                                                                                                              "_mark": "bbc_no_sorry",
-                                                                                                                              "_content": "[LABEL Нет, извини, не могу.]"
+                                                                                                                              "_mark": "",
+                                                                                                                              "_content": "[LABEL Эх, ладно, бери бесплатно!]"
                                                                                                                             }
                                                                                                                           ],
                                                                                                                           "_mark": "mark_8ghr977abllbb02u54z8",
-                                                                                                                          "_content": "[LABEL Вот сматреть дрюг, я там центра!{this.bbc_show_photo=0;this.client_state=0;'';}][IMAGE bbc_photo.jpg][ANSWERSORDER ON]"
+                                                                                                                          "_content": "[LABEL Вот сматреть дрюг, я там центра! Саувсем маленки...{this.bbc_show_photo=0;this.client_state=0;'';}][IMAGE bbc_photo.jpg][ANSWERSORDER ON]"
                                                                                                                         }
                                                                                                                       ],
                                                                                                                       "_mark": "",
                                                                                                                       "_content": "[LABEL Покажи ближе, не видно...]"
                                                                                                                     },
                                                                                                                     {
-                                                                                                                      "_mark": "",
-                                                                                                                      "_content": "[LABEL ][GOTO bbc_no_sorry]"
+                                                                                                                      "node": [
+                                                                                                                        {
+                                                                                                                          "node": [
+                                                                                                                            {
+                                                                                                                              "node": [
+                                                                                                                                {
+                                                                                                                                  "_mark": "mark_fq0o8775tyw34ew9z905",
+                                                                                                                                  "_content": "[LABEL ][GOTO business12]"
+                                                                                                                                }
+                                                                                                                              ],
+                                                                                                                              "_mark": "",
+                                                                                                                              "_content": "[LABEL Да, правильно.]"
+                                                                                                                            }
+                                                                                                                          ],
+                                                                                                                          "_mark": "mark_4l5ol9qsod2tzxgbmdg0",
+                                                                                                                          "_content": "[LABEL Ладна, я капить многа денег и купит у тибя патом!{script show_client_inside_rear.qsp}]"
+                                                                                                                        }
+                                                                                                                      ],
+                                                                                                                      "_mark": "bbc_no_sorry",
+                                                                                                                      "_content": "[LABEL Нет, извини, дешевле не могу.]"
                                                                                                                     }
                                                                                                                   ],
                                                                                                                   "_mark": "mark_dqeqolifzvk20km7v0ky",
@@ -7292,7 +7288,7 @@
                                                                                                         }
                                                                                                       ],
                                                                                                       "_mark": "",
-                                                                                                      "_content": "[LABEL Нет, извини.]"
+                                                                                                      "_content": "[LABEL Нет, дешевле не могу.]"
                                                                                                     }
                                                                                                   ],
                                                                                                   "_mark": "bbc_song_buy_fail",
@@ -7364,7 +7360,7 @@
                                                                                     }
                                                                                   ],
                                                                                   "_mark": "bbc_enter_song_price",
-                                                                                  "_content": "[LABEL Какая будет твоя цена?]"
+                                                                                  "_content": "[LABEL Какая будет твоя цена?{script show_client_inside_rear.qsp}]"
                                                                                 }
                                                                               ],
                                                                               "_mark": "",
@@ -7418,7 +7414,7 @@
                                                         }
                                                       ],
                                                       "_mark": "",
-                                                      "_content": "[LABEL Ничего.]"
+                                                      "_content": "[LABEL Еду молча дальше.]"
                                                     }
                                                   ],
                                                   "_mark": "business11",
