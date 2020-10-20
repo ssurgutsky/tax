@@ -2,7 +2,7 @@
 
 export default {
   // Increase this on every update to reload assets for new on startup
-  GAME_VERSION: 19,
+  GAME_VERSION: 21,
   // Release = true
   CACHE_ENABLED: true,
 
@@ -21,5 +21,6 @@ export default {
   ENABLE_LOAD_BUTTON: true,
   ENABLE_SKIP_BUTTON: true,
   ENABLE_EPISODES_BUTTON: false,
-  ENABLE_BACK_BUTTON: false
+  ENABLE_BACK_BUTTON: false,
+  ENABLE_DONATE_BUTTON: true
 }

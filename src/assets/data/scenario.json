@@ -7464,7 +7464,7 @@
                         }
                       ],
                       "_mark": "",
-                      "_content": "[LABEL Русский / Russian][ANSWERIMAGE icons/ru.png|50;400]"
+                      "_content": "[LABEL Начать игру.][ANSWERIMAGE icons/ru.png|50;400]"
                     },
                     {
                       "node": [
@@ -7473,20 +7473,20 @@
                             {
                               "node": [
                                 {
-                                  "_mark": "mark_6yx11f131mn0hw3864qa",
-                                  "_content": "[LABEL ][GOTO choose_language]"
+                                  "_mark": "mark_77zu6t557sax64e2442e",
+                                  "_content": "[LABEL ][GOTO START]"
                                 }
                               ],
                               "_mark": "",
-                              "_content": "[LABEL Дальше...][ANSWERIMAGE icons/next.png|295;400]"
+                              "_content": "[LABEL ]"
                             }
                           ],
-                          "_mark": "mark_3xkp6ond143dfj8rjbyt",
-                          "_content": "[LABEL А нету перевода...]"
+                          "_mark": "mark_57390jeq60hbn51d7719",
+                          "_content": "[LABEL ][NAVIGATEURL https://www.donationalerts.com/r/serjionio]"
                         }
                       ],
                       "_mark": "",
-                      "_content": "[LABEL English / Английский][ANSWERIMAGE icons/en.png|360;400]"
+                      "_content": "[LABEL Задонатить на новые игры.]"
                     },
                     {
                       "node": [
@@ -7511,8 +7511,8 @@
                       "_content": "[LABEL Достать лопатник.]"
                     }
                   ],
-                  "_mark": "choose_language",
-                  "_content": "[LABEL Таксоман (версия: 1.{this.game_version})\nВыберите язык / Choose language][BGNDIMAGE poster.jpg][AMBIENT intro][ANSWERSORDER ON]"
+                  "_mark": "START",
+                  "_content": "[LABEL Таксоман (версия: 1.{this.game_version})\nИнтерактивный видеоквест о приключениях таксиста.][BGNDIMAGE poster.jpg][AMBIENT intro][ANSWERSORDER ON]"
                 },
                 {
                   "node": [

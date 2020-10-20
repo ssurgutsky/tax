@@ -12,6 +12,7 @@
       @cheatSkip="cheatSkip"
       @cheatBack="cheatBack"
       @cheatEpisode="cheatEpisode"
+      @donate="donate"
       ref="mainView"
     >
     </MainView>
@@ -430,6 +431,10 @@ export default {
       this.mainView.clearTimer()
       this.gameModel.setEpisode()
       this.showCurrentQuestion()
+    },
+
+    donate () {
+      window.open('https://www.donationalerts.com/r/serjionio', '_system')
     }
 
   }

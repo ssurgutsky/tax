@@ -18,6 +18,7 @@
       @cheatSkip="cheatSkip"
       @cheatBack="cheatBack"
       @cheatEpisode="cheatEpisode"
+      @donate="donate"
     />
   </div>
 </template>
@@ -196,6 +197,11 @@ export default {
     cheatEpisode () {
       console.log('cheatEpisode')
       this.$emit('cheatEpisode')
+    },
+
+    donate () {
+      console.log('donate')
+      this.$emit('donate')
     },
 
     enablePurchasedCheats () {

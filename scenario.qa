@@ -1,7 +1,7 @@
 [mark_3z68p6amx549c803662v][IMAGE hints/hint_advices.jpg,hints/hint_bargain.jpg,hints/hint_credit.jpg,hints/hint_crush.jpg,hints/hint_defend.jpg,hints/hint_dvd.jpg,hints/hint_havefun.jpg,hints/hint_locations.jpg,hints/hint_quests.jpg,hints/hint_store.jpg,hints/hint_tuning.jpg,hints/hint_vip.jpg][AUDIO silent_1]{script init_vars.qsp}
 	
-		[choose_language]Таксоман (версия: 1.{this.game_version})\nВыберите язык / Choose language[BGNDIMAGE poster.jpg][AMBIENT intro][ANSWERSORDER ON]
-			Русский / Russian[ANSWERIMAGE icons/ru.png|50;400]
+		[START]Таксоман (версия: 1.{this.game_version})\nИнтерактивный видеоквест о приключениях таксиста.[BGNDIMAGE poster.jpg][AMBIENT intro][ANSWERSORDER ON]
+			Начать игру.[ANSWERIMAGE icons/ru.png|50;400]
 				[mark_8k4b7be187h4p2120a06]{this.location=19;this.night_alpha=0;this.weather=0;'';}Благодаря государственной программе поддержки молодых таксистов, тебе повезло взять беспроцентный кредит в размере 300 000 сроком на 1 год.{script show_bank.qsp}[ANSWERSORDER ON]
 					Дальше...[ANSWERIMAGE icons/next.png|260;420]
 						[mark_r7h3zpkf220t76f019ye]Правда не деньгами, а в виде сертификата, на который можно купить любой автомобиль.[BGNDIMAGE smoke.jpg&left_side_dust.png]
@@ -1366,10 +1366,10 @@
 										[business12][GOTO client_arriving]
 					Пропустить заставку[ANSWERIMAGE icons/steering_wheel.png|320;420]
 						[mark_xe72jh70wng5iteh660h][GOTO init_vars]
-			English / Английский[ANSWERIMAGE icons/en.png|360;400]
-				[mark_3xkp6ond143dfj8rjbyt]А нету перевода...
-					Дальше...[ANSWERIMAGE icons/next.png|295;400]
-						[mark_6yx11f131mn0hw3864qa][GOTO choose_language]
+			Задонатить на новые игры.
+				[mark_57390jeq60hbn51d7719][NAVIGATEURL https://www.donationalerts.com/r/serjionio]
+					
+						[mark_77zu6t557sax64e2442e][GOTO START]
 			[donate]Достать лопатник.
 				[mark_v2r3fay37ksl69b2u4a0][NAVIGATEURL https://money.yandex.ru/embed/shop.xml?account=41001220674141&quickpay=shop&payment-type-choice=on&writer=seller&targets=На развитие проекта&targets-hint=&default-sum=50&button-text=01&mail=on" width="450" height="199"]
 					
