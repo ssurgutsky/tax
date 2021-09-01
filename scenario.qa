@@ -304,8 +304,8 @@
 																																					{this.bbc_foods[1][1]}, цена: {this.bbc_foods[1][2]}
 																																						[mark_da44aaiw7582f1566i62]{this.bbc_food=1;'';}
 																																							
-																																								[bbc_check_money]{if (this.money>=this.bbc_foods[this.bbc_food][2]) {this.money-=this.bbc_foods[this.bbc_food][2];"Чичас пенису, дарагой. Садысь, нэкуда нэ ухады!";} else {"У табе нэ хватаэт дэнэг, дарагой..."}}{script show_bbc_inside1}[ANSWERSORDER ON]
-																																									{if (this.money>=this.bbc_foods[this.bbc_food][2]) {"Пройду в зал."}}
+																																								[bbc_check_money]{if (this.money>=this.bbc_foods[this.bbc_food][2]) {"Чичас пенису, дарагой. Садысь, нэкуда нэ ухады!";} else {"У табе нэ хватаэт дэнэг, дарагой..."}}{script show_bbc_inside1}[ANSWERSORDER ON]
+																																									Пройду в зал.{this.money-=this.bbc_foods[this.bbc_food][2]}
 																																										[mark_kr96y4rhogx1sv931r41]Обычная тошниловка. Что будешь делать?[IMAGE bbc_sit.jpg][ANSWERSORDER ON]
 																																											Выберу стол.
 																																												[mark_0yh2bu9lqh51av1wovv0]{this.bbc_toilet_force=0;if (Math.random()<0.8) {"[GOTO bbc_table_ok]"} else {"[GOTO bbc_table_dirty]"}}

@@ -1960,7 +1960,7 @@
                                                                                                                                                                                 }
                                                                                                                                                                               ],
                                                                                                                                                                               "_mark": "",
-                                                                                                                                                                              "_content": "[LABEL {if (this.money>=this.bbc_foods[this.bbc_food][2]) {\"Пройду в зал.\"}}]"
+                                                                                                                                                                              "_content": "[LABEL Пройду в зал.{this.money-=this.bbc_foods[this.bbc_food][2]}]"
                                                                                                                                                                             },
                                                                                                                                                                             {
                                                                                                                                                                               "_mark": "",
@@ -1968,7 +1968,7 @@
                                                                                                                                                                             }
                                                                                                                                                                           ],
                                                                                                                                                                           "_mark": "bbc_check_money",
-                                                                                                                                                                          "_content": "[LABEL {if (this.money>=this.bbc_foods[this.bbc_food][2]) {this.money-=this.bbc_foods[this.bbc_food][2];\"Чичас пенису, дарагой. Садысь, нэкуда нэ ухады!\";} else {\"У табе нэ хватаэт дэнэг, дарагой...\"}}{script show_bbc_inside1}][ANSWERSORDER ON]"
+                                                                                                                                                                          "_content": "[LABEL {if (this.money>=this.bbc_foods[this.bbc_food][2]) {\"Чичас пенису, дарагой. Садысь, нэкуда нэ ухады!\";} else {\"У табе нэ хватаэт дэнэг, дарагой...\"}}{script show_bbc_inside1}][ANSWERSORDER ON]"
                                                                                                                                                                         }
                                                                                                                                                                       ],
                                                                                                                                                                       "_mark": "",
