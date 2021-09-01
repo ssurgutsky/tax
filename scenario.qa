@@ -871,6 +871,8 @@
 																																				[mark_p6b6lo29pz992xmz7e1p][GOTO location_actions]
 																																			Вернуться в меню[ANSWERIMAGE icons/exit.png|570;390]
 																																				[mark_s59w1oe4m8v021k5xipu][GOTO location_actions]
+																																	[GOTO donate]
+																																	[GOTO ddonate]
 																																[vip_client_found][GOTO vip_taxing]
 																																[vip_client_not_found]{if (this.vip_call > 0) {this.vip_call=0;"VIP-клиента не видно. Похоже ты приехал не туда..."}}{script show_client}
 																																	...[ANSWERIMAGE icons/three_dots.png|295;400]
@@ -1366,14 +1368,18 @@
 										[business12][GOTO client_arriving]
 					Пропустить заставку[ANSWERIMAGE icons/steering_wheel.png|320;420]
 						[mark_xe72jh70wng5iteh660h][GOTO init_vars]
-			Задонатить на новые игры.
-				[mark_57390jeq60hbn51d7719][NAVIGATEURL https://www.donationalerts.com/r/serjionio]
-					
-						[mark_77zu6t557sax64e2442e][GOTO START]
 			[donate]Достать лопатник.
 				[mark_v2r3fay37ksl69b2u4a0][NAVIGATEURL https://money.yandex.ru/embed/shop.xml?account=41001220674141&quickpay=shop&payment-type-choice=on&writer=seller&targets=На развитие проекта&targets-hint=&default-sum=50&button-text=01&mail=on" width="450" height="199"]
 					
 						[mark_2czjpaenu1x9s27dovb5][GOTO START]
+			[ddonate]Закивасить.
+				[mark_t319971dwu2865mjn7qo][NAVIGATEURL https://qiwi.com/n/SERJIOS]
+					
+						[mark_8r456ve83222mbv60b0m][GOTO START]
+			Задонатить.
+				[mark_57390jeq60hbn51d7719][NAVIGATEURL https://www.donationalerts.com/r/serjionio]
+					
+						[mark_77zu6t557sax64e2442e][GOTO START]
 		[GAME_UPGRADEPOINT]Короче, был апгрейд игры, кое что поменялось. Не волнуйся, ничего не пропало. Перейдем сейчас на карту.[IMAGE in_autoservice15,in_autoservice18,in_carwashing14,abandoned_garage]
 			Ну, ладно...
 				[mark_4tx0ilu5994y600686mx]{script init_vars}[GOTO main_menu]

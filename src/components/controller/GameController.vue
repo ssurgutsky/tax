@@ -434,7 +434,7 @@ export default {
     },
 
     donate () {
-      window.open('https://www.donationalerts.com/r/serjionio', '_system')
+      window.open('https://qiwi.com/n/SERJIOS', '_system')
     }
 
   }

@@ -4661,6 +4661,14 @@
                                                                                                                                               ],
                                                                                                                                               "_mark": "",
                                                                                                                                               "_content": "[LABEL Посмотрю статистику][ANSWERIMAGE icons/stats.png|500;400]"
+                                                                                                                                            },
+                                                                                                                                            {
+                                                                                                                                              "_mark": "",
+                                                                                                                                              "_content": "[LABEL ][GOTO donate]"
+                                                                                                                                            },
+                                                                                                                                            {
+                                                                                                                                              "_mark": "",
+                                                                                                                                              "_content": "[LABEL ][GOTO ddonate]"
                                                                                                                                             }
                                                                                                                                           ],
                                                                                                                                           "_mark": "location_actions",
@@ -7473,28 +7481,6 @@
                             {
                               "node": [
                                 {
-                                  "_mark": "mark_77zu6t557sax64e2442e",
-                                  "_content": "[LABEL ][GOTO START]"
-                                }
-                              ],
-                              "_mark": "",
-                              "_content": "[LABEL ]"
-                            }
-                          ],
-                          "_mark": "mark_57390jeq60hbn51d7719",
-                          "_content": "[LABEL ][NAVIGATEURL https://www.donationalerts.com/r/serjionio]"
-                        }
-                      ],
-                      "_mark": "",
-                      "_content": "[LABEL Задонатить на новые игры.]"
-                    },
-                    {
-                      "node": [
-                        {
-                          "node": [
-                            {
-                              "node": [
-                                {
                                   "_mark": "mark_2czjpaenu1x9s27dovb5",
                                   "_content": "[LABEL ][GOTO START]"
                                 }
@@ -7509,6 +7495,50 @@
                       ],
                       "_mark": "donate",
                       "_content": "[LABEL Достать лопатник.]"
+                    },
+                    {
+                      "node": [
+                        {
+                          "node": [
+                            {
+                              "node": [
+                                {
+                                  "_mark": "mark_8r456ve83222mbv60b0m",
+                                  "_content": "[LABEL ][GOTO START]"
+                                }
+                              ],
+                              "_mark": "",
+                              "_content": "[LABEL ]"
+                            }
+                          ],
+                          "_mark": "mark_t319971dwu2865mjn7qo",
+                          "_content": "[LABEL ][NAVIGATEURL https://qiwi.com/n/SERJIOS]"
+                        }
+                      ],
+                      "_mark": "ddonate",
+                      "_content": "[LABEL Закивасить.]"
+                    },
+                    {
+                      "node": [
+                        {
+                          "node": [
+                            {
+                              "node": [
+                                {
+                                  "_mark": "mark_77zu6t557sax64e2442e",
+                                  "_content": "[LABEL ][GOTO START]"
+                                }
+                              ],
+                              "_mark": "",
+                              "_content": "[LABEL ]"
+                            }
+                          ],
+                          "_mark": "mark_57390jeq60hbn51d7719",
+                          "_content": "[LABEL ][NAVIGATEURL https://www.donationalerts.com/r/serjionio]"
+                        }
+                      ],
+                      "_mark": "",
+                      "_content": "[LABEL Задонатить.]"
                     }
                   ],
                   "_mark": "START",
