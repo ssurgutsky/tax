@@ -298,14 +298,14 @@
 																																			{if (this.barsuk_credit > 0) {"Верну долг[ANSWERIMAGE icons/money6.png|380;400]"}}
 																																				[mark_375h535dew1mhyz6z1bu][GOTO barsuk_bill]
 																																	{if (this.location==11) {"Зайду в " + this.locations[this.location][0] + "[ANSWERIMAGE icons/enter.png|260;400]"}}
-																																		[bbc_main]Что будешь делать?{this.bbc_hello=0;'';}[IMAGE bbc_main][MUSIC bbc_song_bg][AMBIENT NONE][ANSWERSORDER ON]
+																																		[bbc_main]Денег: {this.money}. Что будешь делать?{this.bbc_hello=0;'';}[IMAGE bbc_main][MUSIC bbc_song_bg][AMBIENT NONE][ANSWERSORDER ON]
 																																			Возьму себе что-нибудь отравиться... эээ... то есть поесть.
-																																				[bbc_ask]{if (!this.bbc_hello) {this.bbc_hello=1;"Задараствуй, дарагой! "}}Шито будетешь кушат?{script show_bbc_inside1}[ANSWERSORDER ON]
+																																				[bbc_ask]{if (!this.bbc_hello) {this.bbc_hello=1;"Задараствуй, дарагой! "}}Шито будетешь кушат?\nДенег: {this.money}{script show_bbc_inside1}[ANSWERSORDER ON]
 																																					{this.bbc_foods[1][1]}, цена: {this.bbc_foods[1][2]}
 																																						[mark_da44aaiw7582f1566i62]{this.bbc_food=1;'';}
 																																							
-																																								[bbc_check_money]{if (this.money>=this.bbc_foods[this.bbc_food][2]) {"Чичас пенису, дарагой. Садысь, нэкуда нэ ухады!";} else {"У табе нэ хватаэт дэнэг, дарагой..."}}{script show_bbc_inside1}[ANSWERSORDER ON]
-																																									Пройду в зал.{this.money-=this.bbc_foods[this.bbc_food][2]}
+																																								[bbc_check_money]{if (this.money>=this.bbc_foods[this.bbc_food][2]) {this.money-=this.bbc_foods[this.bbc_food][2];this.bbc_can_eat=1;"Чичас пенису, дарагой. Садысь, нэкуда нэ ухады!";} else {this.bbc_can_eat=0;"У табе нэ хватаэт дэнэг, дарагой..."}}{script show_bbc_inside1}[ANSWERSORDER ON]
+																																									{if (this.bbc_can_eat) {"Пройду в зал."}}
 																																										[mark_kr96y4rhogx1sv931r41]Обычная тошниловка. Что будешь делать?[IMAGE bbc_sit.jpg][ANSWERSORDER ON]
 																																											Выберу стол.
 																																												[mark_0yh2bu9lqh51av1wovv0]{this.bbc_toilet_force=0;if (Math.random()<0.8) {"[GOTO bbc_table_ok]"} else {"[GOTO bbc_table_dirty]"}}

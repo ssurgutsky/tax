@@ -1960,7 +1960,7 @@
                                                                                                                                                                                 }
                                                                                                                                                                               ],
                                                                                                                                                                               "_mark": "",
-                                                                                                                                                                              "_content": "[LABEL Пройду в зал.{this.money-=this.bbc_foods[this.bbc_food][2]}]"
+                                                                                                                                                                              "_content": "[LABEL {if (this.bbc_can_eat) {\"Пройду в зал.\"}}]"
                                                                                                                                                                             },
                                                                                                                                                                             {
                                                                                                                                                                               "_mark": "",
@@ -1968,7 +1968,7 @@
                                                                                                                                                                             }
                                                                                                                                                                           ],
                                                                                                                                                                           "_mark": "bbc_check_money",
-                                                                                                                                                                          "_content": "[LABEL {if (this.money>=this.bbc_foods[this.bbc_food][2]) {\"Чичас пенису, дарагой. Садысь, нэкуда нэ ухады!\";} else {\"У табе нэ хватаэт дэнэг, дарагой...\"}}{script show_bbc_inside1}][ANSWERSORDER ON]"
+                                                                                                                                                                          "_content": "[LABEL {if (this.money>=this.bbc_foods[this.bbc_food][2]) {this.money-=this.bbc_foods[this.bbc_food][2];this.bbc_can_eat=1;\"Чичас пенису, дарагой. Садысь, нэкуда нэ ухады!\";} else {this.bbc_can_eat=0;\"У табе нэ хватаэт дэнэг, дарагой...\"}}{script show_bbc_inside1}][ANSWERSORDER ON]"
                                                                                                                                                                         }
                                                                                                                                                                       ],
                                                                                                                                                                       "_mark": "",
@@ -2052,7 +2052,7 @@
                                                                                                                                                             }
                                                                                                                                                           ],
                                                                                                                                                           "_mark": "bbc_ask",
-                                                                                                                                                          "_content": "[LABEL {if (!this.bbc_hello) {this.bbc_hello=1;\"Задараствуй, дарагой! \"}}Шито будетешь кушат?{script show_bbc_inside1}][ANSWERSORDER ON]"
+                                                                                                                                                          "_content": "[LABEL {if (!this.bbc_hello) {this.bbc_hello=1;\"Задараствуй, дарагой! \"}}Шито будетешь кушат?\nДенег: {this.money}{script show_bbc_inside1}][ANSWERSORDER ON]"
                                                                                                                                                         }
                                                                                                                                                       ],
                                                                                                                                                       "_mark": "",
@@ -2208,7 +2208,7 @@
                                                                                                                                                     }
                                                                                                                                                   ],
                                                                                                                                                   "_mark": "bbc_main",
-                                                                                                                                                  "_content": "[LABEL Что будешь делать?{this.bbc_hello=0;'';}][IMAGE bbc_main][MUSIC bbc_song_bg][AMBIENT NONE][ANSWERSORDER ON]"
+                                                                                                                                                  "_content": "[LABEL Денег: {this.money}. Что будешь делать?{this.bbc_hello=0;'';}][IMAGE bbc_main][MUSIC bbc_song_bg][AMBIENT NONE][ANSWERSORDER ON]"
                                                                                                                                                 }
                                                                                                                                               ],
                                                                                                                                               "_mark": "",
